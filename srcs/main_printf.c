@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/20 19:17:52 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/03/22 17:30:55 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(void)
 {
-	ft_printf("%d", 3);
+	int d = 3;
+	ft_printf("%d", d);
 	return (0);
 }

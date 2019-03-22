@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/03/20 19:32:57 by cghanime         ###   ########.fr        #
+#    Updated: 2019/03/22 17:26:52 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT := libft/libft.a
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(FLAGS) -o $(NAME) $^ $(LIB)
+	make -C libft
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIB)
 
 libft : 
 	make -C ./libft/

@@ -72,12 +72,15 @@ SRCS= 	ft_memset.c \
 		ft_lstmap.c \
 
 OBJECTS = $(SRCS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CPL) $(HEADER) -c $(SRCS)
-	ar -rcv $(NAME) $(OBJECTS)
-	ranlib $(NAME)
+	ar -rcv $@ $(OBJECTS)
+	ranlib $@
+
+%.o : %.c
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)

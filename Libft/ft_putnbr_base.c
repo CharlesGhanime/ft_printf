@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 11:21:12 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/22 14:45:08 by cghanime         ###   ########.fr       */
+/*   Created: 2019/03/22 14:45:26 by cghanime          #+#    #+#             */
+/*   Updated: 2019/03/22 14:49:20 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static	void	ft_int_limit(void)
 {
+	write(1, "-2147483648", 11);
 	ft_putchar('-');
 	ft_putchar('2');
 	ft_putchar('1');
@@ -27,7 +28,7 @@ static	void	ft_int_limit(void)
 	ft_putchar('8');
 }
 
-void			ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 		ft_int_limit();
