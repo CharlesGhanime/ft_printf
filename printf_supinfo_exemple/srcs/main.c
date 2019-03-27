@@ -6,13 +6,14 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 08:20:56 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/25 08:21:49 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/03/27 12:25:13 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cprintf.h" 
+#include "../includes/cprintf.h" 
 
-int main(int ac, char **av)
+int main(void)
 {
-	cprintf("__ %s % s%s - %d __%c", "test1", "test2", "toto string", 2017, 'a');
+	int i = 500;
+	cprintf("%d", i);
 }

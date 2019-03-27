@@ -6,16 +6,18 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 08:00:55 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/25 08:08:13 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/03/27 08:42:21 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CPRINTF_H 
 
-#define CPRINTF_H 
-#include <stdlib.h> 
-#include <stdarg.h> 
-#include <string.h> 
+#define CPRINTF_H
+#include <stdlib.h>
+#include <stdarg.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdio.h>
 
 typedef enum{ false, true } bool;
 
