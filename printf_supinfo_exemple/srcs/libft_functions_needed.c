@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 07:17:23 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/27 16:07:33 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/03/28 10:34:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,40 +104,85 @@ void	ft_putnbr_base(unsigned int nb, unsigned int base)
 	}
 }
 
-int		ft_counter(char *str)
+int	ft_counter(unsigned int nb, unsigned int base)
 {
 	int counter;
 
 	counter = 0;
-	while(*(str++))
+	if (nb == 0)
+		return (counter = 1);
+	while (nb != 0)
+	{
+		printf("counter = %d\n", counter);
+		nb = nb / base;
 		counter++;
+	}
+	counter -= 1;
 	return (counter);
 }
 
-char	*ft_itoa_base(int nb, int base)
+char	*ft_itoa_base(unsigned int nb, unsigned int base)
 {
-	int neg;
 	char *tab;
-	size_t len;
+	char *hexa;
+	int octal[9] = {0, 1 ,2, 3, 4, 5, 6, 7, 10};
+	int len;
+	int r;
 
-	neg = (nb > 0) ? 1 : 0;
-	nb = (neg == 1) ? nb * -1 : nb;
-	len = ft_counter(tab);
-	if (!(tab = (char *)malloc(sizeof(char) * len + neg + 1)))
+	hexa = "0123456789abcdef";
+	len = ft_counter(nb, base);
+	r = 0;
+//	printf("len = %i\n", len);
+	if (!(tab = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	tab[len + neg] = '\0';
-	while (len > 0)
+	tab[len] = '\0';
+	if (base == 2)
 	{
-		tab[len-- + neg] = nb % base + '0';
-		nb = nb / base;
+		while (len >= 0)
+		{
+			r = nb % base;
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
+			tab[len] = r + '0';
+			if (r < 2)
+				tab[len--] = octal[r] + '0';
+			nb = nb / base;
+		}
 	}
-	tab[0] = neg == 1 ? '-' : tab[0];
+	if (base == 8)
+	{
+		while (len >= 0)
+		{
+			r = nb % base;
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
+			tab[len] = r + '0';
+			if (r < 16)
+				tab[len--] = octal[r] + '0';
+			nb = nb / base;
+		}
+	}
+	if (base == 16)
+	{
+		while (len >= 0)
+		{
+			r = nb % base;
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
+			tab[len] = r + '0';
+			if (r < 16)
+				tab[len--] = hexa[r];
+			nb = nb / base;
+		}
+	}
+//	printf("itoa : %s", tab);
 	return (tab);
 }
 
 int		main(void)
 {
-	ft_putnbr_base(42, 16);
-	ft_itoa_base(42, 16);
+//	ft_putnbr_base(42, 16);
+	ft_counter(300,2);
+	ft_itoa_base(10, 2);
 	return (0);
 }
