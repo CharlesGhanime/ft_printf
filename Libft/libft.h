@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/25 06:36:54 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:07:23 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
+#include <stdio.h>
 # include <unistd.h>
 
 typedef struct		s_list
@@ -102,6 +103,8 @@ void				ft_is_negative(int n);
 int					ft_counter(int n);
 int					ft_wordcounter(char const *s, char c);
 char				**ft_filling(char const *s, char c, char **tab);
+void				ft_putnbr_base(unsigned int nb, unsigned int base);
+char				*ft_itoa_base(unsigned int nb, unsigned int base);
 
 /*
 ** BONUS SINGLY-LINKED LISTS

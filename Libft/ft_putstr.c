@@ -6,14 +6,14 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 11:53:53 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/24 20:54:32 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/01 16:45:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_putstr(char const *str)
 {
-	while (s && *s)
-		ft_putchar(*s++);
+	while (*str)
+	ft_putchar(*str++);
 }

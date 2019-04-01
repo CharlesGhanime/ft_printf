@@ -70,6 +70,8 @@ SRCS= 	ft_memset.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		ft_putnbr_base \
+		ft_itoa_base \
 
 OBJECTS = $(SRCS:.c=.o)
 

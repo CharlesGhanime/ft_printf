@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_hexa.c                                  :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 07:19:54 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/01 08:26:56 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/01 09:55:30 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/01 11:54:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_convert_hexa(unsigned int nb)
-{
-	char *hexa;
-	int q;
-	int r;
-
-	hexa = "0123456789abcdef";
-	if (nb < 16)
-		write(1, &hexa[nb], 1);
-	else
-	{
-		q = nb / 16;
-		write(1, &hexa[nb], 1);
-		r = nb % 16;
-		write(1, &hexa[nb], 1);
-	}
-}
+#include <libc.h>
 
 int main(void)
 {
-	ft_convert_hexa(200);
+	int i;
+	void *str;
+//	unsigned char **addr;
+
+	i = 0;
+//	addr = &str;
+	printf("str's address : %p\n", &addr);
+	printf("addr's address : %p\n", addr);
+	while (str[i++])
+	{
+		printf("str's address : %02x\n", str[i]);
+//		printf("str's address : %02x\n", str[i]);
+	}
 	return (0);
 }

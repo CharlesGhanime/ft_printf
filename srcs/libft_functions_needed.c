@@ -6,11 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 07:17:23 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/28 10:34:03 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:00:58 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cprintf.h"
+#include "../includes/ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -19,28 +19,21 @@ void	ft_putchar(char c)
 	write (1, &c, 1);
 }
 
-int	ft_strlen(char *str)
+size_t		ft_strlen(const char *str)
 {
-	int i;
-	int length;
+	size_t length;
 
-	i = 0;
 	length = 0;
-	while (str[i])
-	{
+	while (*str++)
 		length++;
-		i++;
-	}
 	printf("%d\n", length);
 	return (length);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *str)
 {
-	int i;
-
-	i = 0;
-	write(1, &str[i], ft_strlen(str));
+	while (*str)
+		ft_putchar(*str++);
 }
 
 void	ft_putnbr(int nb)
@@ -50,7 +43,7 @@ void	ft_putnbr(int nb)
 		ft_putchar('-');
 		if (nb > -10)
 			ft_putchar(-nb);
-		else 
+		else
 		{
 			ft_putnbr(-(nb / 10));
 			ft_putnbr(-(nb % 10));
@@ -104,7 +97,7 @@ void	ft_putnbr_base(unsigned int nb, unsigned int base)
 	}
 }
 
-int	ft_counter(unsigned int nb, unsigned int base)
+int		ft_counter_base(unsigned int nb, unsigned int base)
 {
 	int counter;
 
@@ -113,7 +106,7 @@ int	ft_counter(unsigned int nb, unsigned int base)
 		return (counter = 1);
 	while (nb != 0)
 	{
-		printf("counter = %d\n", counter);
+//		printf("counter = %d\n", counter);
 		nb = nb / base;
 		counter++;
 	}
@@ -130,9 +123,9 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 	int r;
 
 	hexa = "0123456789abcdef";
-	len = ft_counter(nb, base);
+	len = ft_counter_base(nb, base);
 	r = 0;
-//	printf("len = %i\n", len);
+	printf("\nlen = %i\n", len);
 	if (!(tab = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	tab[len] = '\0';
@@ -141,8 +134,8 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-//			printf("len = %d\n", len);
-//			printf("nb modulo base = %d\n", r);
+			printf("len = %d\n", len);
+			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
 			if (r < 2)
 				tab[len--] = octal[r] + '0';
@@ -154,8 +147,8 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-//			printf("len = %d\n", len);
-//			printf("nb modulo base = %d\n", r);
+			printf("len = %d\n", len);
+			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
 			if (r < 16)
 				tab[len--] = octal[r] + '0';
@@ -167,22 +160,27 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-//			printf("len = %d\n", len);
-//			printf("nb modulo base = %d\n", r);
+			printf("len = %d\n", len);
+			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
 			if (r < 16)
 				tab[len--] = hexa[r];
 			nb = nb / base;
 		}
 	}
-//	printf("itoa : %s", tab);
+	printf("itoa base : %s", tab);
 	return (tab);
 }
 
 int		main(void)
 {
+	unsigned int addr;
+
+	ft_strlen("coucou");
+	ft_putstr("Coucou je suis un putstr\n");
+	ft_putnbr(1500);
 //	ft_putnbr_base(42, 16);
-	ft_counter(300,2);
-	ft_itoa_base(10, 2);
+//	ft_counter_base(300,2);
+	ft_itoa_base(55, 16);
 	return (0);
 }
