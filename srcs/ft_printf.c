@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:53:05 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/01 08:27:20 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/02 08:18:48 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 
 void	ft_printf(const char *format, ...)
 {
-	va_list args;
-	va_start(args, format);
+	va_list arg;
+	va_start(arg, format);
 	int index;
 	int d;
-	int c;
-	int i;
-	int str;
+	char c;
+	char *s;
 
 	index = 0;
 
@@ -29,12 +28,27 @@ void	ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			if (format[index + 1] == 'd')
+			if (format[index + 1] == 'd' || format[index + 1] == 'i')
 			{
-				d = va_arg(args, int);
+				printf("format : %s\n", format);
+				d = va_arg(arg, int);
 				ft_putnbr(d);
 			}
+			else if (format[index + 1] == 'c')
+			{
+				printf("format : %s\n", format);
+				c = va_arg(arg, int);
+					ft_putchar(c);
+			}
+			else if (format[index + 1] == 's')
+			{
+				printf("format : %s\n", format);
+				s = va_arg(arg, char *);
+					ft_putstr(s);
+			}
 		}
+		else //(format[index] != '\0' && format[index] != '%')
+			ft_putchar(format[index]);
 		index++;
 	}
 }

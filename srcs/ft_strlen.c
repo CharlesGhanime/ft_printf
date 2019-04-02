@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/02 08:18:53 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/09 20:09:18 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/02 06:56:57 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		main(void)
+size_t		ft_strlen(const char *str)
 {
-	int d = 55;
-	char c = 'a';
-	char *s = "Je me presente : ";
-	ft_printf("%d\n", 55);
-	ft_printf("%c\n", c);
-	ft_printf("Coucou! %s Je suis ton ft_printf\n", s);
-	return (0);
+	size_t length;
+
+	length = 0;
+	while (*str++)
+		length++;
+	return (length);
 }
