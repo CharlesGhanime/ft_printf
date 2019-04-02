@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:53:05 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/02 08:18:48 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/02 15:46:47 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void	ft_printf(const char *format, ...)
 		{
 			if (format[index + 1] == 'd' || format[index + 1] == 'i')
 			{
-				printf("format : %s\n", format);
+//				printf("format : %s\n", format);
 				d = va_arg(arg, int);
 				ft_putnbr(d);
 			}
 			else if (format[index + 1] == 'c')
 			{
-				printf("format : %s\n", format);
+//				printf("format : %s\n", format);
 				c = va_arg(arg, int);
 					ft_putchar(c);
 			}
 			else if (format[index + 1] == 's')
 			{
-				printf("format : %s\n", format);
+//				printf("format : %s\n", format);
 				s = va_arg(arg, char *);
 					ft_putstr(s);
 			}
