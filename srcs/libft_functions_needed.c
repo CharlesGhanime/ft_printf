@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 07:17:23 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/01 17:00:58 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/03 11:45:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	ft_putnbr_base(unsigned int nb, unsigned int base)
 	}
 }
 
-int		ft_counter_base(unsigned int nb, unsigned int base)
+static int		ft_counter_base(unsigned int nb, unsigned int base)
 {
 	int counter;
 

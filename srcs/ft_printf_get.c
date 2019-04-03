@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_printf_get.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 09:27:21 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/03 10:47:36 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/03 14:05:52 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		main(void)
+char	ft_get_char()
 {
-	int a = 55;
-	char b = 'a';
-	char *c = "Je me presente : ";
-	ft_printf("%d\n", a);
-	ft_printf("%c\n", b);
-	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
-	ft_printf("COUCOU LES COCOS!\n");
-	return (0);
+	return ('c');
+}
+
+char	ft_get_string()
+{
+	return ('s');
+}
+
+char	ft_get_address()
+{
+	return ('p');
+}
+
+char	ft_get_dec()
+{
+	return ('d');
+}
+
+char	ft_get_integer()
+{
+	return ('i');
 }

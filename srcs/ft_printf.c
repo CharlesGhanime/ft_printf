@@ -6,14 +6,14 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:53:05 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/02 15:46:47 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/03 12:05:54 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 
-void	ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list arg;
 	va_start(arg, format);
@@ -30,7 +30,7 @@ void	ft_printf(const char *format, ...)
 		{
 			if (format[index + 1] == 'd' || format[index + 1] == 'i')
 			{
-//				printf("format : %s\n", format);
+				printf("format : %s\n", format);
 				d = va_arg(arg, int);
 				ft_putnbr(d);
 			}
@@ -51,4 +51,5 @@ void	ft_printf(const char *format, ...)
 			ft_putchar(format[index]);
 		index++;
 	}
+	return (index);
 }

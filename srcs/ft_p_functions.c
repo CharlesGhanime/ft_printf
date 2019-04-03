@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_p_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 09:27:21 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/03 14:45:32 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		main(void)
+p_func		ft_get_print_char()
 {
-	int a = 55;
-	char b = 'a';
-	char *c = "Je me presente : ";
-	ft_printf("%d\n", a);
-	ft_printf("%c\n", b);
-	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
-	ft_printf("COUCOU LES COCOS!\n");
-	return (0);
+	return (ft_print_char);
+}
+
+p_func		ft_get_print_string()
+{
+	return (ft_print_string);
+}
+
+p_func		ft_get_print_address()
+{
+	return (ft_print_address);
+}
+
+p_func		ft_get_print_dec()
+{
+	return (ft_print_dec);
+}
+
+p_func		ft_get_print_integer()
+{
+	return (ft_print_integer);
 }

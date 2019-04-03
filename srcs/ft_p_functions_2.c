@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_p_functions_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 09:27:21 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/03 14:44:04 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/03 14:45:15 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		main(void)
+p_func		ft_get_print_octal()
 {
-	int a = 55;
-	char b = 'a';
-	char *c = "Je me presente : ";
-	ft_printf("%d\n", a);
-	ft_printf("%c\n", b);
-	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
-	ft_printf("COUCOU LES COCOS!\n");
-	return (0);
+	return (ft_print_octal);
+}		
+
+p_func		ft_get_print_unsigned()
+{
+	return (ft_print_unsigned);
+}
+
+p_func		ft_get_print_hexa()
+{
+	return (ft_print_hexa);
+}
+
+p_func		ft_get_print_HEXA()
+{
+	return (ft_print_HEXA);
 }
