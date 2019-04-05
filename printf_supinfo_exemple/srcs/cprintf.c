@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 08:08:42 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 12:22:05 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/05 14:41:06 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ void formatCmp(va_list av, char c)
 	}
 	if (is_Format(check_format) == true)
 	{
-		putCh('%'); putCh(c);
+		putCh('%');
+		putCh(c);
 	}
 }
 
@@ -95,11 +96,14 @@ void formatCmp(va_list av, char c)
 
 void cprintf(char *str, ...)
 {
-	va_list av; size_t i;
+	va_list av;
+	size_t i;
 	va_start(av, str);
 	for (i = 0; str[i]; i++)
 		if (is_Token('%', str[i]) == true)
 			formatCmp(av, str[++i]);
-		else putCh(str[i]); va_end(av);
-			putCh('\n');
+		else 
+			putCh(str[i]); 
+	va_end(av);
+	putCh('\n');
 }

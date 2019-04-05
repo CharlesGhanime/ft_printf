@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:44:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 14:45:15 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/05 14:47:17 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 p_func		ft_get_print_octal()
 {
 	return (ft_print_octal);
-}		
+}
 
 p_func		ft_get_print_unsigned()
 {

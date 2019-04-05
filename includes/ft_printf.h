@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 14:47:13 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/05 14:47:48 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct		s_format
 /**************************** SYSTEM ******************************************/
 
 size_t		ft_strlen(const char *str);
+bool		is_tokn(char token, char c);
+bool		is_format(size_t	bool_format);
 
 /**************************** GET FUNCTIONS ***********************************/
 
@@ -67,6 +69,9 @@ char		*ft_itoa_base(unsigned int nb, unsigned int base);
 /**************************** PRINTF ******************************************/
 
 int			ft_printf(const char *format, ...);
+
+void		ft_lst_format_token_init(t_format lst_format[nb_formats]);
+void		ft_format_cmp(va_list arg, char c);
 
 p_func		ft_get_print_char();
 p_func		ft_get_print_string();

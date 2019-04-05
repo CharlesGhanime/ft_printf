@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/04/03 08:42:36 by cghanime         ###   ########.fr        #
+#    Updated: 2019/04/05 14:45:39 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,19 @@ NAME := ft_printf
 CC := gcc
 FLAGS := -Wall -Wextra -Werror
 SRCS :=		srcs/ft_printf.c \
+			srcs/ft_p_functions.c \
+			srcs/ft_p_functions_2 \
+			ft_printf_aff.c \
+			ft_printf_aff_2.c \
+			ft_printf_get.c \
+			ft_printf_get_2.c \
 			srcs/main_printf.c \
 			srcs/ft_putchar.c \
 			srcs/ft_putstr.c \
 			srcs/ft_strlen.c \
 			srcs/ft_putnbr.c \
 			srcs/ft_putnbr_base.c \
-			srcs/ft_itoa_base.c
+			srcs/ft_itoa_base.c \
 
 OBJ := $(SRCS:.c=.o)
 #LIBFT := libft/libft.a
