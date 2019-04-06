@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 09:27:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/06 12:33:20 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int		main(void)
 {
-	int a = 55;
+//	int a = 55;
 	char b = 'a';
-	char *c = "Je me presente : ";
-	ft_printf("%d\n", a);
-	ft_printf("%c\n", b);
-	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
-	ft_printf("COUCOU LES COCOS!\n");
+//	char *c = "Je me presente : ";
+	printf("main\n");
+	ft_printf("Hello World!\n");
+	ft_printf("%c", b);
+//	ft_printf("%c\n", b);
+//	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
+//	ft_printf("COUCOU LES COCOS!\n");
 	return (0);
 }

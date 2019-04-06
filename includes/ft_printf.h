@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/05 14:47:48 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/06 10:04:32 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ bool		is_format(size_t	bool_format);
 
 /**************************** GET FUNCTIONS ***********************************/
 
-char		get_char();
-char		get_string();
-char		get_address();
-char		get_dec();
-char		get_integer();
-char		get_octal();
-char		get_unsigned();
-char		get_hexa();
-char		get_HEXA();
+char		ft_get_char();
+char		ft_get_string();
+char		ft_get_address();
+char		ft_get_dec();
+char		ft_get_integer();
+char		ft_get_octal();
+char		ft_get_unsigned();
+char		ft_get_hexa();
+char		ft_get_HEXA();
 
 /**************************** PRINT FUNCTIONS *********************************/
 

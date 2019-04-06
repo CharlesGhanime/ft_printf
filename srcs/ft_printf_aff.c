@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/05 14:47:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/06 10:04:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_print_dec(va_list arg)
 	return (true);
 }
 
-int		ft_print_int(va_list arg)
+int		ft_print_integer(va_list arg)
 {
 	ft_putnbr(va_arg(arg, int));
 	return (true);
