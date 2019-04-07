@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 10:47:36 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/03 14:05:52 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:52:13 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	ft_get_address()
 	return ('p');
 }
 
-char	ft_get_dec()
+char	ft_get_decimal()
 {
 	return ('d');
 }

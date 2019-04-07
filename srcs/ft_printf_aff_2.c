@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/06 09:37:38 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:52:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 int		ft_print_octal(va_list arg)
 {
 	ft_itoa_base(va_arg(arg, int), 8);
-	return (true);
+	return (TRUE);
 }
 
 int		ft_print_unsigned(va_list arg)
 {
 	ft_itoa_base(va_arg(arg, int), 10);
-	return (true);
+	return (TRUE);
 }
 
 int		ft_print_hexa(va_list arg)
 {
 	ft_itoa_base(va_arg(arg, int), 16);
-	return (true);
+	return (TRUE);
 }
 
-int		ft_print_HEXA(va_list arg)
+int		ft_print_hexa_maj(va_list arg)
 {
 	ft_itoa_base(va_arg(arg, int), 16);
-	return (true);
+	return (TRUE);
 }

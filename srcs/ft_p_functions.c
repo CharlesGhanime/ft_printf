@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/05 09:15:55 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 10:09:58 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ p_func		ft_get_print_address()
 	return (ft_print_address);
 }
 
-p_func		ft_get_print_dec()
+p_func		ft_get_print_decimal()
 {
-	return (ft_print_dec);
+	return (ft_print_decimal);
 }
 
 p_func		ft_get_print_integer()

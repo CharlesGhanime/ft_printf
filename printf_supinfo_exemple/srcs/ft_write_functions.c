@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 08:18:32 by cghanime          #+#    #+#             */
-/*   Updated: 2019/03/27 10:14:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:15:20 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void putCh(char c)
 {
 	size_t i = 0;
 
-	while (str[i]) putCh(str[i++]);
+	while (str[i])
+		putCh(str[i++]);
 }
 
 void putInteger(int nb)

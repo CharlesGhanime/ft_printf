@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/06 10:04:32 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:50:33 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@
 
 #include <libc.h>
 
-typedef enum 
-{
-	false,
-	true
-} bool;
+typedef int boolean;
+#define TRUE 1
+#define FALSE 0
 
 typedef int (*p_func)(va_list);
 
 typedef enum 
 {
-	c = 0, s, p, d, i, o, u, x, X, nb_formats, no_format
+	CHAR = 0, STRING, ADDRESS, DECIMAL, INTEGER, OCTAL,
+	UNSIGNED, HEXA, HEXA_MAJ, NB_FORMAT, NO_FORMAT
 } FORMAT_TOKEN;
 
 typedef struct		s_format
@@ -44,20 +43,20 @@ typedef struct		s_format
 /**************************** SYSTEM ******************************************/
 
 size_t		ft_strlen(const char *str);
-bool		is_tokn(char token, char c);
-bool		is_format(size_t	bool_format);
+boolean		is_token(char token, char c);
+boolean		is_format(size_t bool_format);
 
 /**************************** GET FUNCTIONS ***********************************/
 
 char		ft_get_char();
 char		ft_get_string();
 char		ft_get_address();
-char		ft_get_dec();
+char		ft_get_decimal();
 char		ft_get_integer();
 char		ft_get_octal();
 char		ft_get_unsigned();
 char		ft_get_hexa();
-char		ft_get_HEXA();
+char		ft_get_hexa_maj();
 
 /**************************** PRINT FUNCTIONS *********************************/
 
@@ -70,28 +69,28 @@ char		*ft_itoa_base(unsigned int nb, unsigned int base);
 
 int			ft_printf(const char *format, ...);
 
-void		ft_lst_format_token_init(t_format lst_format[nb_formats]);
+void		ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
 void		ft_format_cmp(va_list arg, char c);
 
 p_func		ft_get_print_char();
 p_func		ft_get_print_string();
 p_func		ft_get_print_address();
-p_func		ft_get_print_dec();
+p_func		ft_get_print_decimal();
 p_func		ft_get_print_integer();
 p_func		ft_get_print_octal();
 p_func		ft_get_print_unsigned();
 p_func		ft_get_print_hexa();
-p_func		ft_get_print_HEXA();
+p_func		ft_get_print_hexa_maj();
 
 int			ft_print_char(va_list arg);
 int			ft_print_string(va_list arg);
 int			ft_print_address(va_list arg);
-int			ft_print_dec(va_list arg);
+int			ft_print_decimal(va_list arg);
 int			ft_print_integer(va_list arg);
 int			ft_print_octal(va_list arg);
 int			ft_print_unsigned(va_list arg);
 int			ft_print_hexa(va_list arg);
-int			ft_print_HEXA(va_list arg);
+int			ft_print_hexa_maj(va_list arg);
 
 
 /**************************** MAIN ********************************************/

@@ -6,13 +6,14 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/04/06 12:33:29 by cghanime         ###   ########.fr        #
+#    Updated: 2019/04/07 10:47:22 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ft_printf
 CC := gcc
 FLAGS := -Wall -Wextra -Werror
+OPT := -o
 SRCS :=		srcs/ft_printf.c \
 			srcs/ft_p_functions.c \
 			srcs/ft_p_functions_2.c \
@@ -35,7 +36,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 #	make -C libft
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ) #$(LIB)
+	$(CC) $(FLAGS) $(OPT) $(NAME) $(OBJ) #$(LIB)
 
 #libft : 
 #	make -C ./libft/

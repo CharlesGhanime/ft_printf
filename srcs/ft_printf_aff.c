@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/06 10:04:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:52:09 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ int		ft_print_char(va_list arg)
 
 	c = va_arg(arg, int);
 	ft_putchar(c);
-	return (true);
+	return (TRUE);
 }
 
 int		ft_print_string(va_list arg)
 {
 	ft_putstr(va_arg(arg, char *));
-	return (true);
+	return (TRUE);
 }
 
 int		ft_print_address(va_list arg)
 {
 	ft_itoa_base(va_arg(arg, int), 16);
-	return (true);
+	return (TRUE);
 }
 
-int		ft_print_dec(va_list arg)
+int		ft_print_decimal(va_list arg)
 {
 	ft_putnbr(va_arg(arg, int));
-	return (true);
+	return (TRUE);
 }
 
 int		ft_print_integer(va_list arg)
 {
 	ft_putnbr(va_arg(arg, int));
-	return (true);
+	return (TRUE);
 }
