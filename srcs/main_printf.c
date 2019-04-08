@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/07 12:03:10 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/08 09:36:30 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 int		main(void)
 {
-//	int a = 55;
-	char b = 'a';
-//	char *c = "Je me presente : ";
-	printf("main\n");
-//	ft_printf("Hello World!\n");
-	ft_printf("%c", b);
-//	ft_printf("%c\n", b);
-//	ft_printf("Coucou! %s Je suis ton ft_printf\n", c);
-//	ft_printf("COUCOU LES COCOS!\n");
+	int a = 42;
+	char b = '&';
+	char *c = "Belze aime les chats ";
+	char *d = " Il en a ";
+
+	printf("printf : %i\n", a);
+	ft_printf("ft_printf : %i\n", a);
+	printf("printf : %d\n", a);
+	ft_printf("ft_printf : %d\n", a);
+	printf("printf : %c\n", b);
+	ft_printf("ft_printf : %c\n", b);
+	printf("printf : %s\n", c);
+	ft_printf("ft_printf : %s\n", c);
+
+	printf("printf : %s%c%s%i\n", c, b, d, a);
+	ft_printf("ft_printf : %s%c%s%i\n", c, b, d, a);
+
 	return (0);
 }

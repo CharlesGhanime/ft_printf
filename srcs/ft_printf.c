@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/07 12:12:59 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/08 09:36:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ void	ft_format_cmp(va_list arg, char c)
 {
 	size_t			check_format = FALSE;
 	t_format		lst_format[NB_FORMAT];
-	FORMAT_TOKEN	current_format = c;
+	FORMAT_TOKEN	current_format = CHAR;
 
-	printf("lst_format");
-	printf("lst_format = %c\n", lst_format[current_format].token);
+//	printf("lst_format");
+//	printf("lst_format = %c\n", lst_format[current_format].token);
 	ft_lst_format_token_init(lst_format);
 	while (current_format != NO_FORMAT)
 	{
 		if (lst_format[current_format].token == c)
 		{
-			printf("lst_format = %c\n", lst_format[current_format].token);
+//			printf("lst_format = %c\n", lst_format[current_format].token);
 			lst_format[current_format].func(arg);
 			check_format = TRUE;
 		}
@@ -90,14 +90,14 @@ int		ft_printf(const char *format, ...)
 	va_list		arg;
 	size_t		i;
 	va_start(arg, format);
-	printf("format = %s\n", format);
+//	printf("format = %s\n", format);
 	i = 0;
 	while (format[i])
 	{
-		printf("test format[i] OK");
+//		printf("test format[i] OK");
 		if (is_token('%', format[i]) == TRUE)
 		{
-			printf("test is_token");
+//			printf("test is_token");
 			ft_format_cmp(arg, format[++i]);
 		}
 		else
@@ -110,6 +110,6 @@ int		ft_printf(const char *format, ...)
 //	printf("ft_printf apres while (format[i])\n");
 //	printf("/* Fin Fonction ft_printf */\n");
 	va_end(arg);
-	ft_putchar('\n');
+//	ft_putchar('\n');
 		return (ft_strlen(format));
 }
