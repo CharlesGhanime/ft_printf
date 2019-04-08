@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/08 09:36:30 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:34:56 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		main(void)
 	ft_printf("ft_printf : %c\n", b);
 	printf("printf : %s\n", c);
 	ft_printf("ft_printf : %s\n", c);
+	printf("%d\n", ft_printf("coucoucoucoucoucoucoucou\n"));
 
 	printf("printf : %s%c%s%i\n", c, b, d, a);
 	ft_printf("ft_printf : %s%c%s%i\n", c, b, d, a);
