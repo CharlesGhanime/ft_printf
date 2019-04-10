@@ -26,12 +26,24 @@ int		ft_print_unsigned(va_list arg)
 
 int		ft_print_hexa(va_list arg)
 {
-	ft_itoa_base(va_arg(arg, int), 16);
+	ft_printf("Test de mon hexa : %s", ft_itoa_base(va_arg(arg, int), 16));
 	return (TRUE);
 }
 
 int		ft_print_hexa_maj(va_list arg)
 {
-	ft_itoa_base(va_arg(arg, int), 16);
+    char *str;
+    int i;
+
+    str = ft_itoa_base(va_arg(arg, int), 16);
+    i = 0;
+
+    while (str[i])
+    {
+        if (str[i] >= 'a' && str[i] <= 'z')
+            str[i] = str[i] + 32;
+        i++;
+    }
+    ft_printf("Test de mon hexa maj : %s", str);
 	return (TRUE);
 }

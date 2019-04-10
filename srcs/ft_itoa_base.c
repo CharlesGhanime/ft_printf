@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/02 06:55:15 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:09:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 			nb = nb / base;
 		}
 	}
-	printf("itoa base : %s", tab);
+	printf("itoa base : %s\n", tab);
 	return (tab);
 }

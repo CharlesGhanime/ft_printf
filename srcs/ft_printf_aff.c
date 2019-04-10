@@ -29,7 +29,7 @@ int		ft_print_string(va_list arg)
 
 int		ft_print_address(va_list arg)
 {
-	ft_itoa_base(va_arg(arg, int), 16);
+	ft_itoa_base(va_arg(arg, unsigned int), 16);
 	return (TRUE);
 }
 

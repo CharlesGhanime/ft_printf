@@ -30,6 +30,9 @@ SRCS :=		srcs/ft_printf.c \
 			srcs/main_printf.c \
 
 OBJ := $(SRCS:.c=.o)
+
+MAIN := ../main_printf.c
+
 #LIBFT := libft/libft.a
 
 all : $(NAME)
@@ -40,6 +43,8 @@ $(NAME) : $(OBJ)
 
 #libft : 
 #	make -C ./libft/
+
+exec :
 
 %.o : ./srcs/%.c
 	$(CC) $(FLAGS) -c $< -o $@
