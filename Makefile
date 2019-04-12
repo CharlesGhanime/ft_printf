@@ -6,55 +6,80 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/04/07 10:47:22 by cghanime         ###   ########.fr        #
+#    Updated: 2019/04/12 14:56:33 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := ft_printf
+HEADER := -I ./includes/ft_printf.h
+NAME := libftprintf.a
+EXEC := ft_printf
 CC := gcc
 FLAGS := -Wall -Wextra -Werror
-OPT := -o
-SRCS :=		srcs/ft_printf.c \
-			srcs/ft_p_functions.c \
-			srcs/ft_p_functions_2.c \
-			srcs/ft_printf_aff.c \
-			srcs/ft_printf_aff_2.c \
-			srcs/ft_printf_get.c \
-			srcs/ft_printf_get_2.c \
-			srcs/ft_putchar.c \
-			srcs/ft_putstr.c \
-			srcs/ft_strlen.c \
-			srcs/ft_putnbr.c \
-			srcs/ft_putnbr_base.c \
-			srcs/ft_itoa_base.c \
-			srcs/main_printf.c \
+SRCS :=		./srcs/ft_printf.c \
+			./srcs/ft_p_functions.c \
+			./srcs/ft_p_functions_2.c \
+			./srcs/ft_printf_aff.c \
+			./srcs/ft_printf_aff_2.c \
+			./srcs/ft_printf_get.c \
+			./srcs/ft_printf_get_2.c \
+			./srcs/ft_putchar.c \
+			./srcs/ft_putstr.c \
+			./srcs/ft_strlen.c \
+			./srcs/ft_putnbr.c \
+			./srcs/ft_putnbr_base.c \
+			./srcs/ft_itoa_base.c \
 
 OBJ := $(SRCS:.c=.o)
 
-MAIN := ../main_printf.c
+MAIN := ./main_printf/main_printf.c
 
 #LIBFT := libft/libft.a
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
+	@echo "\n"
+	@echo "\033[32m************************************************************"
+	@echo "\033[32m*****************MAKE***************************************"
+	@echo "\033[32m************************************************************"
+	@echo "\n"
+	$(CC) $(FLAGS) $(HEADER) -c $(SRCS) #$(NAME) $(OBJ) $(LIB)
+	ar -rcv $(NAME) $(OBJ)
+	ranlib $(NAME)
 #	make -C libft
-	$(CC) $(FLAGS) $(OPT) $(NAME) $(OBJ) #$(LIB)
 
 #libft : 
 #	make -C ./libft/
 
-exec :
+
+$(EXEC) : $(NAME)
+	@echo "\n"
+	@echo "\033[32m************************************************************"
+	@echo "\033[32m**********************MAKE EXECUTABLE***********************"
+	@echo "\033[32m************************************************************"
+	@echo "\n"
+	$(CC) $(FLAGS) -o $(EXEC) $(NAME) $(MAIN)
 
 %.o : ./srcs/%.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean : 
-	rm -f srcs/*.o
+	@echo "\n"
+	@echo "\033[31m************************************************************"
+	@echo "\033[31m*****************MAKE CLEAN*********************************"
+	@echo "\033[31m************************************************************"
+	@echo "\n"
+	rm -rf $(OBJ)
+	rm -rf *.o
 
 fclean : clean
-	rm -f $(NAME)
+	@echo "\n"
+	@echo "\033[31m************************************************************"
+	@echo "\033[31m*****************MAKE FCLEAN********************************"
+	@echo "\033[31m************************************************************"
+	@echo "\n"
+	rm -rf $(NAME)
 
 re : fclean all
 
-.PHONY : libft all clean fclean re
+.PHONY : all clean fclean re #libft
