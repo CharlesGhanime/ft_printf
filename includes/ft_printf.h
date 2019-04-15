@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/07 11:50:33 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/15 15:13:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char		ft_get_hexa_maj();
 void		ft_putchar(char c);
 void		ft_putstr(char const *str);
 void		ft_putnbr(int nb);
+int			ft_atoi(const char *str);
 char		*ft_itoa_base(unsigned int nb, unsigned int base);
 
 /**************************** PRINTF ******************************************/
