@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/15 15:13:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:48:13 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef int (*p_func)(va_list);
 typedef enum 
 {
 	CHAR = 0, STRING, ADDRESS, DECIMAL, INTEGER, OCTAL,
-	UNSIGNED, HEXA, HEXA_MAJ, NB_FORMAT, NO_FORMAT
+	UNSIGNED, HEXA, HEXA_MAJ, FLOAT, NB_FORMAT, NO_FORMAT
 } FORMAT_TOKEN;
 
 typedef struct		s_format

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/09 16:09:00 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:48:09 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int		ft_counter_base(unsigned int nb, unsigned int base)
 		return (counter = 1);
 	while (nb != 0)
 	{
-		printf("counter = %d\n", counter);
 		nb = nb / base;
 		counter++;
 	}
