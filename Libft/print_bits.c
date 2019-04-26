@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_floats.c                                        :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 09:45:12 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/16 11:48:06 by cghanime         ###   ########.fr       */
+/*   Created: 2019/03/05 17:11:24 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/26 13:24:39 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include <libc.h>
 
-char	*ft_print_floats(float f)
+void ft_print_bits(unsigned int octet)
 {
-	
+	int i;
+
+	i = 1;
+	while (octet)
+	{
+		(octet & i ? write(1, "1", 1) : write(1, "0", 1));
+		octet >>= i;
+	}
+}
+
+int main()
+{
+	float octet = 3.14;
+	ft_print_bits(octet);
+	return(0);
 }
