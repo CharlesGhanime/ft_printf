@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/16 11:25:22 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/27 15:45:54 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ void			ft_format_cmp(va_list arg, char c)
 	ft_lst_format_token_init(lst_format);
 	while (current_format != NO_FORMAT)
 	{
+		//rajouter les checks des flags ici
 		if (lst_format[current_format].token == c)
 		{
 			lst_format[current_format].func(arg);
+			//checker la valeur des bits de l'int flags ici et appeler les fonctions de flags correspondantes.
 			check_format = TRUE;
 		}
 		current_format = lst_format[current_format].next_format;

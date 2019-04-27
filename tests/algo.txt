@@ -1,0 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    algo.txt                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/04/27 14:47:27 by cghanime          #+#    #+#              #
+#    Updated: 2019/04/27 15:46:14 by cghanime         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+printf"% - + # 0 width .precision length type"
+
+pour les strings (type s) : 
+les flags largeur de champ (width) et precision coupent la chaine de caractere a la taille donnee (en fonction de laquelle entre width et precision est la plus grande)
+
+Si width > precision la chaine est completee par des "0" a gauche ou a droite en fonction de si le flag "-" est present.
+
+pour s on a juste besoin de faire un strjoin en completant avec des " " a gauche ou a droite en fonction de la presence ou non de "-".

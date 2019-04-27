@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/16 11:48:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/27 15:45:58 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@
 
 int main ()
 {
-	int f = 42;
+	int i = 42;
+	long int l = 42;
+	long long int ll = 42;
+	char *s = "J'aime les chocolats";
 	printf("***********************Gestion des Floats**********************\n");
-	printf("%-16.14d\n", f);
-	printf("%-16.14hd\n", f);
-	printf("%-16.14hhd\n", f);
+	printf("%16.14d\n", i);
+	printf("%16.14li\n", l);
+	printf("%16.14lld\n", ll);
 
-	printf("%016.14d\n", f);
+	printf("%12.14d\n", i);
+	printf("%-16.14s", s);
 
 	printf("***********************Tests decalage binaire******************\n");
 	int b = 0;
