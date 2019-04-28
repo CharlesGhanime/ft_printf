@@ -6,13 +6,13 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 11:37:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/16 11:48:03 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/28 14:46:09 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_flags(const char *format)
+int		ft_flags_binary(const char *format)
 {
 	int flags;
 	int i;
@@ -24,7 +24,11 @@ int		ft_flags(const char *format)
 		if (format[i] == '%')
 		{
 				if (format[i] == '+')
+				{
 					flags = 1 << 6;
+					if (format[i] == 'd' || format[i] == 'i' || format[i] == 'f')
+						ft_putchar('+');
+				}
 				if (format[i] =='#')
 					flags = 1 << 5;
 				if (format[i] == '0')

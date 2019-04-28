@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/27 15:46:08 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/28 11:28:37 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,11 @@ typedef struct		s_format
 {
 	int flags;
 	int field_width;
-	int precision;q
+	int precision;
 	char			token;
 	p_func			func;
 	FORMAT_TOKEN	next_format;
 }					t_format;
-
-typedef struct		s_flags
-{
-	int flags
-	
-}
 
 /**************************** SYSTEM ******************************************/
 
