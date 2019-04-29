@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/28 11:28:37 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:58:32 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,20 @@ typedef enum
 
 typedef struct		s_format
 {
-	int flags;
 	int field_width;
 	int precision;
 	char			token;
 	p_func			func;
 	FORMAT_TOKEN	next_format;
 }					t_format;
+
+typedef struct		s_stock
+{
+	int				flags;
+	int				field_width;
+	int				precision;
+	s_stock			*next;
+}					t_stock;
 
 /**************************** SYSTEM ******************************************/
 
@@ -86,15 +93,15 @@ p_func		ft_get_print_unsigned();
 p_func		ft_get_print_hexa();
 p_func		ft_get_print_hexa_maj();
 
-int			ft_print_char(va_list arg);
-int			ft_print_string(va_list arg);
-int			ft_print_address(va_list arg);
-int			ft_print_decimal(va_list arg);
-int			ft_print_integer(va_list arg);
-int			ft_print_octal(va_list arg);
-int			ft_print_unsigned(va_list arg);
-int			ft_print_hexa(va_list arg);
-int			ft_print_hexa_maj(va_list arg);
+int			ft_print_char(va_list arg, int flags);
+int			ft_print_string(va_list arg, int flags);
+int			ft_print_address(va_list arg, int flags);
+int			ft_print_decimal(va_list arg, int flags);
+int			ft_print_integer(va_list arg, int flags);
+int			ft_print_octal(va_list arg, int flags);
+int			ft_print_unsigned(va_list arg, int flags);
+int			ft_print_hexa(va_list arg, int flags);
+int			ft_print_hexa_maj(va_list arg, int flags);
 
 
 /**************************** MAIN ********************************************/
