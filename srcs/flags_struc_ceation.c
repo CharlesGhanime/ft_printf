@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   flags_struc_ceation.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/05 17:11:24 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/29 15:21:48 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/29 14:56:57 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/29 16:40:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libc.h>
+#include "../includes/ft_printf.h"
 
-void ft_print_bits(unsigned int octet)
+t_stock		*flags_struct_creation(t_stock *head)
 {
-	int i;
-
-	i = 1;
-	while (octet)
+	if(!(head = (t_stock *)malloc(sizeof(t_stock))))
+		return (NULL);
+	if (!head)
 	{
-		(octet & i ? write(1, "1", 1) : write(1, "0", 1));
-		octet >>= i;
+		head->flags = 0;
+		head->field_width = 0;
+		head->precision = 0;
 	}
-}
-
-int main()
-{
-	float octet = 3.14;
-	ft_print_bits(octet);
-	return(0);
+	else
+	{
+		head->flags = flags;
+		head->field_width = field_width;
+		head->precision = precision;
+	}
 }
