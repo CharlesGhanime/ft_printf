@@ -6,11 +6,11 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/04/30 12:08:22 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:46:39 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/head.h"
+#include "../includes/ft_printf.h"
 #include <stdio.h>
 
 t_ptf		*ft_count_pct(const char *format, t_ptf **head)

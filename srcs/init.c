@@ -6,11 +6,11 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/04/30 12:05:04 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:46:50 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/head.h"
+#include "../includes/ft_printf.h"
 
 t_ptf		*init_head(t_ptf *head)
 {
