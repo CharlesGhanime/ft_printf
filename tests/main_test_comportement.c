@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/29 15:43:38 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/30 16:19:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main ()
 //	printf("%16.14lld\n", ll);
 
 //	printf("%12.14d\n", i);
-//	printf("%16.14s", s);
+	printf("%+s", s);
 
 	printf("***********************Tests decalage binaire******************\n");
 //	int b = 0;

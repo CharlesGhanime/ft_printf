@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_functions.c                               :+:      :+:    :+:   */
+/*   flags_struct_completion.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/30 16:19:05 by cghanime         ###   ########.fr       */
+/*   Created: 2019/04/30 11:09:26 by cghanime          #+#    #+#             */
+/*   Updated: 2019/04/30 12:29:16 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*J'ai besoin de recuperer la liste chainee en argument*/
-
-void	ft_flag_minus(va_list arg)
+t_stock		*flags_struct_completion(t_stock *head, int flags, int field_width, int precision)
 {
-	
-}
+	t_stock *node;
+	t_stock *tmp;
 
-void	ft_flag_plus(va_list arg)
-{
-	if (va_arg(arg, int) >= 0 || va_arg(arg, double) >= 0)
-		ft_putchar('+');
+	node = flags_struct_creation();
+	node->flags = flags;
+	node->field_width = field_width;
+	node->precision = precision;
+	if (head == NULL)
+		head = node;
+	else
+		tmp = head;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = NULL;
+	return (head);
 }
