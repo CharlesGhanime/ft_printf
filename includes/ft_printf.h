@@ -6,11 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/29 13:58:32 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:07:25 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FT_PRINTF_H
+#ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
 //#include "../Libft/libft.h"
@@ -19,7 +19,6 @@
 #include <stdarg.h>
 #include <string.h>
 
-#include <libc.h>
 
 typedef int boolean;
 #define TRUE 1
@@ -42,13 +41,22 @@ typedef struct		s_format
 	FORMAT_TOKEN	next_format;
 }					t_format;
 
-typedef struct		s_stock
+typedef struct		s_ftprintf
 {
-	int				flags;
-	int				field_width;
-	int				precision;
-	s_stock			*next;
-}					t_stock;
+	char				conv;
+	int					rank;
+	int					pos;
+	char				*options;
+	unsigned long		width;
+	unsigned long		precision;
+	char				*flags;
+	char				*symptoms;
+	char				*type;
+	int					key;
+	char				*keyc;
+	int					total_pct_count;
+	struct s_ftprintf	*next;
+}					t_ptf;
 
 /**************************** SYSTEM ******************************************/
 
@@ -103,9 +111,19 @@ int			ft_print_unsigned(va_list arg, int flags);
 int			ft_print_hexa(va_list arg, int flags);
 int			ft_print_hexa_maj(va_list arg, int flags);
 
+/***************************** PARSING *************************************/
+t_ptf 		*ft_count_pct(const char *format, t_ptf **head);
+int			ft_auscultate(const char *patient);
+int			doctor(char *format, int rank, int position, t_ptf **percents);
+int			add_pct_pos(t_ptf **percents, int pos);
+
+t_ptf		*init_head(t_ptf *head);
+int			init_conv(t_ptf **percents, int rank, char *symptoms, char conv);
+
+
 
 /**************************** MAIN ********************************************/
 
 int		main(void);
 
-# endif
+#endif
