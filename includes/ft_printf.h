@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/30 14:07:25 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:19:24 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-
+#include <unistd.h>
 
 typedef int boolean;
 #define TRUE 1
