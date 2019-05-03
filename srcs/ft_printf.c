@@ -6,7 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/04/30 16:19:08 by cghanime         ###   ########.fr       */
+=======
+/*   Updated: 2019/04/30 14:44:40 by aboitier         ###   ########.fr       */
+>>>>>>> 41a855f9a08177687b6a978d7cbdad4b20b58a34
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +91,14 @@ void			ft_format_cmp(va_list arg, char c)
 int				ft_printf(const char *format, ...)
 {
 	va_list		arg;
-	size_t		i;
+	t_ptf		*percents;
+	int i;
+
+	percents = init_head(percents);
+	ft_count_pct(format, &percents);
 	va_start(arg, format);
 	i = 0;
+	
 	while (format[i])
 	{
 		if (is_token('%', format[i]) == TRUE)

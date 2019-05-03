@@ -6,7 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
+//<<<<<<< HEAD
 /*   Updated: 2019/04/30 16:19:15 by cghanime         ###   ########.fr       */
+//=======
+/*   Updated: 2019/04/30 14:19:24 by aboitier         ###   ########.fr       */
+//>>>>>>> 41a855f9a08177687b6a978d7cbdad4b20b58a34
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +22,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-
+#include <unistd.h>
 
 typedef int boolean;
 #define TRUE 1
@@ -101,15 +105,15 @@ p_func		ft_get_print_unsigned();
 p_func		ft_get_print_hexa();
 p_func		ft_get_print_hexa_maj();
 
-int			ft_print_char(va_list arg, int flags);
-int			ft_print_string(va_list arg, int flags);
-int			ft_print_address(va_list arg, int flags);
-int			ft_print_decimal(va_list arg, int flags);
-int			ft_print_integer(va_list arg, int flags);
-int			ft_print_octal(va_list arg, int flags);
-int			ft_print_unsigned(va_list arg, int flags);
-int			ft_print_hexa(va_list arg, int flags);
-int			ft_print_hexa_maj(va_list arg, int flags);
+int			ft_print_char(va_list arg);
+int			ft_print_string(va_list arg);
+int			ft_print_address(va_list arg);
+int			ft_print_decimal(va_list arg);
+int			ft_print_integer(va_list arg);
+int			ft_print_octal(va_list arg);
+int			ft_print_unsigned(va_list arg);
+int			ft_print_hexa(va_list arg);
+int			ft_print_hexa_maj(va_list arg);
 
 /***************************** PARSING *************************************/
 t_ptf 		*ft_count_pct(const char *format, t_ptf **head);

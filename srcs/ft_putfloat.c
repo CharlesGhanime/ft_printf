@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_floats.c                                 :+:      :+:    :+:   */
+/*   ft_putfloat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 09:45:12 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/01 17:44:57 by cghanime         ###   ########.fr       */
+/*   Created: 2019/05/01 17:11:30 by cghanime          #+#    #+#             */
+/*   Updated: 2019/05/02 17:43:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libc.h>
+
 #include "../includes/ft_printf.h"
 
-void	*ft_print_floats(va_list *ap, t_flag *flags)
+void	ft_putfloat(double myfloat)
 {
-	double myfloat;
-	signed long int decipart;
 	signed long int intpart;
+	signed long int decipart;
 
-	myfloat = va_arg(*ap, double);
-	if (myfloat < 0)
+	if (myfloat < 1)
 	{
 		ft_putchar('-');
 		myfloat *= -1;
 	}
 	intpart = (signed long int)myfloat;
-	ft_putnbr(intpart);
+	ft_putstr(ft_itoa_base(intpart, 10));
 	ft_putchar('.');
 	myfloat -= intpart;
-	myfloat *= 1000000;  //upto 6 decimal points
-	decipart = (signed long int)(myfloat + 0.5); //+0.5 to round of the value
-	ft_putnbr(decipart);
+	myfloat *= 100000000;
+	decipart = (signed long int)(myfloat);
+//	printf("%ld", decipart);
+	ft_putstr(ft_itoa_base(decipart, 10));
+}
+
+int main()
+{
+	ft_putfloat(3.1415171822);
 }

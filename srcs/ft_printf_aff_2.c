@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/14 07:59:09 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:43:45 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_print_hexa_maj(va_list arg)
     while (str[i])
     {
         if (str[i] >= 'a' && str[i] <= 'z')
-            str[i] = str[i] + 32;
+            str[i] = str[i] - 32;
         i++;
     }
     ft_printf("Test de mon hexa maj : %s", str);

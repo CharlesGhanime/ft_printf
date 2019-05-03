@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/16 11:48:09 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:39:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 	hexa = "0123456789abcdef";
 	len = ft_counter_base(nb, base);
 	r = 0;
-	printf("len = %i\n", len);
+//	printf("len = %i\n", len);
 	if (!(tab = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	tab[len] = '\0';
@@ -48,8 +48,8 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-			printf("len = %d\n", len);
-			printf("nb modulo base = %d\n", r);
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
 			if (r < 2)
 				tab[len--] = octal[r] + '0';
@@ -61,10 +61,10 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-			printf("len = %d\n", len);
-			printf("nb modulo base = %d\n", r);
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
-			if (r < 16)
+			if (r < 8)
 				tab[len--] = octal[r] + '0';
 			nb = nb / base;
 		}
@@ -74,14 +74,25 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-			printf("len = %d\n", len);
-			printf("nb modulo base = %d\n", r);
+//			printf("len = %d\n", len);
+//			printf("nb modulo base = %d\n", r);
 			tab[len] = r + '0';
 			if (r < 16)
 				tab[len--] = hexa[r];
 			nb = nb / base;
 		}
 	}
-	printf("itoa base : %s\n", tab);
+	else
+	{
+		while (len >= 0)
+		{
+			r = nb % base;
+				tab[len] = r + '0';
+				if (r < base)
+					tab[--len] = nb % base + '0';
+				nb = nb / base;
+		}
+	}
+//	printf("%s", tab);
 	return (tab);
 }
