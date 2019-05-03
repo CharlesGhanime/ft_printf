@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:44:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/07 10:14:45 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:16:52 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ p_func		ft_get_print_hexa()
 p_func		ft_get_print_hexa_maj()
 {
 	return (ft_print_hexa_maj);
+}
+
+p_func		ft_get_print_float()
+{
+	return (ft_print_float);
 }

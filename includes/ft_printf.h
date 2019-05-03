@@ -38,12 +38,21 @@ typedef enum
 
 typedef struct		s_format
 {
-	int field_width;
-	int precision;
+	int				flags;
+	int				field_width;
+	int				precision;
 	char			token;
 	p_func			func;
 	FORMAT_TOKEN	next_format;
 }					t_format;
+
+typedef struct		s_stock
+{
+		int				flags;
+		int				fw;
+		int				p;
+		struct s_stock	*next;
+}					t_stock;
 
 typedef struct		s_ftprintf
 {
@@ -65,6 +74,7 @@ typedef struct		s_ftprintf
 /**************************** SYSTEM ******************************************/
 
 size_t		ft_strlen(const char *str);
+char*		ft_strcat(char *dst, const char *src);
 boolean		is_token(char token, char c);
 boolean		is_format(size_t bool_format);
 
@@ -79,6 +89,7 @@ char		ft_get_octal();
 char		ft_get_unsigned();
 char		ft_get_hexa();
 char		ft_get_hexa_maj();
+char		ft_get_float();
 
 /**************************** PRINT FUNCTIONS *********************************/
 
@@ -87,6 +98,7 @@ void		ft_putstr(char const *str);
 void		ft_putnbr(int nb);
 int			ft_atoi(const char *str);
 char		*ft_itoa_base(unsigned int nb, unsigned int base);
+char		*ft_ftoa(double myfloat);
 
 /**************************** PRINTF ******************************************/
 
@@ -104,6 +116,7 @@ p_func		ft_get_print_octal();
 p_func		ft_get_print_unsigned();
 p_func		ft_get_print_hexa();
 p_func		ft_get_print_hexa_maj();
+p_func		ft_get_print_float();
 
 int			ft_print_char(va_list arg);
 int			ft_print_string(va_list arg);
@@ -114,6 +127,7 @@ int			ft_print_octal(va_list arg);
 int			ft_print_unsigned(va_list arg);
 int			ft_print_hexa(va_list arg);
 int			ft_print_hexa_maj(va_list arg);
+int			ft_print_float(va_list arg);
 
 /***************************** PARSING *************************************/
 t_ptf 		*ft_count_pct(const char *format, t_ptf **head);
@@ -123,8 +137,6 @@ int			add_pct_pos(t_ptf **percents, int pos);
 
 t_ptf		*init_head(t_ptf *head);
 int			init_conv(t_ptf **percents, int rank, char *symptoms, char conv);
-
-
 
 /**************************** MAIN ********************************************/
 

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_2.c                                  :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 11:38:15 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/03 12:13:48 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/17 17:29:04 by cghanime          #+#    #+#             */
+/*   Updated: 2019/05/03 11:43:04 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	ft_get_octal()
+char	*ft_strcat(char *dst, const char *src)
 {
-	return ('o');
-}
+	size_t i;
+	size_t j;
 
-char	ft_get_unsigned()
-{
-	return ('u');
-}
-
-char	ft_get_hexa()
-{
-	return ('x');
-}
-
-char	ft_get_hexa_maj()
-{
-	return ('X');
-}
-
-char	ft_get_float()
-{
-	return ('f');
+	i = 0;
+	while (dst[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

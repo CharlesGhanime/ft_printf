@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 14:56:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/30 12:29:17 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/03 11:58:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_stock		*flags_struct_creation()
 		if (!(head = (t_stock *)malloc(sizeof(t_stock))))
 			return (NULL);
 	head->flags = 0;
-	head->field_width = 0;
-	head->precision = 0;
+	head->fw = 0;
+	head->p = 0;
 	head->next = NULL;
 	return (head);
 }

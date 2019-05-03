@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/02 17:43:45 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:13:01 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,21 @@ int		ft_print_hexa_maj(va_list arg)
     }
     ft_printf("Test de mon hexa maj : %s", str);
 	return (TRUE);
+}
+
+int		ft_print_float(va_list arg)
+{
+	char *str;
+
+	str = ft_ftoa(va_arg(arg, double));
+
+//	if (flag precision)
+//		if str[precision] > 5 + '0'
+//		{
+//			str[i] = 0 + '0';
+//			str[i - 1] += 1 + '0';
+//		}
+//		ft_strncat(str, "\0", precision + 1)
+
+	ft_putstr(str);
 }

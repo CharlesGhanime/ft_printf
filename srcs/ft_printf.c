@@ -6,11 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/04/30 16:19:08 by cghanime         ###   ########.fr       */
-=======
-/*   Updated: 2019/04/30 14:44:40 by aboitier         ###   ########.fr       */
->>>>>>> 41a855f9a08177687b6a978d7cbdad4b20b58a34
+/*   Updated: 2019/05/03 12:17:43 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +37,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[UNSIGNED].token = ft_get_unsigned();
 	lst_format[HEXA].token = ft_get_hexa();
 	lst_format[HEXA_MAJ].token = ft_get_hexa_maj();
+	lst_format[FLOAT].token = ft_get_float();
 
 	lst_format[CHAR].next_format = STRING;
 	lst_format[STRING].next_format = ADDRESS;
@@ -50,7 +47,8 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[OCTAL].next_format = UNSIGNED;
 	lst_format[UNSIGNED].next_format = HEXA;
 	lst_format[HEXA].next_format = HEXA_MAJ;
-	lst_format[HEXA_MAJ].next_format = NO_FORMAT;
+	lst_format[HEXA_MAJ].next_format = FLOAT;
+	lst_format[FLOAT].next_format = NO_FORMAT;
 
 	lst_format[CHAR].func = ft_get_print_char();
 	lst_format[STRING].func = ft_get_print_string();
@@ -61,6 +59,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[UNSIGNED].func = ft_get_print_unsigned();
 	lst_format[HEXA].func = ft_get_print_hexa();
 	lst_format[HEXA_MAJ].func = ft_get_print_hexa_maj();
+	lst_format[FLOAT].func = ft_get_print_float();
 }
 
 void			ft_format_cmp(va_list arg, char c)
