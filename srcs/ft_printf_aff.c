@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/03 18:19:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:43:06 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int		ft_print_string(va_list arg)
 int		ft_print_address(va_list arg)
 {
 	ft_putstr("0x");
-	ft_putstr(ft_itoa_base((long)va_arg(arg, int), 16));
+	if (arg == NULL)
+		ft_putchar('0');
+	else
+		ft_putstr(ft_itoa_base((long)va_arg(arg, int), 16));
 	return (TRUE);
 }
 
