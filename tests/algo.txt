@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/27 14:47:27 by cghanime          #+#    #+#              #
-#    Updated: 2019/04/27 15:46:14 by cghanime         ###   ########.fr        #
+#    Updated: 2019/05/04 16:42:52 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,3 +18,34 @@ les flags largeur de champ (width) et precision coupent la chaine de caractere a
 Si width > precision la chaine est completee par des "0" a gauche ou a droite en fonction de si le flag "-" est present.
 
 pour s on a juste besoin de faire un strjoin en completant avec des " " a gauche ou a droite en fonction de la presence ou non de "-".
+
+_ flags - + # 0 espace largeur_mini precision et taille
+_ diouxX avec h(short ou unsigned short int), hh(signed ou unsigned char), l(long ou unsigned long int), ll(long long ou unsigned long long int)
+_ f avec l et L (long double)
+
+si 0 et - ensemble 0 est ignore, # avec o rajoute un 0 sauf si le premier chiffre de 0 est deja un 0
+
++ rajoute un signe 0 au nombre positif et - au negatif (le moins est deja affiche pour les negatif sans le flag), si + et espace c'est + qui est affiche par defaut.
+
+%p affiche 0x0 si le pointeur affiche est NULL
+
+recuperer largeur de champs && precision :
+	if (format[i] >= '1' && format[i] <= '9' && str[i - 1] != '.')
+		while (format[i] >= '1' && format[i] <= '9')
+		{
+			s_wf = strcpy(format[i]);
+			i++;
+		}
+		i_wf = atoi(s_wf);
+		i = 0;
+	if (format[i] >= '1' && format[i] <= '9' && format[i - 1] == '.')
+		while (format[i] >= '1' && format[i] <= '9')
+		{
+			s_p = strcpy(format[i]);
+			i++;
+		}
+
+		if format[i] == '%'
+			while (format[i] != 'cspdiouxXf')
+				s1 = strcpy(format[i]);
+

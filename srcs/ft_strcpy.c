@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_struc_ceation.c                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 14:56:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 16:22:11 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/19 17:22:42 by cghanime          #+#    #+#             */
+/*   Updated: 2019/05/04 16:52:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_stock		*flags_struct_creation()
+char	*ft_strcpy(char *dst, char *src)
 {
-	t_stock *head;
+	size_t i;
 
-		if (!(head = (t_stock *)malloc(sizeof(t_stock))))
-			return (NULL);
-	head->flags = 0;
-	head->fw = 0;
-	head->p = 0;
-	head->next = NULL;
-	return (head);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/01 17:55:44 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:43:02 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * que je dois parcourir pour savoir
  * si j'ai l'option "-", "+" etc*/
 
-void	ft_flag_minus(va_list arg)
+void	ft_minus_flag(va_list arg, int flags, int fw, int pr)
 {
 	int i;
 	while (option[i])
