@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 10:52:50 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 17:32:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/04 17:59:34 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_parser_format(char *format)
 	i = 0;
 	j = 0;
 	flags = (char *)malloc(sizeof(char) * ft_strlen(format) + 1);
+	ft_bzero(flags, ft_strlen(format) + 1);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -39,7 +40,7 @@ char	*ft_parser_format(char *format)
 	printf("flags = %s\n", flags);
 	return (flags);
 }
-
+ /*
 void	*ft_flags_management(char *flags)
 {
 	int i;
@@ -90,9 +91,10 @@ void	*ft_flags_management(char *flags)
 		i++;
 	}
 }
+*/
 
 int main(void)
 {
-	ft_parser("%-+#0 12.4hhd%-+4.6llf");
+	ft_parser_format("icoucou%-+#0 12.4hhd%-+4.6llf");
 	return (0);
 }

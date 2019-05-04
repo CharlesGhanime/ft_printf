@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 17:32:06 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/04 17:59:38 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char						*ft_strcat(char *dst, const char *src);
 char						*ft_strcpy(char *dst, char *src);
 boolean						is_token(char token, char c);
 boolean						is_format(size_t bool_format);
+void						ft_bzero(void *str, size_t len);
+void						*ft_memset(void *str, int c, size_t len);
 
 /**************************** GET FUNCTIONS ***********************************/
 

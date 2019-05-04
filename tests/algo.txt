@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/27 14:47:27 by cghanime          #+#    #+#              #
-#    Updated: 2019/05/04 16:42:52 by cghanime         ###   ########.fr        #
+#    Updated: 2019/05/04 18:00:29 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,3 +49,5 @@ recuperer largeur de champs && precision :
 			while (format[i] != 'cspdiouxXf')
 				s1 = strcpy(format[i]);
 
+
+REMARQUE : penser a free les listes chainees pour pas leak
