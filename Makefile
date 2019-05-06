@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/05/06 11:51:46 by aboitier         ###   ########.fr        #
+#    Updated: 2019/05/06 12:15:40 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/ft_itoa_base.c \
 			./srcs/check.c  \
 			./srcs/init.c  \
-			./srcs/print_info.c \ 
+			./srcs/print_info.c \
 
 OBJ := $(SRCS:.c=.o)
 

@@ -6,10 +6,10 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/06 11:44:10 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:04:25 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 void	word_info(t_ptf *word)
 {
 	printf("rank = %d conv = %c\n", word->rank, word->conv);
@@ -47,4 +47,4 @@ void    global_info(t_ptf *percents)
 		percents = percents->next;
 	}
 }
-
+*/
