@@ -1,7 +1,8 @@
 NAME = libft.a
 CPL = gcc -Wall -Wextra -Werror
 HEADER = -I libft.h
-SRCS= 	ft_memset.c \
+SRCS= 	ft_addonechar.c \ 
+		ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
@@ -10,6 +11,7 @@ SRCS= 	ft_memset.c \
 		ft_memcmp.c \
 		ft_memalloc.c \
 		ft_memdel.c \
+		ft_rm_word.c \
 		ft_strlen.c \
 		ft_strdup.c \
 		ft_strcpy.c \
