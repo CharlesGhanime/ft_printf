@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include "../includes/ft_printf.h"
+
+
+int		main(void)
+{
+	unsigned int x23 = 13064;
+	int i22 = -10592;
+	unsigned int X21 = 17429;
+	unsigned int o20 = 28163;
+	int i13 = 2944;
+	char str12[400] = "		1,2, salmy the salmon";
+	char str11[400] = "how do you feel about this";
+	void *ptr10 = NULL;
+	char c03 = 'o';
+	unsigned int u02 = 13707;
+	char str01[400] = "		1,2, salmy the salmon";
+	unsigned int o00 = 20857;
+
+	printf(""_BBLUE"o"_END" "_MAGENTA"20857"_END" >"_CYAN" 2.21ll"_END"<; = % 2.21llo\ns  1,2, salmy the salmon = %s\n"_BBLUE"u"_END" "_MAGENTA"13707;"_END" = %u\n"_BBLUE"c"_END" "_MAGENTA"'o'"_END" >"_CYAN""_END"<; = %c\n", o00,str01,u02,c03);
+	printf(""_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN"#1.26h"_END" >"_CYAN""_END"<; = %#1.26hp\ns how do you feel about this = %s\ns  1,2, salmy the salmon = %s\n"_BBLUE"i"_END" "_MAGENTA"2944;"_END" = %i\n", ptr10,str11,str12,i13);
+	printf(""_BBLUE"o"_END" "_MAGENTA"28163"_END" >"_CYAN""_END"<; = %o\n"_BBLUE"X"_END" "_MAGENTA"17429;"_END" = %X\n"_BBLUE"i"_END" "_MAGENTA"-10592"_END" >"_CYAN""_END"<; = %i\n"_BBLUE"x"_END" "_MAGENTA"13064"_END" >"_CYAN"+11.12h"_END"<; = %+11.12hx\n", o20,X21,i22,x23);
+	return (0);
+}

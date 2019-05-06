@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 17:11:30 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/03 12:16:55 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 13:30:51 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,4 @@ char	*ft_ftoa(double myfloat)
 	s2 = ft_strcat(s1, ft_itoa_base(decipart, 10));
 	ft_putstr(s2);
 	return (s2);
-}
-
-int main()
-{
-	ft_ftoa(3.1415171822);
 }

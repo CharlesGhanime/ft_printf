@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 12:27:59 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 14:30:56 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int					ft_wordcounter(char const *s, char c);
 char				**ft_filling(char const *s, char c, char **tab);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(unsigned int nb, unsigned int base);
+char				*ft_addonechar(char **str, char c);
+
 
 /*
 ** BONUS SINGLY-LINKED LISTS

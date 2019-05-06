@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 12:25:03 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 14:28:23 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,10 +154,21 @@ int							add_pct_pos(t_ptf **percents, int pos);
 
 t_ptf						*init_head(t_ptf *head);
 int							init_conv(t_ptf **percents, int rank, char *symptoms, char conv);
+int							blood_test(t_ptf ** percents);
+int							get_type(t_ptf **word);
+int							get_f_type(t_ptf **word);
+int							get_dioux_type(t_ptf **word);
+int							get_di_type(t_ptf **word);
+int							get_oux_type(t_ptf **word);
+int							get_options(t_ptf **word, int i);
+int							get_width(t_ptf **word, int i);
+int							get_precision(t_ptf **word, int i);
+int							get_flags(t_ptf **word, int i);
 
 t_stock						*flags_struct_creation();
 t_stock						*flags_struct_completion
 							(t_stock *head, int flags, int fw, int pr);
+
 
 /***************************** PRINT DEBUG ************************************/
 void						word_info(t_ptf *word);
@@ -166,5 +177,23 @@ void						global_info(t_ptf *percents);
 /**************************** MAIN ********************************************/
 
 int		main(void);
+
+/************
+*           *
+*  COLORS   *
+*           *
+************/
+
+# define _RED       "\x1b[31m"
+# define _BRED      "\x1b[1;31m"
+# define _GREEN     "\x1b[32m"
+# define _BGREEN    "\x1b[1;32m"
+# define _YELLOW    "\x1b[33m"
+# define _BLUE      "\x1b[34m"
+# define _BBLUE     "\x1b[1;34m"
+# define _MAGENTA   "\x1b[35m"
+# define _BMAGENTA  "\x1b[1;35m"
+# define _CYAN      "\x1b[36m"
+# define _END       "\x1b[0m"
 
 #endif
