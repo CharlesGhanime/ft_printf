@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:39:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:53:29 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ int				ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_stock		*head;
-//	t_ptf		*percents;
+	t_ptf		*percents;
 	int i;
 
 	head = flags_struct_creation();
-//	percents = init_head(percents);
-//	ft_count_pct(format, &percents);
+	percents = init_head(percents);
+	ft_count_pct(format, &percents);
 	va_start(arg, format);
 	i = 0;
 	

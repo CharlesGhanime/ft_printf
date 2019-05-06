@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 10:59:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:56:41 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,10 @@ int							init_conv(t_ptf **percents, int rank, char *symptoms, char conv);
 t_stock						*flags_struct_creation();
 t_stock						*flags_struct_completion
 							(t_stock *head, int flags, int fw, int pr);
+
+/***************************** PRINT DEBUG ************************************/
+void						word_info(t_ptf *word);
+void						global_info(t_ptf *percents);
 
 /**************************** MAIN ********************************************/
 
