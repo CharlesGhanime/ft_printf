@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/04 17:53:40 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:02:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_ptf		*ft_count_pct(const char *format, t_ptf **head)
 	int pct_count;
 	int	position;
 	t_ptf	*word;
-	
+
+	word = NULL;
 	i = -1;
 	position = 0;
 	pct_count = 0;

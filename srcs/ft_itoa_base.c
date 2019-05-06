@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/02 17:39:46 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:00:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 	char *hexa;
 	int octal[9] = {0, 1 ,2, 3, 4, 5, 6, 7, 10};
 	int len;
-	int r;
+	unsigned int r;
 
 	hexa = "0123456789abcdef";
 	len = ft_counter_base(nb, base);

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 17:59:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:40:40 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ int		ft_print_float(va_list arg)
 //		ft_strncat(str, "\0", precision + 1)
 
 	ft_putstr(str);
+	return (TRUE);
 }

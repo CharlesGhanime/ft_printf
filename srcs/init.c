@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/04/30 14:46:50 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:38:21 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_ptf		*init_head(t_ptf *head)
 {
+	head = NULL;
 	t_ptf *percents;
 	
 	if (!(percents = (t_ptf*)malloc(sizeof(t_ptf))))

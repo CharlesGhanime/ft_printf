@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_struc_ceation.c                              :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 14:56:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:00:17 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/10 22:12:45 by cghanime          #+#    #+#             */
+/*   Updated: 2018/11/24 20:50:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-t_stock		*flags_struct_creation()
+void	*ft_memalloc(size_t size)
 {
-	t_stock *head;
+	void	*memory;
 
-		if (!(head = (t_stock *)malloc(sizeof(t_stock))))
-			return (NULL);
-	head->flags = 0;
-	head->fw = 0;
-	head->pr = 0;
-	head->next = NULL;
-	return (head);
+	if (size > 65535 || !(memory = malloc(sizeof(size))))
+		return (NULL);
+	ft_bzero(memory, size);
+	return (memory);
 }

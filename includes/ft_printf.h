@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 17:59:38 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 10:59:01 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ boolean						is_token(char token, char c);
 boolean						is_format(size_t bool_format);
 void						ft_bzero(void *str, size_t len);
 void						*ft_memset(void *str, int c, size_t len);
+void						*ft_memalloc(size_t size);
+void						*ft_memcpy(void *dst, const void *src, size_t len);
+char						*ft_strsub(char const *s, unsigned int start,
+							size_t len);
 
 /**************************** GET FUNCTIONS ***********************************/
 

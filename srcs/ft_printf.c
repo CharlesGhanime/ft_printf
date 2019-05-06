@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 17:59:31 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:39:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ int				ft_printf(const char *format, ...)
 	{
 		if (is_token('%', format[i]) == TRUE)
 		{
-			if (format[i] == '-')
-				ft_minus_flags
+/*			if (format[i] == '-')
+				ft_minus_flags*/
 			ft_format_cmp(arg, format[++i]);
 		}
 		else

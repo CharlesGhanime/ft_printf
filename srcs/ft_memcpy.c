@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_struc_ceation.c                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 14:56:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:00:17 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/09 20:02:24 by cghanime          #+#    #+#             */
+/*   Updated: 2018/11/25 07:19:09 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-t_stock		*flags_struct_creation()
+void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	t_stock *head;
+	char		*cdst;
+	char		*csrc;
+	size_t		i;
 
-		if (!(head = (t_stock *)malloc(sizeof(t_stock))))
-			return (NULL);
-	head->flags = 0;
-	head->fw = 0;
-	head->pr = 0;
-	head->next = NULL;
-	return (head);
+	cdst = (char *)dst;
+	csrc = (char *)src;
+	i = 0;
+	while (i < len)
+	{
+		cdst[i] = csrc[i];
+		i++;
+	}
+	return (cdst);
 }

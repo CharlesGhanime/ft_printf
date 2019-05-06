@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/04/15 11:34:42 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:47:34 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int		main(void)
 {
 	unsigned int a = 15;
-//	char b = '&';
-//	char *c = "Belze aime les chats ";
-//	char *d = " Il en a ";
+	char b = '&';
+	char *c = "Belze aime les chats ";
+	char *d = " Il en a ";
 
 //	ft_itoa_base(a, 16);
 //	printf("printf : %i\n", a);
@@ -35,7 +35,7 @@ int		main(void)
 
 	ft_printf("ft_printf test hexa maj : %X\n", a);
 
-//	printf("printf : %s%c%s%i\n", c, b, d, a);
+	printf("printf : %s%c%s%i\n", c, b, d, a);
 //	ft_printf("ft_printf : %s%c%s%i\n", c, b, d, a);
 
 
