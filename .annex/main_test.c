@@ -4,21 +4,23 @@
 
 int		main(void)
 {
-	unsigned int x23 = 13064;
-	int i22 = -10592;
-	unsigned int X21 = 17429;
-	unsigned int o20 = 28163;
-	int i13 = 2944;
-	char str12[400] = "		1,2, salmy the salmon";
-	char str11[400] = "how do you feel about this";
-	void *ptr10 = NULL;
-	char c03 = 'o';
-	unsigned int u02 = 13707;
-	char str01[400] = "		1,2, salmy the salmon";
-	unsigned int o00 = 20857;
+	char c41 = 'c';
+	unsigned int u40 = 30731;
+	char c33 = 'c';
+	unsigned int x32 = 6752;
+	unsigned int o31 = 15370;
+	unsigned int u30 = 7382;
+	unsigned int o20 = 101;
+	unsigned int X12 = 13195;
+	unsigned int X11 = 11958;
+	unsigned int o10 = 17625;
+	char str01[400] = "Hauntology (a portmanteau of haunting and ontology[1]) is a concept coined by philosopher Jacques Derrida in his 1993 book Spectres of Marx.";
+	char str00[400] = "how do you feel about this";
 
-ft_printf("o 20857 > 2.21ll<; = % 2.21llo\ns  1,2, salmy the salmon = %s\nu 13707; = %u\nc 'o' ><; = %c\n", o00,str01,u02,c03);
-ft_printf("p NULL >#1.26h ><; = %#1.26hp\ns how do you feel about this = %s\ns  1,2, salmy the salmon = %s\ni 2944; = %i\n", ptr10,str11,str12,i13);
-ft_printf("o 28163 ><; = %o\nX 17429; = %X\ni -10592 ><; = %i\nx 13064 >+11.12h<; = %+11.12hx\n", o20,X21,i22,x23);
+ft_printf("s how do you feel about this = %s\ns Hauntology (a portmanteau of haunting and ontology[1]) is a concept coined by philosopher Jacques Derrida in his 1993 book Spectres of Marx. = %s\n", str00,str01);
+ft_printf("o 17625; = %o\nX 11958 ><; = %X\nX 13195; = %X\n", o10,X11,X12);
+ft_printf("o 101 ><; = %o\n", o20);
+ft_printf("u 7382; = %u\no 15370; = %o\nx 6752 ><; = %x\nc 'c' >#4.42h<; = %#4.42hc\n", u30,o31,x32,c33);
+ft_printf("u 30731 >#.42hh<; = %#.42hhu\nc 'c' >-3.25l > >+.14l >+4.5h<; = %+4.5h+.14l-3.25lc\n", u40,c41);
 	return (0);
 }
