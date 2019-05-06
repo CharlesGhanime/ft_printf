@@ -1,7 +1,7 @@
 NAME = libft.a
 CPL = gcc -Wall -Wextra -Werror
 HEADER = -I libft.h
-SRCS= 	ft_addonechar.c \ 
+SRCS= 	ft_addonechar.c \
 		ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
@@ -72,8 +72,8 @@ SRCS= 	ft_addonechar.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_putnbr_base \
-		ft_itoa_base \
+		ft_putnbr_base.c \
+		ft_itoa_base.c \
 
 OBJECTS = $(SRCS:.c=.o)
 

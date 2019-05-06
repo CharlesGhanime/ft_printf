@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/05/06 12:22:01 by aboitier         ###   ########.fr        #
+#    Updated: 2019/05/06 12:55:32 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/ft_printf_aff_2.c \
 			./srcs/ft_printf_get.c \
 			./srcs/ft_printf_get_2.c \
+			./srcs/flags_struc_ceation.c \
+			./srcs/ft_ftoa.c \
 			./srcs/ft_putchar.c \
 			./srcs/ft_putstr.c \
 			./srcs/ft_strlen.c \
@@ -49,13 +51,13 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m************************************************************"
 	@echo "\n"
 	$(MAKE) $(LIB_PATH)
-	$(CC) $(FLAGS) $(HEADER) -c $(SRCS) $(LIBFT)
-	ar -rcv $(NAME) $(OBJ)
-	ranlib $(NAME)
+	$(CC) $(FLAGS) $(LIBFT) $(SRCS) -o $(NAME)
+#	ar -rcv $(NAME) $(OBJ)
+#	ranlib $(NAME)
 #	make -C libft
 
-#libft : 
-#	make -C ./libft/
+libft : 
+	$(MAKE) $(LIB_PATH)
 
 
 $(EXEC) : $(NAME)
@@ -65,18 +67,18 @@ $(EXEC) : $(NAME)
 	@echo "\033[32m************************************************************"
 	@echo "\n"
 	$(CC) $(FLAGS) -o $(EXEC) $(NAME) $(MAIN)
-	@echo         "______________ ________________       __________"
-	@echo       "/             / /               /      /   __    /"
-	@echo      "/    _________/ /____     ______/      /   /_/   / "
-	@echo     "/    /____            /   /            /   ______/  "
-	@echo    "/    _____/           /   /            /   /"
-	@echo   "/    /                /   /            /   /"
-	@echo  "/    /                /   /            /   /"
-	@echo "/____/                /___/____________/___/              "
+	@echo         "______________ ________________       __________        "
+	@echo       "/             / /               /      /   __    /       /"
+	@echo      "/    _________/ /____     ______/      /   /_/   /       /"
+	@echo     "/    /____            /   /            /   ______/       /"
+	@echo    "/    _____/           /   /            /   /             /"
+	@echo   "/    /                /   /            /   /             /"
+	@echo  "/    /                /   /            /   /             /"
+	@echo "/____/________________/___/____________/___/_____________/              "
 %.o : ./srcs/%.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-clean : 
+clean :
 	@echo "\n"
 	@echo "\033[31m************************************************************"
 	@echo "\033[31m*****************MAKE CLEAN*********************************"

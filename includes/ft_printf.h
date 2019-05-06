@@ -6,14 +6,14 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:56:41 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:25:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-//#include "../Libft/libft.h"
+#include "../Libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -80,7 +80,7 @@ typedef struct				s_ftprintf
 
 size_t						ft_strlen(const char *str);
 char						*ft_strcat(char *dst, const char *src);
-char						*ft_strcpy(char *dst, char *src);
+char						*ft_strcpy(char *dst, const char *src);
 boolean						is_token(char token, char c);
 boolean						is_format(size_t bool_format);
 void						ft_bzero(void *str, size_t len);
