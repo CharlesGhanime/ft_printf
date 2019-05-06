@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/05/06 11:51:46 by aboitier         ###   ########.fr        #
+#    Updated: 2019/05/06 12:14:47 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ OBJ := $(SRCS:.c=.o)
 
 MAIN := ./main_printf/main_printf.c
 
-#LIBFT := libft/libft.a
+LIB_PATH = ./libft
+LIBFT = $(LIB_PATH)/libft.a
 
 all : $(NAME)
 
@@ -47,7 +48,8 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m*****************MAKE***************************************"
 	@echo "\033[32m************************************************************"
 	@echo "\n"
-	$(CC) $(FLAGS) $(HEADER) -c $(SRCS) #$(NAME) $(OBJ) $(LIB)
+	$(MAKE) $(LIB_PATH)
+	$(CC) $(FLAGS) $(HEADER) -c $(SRCS) $(LIBFT)
 	ar -rcv $(NAME) $(OBJ)
 	ranlib $(NAME)
 #	make -C libft
