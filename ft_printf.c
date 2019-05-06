@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 16:18:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 15:31:13 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ void			ft_format_cmp(va_list arg, char c)
 int				ft_printf(const char *format, ...)
 {
 	va_list		arg;
-//	t_stock		*head;
+	t_stock		*head;
 	t_ptf		*percents = NULL;
 	int i;
 
-//	head = flags_struct_creation();
+	head = flags_struct_creation();
 	percents = init_head(percents);
 	ft_count_pct(format, &percents);
 	blood_test(&percents);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_parser_abwat.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 16:18:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 17:52:28 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,9 @@ void			ft_format_cmp(va_list arg, char c)
 	ft_lst_format_token_init(lst_format);
 	while (current_format != NO_FORMAT)
 	{
-		//rajouter les checks des flags ici
 		if (lst_format[current_format].token == c)
 		{
 			lst_format[current_format].func(arg);
-			//checker la valeur des bits de l'int flags ici et appeler les fonctions de flags correspondantes.
 			check_format = TRUE;
 		}
 		current_format = lst_format[current_format].next_format;
@@ -92,30 +90,28 @@ int				ft_printf(const char *format, ...)
 	va_list		arg;
 //	t_stock		*head;
 	t_ptf		*percents = NULL;
-	int i;
+//	int i;
 
 //	head = flags_struct_creation();
 	percents = init_head(percents);
 	ft_count_pct(format, &percents);
 	blood_test(&percents);
-//	va_start(arg, format);
-//	i = 0;
-//	
-//	while (format[i])
-//	{
-//		if (is_token('%', format[i]) == TRUE)
-//		{
-///*			if (format[i] == '-')
-//				ft_minus_flags*/
-//			ft_format_cmp(arg, format[++i]);
-//		}
-//		else
-//		{
-//			ft_putchar(format[i]);
-//		}
-//		i++;
-//	}
-//	global_info(percents);
+	va_start(arg, format);
+	/*i = 0;
+
+	while (format[i])
+	{
+		if (is_token('%', format[i]) == TRUE)
+		{
+			ft_format_cmp(arg, format[++i]);
+		}
+		else
+		{
+			ft_putchar(format[i]);
+		}
+		i++;
+	}*/
+	global_info(percents);
 	va_end(arg);
-		return (ft_strlen(format));
+	return (ft_strlen(format));
 }
