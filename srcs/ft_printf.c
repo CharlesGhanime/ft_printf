@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:53:29 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:06:23 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int				ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_stock		*head;
-	t_ptf		*percents;
+	t_ptf		*percents = NULL;
 	int i;
 
 	head = flags_struct_creation();
