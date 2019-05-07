@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 17:50:55 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:49:29 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_print_hexa_maj(va_list arg)
 	return (TRUE);
 }
 
-int		ft_print_float(va_list arg)
+int		ft_print_float(va_list arg, t_ptf *word)
 {
 	char *str;
 

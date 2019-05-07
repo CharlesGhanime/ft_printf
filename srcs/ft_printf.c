@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 16:18:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/07 16:42:38 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,32 +90,28 @@ void			ft_format_cmp(va_list arg, char c)
 int				ft_printf(const char *format, ...)
 {
 	va_list		arg;
-//	t_stock		*head;
 	t_ptf		*percents = NULL;
 	int i;
 
-//	head = flags_struct_creation();
 	percents = init_head(percents);
 	ft_count_pct(format, &percents);
 	blood_test(&percents);
-//	va_start(arg, format);
-//	i = 0;
-//	
-//	while (format[i])
-//	{
-//		if (is_token('%', format[i]) == TRUE)
-//		{
-///*			if (format[i] == '-')
-//				ft_minus_flags*/
-//			ft_format_cmp(arg, format[++i]);
-//		}
-//		else
-//		{
-//			ft_putchar(format[i]);
-//		}
-//		i++;
-//	}
-//	global_info(percents);
+	va_start(arg, format);
+	i = 0;
+
+	while (format[i])
+	{
+		if (is_token('%', format[i]) == TRUE)
+		{
+			ft_format_cmp(arg, format[++i]);
+		}
+		else
+		{
+			ft_putchar(format[i]);
+		}
+		i++;
+	}
+	global_info(percents);
 	va_end(arg);
 		return (ft_strlen(format));
 }

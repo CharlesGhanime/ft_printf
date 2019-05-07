@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/04 16:43:15 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/07 12:34:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main ()
 	long long int ll = 42;
 	float f = 42.4242;
 	char *s = "J'aime les chocolats";
+	char cha = 'c';
 	printf("***********************Gestion des Floats**********************\n");
 //	printf("%i\n", i);
 //	printf("%.5i\n", i);
@@ -30,6 +31,7 @@ int main ()
 	printf("%#.4f\n", f);
 //	printf("%16.14li\n", l);
 //	printf("%16.14lld\n", ll);
+	printf("%-6c", cha);
 
 	printf("%s\n", s);
 	printf("%-s\n", s);

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/06 14:57:23 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/07 11:34:01 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		blood_test(t_ptf **percents)
 	while (word)
 	{
 		i = 0;
-		// send &word and update: width, type, options, 
+		// send &word and update: width, type, options,
 		if ((i = get_options(&word, i - 1)) == -1)
 			return (-1);
 		if ((i = get_width(&word, i - 1)) == -1)

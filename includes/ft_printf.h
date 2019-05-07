@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 14:28:23 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:49:31 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef int boolean;
 
 typedef int (*p_func)(va_list);
 
-typedef enum 
+typedef enum
 {
 	CHAR = 0,
 	STRING,
@@ -48,6 +48,7 @@ typedef struct				s_format
 	p_func					func;
 	FORMAT_TOKEN			next_format;
 }							t_format;
+
 
 typedef struct				s_stock
 {
@@ -112,7 +113,7 @@ int							ft_atoi(const char *str);
 char						*ft_itoa_base(unsigned int nb, unsigned int base);
 char						*ft_ftoa(double myfloat);
 
-/**************************** PRINTF ******************************************/
+/********************************* PRINTF *************************************/
 
 int							ft_printf(const char *format, ...);
 
@@ -143,7 +144,11 @@ int							ft_print_float(va_list arg);
 
 /**************************** GESTION DES FLAGS *******************************/
 
-void						ft_minus_flag(va_list arg);
+void						ft_minus_flag(va_list arg, t_ptf *word);
+void						ft_plus_flag(va_list arg, t_ptf *word);
+void						ft_hashtag_flag(va_list arg, t_ptf *word);
+void						ft_zero_flag(va_list arg, t_ptf *word);
+char						*ft_float_precision_flag(char *str);
 
 /***************************** PARSING ****************************************/
 t_ptf						*ft_count_pct(const char *format, t_ptf **head);
@@ -171,6 +176,7 @@ t_stock						*flags_struct_completion
 
 
 /***************************** PRINT DEBUG ************************************/
+
 void						word_info(t_ptf *word);
 void						global_info(t_ptf *percents);
 
