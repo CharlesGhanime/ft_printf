@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/07 18:49:24 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:53:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,22 @@
 
 /* je vais utiliser le char *option
  * que je dois parcourir pour savoir
- * si j'ai l'option "-", "+" etc*/
+ * si j'ai l'option "-", "+" etc */
+
+/* Solution en stockant tout dans des strings :
+ *				s1 = (char *)malloc(sizeof(char) * word->width + 1);
+ *				ft_memset(s1, ' ', ft_strlen(s1)); */
+
+/* ft_counter(va_arg(arg, int)) mais ca ne marchera ps en cas general
+ * pour string donc il vaut mieux declarer un int en amont le prendre en
+ * parametre : int = ft_counter pour les nombres et ft_strlen pour les string */
 
 void	ft_minus_flag(va_list arg, t_ptf *word)
 {
 	int i;
-
+	int nb;
 	i = 0;
+	nb = 
 
 	while (word->options[i])
 	{
@@ -36,8 +45,6 @@ void	ft_minus_flag(va_list arg, t_ptf *word)
 						ft_putchar(' ');
 						i++;
 					}
-//				s1 = (char *)malloc(sizeof(char) * word->width + 1);
-//				ft_memset(s1, ' ', ft_strlen(s1));
 				}
 				if ((!word->width && word->precision) || (word->width <= word->precision))
 				{
@@ -46,8 +53,6 @@ void	ft_minus_flag(va_list arg, t_ptf *word)
 						ft_putchar(' ');
 						i++;
 					}
-//				s1 = (char *)malloc(sizeof(char) * word->width + 1);
-//				ft_memset(s1, ' ', ft_strlen(s1));
 				}
 				if (word->width && word->precision)
 				{
@@ -56,8 +61,6 @@ void	ft_minus_flag(va_list arg, t_ptf *word)
 						ft_putchar(' ');
 						i++;
 					}
-//				s1 = (char *)malloc(sizeof(char) * word->width + 1);
-//				ft_memset(s1, ' ', ft_strlen(s1));
 				}
 		}
 	i++;

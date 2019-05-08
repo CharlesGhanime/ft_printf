@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/07 18:49:29 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/08 13:29:12 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_print_unsigned(va_list arg)
 
 int		ft_print_hexa(va_list arg)
 {
-	ft_printf("Test de mon hexa : %s", ft_itoa_base(va_arg(arg, int), 16));
+	ft_putstr(ft_itoa_base(va_arg(arg, int), 16));
 	return (TRUE);
 }
 
@@ -48,7 +48,7 @@ int		ft_print_hexa_maj(va_list arg)
 	return (TRUE);
 }
 
-int		ft_print_float(va_list arg, t_ptf *word)
+int		ft_print_float(va_list arg)
 {
 	char *str;
 

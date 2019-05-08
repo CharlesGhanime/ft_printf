@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/07 18:49:26 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:54:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,19 @@
 int		ft_print_char(va_list arg)
 {
 	char c;
+	int nb;
 
+	nb = 1;
 	c = va_arg(arg, int);
-//	flag -
-/*	if (flags << 6)
-		if (flags << 3)
-			write(1, '0', width - length)*/
-//	flag +
-	/*if (!flags << 5 && va_arg(arg, int) >= 0)
-		ft_putchar(' ');*/
 	ft_putchar(c);
 	return (TRUE);
 }
 
 int		ft_print_string(va_list arg)
 {
+	int nb;
+
+	nb = ft_strlen(va_arg(arg, char *));
 	ft_putstr(va_arg(arg, char *));
 	return (TRUE);
 }

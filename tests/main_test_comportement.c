@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/07 12:34:03 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:53:48 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main ()
 {
+	int nul = 42;
 	unsigned long i;
 	unsigned long *p = NULL;
 //	unsigned long *n = NULL;
@@ -38,6 +39,7 @@ int main ()
 //	printf("%12.14d\n", i);
 //	printf("%+s\n", s);
 
+	printf("x = %#x", nul);
 	printf("***********************Gestion des adresses********************\n");
 
 //	printf("0x");

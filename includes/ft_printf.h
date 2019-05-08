@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/07 18:49:31 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:53:50 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void						ft_minus_flag(va_list arg, t_ptf *word);
 void						ft_plus_flag(va_list arg, t_ptf *word);
 void						ft_hashtag_flag(va_list arg, t_ptf *word);
 void						ft_zero_flag(va_list arg, t_ptf *word);
-char						*ft_float_precision_flag(char *str);
+char						*ft_float_precision_flag(char *str, t_ptf *word);
 
 /***************************** PARSING ****************************************/
 t_ptf						*ft_count_pct(const char *format, t_ptf **head);
