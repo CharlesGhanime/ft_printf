@@ -6,13 +6,13 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/08 16:54:11 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:54:45 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_char(va_list arg)
+int		ft_print_char(va_list arg, t_ptf *percents)
 {
 	char c;
 	int nb;
@@ -23,7 +23,7 @@ int		ft_print_char(va_list arg)
 	return (TRUE);
 }
 
-int		ft_print_string(va_list arg)
+int		ft_print_string(va_list arg, t_ptf *percents)
 {
 	int nb;
 
@@ -32,7 +32,7 @@ int		ft_print_string(va_list arg)
 	return (TRUE);
 }
 
-int		ft_print_address(va_list arg)
+int		ft_print_address(va_list arg, t_ptf *percents)
 {
 	ft_putstr("0x");
 	if (arg == NULL)
@@ -42,13 +42,13 @@ int		ft_print_address(va_list arg)
 	return (TRUE);
 }
 
-int		ft_print_decimal(va_list arg)
+int		ft_print_decimal(va_list arg, t_ptf *percents)
 {
 	ft_putnbr(va_arg(arg, int));
 	return (TRUE);
 }
 
-int		ft_print_integer(va_list arg)
+int		ft_print_integer(va_list arg, t_ptf *percents)
 {
 	ft_putnbr(va_arg(arg, int));
 	return (TRUE);

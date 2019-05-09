@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/08 16:53:50 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:54:08 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,24 @@ typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 
-typedef int (*p_func)(va_list);
+typedef struct				s_ftprintf
+{
+	char					conv;
+	int						rank;
+	int						pos;
+	char					*options;
+	unsigned long			width;
+	unsigned long			precision;
+	char					*flags;
+	char					*symptoms;
+	char					*type;
+	int						key;
+	char					*keyc;
+	int						total_pct_count;
+	struct s_ftprintf		*next;
+}							t_ptf;
+
+typedef int (*p_func)(va_list, t_ptf *);
 
 typedef enum
 {
@@ -49,7 +66,6 @@ typedef struct				s_format
 	FORMAT_TOKEN			next_format;
 }							t_format;
 
-
 typedef struct				s_stock
 {
 		int					flags;
@@ -58,7 +74,7 @@ typedef struct				s_stock
 		struct s_stock		*next;
 }							t_stock;
 
-
+/*
 typedef struct				s_ftprintf
 {
 	char					conv;
@@ -76,6 +92,7 @@ typedef struct				s_ftprintf
 	struct s_ftprintf		*next;
 }							t_ptf;
 
+ */
 
 /**************************** SYSTEM ******************************************/
 
@@ -118,7 +135,7 @@ char						*ft_ftoa(double myfloat);
 int							ft_printf(const char *format, ...);
 
 void						ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
-void						ft_format_cmp(va_list arg, char c);
+void						ft_format_cmp(va_list arg, char c, t_ptf *percents);
 
 p_func						ft_get_print_char();
 p_func						ft_get_print_string();
@@ -131,16 +148,16 @@ p_func						ft_get_print_hexa();
 p_func						ft_get_print_hexa_maj();
 p_func						ft_get_print_float();
 
-int							ft_print_char(va_list arg);
-int							ft_print_string(va_list arg);
-int							ft_print_address(va_list arg);
-int							ft_print_decimal(va_list arg);
-int							ft_print_integer(va_list arg);
-int							ft_print_octal(va_list arg);
-int							ft_print_unsigned(va_list arg);
-int							ft_print_hexa(va_list arg);
-int							ft_print_hexa_maj(va_list arg);
-int							ft_print_float(va_list arg);
+int							ft_print_char(va_list arg, t_ptf *percents);
+int							ft_print_string(va_list arg, t_ptf *percents);
+int							ft_print_address(va_list arg, t_ptf *percents);
+int							ft_print_decimal(va_list arg, t_ptf *percents);
+int							ft_print_integer(va_list arg, t_ptf *percents);
+int							ft_print_octal(va_list arg, t_ptf *percents);
+int							ft_print_unsigned(va_list arg, t_ptf *percents);
+int							ft_print_hexa(va_list arg, t_ptf *percents);
+int							ft_print_hexa_maj(va_list arg, t_ptf *percents);
+int							ft_print_float(va_list arg, t_ptf *percents);
 
 /**************************** GESTION DES FLAGS *******************************/
 

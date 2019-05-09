@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/08 16:53:53 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:28:16 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[FLOAT].func = ft_get_print_float();
 }
 
-void			ft_format_cmp(va_list arg, char c)
+void			ft_format_cmp(va_list arg, char c, t_ptf *percents)
 {
 	size_t			check_format = FALSE;
 	t_format		lst_format[NB_FORMAT];
@@ -74,7 +74,7 @@ void			ft_format_cmp(va_list arg, char c)
 		//rajouter les checks des flags ici
 		if (lst_format[current_format].token == c)
 		{
-			lst_format[current_format].func(arg);
+			lst_format[current_format].func(arg, *percents);
 			//checker la valeur des bits de l'int flags ici et appeler les fonctions de flags correspondantes.
 			check_format = TRUE;
 		}
@@ -103,7 +103,7 @@ int				ft_printf(const char *format, ...)
 	{
 		if (is_token('%', format[i]) == TRUE)
 		{
-			ft_format_cmp(arg, format[++i]);
+			ft_format_cmp(arg, format[++i], percents);
 		}
 		else
 		{
