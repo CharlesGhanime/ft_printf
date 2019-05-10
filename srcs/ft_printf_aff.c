@@ -17,16 +17,16 @@
 int		ft_print_char(va_list arg, t_ptf *percents)
 {
 	char c;
-	int nb;
+	unsigned long nb;
 
 
     c = va_arg(arg, int);
 	nb = 1;
-	while (percents->options++)
-        if (percents->options == '-' && percents->width > nb)
+	while (*(percents->options)++)
+        if (*(percents->options) == '-' && (percents->width) > nb)
         {
             ft_putchar(c);
-            write(1, ' ', percents->width - 1);
+            write(1, " ", (percents->width) - 1);
         }
 	    else
 	        ft_putchar(c);
@@ -37,26 +37,30 @@ int		ft_print_char(va_list arg, t_ptf *percents)
 
 int		ft_print_string(va_list arg, t_ptf *percents)
 {
-	int nb;
+	unsigned long nb;
 	char *str;
 
 	str = NULL;
 	nb = ft_strlen(va_arg(arg, char *));
 
-	if (percents->width && !percents->precision || percents->width >= percents->precision)
-	    if (nb > percents->width)
-	    {
-            ft_strncpy(str, va_arg(arg, char *), percents->width);
+	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision))) {
+        if (nb > (percents->width)) {
+            ft_strncpy(str, va_arg(arg,
+            char *), (percents->width));
             ft_putstr(str);
         }
-    if (!percents->width && percents->precision || percents->width <= percents->precision)
-        if (nb > percents->precision)
-        {
-            ft_strncpy(str, va_arg(arg, char *), percents->precision);
+    }
+    if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision))) {
+        if (nb > (percents->precision)) {
+            ft_strncpy(str, va_arg(arg,
+            char *), (percents->precision));
             ft_putstr(str);
         }
-    else
-	    ft_putstr(va_arg(arg, char *));
+    }
+    else {
+        ft_putstr(va_arg(arg, char *));
+    }
+
 	return (TRUE);
 }
 
@@ -76,12 +80,19 @@ int		ft_print_address(va_list arg, t_ptf *percents)
 
 int		ft_print_decimal(va_list arg, t_ptf *percents)
 {
-    while (percents->options++)
-        if (percents->options != '-' && percents->options == '0')
-            ft_zero_flag(arg, percents, nb);
+    unsigned long nb;
+
+    nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+    while (*(percents->options++))
+        if ((*(percents->options) != '-'))
+        while (*(percents->options++))
+            if (*(percents->options) == '0')
+                ft_zero_flag(arg, percents, nb);
 	ft_putnbr(va_arg(arg, int));
-        if (percents->options == '-' && percents->options == '0')
-            ft_minus_flag(arg, percents, nb);
+        if (*(percents->options) == '-')
+            while (*(percents->options++)))
+                if (*(percents->options) == '0')
+                    ft_minus_flag(arg, percents, nb);
 	return (TRUE);
 }
 

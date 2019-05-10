@@ -43,7 +43,7 @@ void	ft_minus_flag(va_list arg, t_ptf *percents, int nb)
                     i++;
                 }
             }
-        if ((!percents->width && percents->precision) || (percents->width <= percents->precision))
+        if ((!(percents->width) && (percents->precision)) || ((percents->width) <= (percents->precision)))
         {
             while (i != (percents->precision - nb))
             {
