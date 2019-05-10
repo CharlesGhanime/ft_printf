@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/09 17:28:16 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/10 11:09:44 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ void			ft_format_cmp(va_list arg, char c, t_ptf *percents)
 		//rajouter les checks des flags ici
 		if (lst_format[current_format].token == c)
 		{
-			lst_format[current_format].func(arg, *percents);
+			lst_format[current_format].func(arg, percents);
 			//checker la valeur des bits de l'int flags ici et appeler les fonctions de flags correspondantes.
 			check_format = TRUE;
+            percents = percents->next;
 		}
 		current_format = lst_format[current_format].next_format;
 	}
@@ -101,13 +102,10 @@ int				ft_printf(const char *format, ...)
 
 	while (format[i])
 	{
+	    ft_putchar(format[i]);
 		if (is_token('%', format[i]) == TRUE)
 		{
 			ft_format_cmp(arg, format[++i], percents);
-		}
-		else
-		{
-			ft_putchar(format[i]);
 		}
 		i++;
 	}

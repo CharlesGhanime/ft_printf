@@ -12,11 +12,15 @@
 
 #include "../includes/ft_printf.h"
 
+/* PRINT CHAR */
+
 int		ft_print_octal(va_list arg, t_ptf *percents)
 {
 	ft_itoa_base(va_arg(arg, int), 8);
 	return (TRUE);
 }
+
+/* PRINT CHAR */
 
 int		ft_print_unsigned(va_list arg, t_ptf *percents)
 {
@@ -24,11 +28,15 @@ int		ft_print_unsigned(va_list arg, t_ptf *percents)
 	return (TRUE);
 }
 
+/* PRINT CHAR */
+
 int		ft_print_hexa(va_list arg, t_ptf *percents)
 {
 	ft_putstr(ft_itoa_base(va_arg(arg, int), 16));
 	return (TRUE);
 }
+
+/* PRINT CHAR */
 
 int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 {
@@ -48,19 +56,23 @@ int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 	return (TRUE);
 }
 
+/* PRINT CHAR */
+
 int		ft_print_float(va_list arg, t_ptf *percents)
 {
 	char *str;
+	int i;
 
+    i = 0;
 	str = ft_ftoa(va_arg(arg, double));
 
-//	if (flag precision)
-//		if str[precision] > 5 + '0'
-//		{
-//			str[i] = 0 + '0';
-//			str[i - 1] += 1 + '0';
-//		}
-//		ft_strncat(str, "\0", precision + 1)
+	if (percents->precision)
+		if (str[percents->precision] > 5 + '0')
+		{
+			str[i] = 0 + '0';
+			str[i - 1] += 1 + '0';
+		}
+		ft_strncat(str, "\0", percents->precision + 1);
 
 	ft_putstr(str);
 	return (TRUE);

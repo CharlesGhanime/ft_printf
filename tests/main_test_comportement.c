@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/08 16:53:48 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/10 17:21:01 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main ()
 	long int l = 42;
 	long long int ll = 42;
 	float f = 42.4242;
-	char *s = "J'aime les chocolats";
+	char *s = "coco";
 	char cha = 'c';
 	printf("***********************Gestion des Floats**********************\n");
 //	printf("%i\n", i);
@@ -38,13 +38,19 @@ int main ()
 	printf("%-s\n", s);
 //	printf("%12.14d\n", i);
 //	printf("%+s\n", s);
+    printf("moins et precisions et largeur de champs = %10.3s\n", s);
+    printf("moins et precisions et largeur de champs = %-10.3s\n", s);
+    printf("moins et precisions et largeur de champs = %10.6s\n", s);
+    printf("moins et precisions et largeur de champs = %3.6s\n", s);
 
-	printf("x = %#x", nul);
+	printf("x = %#x\n", nul);
 	printf("***********************Gestion des adresses********************\n");
 
 //	printf("0x");
 	printf("0x%lx\n%p\n", i, p);
 //	printf("%lx\n%p\n", *n, n);
+
+	/*
 	printf("***********************Tests decalage binaire******************\n");
 	char a = 0;
 	int b = 0;
@@ -87,6 +93,6 @@ int main ()
 		printf("Working");
 
 //	write(1, "0", 50);
-
+*/
 	return (0);
 }
