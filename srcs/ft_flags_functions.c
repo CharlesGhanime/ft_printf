@@ -94,7 +94,7 @@ void	ft_zero_flag(va_list arg, t_ptf *percents, int nb)
 
     while (percents->options[i])
     {
-        if (percents->options[i] == '-')
+        if (percents->options[i] == '0')
             if (percents->width && !percents->precision)
             {
                 while (i != (percents->width - nb))
@@ -135,4 +135,11 @@ char	*ft_float_precision_flag(char *str)
         str[i - 1] += 1;
     }
     return (str);
+}
+
+void    ft_width_precision(va_list arg, t_ptf *percents, int nb)
+{
+    while(*(percent->options++))
+        if (percents->options != '-' && percents->option != '0')
+            if ()
 }

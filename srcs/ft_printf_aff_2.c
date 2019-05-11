@@ -12,35 +12,62 @@
 
 #include "../includes/ft_printf.h"
 
-/* PRINT CHAR */
+/* PRINT OCTAL */
 
 int		ft_print_octal(va_list arg, t_ptf *percents)
 {
-	ft_itoa_base(va_arg(arg, int), 8);
-	return (TRUE);
+    unsigned long nb;
+    char const *str;
+
+    nb = ft_strlen(ft_itoa(va_arg(arg, int))
+	str = (char *)malloc(sizeof(char) * nb + 1));
+    str = ft_itoa_base(va_arg(arg, int), 8);
+    ft_hashtag_flag(arg, percents);
+    ft_zero_flag(arg, percents, nb);
+	ft_putstr(str);
+    ft_minus_flag(arg, percents, nb);
+    return (TRUE);
 }
 
-/* PRINT CHAR */
+/* PRINT UNSIGNED */
 
 int		ft_print_unsigned(va_list arg, t_ptf *percents)
 {
-	ft_itoa_base(va_arg(arg, int), 10);
+    unsigned long nb;
+    char const *str;
+
+    nb = ft_strlen(ft_itoa(va_arg(arg, int))
+    str = (char *)malloc(sizeof(char) * nb + 1));
+	str = ft_itoa_base(va_arg(arg, int), 10);
+	ft_hashtag_flag(arg, percents);
+    ft_zero_flag(arg, percents, nb);
+    ft_putstr(str);
+    ft_minus_flag(arg, percents, nb);
 	return (TRUE);
 }
 
-/* PRINT CHAR */
+/* PRINT HEXA */
 
 int		ft_print_hexa(va_list arg, t_ptf *percents)
 {
-	ft_putstr(ft_itoa_base(va_arg(arg, int), 16));
+    unsigned long nb;
+    char const *str;
+
+    nb = ft_strlen(ft_itoa(va_arg(arg, int))
+    str = (char *)malloc(sizeof(char) * nb + 1));
+	str = ft_itoa_base(va_arg(arg, int), 16));
+    ft_hashtag_flag(arg, percents);
+    ft_zero_flag(arg, percents, nb);
+    ft_putstr(str);
+    ft_minus_flag(arg, percents, nb);
 	return (TRUE);
 }
 
-/* PRINT CHAR */
+/* PRINT HEXA MAJ */
 
 int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 {
-    char *str;
+    char const *str;
     int i;
 
     str = ft_itoa_base(va_arg(arg, int), 16);
@@ -56,11 +83,11 @@ int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 	return (TRUE);
 }
 
-/* PRINT CHAR */
+/* PRINT FLOAT */
 
 int		ft_print_float(va_list arg, t_ptf *percents)
 {
-	char *str;
+	char const *str;
 	int i;
 
     i = 0;

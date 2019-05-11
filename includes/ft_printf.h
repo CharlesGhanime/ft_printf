@@ -97,7 +97,7 @@ typedef struct				s_ftprintf
 /**************************** SYSTEM ******************************************/
 
 size_t						ft_strlen(const char *str);
-char						*ft_strcat(char *dst, const char *src);
+char						*ft_strcat(char *dst, char const *src);
 char						*ft_strcpy(char *dst, const char *src);
 boolean						is_token(char token, char c);
 boolean						is_format(size_t bool_format);
