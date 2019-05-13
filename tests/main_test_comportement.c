@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/10 17:21:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/13 15:33:26 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int main ()
 {
-	int nul = 42;
+	int nul = 424242;
 	unsigned long i;
-	unsigned long *p = NULL;
+	int *p = &nul;
 //	unsigned long *n = NULL;
 	long int l = 42;
 	long long int ll = 42;
@@ -26,7 +26,7 @@ int main ()
 	char *s = "coco";
 	char cha = 'c';
 	printf("***********************Gestion des Floats**********************\n");
-//	printf("%i\n", i);
+	printf("%-10.8d\n", nul);
 //	printf("%.5i\n", i);
 	printf("%.4f\n", f);
 	printf("%#.4f\n", f);
@@ -47,7 +47,7 @@ int main ()
 	printf("***********************Gestion des adresses********************\n");
 
 //	printf("0x");
-	printf("0x%lx\n%p\n", i, p);
+	printf(" pourcent lx = %#30lx\n pourcent p = %30p\n", (unsigned long)&p, (int *)&p);
 //	printf("%lx\n%p\n", *n, n);
 
 	/*

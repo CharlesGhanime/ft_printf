@@ -51,7 +51,7 @@ int		ft_print_char(va_list arg, t_ptf *percents)
 int		ft_print_string(va_list arg, t_ptf *percents)
 {
 	unsigned long nb;
-	char const *str;
+	char *str;
 
 	str = NULL;
 	nb = ft_strlen(va_arg(arg, char *));
@@ -59,8 +59,10 @@ int		ft_print_string(va_list arg, t_ptf *percents)
 	/* TODO : fonction de gestion de la largeur de champs et de la precision
 	 *  elle est a réutiliser dans les autres fonctions d'affichage */
 
-	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision))) {
-        if (nb > (percents->width)) {
+	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
+	{
+        if (nb > (percents->width))
+        {
             {
                 str = (char *)malloc(sizeof(char) * percents->width + 1);
                 ft_strncpy(str, va_arg(arg,
@@ -69,8 +71,10 @@ int		ft_print_string(va_list arg, t_ptf *percents)
             }
         }
     }
-    if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision))) {
-        if (nb > (percents->precision)) {
+    if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision)))
+    {
+        if (nb > (percents->precision))
+        {
             str = (char *)malloc(sizeof(char) * percents->precision + 1);
             ft_strncpy(str, va_arg(arg,
             char *), (percents->precision));
@@ -88,11 +92,40 @@ int		ft_print_string(va_list arg, t_ptf *percents)
 
 int		ft_print_address(va_list arg, t_ptf *percents)
 {
-	ft_putstr("0x");
-	if (arg == NULL)
-		ft_putchar('0');
-	else
-		ft_putstr(ft_itoa_base((long)va_arg(arg, int), 16));
+    unsigned long nb;
+    char *str;
+
+    str = NULL;
+    nb = ft_strlen(ft_itoa_base((long)va_arg(arg, int), 16));
+    if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
+    {
+        if (nb > (percents->width))
+        {
+            {
+                str = (char *)malloc(sizeof(char) * percents->width + 1);
+                ft_strncpy(str, va_arg(arg,
+                char *), (percents->width));
+                ft_putstr("0x");
+                ft_putstr(str);
+            }
+        }
+    }
+    if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision)))
+    {
+        if (nb > (percents->precision))
+        {
+            str = (char *)malloc(sizeof(char) * percents->precision + 1);
+            ft_strncpy(str, va_arg(arg,
+            char *), (percents->precision));
+            ft_putstr("0x");
+            ft_putstr(str);
+        }
+    }
+
+	if (arg == NULL) {
+        ft_putstr("0x");
+        ft_putchar('0');
+    }
 	return (TRUE);
 }
 

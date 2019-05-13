@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:42:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/09 17:55:31 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/11 20:16:01 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 int		ft_print_octal(va_list arg, t_ptf *percents)
 {
     unsigned long nb;
-    char const *str;
+    char *str;
 
-    nb = ft_strlen(ft_itoa(va_arg(arg, int))
-	str = (char *)malloc(sizeof(char) * nb + 1));
+    nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+	str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa_base(va_arg(arg, int), 8);
     ft_hashtag_flag(arg, percents);
     ft_zero_flag(arg, percents, nb);
@@ -34,10 +34,10 @@ int		ft_print_octal(va_list arg, t_ptf *percents)
 int		ft_print_unsigned(va_list arg, t_ptf *percents)
 {
     unsigned long nb;
-    char const *str;
+    char *str;
 
-    nb = ft_strlen(ft_itoa(va_arg(arg, int))
-    str = (char *)malloc(sizeof(char) * nb + 1));
+    nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+    str = (char *)malloc(sizeof(char) * nb + 1);
 	str = ft_itoa_base(va_arg(arg, int), 10);
 	ft_hashtag_flag(arg, percents);
     ft_zero_flag(arg, percents, nb);
@@ -51,11 +51,11 @@ int		ft_print_unsigned(va_list arg, t_ptf *percents)
 int		ft_print_hexa(va_list arg, t_ptf *percents)
 {
     unsigned long nb;
-    char const *str;
+    char *str;
 
-    nb = ft_strlen(ft_itoa(va_arg(arg, int))
-    str = (char *)malloc(sizeof(char) * nb + 1));
-	str = ft_itoa_base(va_arg(arg, int), 16));
+    nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+    str = (char *)malloc(sizeof(char) * nb + 1);
+	str = ft_itoa_base(va_arg(arg, int), 16);
     ft_hashtag_flag(arg, percents);
     ft_zero_flag(arg, percents, nb);
     ft_putstr(str);
@@ -67,7 +67,7 @@ int		ft_print_hexa(va_list arg, t_ptf *percents)
 
 int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 {
-    char const *str;
+    char *str;
     int i;
 
     str = ft_itoa_base(va_arg(arg, int), 16);
@@ -87,7 +87,7 @@ int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 
 int		ft_print_float(va_list arg, t_ptf *percents)
 {
-	char const *str;
+	char *str;
 	int i;
 
     i = 0;

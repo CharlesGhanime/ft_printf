@@ -137,9 +137,76 @@ char	*ft_float_precision_flag(char *str)
     return (str);
 }
 
-void    ft_width_precision(va_list arg, t_ptf *percents, int nb)
+
+void    ft_width_precision(va_list arg, t_ptf *percents, int nb, char src)
 {
-    while(*(percent->options++))
-        if (percents->options != '-' && percents->option != '0')
-            if ()
+    char *width;
+    char *precision;
+    char *final;
+
+    if (!percents->precision && percents->conv != 'f')
+        percents->precision = 1;
+    else
+        percents->precision = 6;
+    while (percents->options)
+    {
+        if (percents->width > nb && percents->precision < nb)
+        {
+            width = (char *)malloc(sizeof(char) * percents_width - nb + 1);
+            ft_memset(dst, ' ', ft_strlen(width));
+            final = ft_strjoinf(dst,src);
+        }
+        if (percents->width > nb && percents->precision > nb)
+        {
+            if (percents->width > percents->precision)
+            {
+                width = (char *)malloc(sizeof(char) * (percents->width - percents->precision + 1));
+                ft_memset(width, ' ', ft_strlen(dst));
+                precision = (char *)malloc(sizeof(char) * (percents->precision - nb + 1));
+                ft_memset(precision, '0', ft_strlen(precision));
+                final = ft_strjoinf(dst, src);
+            }
+        }
+
+        i++;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
+    {
+        if (nb > (percents->width))
+        {
+            {
+                str = (char *)malloc(sizeof(char) * percents->width + 1);
+                ft_strncpy(str, va_arg(arg,
+                char *), (percents->width));
+                //ft_putstr("0x");
+                ft_putstr(str);
+            }
+        }
+    }
+    if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision)))
+    {
+        if (nb > (percents->precision))
+        {
+            str = (char *)malloc(sizeof(char) * percents->precision + 1);
+            ft_strncpy(str, va_arg(arg,
+            char *), (percents->precision));
+            //ft_putstr("0x");
+            ft_putstr(str);
+        }
+    }
 }
