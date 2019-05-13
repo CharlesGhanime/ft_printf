@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 15:42:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/13 15:33:26 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/13 18:26:15 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main ()
 	char *s = "coco";
 	char cha = 'c';
 	printf("***********************Gestion des Floats**********************\n");
-	printf("%-10.8d\n", nul);
+	printf("%010.1d\n", nul);
 //	printf("%.5i\n", i);
 	printf("%.4f\n", f);
 	printf("%#.4f\n", f);

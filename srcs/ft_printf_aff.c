@@ -58,7 +58,7 @@ int		ft_print_string(va_list arg, t_ptf *percents)
 
 	/* TODO : fonction de gestion de la largeur de champs et de la precision
 	 *  elle est a réutiliser dans les autres fonctions d'affichage */
-
+/*
 	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
 	{
         if (nb > (percents->width))
