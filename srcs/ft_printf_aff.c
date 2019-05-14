@@ -53,9 +53,11 @@ int		ft_print_string(va_list arg, t_ptf *percents)
 	unsigned long nb;
 	char *str;
 
-	str = NULL;
 	nb = ft_strlen(va_arg(arg, char *));
+	str = (char *)malloc(sizeof(char) * nb + 1);
+	ft_strncpy(str, va_arg(arg, char *), nb);
 
+    ft_putstr(ft_width_precision(arg, percents, nb, str));
 	/* TODO : fonction de gestion de la largeur de champs et de la precision
 	 *  elle est a réutiliser dans les autres fonctions d'affichage */
 /*
@@ -84,7 +86,7 @@ int		ft_print_string(va_list arg, t_ptf *percents)
     else {
         ft_putstr(va_arg(arg, char *));
     }
-
+*/
 	return (TRUE);
 }
 
@@ -136,7 +138,9 @@ int		ft_print_decimal(va_list arg, t_ptf *percents)
     unsigned long nb;
 
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
-    while (*(percents->options++))
+
+
+/*    while (*(percents->options++))
         if ((*(percents->options) != '-'))
         while (*(percents->options++))
             if (*(percents->options) == '0')
@@ -145,7 +149,7 @@ int		ft_print_decimal(va_list arg, t_ptf *percents)
         if (*(percents->options) == '-')
             while (*(percents->options++))
                 if (*(percents->options) == '0')
-                    ft_minus_flag(arg, percents, nb);
+                    ft_minus_flag(arg, percents, nb); */
 	return (TRUE);
 }
 
@@ -153,6 +157,12 @@ int		ft_print_decimal(va_list arg, t_ptf *percents)
 
 int		ft_print_integer(va_list arg, t_ptf *percents)
 {
-	ft_putnbr(va_arg(arg, int));
+    char *str;
+    int nb;
+
+    nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+	str = (char *)malloc(sizeof(char) * nb + 1);
+    str = ft_itoa(va_arg(arg, int));
+    ft_putstr(ft_width_precision(arg, percents, nb, str));
 	return (TRUE);
 }

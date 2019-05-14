@@ -161,11 +161,12 @@ int							ft_print_float(va_list arg, t_ptf *percents);
 
 /**************************** GESTION DES FLAGS *******************************/
 
-void						ft_minus_flag(va_list arg, t_ptf *word, int nb);
-void						ft_plus_flag(va_list arg, t_ptf *word);
-void						ft_hashtag_flag(va_list arg, t_ptf *word);
+void						ft_minus_flag(va_list arg, t_ptf *percents, int nb);
+void						ft_plus_flag(va_list arg, t_ptf *percents);
+void						ft_hashtag_flag(va_list arg, t_ptf *percents);
 void						ft_zero_flag(va_list arg, t_ptf *word, int nb);
-char						*ft_float_precision_flag(char *str, t_ptf *word);
+char						*ft_float_precision_flag(char *str, t_ptf *percents);
+char                        *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src);
 
 /***************************** PARSING ****************************************/
 t_ptf						*ft_count_pct(const char *format, t_ptf **head);

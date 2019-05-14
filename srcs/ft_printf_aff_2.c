@@ -69,17 +69,19 @@ int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
 {
     char *str;
     int i;
+    int nb;
 
+    nb = ft_strlen(ft_itoa_base(va_arg(arg, int), 16));
+    str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa_base(va_arg(arg, int), 16);
     i = 0;
-
     while (str[i])
     {
         if (str[i] >= 'a' && str[i] <= 'z')
             str[i] = str[i] - 32;
         i++;
     }
-    ft_printf("Test de mon hexa maj : %s", str);
+    ft_putstr(ft_width_precision(arg, percents, nb, str));
 	return (TRUE);
 }
 

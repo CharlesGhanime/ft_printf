@@ -30,11 +30,15 @@ SRCS :=		./srcs/ft_printf.c \
 	./srcs/ft_putnbr.c \
 	./srcs/ft_putnbr_base.c \
 	./srcs/ft_atoi.c \
+	./srcs/ft_itoa.c \
 	./srcs/ft_itoa_base.c \
 	./srcs/check.c  \
 	./srcs/init.c  \
 	./srcs/print_info.c \
 	./srcs/get_type.c \
+	./srcs/ft_flags_functions.c \
+	./srcs/ft_strcpy.c \
+	./srcs/ft_strncpy.c \
 
 OBJ := $(SRCS:.c=.o)
 

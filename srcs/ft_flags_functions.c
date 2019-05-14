@@ -31,7 +31,6 @@ void	ft_minus_flag(va_list arg, t_ptf *percents, int nb)
     int i;
 
     i = 0;
-
     while (percents->options[i])
     {
         if (percents->options[i] == '-')
