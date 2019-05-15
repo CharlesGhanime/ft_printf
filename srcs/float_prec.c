@@ -6,11 +6,48 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 23:11:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/16 00:09:36 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/16 00:47:57 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+char	*ft_addonechar(char **str, char c)
+{
+	char	*new;
+	size_t	size;
+
+	size = 0;
+	if (*str)
+	{
+		size = ft_strlen(*str);
+		if (!(new = (char*)malloc(sizeof(char) * size + 2)))
+			return (0);
+		new = ft_strcpy(new, *str);
+		new[size] = c;
+		new[size + 1] = '\0';
+		free(*str);
+		return (new);
+	}
+	else
+	{
+		new = (char*)ft_memalloc(2);
+		new[size] = c;
+		new[size + 1] = '\0';
+		return (new);
+	}
+	return (NULL);
+}
+
+char    *fill_prec(char *str, int diff)
+{
+	while (diff >= 0)
+	{
+		ft_addonechar(&str, '0');
+		diff--;
+	}
+	return (str);
+}
 
 char	*clean_round(char *str, int i)
 {
@@ -75,5 +112,7 @@ char	*float_prec_flag(char *str, int prec)
 		i++;
 		j++;
 	}
+	if (j < prec)
+		return (fill_prec(str, prec - i));
 	return (float_prec_flag2(str, i));
 }
