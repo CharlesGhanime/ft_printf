@@ -6,13 +6,13 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 23:11:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/15 23:13:04 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/05/16 00:09:36 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char    *clean_round(char *str, int i)
+char	*clean_round(char *str, int i)
 {
 	char *tmp;
 
@@ -41,9 +41,9 @@ char    *clean_round(char *str, int i)
 	return (str);
 }
 
-char    *float_prec_flag2(char *str, int i)
+char	*float_prec_flag2(char *str, int i)
 {
-	char    *tmp;
+	char	*tmp;
 
 	if ((str[i] - '0') >= 5)
 	{
@@ -59,7 +59,7 @@ char    *float_prec_flag2(char *str, int i)
 	return (str);
 }
 
-char    *float_prec_flag(char *str, int prec)
+char	*float_prec_flag(char *str, int prec)
 {
 	int i;
 	int j;
