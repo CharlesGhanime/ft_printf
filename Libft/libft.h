@@ -103,10 +103,10 @@ void				ft_is_negative(int n);
 int					ft_counter(int n);
 int					ft_wordcounter(char const *s, char c);
 char				**ft_filling(char const *s, char c, char **tab);
+char				*ft_addonechar(char **str, char c);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(unsigned int nb, unsigned int base);
-char				*ft_addonechar(char **str, char c);
-
+char                *ft_ftoa(double myfloat);
 
 /*
 ** BONUS SINGLY-LINKED LISTS

@@ -74,6 +74,7 @@ SRCS= 	ft_addonechar.c \
 		ft_lstmap.c \
 		ft_putnbr_base.c \
 		ft_itoa_base.c \
+		ft_ftoa.c \
 
 OBJECTS = $(SRCS:.c=.o)
 

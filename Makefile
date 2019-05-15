@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/05/10 19:08:32 by cghanime         ###   ########.fr        #
+#    Updated: 2019/05/15 17:42:30 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,36 +16,24 @@ EXEC := ft_printf
 CC := gcc
 FLAGS := -Wall -Wextra -Werror
 SRCS :=		./srcs/ft_printf.c \
-	./srcs/ft_p_functions.c \
-	./srcs/ft_p_functions_2.c \
-	./srcs/ft_printf_aff.c \
-	./srcs/ft_printf_aff_2.c \
-	./srcs/ft_printf_get.c \
-	./srcs/ft_printf_get_2.c \
-	./srcs/flags_struc_ceation.c \
-	./srcs/ft_ftoa.c \
-	./srcs/ft_putchar.c \
-	./srcs/ft_putstr.c \
-	./srcs/ft_strlen.c \
-	./srcs/ft_putnbr.c \
-	./srcs/ft_putnbr_base.c \
-	./srcs/ft_atoi.c \
-	./srcs/ft_itoa.c \
-	./srcs/ft_itoa_base.c \
-	./srcs/check.c  \
-	./srcs/init.c  \
-	./srcs/print_info.c \
-	./srcs/get_type.c \
-	./srcs/ft_flags_functions.c \
-	./srcs/ft_strcpy.c \
-	./srcs/ft_strncpy.c \
+			./srcs/ft_p_functions.c \
+			./srcs/ft_p_functions_2.c \
+			./srcs/ft_printf_aff.c \
+			./srcs/ft_printf_aff_2.c \
+			./srcs/ft_printf_get.c \
+			./srcs/ft_printf_get_2.c \
+			./srcs/check.c  \
+			./srcs/init.c  \
+			./srcs/print_info.c \
+			./srcs/get_type.c \
+			./srcs/ft_flags_functions.c \
 
 OBJ := $(SRCS:.c=.o)
 
 MAIN := ./main_printf/main_printf.c
 
-LIB_PATH = ./libft
-LIBFT = $(LIB_PATH)/libft.a
+LIB_PATH := ./libft
+LIBFT := $(LIB_PATH)/libft.a
 
 all : $(NAME)
 
@@ -55,14 +43,11 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m*****************MAKE***************************************"
 	@echo "\033[32m************************************************************"
 	@echo "\n"
-	$(MAKE) $(LIB_PATH)
-	$(CC) $(FLAGS) $(LIBFT) $(SRCS) -o $(NAME)
-	#	ar -rcv $(NAME) $(OBJ)
-	#	ranlib $(NAME)
-	#	make -C libft
+	$(MAKE) -C $(LIB_PATH)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $($LIBFT)
 
 libft : 
-	$(MAKE) $(LIB_PATH)
+	$(MAKE) -C $(LIB_PATH)
 
 ascii :
 	@echo        "______________________________         ________________________________         ___________________________________"
@@ -97,8 +82,8 @@ exef : $(NAME)
 	@echo   "/    /              /   /______________/   /        /  /    \  \   /   /     \ \/  /     /   /      /    /"
 	@echo  "/    /              /   /______________/   /        /  /      \  \ /   /       \   /     /   /      /    /"
 	@echo "/____/              /___/______________/___/        /__/        \__\___/          \/     /___/      /____/"
+
 	%.o : ./srcs/%.c
-#	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
 	@echo "\n"
@@ -108,6 +93,9 @@ clean :
 	@echo "\n"
 	rm -rf $(OBJ)
 	rm -rf *.o
+
+clean_libft :
+	make clean -C $(LIB_PATH)
 
 fclean : clean
 	@echo "\n"

@@ -6,11 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:45:26 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/15 17:05:29 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/01 17:09:06 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/ft_printf.h"
 
 void	ft_putnbr_base(unsigned int nb, unsigned int base)
 {
@@ -36,7 +36,7 @@ void	ft_putnbr_base(unsigned int nb, unsigned int base)
 	}
 	if (base == 16)
 	{
-		if (nb <= 15)
+		if (nb <=15)
 			ft_putchar(hexa[nb]);
 		else
 		{

@@ -77,11 +77,11 @@ void	ft_plus_flag(va_list arg, t_ptf *percents)
 
 void	ft_hashtag_flag(va_list arg, t_ptf *percents)
 {
-    if (percents->conv == o)
+    if (percents->conv == 'o')
         ft_putchar('0');
-    if (percents->conv == x)
+    if (percents->conv == 'x')
         ft_putstr("0x");
-    if (percents->conv == X)
+    if (percents->conv == 'X')
         ft_putstr("0X");
 }
 
@@ -121,30 +121,31 @@ void	ft_zero_flag(va_list arg, t_ptf *percents, int nb)
         i++;
     }
 }
-char	*ft_float_precision_flag(char *str)
+char	*ft_float_precision_flag(const char *str)
 {
     int i;
 
     i = 0;
-    while (str[i])
+    while (str[i + 1] != '\0')
         i++;
-    if (str[i] >= 5)
+    if (ft_atoi(str[i]) >= 5)
     {
-        str[i] = '0';
-        str[i - 1] += 1;
+        str[i] = 0 + '0';
+        str[i - 1] += 1 + '0';
+        printf("str[i] = %c\n", str[i]);
     }
     return (str);
 }
 
 
-char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char src)
+char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, const char *src)
 {
     int i;
     int minus;
     int zero;
-    char *width;
-    char *precision;
-    char *wp;
+    const char *width;
+    const char *precision;
+    const char *wp;
     char *final;
 
     i = 0;
@@ -249,20 +250,6 @@ char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char src)
         }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
 {

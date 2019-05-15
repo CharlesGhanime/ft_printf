@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/09 17:54:08 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/15 17:42:26 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,8 @@ typedef struct				s_ftprintf
 
 /**************************** SYSTEM ******************************************/
 
-size_t						ft_strlen(const char *str);
-char						*ft_strcat(char *dst, char const *src);
-char						*ft_strcpy(char *dst, const char *src);
 boolean						is_token(char token, char c);
 boolean						is_format(size_t bool_format);
-void						ft_bzero(void *str, size_t len);
-void						*ft_memset(void *str, int c, size_t len);
-void						*ft_memalloc(size_t size);
-void						*ft_memcpy(void *dst, const void *src, size_t len);
-char						*ft_strsub(char const *s, unsigned int start,
-							size_t len);
 
 /**************************** GET FUNCTIONS ***********************************/
 
@@ -121,14 +112,23 @@ char						ft_get_hexa();
 char						ft_get_hexa_maj();
 char						ft_get_float();
 
-/**************************** PRINT FUNCTIONS *********************************/
+/**************************** LIBFT FUNCTIONS *********************************/
 
-void						ft_putchar(char c);
-void						ft_putstr(char const *str);
-void						ft_putnbr(int nb);
-int							ft_atoi(const char *str);
-char						*ft_itoa_base(unsigned int nb, unsigned int base);
-char						*ft_ftoa(double myfloat);
+//size_t						ft_strlen(const char *str);
+//char						*ft_strcat(char *dst, char const *src);
+//char						*ft_strcpy(char *dst, const char *src);
+//void						ft_putchar(char c);
+//void						ft_putstr(char const *str);
+//void						ft_putnbr(int nb);
+//int							ft_atoi(const char *str);
+//char						*ft_itoa_base(unsigned int nb, unsigned int base);
+//char						*ft_ftoa(double myfloat);
+//void						ft_bzero(void *str, size_t len);
+//void						*ft_memset(void *str, int c, size_t len);
+//void						*ft_memalloc(size_t size);
+//void						*ft_memcpy(void *dst, const void *src, size_t len);
+//char						*ft_strsub(char const *s, unsigned int start,
+//							size_t len);
 
 /********************************* PRINTF *************************************/
 
@@ -198,15 +198,15 @@ t_stock						*flags_struct_completion
 void						word_info(t_ptf *word);
 void						global_info(t_ptf *percents);
 
-/**************************** MAIN ********************************************/
+/********************************** MAIN **************************************/
 
-int		main(void);
+int		                    main(void);
 
-/************
-*           *
-*  COLORS   *
-*           *
-************/
+/********************************************************************************
+*                                                                               *
+*                                   COLORS                                      *
+*                                                                               *
+********************************************************************************/
 
 # define _RED       "\x1b[31m"
 # define _BRED      "\x1b[1;31m"

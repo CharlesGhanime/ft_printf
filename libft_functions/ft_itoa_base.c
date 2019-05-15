@@ -6,11 +6,10 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/15 17:10:44 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:00:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 static int		ft_counter_base(unsigned int nb, unsigned int base)
 {

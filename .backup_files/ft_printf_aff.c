@@ -51,13 +51,11 @@ int		ft_print_char(va_list arg, t_ptf *percents)
 int		ft_print_string(va_list arg, t_ptf *percents)
 {
 	unsigned long nb;
-	char *starg;
 	char *str;
 
-	starg = va_arg(arg, char *);
-	nb = ft_strlen(starg);
+	nb = ft_strlen(va_arg(arg, char *));
 	str = (char *)malloc(sizeof(char) * nb + 1);
-	ft_strncpy(str, starg, nb);
+	ft_strncpy(str, va_arg(arg, char *), nb);
 
     ft_putstr(ft_width_precision(arg, percents, nb, str));
 	/* TODO : fonction de gestion de la largeur de champs et de la precision
