@@ -66,6 +66,7 @@ typedef struct				s_format
 	FORMAT_TOKEN			next_format;
 }							t_format;
 
+
 typedef struct				s_stock
 {
 		int					flags;
@@ -75,7 +76,8 @@ typedef struct				s_stock
 }							t_stock;
 
 /*
-typedef struct				s_ftprintf
+
+ typedef struct				s_ftprintf
 {
 	char					conv;
 	int						rank;
@@ -92,7 +94,7 @@ typedef struct				s_ftprintf
 	struct s_ftprintf		*next;
 }							t_ptf;
 
- */
+*/
 
 /**************************** SYSTEM ******************************************/
 
@@ -113,23 +115,23 @@ char						ft_get_hexa_maj();
 char						ft_get_float();
 
 /**************************** LIBFT FUNCTIONS *********************************/
-
-//size_t						ft_strlen(const char *str);
-//char						*ft_strcat(char *dst, char const *src);
-//char						*ft_strcpy(char *dst, const char *src);
-//void						ft_putchar(char c);
-//void						ft_putstr(char const *str);
-//void						ft_putnbr(int nb);
-//int							ft_atoi(const char *str);
-//char						*ft_itoa_base(unsigned int nb, unsigned int base);
-//char						*ft_ftoa(double myfloat);
-//void						ft_bzero(void *str, size_t len);
-//void						*ft_memset(void *str, int c, size_t len);
-//void						*ft_memalloc(size_t size);
-//void						*ft_memcpy(void *dst, const void *src, size_t len);
-//char						*ft_strsub(char const *s, unsigned int start,
-//							size_t len);
-
+/*
+size_t						ft_strlen(char *str);
+char						*ft_strcat(char *dst, char const *src);
+char						*ft_strcpy(char *dst, char *src);
+void						ft_putchar(char c);
+void						ft_putstr(char const *str);
+void						ft_putnbr(int nb);
+int							ft_atoi(char *str);
+char						*ft_itoa_base(unsigned int nb, unsigned int base);
+char						*ft_ftoa(double myfloat);
+void						ft_bzero(void *str, size_t len);
+void						*ft_memset(void *str, int c, size_t len);
+void						*ft_memalloc(size_t size);
+void						*ft_memcpy(void *dst, const void *src, size_t len);
+char						*ft_strsub(char const *s, unsigned int start,
+							size_t len);
+*/
 /********************************* PRINTF *************************************/
 
 int							ft_printf(const char *format, ...);
@@ -169,8 +171,8 @@ char						*ft_float_precision_flag(char *str, t_ptf *percents);
 char                        *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src);
 
 /***************************** PARSING ****************************************/
-t_ptf						*ft_count_pct(const char *format, t_ptf **head);
-int							ft_auscultate(const char *patient);
+t_ptf						*ft_count_pct(char *format, t_ptf **head);
+int							ft_auscultate(char *patient);
 int							doctor(char *format, int rank, int position, t_ptf
 							**percents);
 int							add_pct_pos(t_ptf **percents, int pos);

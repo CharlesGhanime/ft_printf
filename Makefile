@@ -18,8 +18,7 @@ FLAGS := -Wall -Wextra -Werror
 SRCS :=		./srcs/ft_printf.c \
 			./srcs/ft_p_functions.c \
 			./srcs/ft_p_functions_2.c \
-			./srcs/ft_printf_aff.c \
-			./srcs/ft_printf_aff_2.c \
+			./srcs/ft_printf_aff_reforged.c \
 			./srcs/ft_printf_get.c \
 			./srcs/ft_printf_get_2.c \
 			./srcs/check.c  \
@@ -27,6 +26,8 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/print_info.c \
 			./srcs/get_type.c \
 			./srcs/ft_flags_functions.c \
+
+#aff et aff_2 remplacées par reforged pour debugger la partie des fonctions d'affichage (trop de code accumulé)
 
 OBJ := $(SRCS:.c=.o)
 
@@ -43,8 +44,11 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m*****************MAKE***************************************"
 	@echo "\033[32m************************************************************"
 	@echo "\n"
+	@echo "touch error_logs\n"
+	touch error.txt
 	$(MAKE) -C $(LIB_PATH)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $($LIBFT)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $($LIBFT) > error.txt
+
 
 libft : 
 	$(MAKE) -C $(LIB_PATH)

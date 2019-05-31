@@ -121,14 +121,14 @@ void	ft_zero_flag(va_list arg, t_ptf *percents, int nb)
         i++;
     }
 }
-char	*ft_float_precision_flag(const char *str)
+char	*ft_float_precision_flag(char *str)
 {
     int i;
 
     i = 0;
     while (str[i + 1] != '\0')
         i++;
-    if (ft_atoi(str[i]) >= 5)
+    if (ft_atoi(&str[i]) >= 5)
     {
         str[i] = 0 + '0';
         str[i - 1] += 1 + '0';
@@ -138,14 +138,14 @@ char	*ft_float_precision_flag(const char *str)
 }
 
 
-char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, const char *src)
+char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src)
 {
     int i;
     int minus;
     int zero;
-    const char *width;
-    const char *precision;
-    const char *wp;
+    char *width;
+    char *precision;
+    char *wp;
     char *final;
 
     i = 0;

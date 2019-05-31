@@ -94,6 +94,7 @@ int				ft_printf(const char *format, ...)
 	t_ptf		*percents = NULL;
 	int i;
 
+	format = (char *)format;
 	percents = init_head(percents);
 	ft_count_pct(format, &percents);
 	blood_test(&percents);
