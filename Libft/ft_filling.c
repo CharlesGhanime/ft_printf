@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 18:53:57 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/24 21:11:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:55:43 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_filling(char const *s, char c, char **tab)
+char	**ft_filling(char *s, char c, char **tab)
 {
 	size_t begin;
 	size_t end;

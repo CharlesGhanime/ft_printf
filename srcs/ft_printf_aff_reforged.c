@@ -44,7 +44,7 @@ int		ft_print_string(va_list arg, t_ptf *percents)
     nb = ft_strlen(starg);
     str = (char *)malloc(sizeof(char) * nb + 1);
     ft_strncpy(str, starg, nb);
-    ft_putstr(ft_width_precision(arg, percents, nb, str));
+    ft_putstr(ft_width_precision(str, percents, nb));
     return (TRUE);
 }
 
@@ -93,9 +93,15 @@ int		ft_print_address(va_list arg, t_ptf *percents)
 
 int		ft_print_decimal(va_list arg, t_ptf *percents)
 {
-    unsigned long nb;
+    char *str;
+    int nb;
+    char c;
 
+    c = va_arg(arg, int);
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
+    str = (char *)malloc(sizeof(char) * nb + 1);
+    str = ft_itoa(va_arg(arg, int));
+    ft_putstr(ft_width_precision(str, percents, nb));
     return (TRUE);
 }
 
@@ -109,7 +115,7 @@ int		ft_print_integer(va_list arg, t_ptf *percents)
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
     str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa(va_arg(arg, int));
-    ft_putstr(ft_width_precision(arg, percents, nb, str));
+    ft_putstr(ft_width_precision(str, percents, nb));
     return (TRUE);
 }
 
@@ -123,10 +129,10 @@ int		ft_print_octal(va_list arg, t_ptf *percents)
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
     str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa_base(va_arg(arg, int), 8);
-    ft_hashtag_flag(arg, percents);
-    ft_zero_flag(arg, percents, nb);
+    ft_hashtag_flag(percents);
+    ft_zero_flag(percents, nb);
     ft_putstr(str);
-    ft_minus_flag(arg, percents, nb);
+    ft_minus_flag(percents, nb);
     return (TRUE);
 }
 
@@ -140,10 +146,10 @@ int		ft_print_unsigned(va_list arg, t_ptf *percents)
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
     str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa_base(va_arg(arg, int), 10);
-    ft_hashtag_flag(arg, percents);
-    ft_zero_flag(arg, percents, nb);
+    ft_hashtag_flag(percents);
+    ft_zero_flag(percents, nb);
     ft_putstr(str);
-    ft_minus_flag(arg, percents, nb);
+    ft_minus_flag(percents, nb);
     return (TRUE);
 }
 
@@ -157,10 +163,10 @@ int		ft_print_hexa(va_list arg, t_ptf *percents)
     nb = ft_strlen(ft_itoa(va_arg(arg, int)));
     str = (char *)malloc(sizeof(char) * nb + 1);
     str = ft_itoa_base(va_arg(arg, int), 16);
-    ft_hashtag_flag(arg, percents);
-    ft_zero_flag(arg, percents, nb);
+    ft_hashtag_flag(percents);
+    ft_zero_flag(percents, nb);
     ft_putstr(str);
-    ft_minus_flag(arg, percents, nb);
+    ft_minus_flag(percents, nb);
     return (TRUE);
 }
 
@@ -182,7 +188,7 @@ int		ft_print_hexa_maj(va_list arg, t_ptf *percents)
             str[i] = str[i] - 32;
         i++;
     }
-    ft_putstr(ft_width_precision(arg, percents, nb, str));
+    ft_putstr(ft_width_precision(str, percents, nb));
     return (TRUE);
 }
 

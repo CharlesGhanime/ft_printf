@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/15 17:42:26 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 10:03:54 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,27 +75,6 @@ typedef struct				s_stock
 		struct s_stock		*next;
 }							t_stock;
 
-/*
-
- typedef struct				s_ftprintf
-{
-	char					conv;
-	int						rank;
-	int						pos;
-	char					*options;
-	unsigned long			width;
-	unsigned long			precision;
-	char					*flags;
-	char					*symptoms;
-	char					*type;
-	int						key;
-	char					*keyc;
-	int						total_pct_count;
-	struct s_ftprintf		*next;
-}							t_ptf;
-
-*/
-
 /**************************** SYSTEM ******************************************/
 
 boolean						is_token(char token, char c);
@@ -163,12 +142,12 @@ int							ft_print_float(va_list arg, t_ptf *percents);
 
 /**************************** GESTION DES FLAGS *******************************/
 
-void						ft_minus_flag(va_list arg, t_ptf *percents, int nb);
+void	    				ft_minus_flag(t_ptf *percents, size_t nb);
 void						ft_plus_flag(va_list arg, t_ptf *percents);
-void						ft_hashtag_flag(va_list arg, t_ptf *percents);
-void						ft_zero_flag(va_list arg, t_ptf *word, int nb);
-char						*ft_float_precision_flag(char *str, t_ptf *percents);
-char                        *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src);
+void						ft_hashtag_flag(t_ptf *percents);
+void						ft_zero_flag(t_ptf *word, size_t nb);
+char						*ft_float_precision_flag(char *str);
+char                        *ft_width_precision(char *src, t_ptf *percents, size_t nb);
 
 /***************************** PARSING ****************************************/
 t_ptf						*ft_count_pct(char *format, t_ptf **head);

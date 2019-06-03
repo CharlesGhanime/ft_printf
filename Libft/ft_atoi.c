@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 17:26:37 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/24 21:02:26 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:54:21 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_atoi(char *str)
 {
 	size_t	i;
 	int		entier;

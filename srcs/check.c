@@ -6,14 +6,14 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/08 11:46:43 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 10:02:08 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
-t_ptf		*ft_count_pct(const char *format, t_ptf **head)
+t_ptf		*ft_count_pct(char *format, t_ptf **head)
 {
 	int i;
 	int pct_count;
@@ -41,7 +41,7 @@ t_ptf		*ft_count_pct(const char *format, t_ptf **head)
 ** looks for diouxXfcsp after a % has been found
 */
 
-int		ft_auscultate(const char *patient)
+int		ft_auscultate(char *patient)
 {
 	int		i;
 	int		j;

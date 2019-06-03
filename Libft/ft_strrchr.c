@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:28:32 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/23 13:51:29 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:13:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(char *s, int c)
 {
 	char *locate;
 

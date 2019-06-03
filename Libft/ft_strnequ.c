@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:48:03 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/27 20:11:19 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:53:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		ft_strnequ(char *s1, char *s2, size_t n)
 {
 	size_t	i;
 

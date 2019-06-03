@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 14:30:56 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:10:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,22 @@ void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const *s, char (*f)(char));
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1, char const *s2);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strtrim(char const *s);
-char				**ft_strsplit(char const *s, char c);
+char				*ft_strmap(char *s, char (*f)(char));
+char				*ft_strmapi(char *s, char (*f)(unsigned int, char));
+int					ft_strequ(char *s1, char *s2);
+int					ft_strnequ(char *s1, char *s2, size_t n);
+char				*ft_strsub(char *s, unsigned int start, size_t len);
+char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strtrim(char *s);
+char				**ft_strsplit(char *s, char c);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
-void				ft_putstr(char const *s);
-void				ft_putendl(char const *s);
+void				ft_putstr(char *s);
+void				ft_putendl(char *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putendl_fd(char const *s, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 /*
@@ -102,7 +102,7 @@ char				*ft_strrev(char *str);
 void				ft_is_negative(int n);
 int					ft_counter(int n);
 int					ft_wordcounter(char const *s, char c);
-char				**ft_filling(char const *s, char c, char **tab);
+char				**ft_filling(char *s, char c, char **tab);
 char				*ft_addonechar(char **str, char c);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(unsigned int nb, unsigned int base);

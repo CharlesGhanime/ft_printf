@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:31:43 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/24 20:52:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:14:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
 	size_t pos;
 	size_t i;

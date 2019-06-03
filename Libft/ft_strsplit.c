@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 19:14:30 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/26 14:50:10 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:54:08 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char *s, char c)
 {
 	char		**str;
 

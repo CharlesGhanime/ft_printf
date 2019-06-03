@@ -6,11 +6,11 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:21:50 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/23 13:45:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:13:05 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	while (*s)
 	{

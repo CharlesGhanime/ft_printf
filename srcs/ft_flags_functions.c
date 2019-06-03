@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/08 16:53:46 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:05:43 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@
  *				ft_memset(s1, ' ', ft_strlen(s1)); */
 
 /* ft_counter(va_arg(arg, int)) mais ca ne marchera ps en cas general
- * pour string donc il vaut mieux declarer un int en amont le prendre en
- * parametre : int = ft_counter pour les nombres et ft_strlen pour les string */
+ * pour string donc il vaut mieux declarer un size_t en amont le prendre en
+ * parametre : size_t = ft_counter pour les nombres et ft_strlen pour les string */
 
-void	ft_minus_flag(va_list arg, t_ptf *percents, int nb)
+
+void	ft_minus_flag(t_ptf *percents, size_t nb)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while (percents->options[i])
@@ -62,9 +63,10 @@ void	ft_minus_flag(va_list arg, t_ptf *percents, int nb)
     }
 }
 
+
 void	ft_plus_flag(va_list arg, t_ptf *percents)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while (percents->options[i])
@@ -75,7 +77,7 @@ void	ft_plus_flag(va_list arg, t_ptf *percents)
     }
 }
 
-void	ft_hashtag_flag(va_list arg, t_ptf *percents)
+void	ft_hashtag_flag(t_ptf *percents)
 {
     if (percents->conv == 'o')
         ft_putchar('0');
@@ -85,9 +87,10 @@ void	ft_hashtag_flag(va_list arg, t_ptf *percents)
         ft_putstr("0X");
 }
 
-void	ft_zero_flag(va_list arg, t_ptf *percents, int nb)
+
+void	ft_zero_flag(t_ptf *percents, size_t nb)
 {
-    int i;
+    size_t i;
 
     i = 0;
 
@@ -121,9 +124,10 @@ void	ft_zero_flag(va_list arg, t_ptf *percents, int nb)
         i++;
     }
 }
+
 char	*ft_float_precision_flag(char *str)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while (str[i + 1] != '\0')
@@ -138,11 +142,11 @@ char	*ft_float_precision_flag(char *str)
 }
 
 
-char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src)
+char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
 {
-    int i;
-    int minus;
-    int zero;
+    size_t i;
+    size_t minus;
+    size_t zero;
     char *width;
     char *precision;
     char *wp;
@@ -173,15 +177,15 @@ char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src)
                         ft_memset(width, ' ', ft_strlen(width));
                         precision = (char *) malloc(sizeof(char) * (percents->precision - nb + 1));
                         ft_memset(precision, '0', ft_strlen(precision));
-                        wp = ft_strjoinf(precision, src);
+                        wp = ft_strjoin(precision, src);
                         return (final = ft_strjoin(src, width));
                     } else {
                         width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
                         wp = (char *) malloc(sizeof(char) * percents->width + 1);
-                        ft_memset(width, ' ', ft_strlen(dst));
+                        ft_memset(width, ' ', ft_strlen(width));
                         precision = (char *) malloc(sizeof(char) * (percents->precision - nb + 1));
                         ft_memset(precision, '0', ft_strlen(precision));
-                        wp = ft_strjoinf(width, precision);
+                        wp = ft_strjoin(width, precision);
                         return (final = ft_strjoin(wp, src));
                     }
                 }
@@ -213,8 +217,10 @@ char    *ft_width_precision(va_list arg, t_ptf *percents, int nb, char *src)
             }
         }
         else
-            return (src);
+	        return (src);
+        return (NULL);
 }
+
  /*
             if (percents->precision < nb)
             {
@@ -276,3 +282,5 @@ ft_putstr(str);
 }
 }
 }
+
+*/

@@ -94,9 +94,8 @@ int				ft_printf(const char *format, ...)
 	t_ptf		*percents = NULL;
 	int i;
 
-	format = (char *)format;
 	percents = init_head(percents);
-	ft_count_pct(format, &percents);
+	ft_count_pct((char *)format, &percents);
 	blood_test(&percents);
 	va_start(arg, format);
 	i = 0;
@@ -112,5 +111,5 @@ int				ft_printf(const char *format, ...)
 	}
 	global_info(percents);
 	va_end(arg);
-		return (ft_strlen(format));
+		return (ft_strlen((char *)format));
 }

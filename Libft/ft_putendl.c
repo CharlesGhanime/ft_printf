@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:01:11 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/26 14:49:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:55:12 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void	ft_putendl(char *s)
 {
 	size_t i;
 

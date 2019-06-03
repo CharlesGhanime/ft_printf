@@ -6,13 +6,13 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 00:17:13 by cghanime          #+#    #+#             */
-/*   Updated: 2018/11/24 20:53:25 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/03 12:52:32 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+int		ft_strequ(char *s1, char *s2)
 {
 	size_t	i;
 
