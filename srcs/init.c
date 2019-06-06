@@ -6,11 +6,26 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/08 11:46:46 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/06 12:24:26 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+long		total_size(t_ptf *head, int char_size)
+{
+	long	size;
+	t_ptf	*word;
+	
+	word = (*head)->next;
+	while (word->next)
+	{
+		char_size -= ft_strlen(word->symptoms);
+		size += word->size;
+		word = word->next;
+	}
+	return (size + char_size);
+}
 
 t_ptf		*init_head(t_ptf *head)
 {

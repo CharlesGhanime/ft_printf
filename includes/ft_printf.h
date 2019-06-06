@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 10:03:54 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/06 12:25:09 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct				s_ftprintf
 	int						key;
 	char					*keyc;
 	int						total_pct_count;
+	long					size;
 	struct s_ftprintf		*next;
 }							t_ptf;
 
@@ -93,30 +94,13 @@ char						ft_get_hexa();
 char						ft_get_hexa_maj();
 char						ft_get_float();
 
-/**************************** LIBFT FUNCTIONS *********************************/
-/*
-size_t						ft_strlen(char *str);
-char						*ft_strcat(char *dst, char const *src);
-char						*ft_strcpy(char *dst, char *src);
-void						ft_putchar(char c);
-void						ft_putstr(char const *str);
-void						ft_putnbr(int nb);
-int							ft_atoi(char *str);
-char						*ft_itoa_base(unsigned int nb, unsigned int base);
-char						*ft_ftoa(double myfloat);
-void						ft_bzero(void *str, size_t len);
-void						*ft_memset(void *str, int c, size_t len);
-void						*ft_memalloc(size_t size);
-void						*ft_memcpy(void *dst, const void *src, size_t len);
-char						*ft_strsub(char const *s, unsigned int start,
-							size_t len);
-*/
 /********************************* PRINTF *************************************/
 
 int							ft_printf(const char *format, ...);
 
 void						ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
 void						ft_format_cmp(va_list arg, char c, t_ptf *percents);
+long						total_size(t_ptf *head, int char_size);
 
 p_func						ft_get_print_char();
 p_func						ft_get_print_string();
