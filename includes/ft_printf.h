@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/06 12:25:09 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/06 15:03:21 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,23 @@ typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 
+typedef struct				u_args
+{
+	// input tous les types ici
+	short					arg_short;
+	int						arg_int;
+	long					arg_long;
+	long long				arg_llong;
+	unsigned char			arg_unchar;
+	unsigned long			arg_unlong;
+	char					arg_char;
+	char 					*arg_string;
+	void					*arg_ptr;
+	
+
+
+}							t_args;
+
 typedef struct				s_ftprintf
 {
 	char					conv;
@@ -40,6 +57,7 @@ typedef struct				s_ftprintf
 	int						total_pct_count;
 	long					size;
 	struct s_ftprintf		*next;
+	t_args					type;
 }							t_ptf;
 
 typedef int (*p_func)(va_list, t_ptf *);

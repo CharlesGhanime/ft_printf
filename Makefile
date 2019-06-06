@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/06 11:29:27 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/06 14:46:51 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m********"
 	@echo "\n"
 	$(MAKE) -C $(LIB_PATH)
-#	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 	@libtool -static -o $@ $(OBJ) $(LIBFT)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 
 
 #@libtool -static -o $@ $^
