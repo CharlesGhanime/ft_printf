@@ -163,8 +163,8 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
         i++;
     }
     if (!percents->precision && percents->conv != 'f')
-        percents->precision = 1;
-    else
+        percents->precision= 1;
+    if (!percents->precision && percents->conv == 'f')
         percents->precision = 6;
 
     /* FONCTION DE GESTION DE WIDTH PRECISION MINUS ET ZERO */
@@ -173,36 +173,44 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
             if (percents->precision > nb) {
                 if (percents->width > percents->precision) {
                     if (minus) {
+                        printf("percents->width > nb && percents->width > percents->precision && minus\n");
                         width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
-                        ft_memset(width, ' ', ft_strlen(width));
+                        ft_memset(width, ' ', (percents->width - percents->precision));
                         precision = (char *) malloc(sizeof(char) * (percents->precision - nb + 1));
-                        ft_memset(precision, '0', ft_strlen(precision));
+                        ft_memset(precision, '0', (percents->precision - nb));
                         wp = ft_strjoin(precision, src);
                         return (final = ft_strjoin(src, width));
                     } else {
+                        printf("percents->width > nb && percents->width > percents->precision && !minus\n");
                         width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
                         wp = (char *) malloc(sizeof(char) * percents->width + 1);
-                        ft_memset(width, ' ', ft_strlen(width));
+                        ft_memset(width, ' ', (percents->width - percents->precision));
+                        printf("taille de width : %d\n", (int)ft_strlen(width));
+                        printf("width : %s\n", width);
                         precision = (char *) malloc(sizeof(char) * (percents->precision - nb + 1));
-                        ft_memset(precision, '0', ft_strlen(precision));
+                        ft_memset(precision, '0', (percents->precision - nb));
+                        printf("precision : %s\n", precision);
                         wp = ft_strjoin(width, precision);
+                        printf("wp : %s\n", wp);
                         return (final = ft_strjoin(wp, src));
                     }
                 }
                 if (percents->width < percents->precision) {
+                    printf("percents->width < percents->precision\n");
+                    printf("percents->precision = %lu\n", percents->precision);
                     precision = (char *) malloc(sizeof(char) * (percents->precision - nb + 1));
-                    ft_memset(precision, '0', ft_strlen(precision));
+                    ft_memset(precision, '0', (percents->precision - nb));
                     return (final = ft_strjoin(precision, src));
                 }
             }
             if (!percents->precision) {
                 if (zero) {
                     width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
-                    ft_memset(width, '0', ft_strlen(width));
+                    ft_memset(width, '0', (percents->width - percents->precision));
                     return (final = ft_strjoin(width, src));
                 } else {
                     width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
-                    ft_memset(width, ' ', ft_strlen(width));
+                    ft_memset(width, ' ', (percents->width - percents->precision));
                     return (final = ft_strjoin(width, src));
                 }
             }
@@ -211,14 +219,12 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
         {
             if (percents->precision > nb)
             {
-                precision = (char *)malloc(sizeof(char) * percents->precision - nb + 1);
-                ft_memset(precision, '0', ft_strlen(precision));
+                precision = (char *)malloc(sizeof(char) * (percents->precision - nb + 1));
+                ft_memset(precision, '0', (percents->precision - nb));
                 return (final = ft_strjoin(precision, src));
             }
         }
-        else
-	        return (src);
-        return (NULL);
+    return (src);
 }
 
  /*
@@ -244,7 +250,7 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
             if (percents->width > percents->precision && zero)
             {
                 width = (char *) malloc(sizeof(char) * (percents->width + 1));
-                ft_memset(width, '0', ft_strlen(dst));
+                ft_memset(width, '0', ft_strlen(dst)
                 return (final = ft_strjoin(width, src));
             }
             if (percents->width < percents->precision)

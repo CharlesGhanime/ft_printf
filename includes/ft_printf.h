@@ -134,6 +134,7 @@ char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents, size_t nb);
 
 /***************************** PARSING ****************************************/
+
 t_ptf						*ft_count_pct(char *format, t_ptf **head);
 int							ft_auscultate(char *patient);
 int							doctor(char *format, int rank, int position, t_ptf
