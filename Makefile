@@ -37,7 +37,7 @@ MAIN := ./main_printf/main_printf.c
 LIB_PATH := ./libft
 LIBFT := $(LIB_PATH)/libft.a
 
-all : $(NAME)
+all : $(NAME) $(LIBFT)
 
 $(NAME) : $(OBJ)
 	@echo "\n"
@@ -45,7 +45,7 @@ $(NAME) : $(OBJ)
 	@echo "\033[32m* MAKE *"
 	@echo "\033[32m********"
 	@echo "\n"
-	$(MAKE) -C $(LIB_PATH)
+#	$(MAKE) -C $(LIB_PATH)
 	@libtool -static -o $@ $(OBJ) $(LIBFT)
 	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 
@@ -53,7 +53,7 @@ $(NAME) : $(OBJ)
 #@libtool -static -o $@ $^
 #-o <objects> libft.a
 
-libft : 
+$(LIBFT) :
 	$(MAKE) -C $(LIB_PATH)
 
 	%.o : ./srcs/%.c

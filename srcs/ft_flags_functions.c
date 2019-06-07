@@ -203,14 +203,18 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
                     return (final = ft_strjoin(precision, src));
                 }
             }
-            if (!percents->precision) {
+            if (percents->precision < nb) {
                 if (zero) {
-                    width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
-                    ft_memset(width, '0', (percents->width - percents->precision));
+                    printf("percents->width > nb && !percents->precision && zero\n");
+                    width = (char *) malloc(sizeof(char) * (percents->width - nb + 1));
+                    ft_memset(width, '0', (percents->width - nb));
                     return (final = ft_strjoin(width, src));
                 } else {
-                    width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
-                    ft_memset(width, ' ', (percents->width - percents->precision));
+                    printf("percents->width > nb && !percents->precision\n");
+                    printf("percents->width = %lu\n", percents->width);
+                    printf("percents->precision = %lu\n", percents->precision);
+                    width = (char *) malloc(sizeof(char) * (percents->width - nb + 1));
+                    ft_memset(width, ' ', (percents->width - nb));
                     return (final = ft_strjoin(width, src));
                 }
             }
@@ -219,15 +223,17 @@ char    *ft_width_precision(char *src, t_ptf *percents, size_t nb)
         {
             if (percents->precision > nb)
             {
+                printf("percents->width < nb && percents->precision > nb\n");
                 precision = (char *)malloc(sizeof(char) * (percents->precision - nb + 1));
                 ft_memset(precision, '0', (percents->precision - nb));
                 return (final = ft_strjoin(precision, src));
             }
         }
+    printf("bypass boucle\n");
     return (src);
 }
 
- /*
+/*
             if (percents->precision < nb)
             {
                 width = (char *) malloc(sizeof(char) * percents_width - nb + 1);
