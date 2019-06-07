@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/06 15:03:21 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/07 16:50:53 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ typedef struct				u_args
 	long					arg_long;
 	long long				arg_llong;
 	unsigned char			arg_unchar;
+	unsigned int			arg_unint;
+	unsigned short			arg_unshort;
 	unsigned long			arg_unlong;
+	unsigned long long		arg_unllong;
 	char					arg_char;
 	char 					*arg_string;
 	void					*arg_ptr;
-	
-
-
+	float					arg_float;
+	double					arg_double;
+	long double				arg_ldouble;
 }							t_args;
 
 typedef struct				s_ftprintf
