@@ -71,11 +71,9 @@ void			ft_format_cmp(va_list arg, char c, t_ptf *percents)
 	ft_lst_format_token_init(lst_format);
 	while (current_format != NO_FORMAT)
 	{
-		//rajouter les checks des flags ici
 		if (lst_format[current_format].token == c)
 		{
 			lst_format[current_format].func(arg, percents);
-			//checker la valeur des bits de l'int flags ici et appeler les fonctions de flags correspondantes.
 			check_format = TRUE;
             percents = percents->next;
 		}

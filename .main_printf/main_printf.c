@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 19:15:34 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/06 11:47:34 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/06 11:54:42 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int		main(void)
 //	printf("retour de ft_printf : %d\n", ft_printf("coucoucoucoucoucoucoucou\n"));
 
 //	printf("printf test hexa: %x\n", a);
-	ft_printf("ft_printf test hexa : %x\n", a);
+	ft_printf("ft_printf test string : %s\n", c);
 
-	ft_printf("ft_printf test hexa maj : %X\n", a);
+//	ft_printf("ft_printf test hexa maj : %X\n", a);
 
-	printf("printf : %s%c%s%i\n", c, b, d, a);
+//	printf("printf : %s%c%s%i\n", c, b, d, a);
 //	ft_printf("ft_printf : %s%c%s%i\n", c, b, d, a);
 
 
