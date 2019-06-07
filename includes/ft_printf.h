@@ -57,7 +57,7 @@ typedef struct				s_ftprintf
 	int						total_pct_count;
 	long					size;
 	struct s_ftprintf		*next;
-	t_args					type;
+	t_args					arg_type;
 }							t_ptf;
 
 typedef int (*p_func)(va_list, t_ptf *);

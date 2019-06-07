@@ -16,8 +16,9 @@ long		total_size(t_ptf *head, int char_size)
 {
 	long	size;
 	t_ptf	*word;
-	
-	word = (*head)->next;
+
+	size = 0;
+	word = (head)->next;
 	while (word->next)
 	{
 		char_size -= ft_strlen(word->symptoms);
