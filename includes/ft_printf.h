@@ -36,9 +36,6 @@ typedef struct				u_args
 	char					arg_char;
 	char 					*arg_string;
 	void					*arg_ptr;
-	
-
-
 }							t_args;
 
 typedef struct				s_ftprintf

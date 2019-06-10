@@ -100,7 +100,7 @@ int				ft_printf(const char *format, ...)
 
 	while (format[i])
 	{
-	    ft_putchar(format[i]);
+//	    ft_putchar(format[i]);
 		if (is_token('%', format[i]) == TRUE)
 		{
 			ft_format_cmp(arg, format[++i], percents);
@@ -109,6 +109,8 @@ int				ft_printf(const char *format, ...)
 	}
 	global_info(percents);
 	va_end(arg);
-	printf("hello\n");
+//	printf("hello\n");
 		return (ft_strlen((char *)format));
 }
+
+
