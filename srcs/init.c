@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/06 12:24:26 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/13 20:15:00 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,26 @@ t_ptf		*init_head(t_ptf *head)
 	return (percents);
 }
 
+int		init_args(t_ptf *word)
+{
+	word->a_t.a_short = 0;
+	word->a_t.a_int = 0;
+	word->a_t.a_long = 0;
+	word->a_t.a_llong = 0;
+	word->a_t.a_unchar = 0;
+	word->a_t.a_unint = 0;
+	word->a_t.a_unshort = 0;
+	word->a_t.a_unlong = 0;
+	word->a_t.a_unllong = 0;
+	word->a_t.a_char = 0;
+	word->a_t.a_string = NULL;
+	word->a_t.a_ptr = 0;
+	word->a_t.a_float = 0;
+	word->a_t.a_double = 0;
+	word->a_t.a_ldouble = 0;
+	return (0);
+}
+
 int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
 {
 	t_ptf *word;
@@ -66,8 +86,8 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
 	word->options = NULL;
 	word->precision = 0;
 	word->width = 0;
-	word->keyc = NULL;
 	word->rank = rank;
+	init_args(word);
 	word->next = NULL;
 	return (1);
 }

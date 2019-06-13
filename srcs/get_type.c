@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/07 11:34:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/13 21:20:31 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 #include "../includes/ft_printf.h"
 #include <stdarg.h>
 
-int		blood_test(t_ptf **percents)
+int		blood_test(t_ptf **percents, va_list arg)
 {
 	t_ptf	*word;	
 	int		i;
@@ -77,7 +77,7 @@ int		blood_test(t_ptf **percents)
 			return (-1);
 		if ((i = get_flags(&word, i - 1)) == -1)
 			return (-1);
-		if ((get_type(&word)) == -1)
+		if ((get_type(&word, arg)) == -1)
 			return (-1);
 //		if ((create_key(&word)) == -1)
 //			return (-1);
@@ -86,32 +86,32 @@ int		blood_test(t_ptf **percents)
 	return (0);
 }
 
-int		get_type(t_ptf **word)
+int		get_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->conv == 'c')
 	{
-		if (!((*word)->type = (char *)ft_strdup("char")))
+		if (!((*word)->a_t.a_char = va_arg(arg, int)))
 			return (-1);
 	}
 	else if ((*word)->conv == 'p')
 	{
-		if (!((*word)->type = (char *)ft_strdup("void *")))
+		if (!((*word)->a_t.a_ptr = va_arg(arg, void *)))
 			return (-1);
 	}
 	else if ((*word)->conv == 's')
 	{
-		if (!((*word)->type = (char *)ft_strdup("char *")))
+		if (!((*word)->a_t.a_string = va_arg(arg, char *)))
 			return (-1);
 	}
 	else if ((*word)->conv == 'f')
-		return (get_f_type(&(*word)));
+		return (get_f_type(&(*word), arg));
 	else if (((*word)->conv == 'd' || (*word)->conv == 'i' || (*word)->conv == 'o'
 		|| (*word)->conv == 'u' || (*word)->conv == 'x' || (*word)->conv == 'X'))
-		return (get_dioux_type(&(*word)));
+		return (get_dioux_type(&(*word), arg));
 	return (0);
 }
 
-int		get_f_type(t_ptf **word)
+int		get_f_type(t_ptf **word, va_list arg)
 {
 	int	i;
 
@@ -119,50 +119,50 @@ int		get_f_type(t_ptf **word)
 	if (!((*word)->flags) || ((*word)->flags[i] != 'l' 
 		&& (*word)->flags[i] != 'L'))
 	{
-		if (!((*word)->type = (char *)ft_strdup("float")))
+		if (!((*word)->a_t.a_float = va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[i] == 'l')
 	{
-		if (!((*word)->type = (char *)ft_strdup("double")))
+		if (!((*word)->a_t.a_double = va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[i] == 'L')
 	{
-		if (!((*word)->type = (char *)ft_strdup("long double")))
+		if (!((*word)->a_t.a_ldouble = va_arg(arg, long double)))
 			return (-1);
 	}
 
 	return (0);
 }
 
-int		get_dioux_type(t_ptf **word)
+int		get_dioux_type(t_ptf **word, va_list arg)
 {
 	if (((*word)->conv == 'd' || (*word)->conv == 'i'))
 	{
 		if (!(*word)->flags)
 		{	
-			if (!((*word)->type = (char *)ft_strdup("int")))
+			if (!((*word)->a_t.a_double = va_arg(arg, double)))
 				return (-1);
 		}
 		else
-			return ((get_di_type(&(*word))));
+			return ((get_di_type(&(*word), arg)));
 	}		
 	else if ((*word)->conv == 'o' || (*word)->conv == 'u' ||  (*word)->conv == 'x' 
 			|| (*word)->conv == 'X')
 	{	
 		if (!(*word)->flags)	
 		{	
-			if (!((*word)->type = (char *)ft_strdup("unsigned int")))
+			if (!((*word)->a_t.a_unint = va_arg(arg, unsigned int)))
 				return (-1);	
 		}
 		else
-			return ((get_oux_type(&(*word))));
+			return ((get_oux_type(&(*word), arg)));
 	}
 	return (0);
 }
 
-int		get_di_type(t_ptf **word)
+int		get_di_type(t_ptf **word, va_list arg)
 {
 	size_t i;
 
@@ -171,27 +171,27 @@ int		get_di_type(t_ptf **word)
 	{
 		if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] != 'h')
 		{
-			if (!((*word)->type = (char *)ft_strdup("short")))
+			if (!((*word)->a_t.a_short = va_arg(arg, int)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] == 'h')
 		{
-			if (!((*word)->type = (char *)ft_strdup("char")))
+			if (!((*word)->a_t.a_char = va_arg(arg, int)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] != 'l') 
 		{
-			if (!((*word)->type = (char *)ft_strdup("long")))
+			if (!((*word)->a_t.a_long = va_arg(arg, long)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] == 'l')
-			if (!((*word)->type = (char *)ft_strdup("long long")))
+			if (!((*word)->a_t.a_llong = va_arg(arg, long long)))
 				return (-1);
 	}					
 	return (0);	
 }
 
-int		get_oux_type(t_ptf **word)
+int		get_oux_type(t_ptf **word, va_list arg)
 {
 	size_t i;
 
@@ -200,21 +200,21 @@ int		get_oux_type(t_ptf **word)
 	{
 		if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] != 'h')
 		{
-			if (!((*word)->type = (char *)ft_strdup("unsigned short")))
+			if (!((*word)->a_t.a_unshort = va_arg(arg, int)))
 				return (-1);	
 		}
 		else if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] == 'h')
 		{
-			if (!((*word)->type = (char *)ft_strdup("unsigned char")))
+			if (!((*word)->a_t.a_unchar = va_arg(arg, int)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] != 'l')
 		{
-			if (!((*word)->type = (char *)ft_strdup("unsigned long")))
+			if (!((*word)->a_t.a_unlong = va_arg(arg, unsigned long)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] == 'l')
-			if (!((*word)->type = (char *)ft_strdup("unsigned long long")))
+			if (!((*word)->a_t.a_unllong = va_arg(arg, unsigned long long)))
 				return (-1);
 	}
 	return (0);

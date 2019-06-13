@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/07 16:50:53 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/13 20:24:22 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,21 @@ typedef int boolean;
 typedef struct				u_args
 {
 	// input tous les types ici
-	short					arg_short;
-	int						arg_int;
-	long					arg_long;
-	long long				arg_llong;
-	unsigned char			arg_unchar;
-	unsigned int			arg_unint;
-	unsigned short			arg_unshort;
-	unsigned long			arg_unlong;
-	unsigned long long		arg_unllong;
-	char					arg_char;
-	char 					*arg_string;
-	void					*arg_ptr;
-<<<<<<< HEAD
-=======
-	float					arg_float;
-	double					arg_double;
-	long double				arg_ldouble;
->>>>>>> 90674f573c438391a3ce8b638e664c7e87f4fe7c
+	short					a_short;
+	int						a_int;
+	long					a_long;
+	long long				a_llong;
+	unsigned char			a_unchar;
+	unsigned int			a_unint;
+	unsigned short			a_unshort;
+	unsigned long			a_unlong;
+	unsigned long long		a_unllong;
+	char					a_char;
+	char 					*a_string;
+	void					*a_ptr;
+	double					a_float;
+	double					a_double;
+	long double				a_ldouble;
 }							t_args;
 
 typedef struct				s_ftprintf
@@ -63,7 +60,7 @@ typedef struct				s_ftprintf
 	int						total_pct_count;
 	long					size;
 	struct s_ftprintf		*next;
-	t_args					arg_type;
+	t_args					a_t;
 }							t_ptf;
 
 typedef int (*p_func)(va_list, t_ptf *);
@@ -167,12 +164,13 @@ int							add_pct_pos(t_ptf **percents, int pos);
 
 t_ptf						*init_head(t_ptf *head);
 int							init_conv(t_ptf **percents, int rank, char *symptoms, char conv);
-int							blood_test(t_ptf ** percents);
-int							get_type(t_ptf **word);
-int							get_f_type(t_ptf **word);
-int							get_dioux_type(t_ptf **word);
-int							get_di_type(t_ptf **word);
-int							get_oux_type(t_ptf **word);
+int							init_args(t_ptf *word);
+int							blood_test(t_ptf **percents, va_list arg);
+int							get_type(t_ptf **word, va_list arg);
+int							get_f_type(t_ptf **word, va_list arg);
+int							get_dioux_type(t_ptf **word, va_list arg);
+int							get_di_type(t_ptf **word, va_list arg);
+int							get_oux_type(t_ptf **word, va_list arg);
 int							get_options(t_ptf **word, int i);
 int							get_width(t_ptf **word, int i);
 int							get_precision(t_ptf **word, int i);
