@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:50:55 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/14 17:01:25 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,17 @@ while (format[i])
 		i++;
 	}
 
+	i = 0;
+
+//	while (format[i])
+//	{
+////	    ft_putchar(format[i]);
+//		if (is_token('%', format[i]) == TRUE)
+//		{
+//			ft_format_cmp(arg, format[++i], percents);
+//		}
+//		i++;
+//	}
 	global_info(percents);
 	va_end(arg);
 //	printf("hello\n");
