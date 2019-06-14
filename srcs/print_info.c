@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/13 21:20:05 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/14 16:49:30 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    global_info(t_ptf *percents)
 			printf("\ttype:"_GREEN"'%s'\n"_END, percents->type);
 //		printf("\tkey:"_GREEN"'%d'\n"_END, percents->key);
 //		printf("\tkeyc:"_BGREEN"'%s'\n\n"_END, percents->keyc);
-		printf("var: = %u", percents->a_t.a_unint);
+		printf("var: = %c", percents->a_t.a_char);
 		percents = percents->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/06 12:16:58 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/14 16:50:55 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,39 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 {
 	lst_format[CHAR].token = ft_get_char();
 	lst_format[STRING].token = ft_get_string();
-	lst_format[ADDRESS].token = ft_get_address();
-	lst_format[DECIMAL].token = ft_get_decimal();
-	lst_format[INTEGER].token = ft_get_integer();
-	lst_format[OCTAL].token = ft_get_octal();
-	lst_format[UNSIGNED].token = ft_get_unsigned();
-	lst_format[HEXA].token = ft_get_hexa();
-	lst_format[HEXA_MAJ].token = ft_get_hexa_maj();
-	lst_format[FLOAT].token = ft_get_float();
+//lst_format[ADDRESS].token = ft_get_address();
+//	lst_format[DECIMAL].token = ft_get_decimal();
+//	lst_format[INTEGER].token = ft_get_integer();
+//	lst_format[OCTAL].token = ft_get_octal();
+//	lst_format[UNSIGNED].token = ft_get_unsigned();
+//	lst_format[HEXA].token = ft_get_hexa();
+//	lst_format[HEXA_MAJ].token = ft_get_hexa_maj();
+//	lst_format[FLOAT].token = ft_get_float();
 
 	lst_format[CHAR].next_format = STRING;
 	lst_format[STRING].next_format = ADDRESS;
-	lst_format[ADDRESS].next_format = DECIMAL;
-	lst_format[DECIMAL].next_format = INTEGER;
-	lst_format[INTEGER].next_format = OCTAL;
-	lst_format[OCTAL].next_format = UNSIGNED;
-	lst_format[UNSIGNED].next_format = HEXA;
-	lst_format[HEXA].next_format = HEXA_MAJ;
-	lst_format[HEXA_MAJ].next_format = FLOAT;
-	lst_format[FLOAT].next_format = NO_FORMAT;
+//	lst_format[ADDRESS].next_format = DECIMAL;
+//	lst_format[DECIMAL].next_format = INTEGER;
+//	lst_format[INTEGER].next_format = OCTAL;
+//	lst_format[OCTAL].next_format = UNSIGNED;
+//	lst_format[UNSIGNED].next_format = HEXA;
+//	lst_format[HEXA].next_format = HEXA_MAJ;
+//	lst_format[HEXA_MAJ].next_format = FLOAT;
+//	lst_format[FLOAT].next_format = NO_FORMAT;
 
 	lst_format[CHAR].func = ft_get_print_char();
 	lst_format[STRING].func = ft_get_print_string();
-	lst_format[ADDRESS].func = ft_get_print_address();
-	lst_format[DECIMAL].func = ft_get_print_decimal();
-	lst_format[INTEGER].func = ft_get_print_integer();
-	lst_format[OCTAL].func = ft_get_print_octal();
-	lst_format[UNSIGNED].func = ft_get_print_unsigned();
-	lst_format[HEXA].func = ft_get_print_hexa();
-	lst_format[HEXA_MAJ].func = ft_get_print_hexa_maj();
-	lst_format[FLOAT].func = ft_get_print_float();
+//	lst_format[ADDRESS].func = ft_get_print_address();
+//	lst_format[DECIMAL].func = ft_get_print_decimal();
+//	lst_format[INTEGER].func = ft_get_print_integer();
+//	lst_formntat[OCTAL].func = ft_get_print_octal();
+//	lst_format[UNSIGNED].func = ft_get_print_unsigned();
+//	lst_format[HEXA].func = ft_get_print_hexa();
+//	lst_format[HEXA_MAJ].func = ft_get_print_hexa_maj();
+//	lst_format[FLOAT].func = ft_get_print_float();
 }
 
-void			ft_format_cmp(va_list arg, char c, t_ptf *percents)
+void			ft_format_cmp(char c, t_ptf *percents)
 {
 	size_t			check_format = FALSE;
 	t_format		lst_format[NB_FORMAT];
@@ -73,7 +73,7 @@ void			ft_format_cmp(va_list arg, char c, t_ptf *percents)
 	{
 		if (lst_format[current_format].token == c)
 		{
-			lst_format[current_format].func(arg, percents);
+			lst_format[current_format].func(percents);
 			check_format = TRUE;
             percents = percents->next;
 		}
@@ -92,25 +92,28 @@ int				ft_printf(const char *format, ...)
 	t_ptf		*percents = NULL;
 	int i;
 
+//	printf("hello du debut\n");
 	percents = init_head(percents);
 	ft_count_pct((char *)format, &percents);
-	blood_test(&percents);
 	va_start(arg, format);
+	blood_test(&percents, arg);
+//  printf("hello du debut\n");
 	i = 0;
 
-	while (format[i])
+while (format[i])
 	{
 //	    ft_putchar(format[i]);
 		if (is_token('%', format[i]) == TRUE)
 		{
-			ft_format_cmp(arg, format[++i], percents);
+			ft_format_cmp(format[i], percents);
 		}
 		i++;
 	}
+
 	global_info(percents);
 	va_end(arg);
 //	printf("hello\n");
-		return (ft_strlen((char *)format));
+		return (0/*ft_strlen((char *)format)*/);
 }
 
 

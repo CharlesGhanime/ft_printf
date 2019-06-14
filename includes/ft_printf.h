@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/13 20:24:22 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/14 16:25:45 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ typedef struct				s_ftprintf
 	int						key;
 	char					*keyc;
 	int						total_pct_count;
-	long					size;
+	unsigned long					size;
 	struct s_ftprintf		*next;
 	t_args					a_t;
 }							t_ptf;
 
-typedef int (*p_func)(va_list, t_ptf *);
+typedef int (*p_func)(t_ptf *);
 
 typedef enum
 {
@@ -120,7 +120,7 @@ char						ft_get_float();
 int							ft_printf(const char *format, ...);
 
 void						ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
-void						ft_format_cmp(va_list arg, char c, t_ptf *percents);
+void						ft_format_cmp(char c, t_ptf *percents);
 long						total_size(t_ptf *head, int char_size);
 
 p_func						ft_get_print_char();
@@ -134,16 +134,16 @@ p_func						ft_get_print_hexa();
 p_func						ft_get_print_hexa_maj();
 p_func						ft_get_print_float();
 
-int							ft_print_char(va_list arg, t_ptf *percents);
-int							ft_print_string(va_list arg, t_ptf *percents);
-int							ft_print_address(va_list arg, t_ptf *percents);
-int							ft_print_decimal(va_list arg, t_ptf *percents);
-int							ft_print_integer(va_list arg, t_ptf *percents);
-int							ft_print_octal(va_list arg, t_ptf *percents);
-int							ft_print_unsigned(va_list arg, t_ptf *percents);
-int							ft_print_hexa(va_list arg, t_ptf *percents);
-int							ft_print_hexa_maj(va_list arg, t_ptf *percents);
-int							ft_print_float(va_list arg, t_ptf *percents);
+int							ft_print_char(t_ptf *percents);
+int							ft_print_string(t_ptf *percents);
+int							ft_print_address(t_ptf *percents);
+int							ft_print_decimal(t_ptf *percents);
+int							ft_print_integer(t_ptf *percents);
+int							ft_print_octal(t_ptf *percents);
+int							ft_print_unsigned(t_ptf *percents);
+int							ft_print_hexa(t_ptf *percents);
+int							ft_print_hexa_maj(t_ptf *percents);
+int							ft_print_float(t_ptf *percents);
 
 /**************************** GESTION DES FLAGS *******************************/
 
@@ -152,7 +152,7 @@ void						ft_plus_flag(va_list arg, t_ptf *percents);
 void						ft_hashtag_flag(t_ptf *percents);
 void						ft_zero_flag(t_ptf *word, size_t nb);
 char						*ft_float_precision_flag(char *str);
-char                        *ft_width_precision(char *src, t_ptf *percents, size_t nb);
+char                        *ft_width_precision(char *src, t_ptf *percents);
 
 /***************************** PARSING ****************************************/
 
