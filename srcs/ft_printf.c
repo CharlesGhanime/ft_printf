@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/06 12:16:58 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/13 21:19:44 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,20 @@ int				ft_printf(const char *format, ...)
 
 	percents = init_head(percents);
 	ft_count_pct((char *)format, &percents);
-	blood_test(&percents);
 	va_start(arg, format);
+	blood_test(&percents, arg);
+
 	i = 0;
 
-	while (format[i])
-	{
-//	    ft_putchar(format[i]);
-		if (is_token('%', format[i]) == TRUE)
-		{
-			ft_format_cmp(arg, format[++i], percents);
-		}
-		i++;
-	}
+//	while (format[i])
+//	{
+////	    ft_putchar(format[i]);
+//		if (is_token('%', format[i]) == TRUE)
+//		{
+//			ft_format_cmp(arg, format[++i], percents);
+//		}
+//		i++;
+//	}
 	global_info(percents);
 	va_end(arg);
 //	printf("hello\n");
