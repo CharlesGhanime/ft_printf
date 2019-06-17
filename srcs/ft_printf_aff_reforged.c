@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:52:05 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 08:30:46 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,53 @@
 
 int		ft_print_char(t_ptf *percents)
 {
-	printf("hello\n");
-	/*
-	int i = 0;
-	printf("hello\n");
 	percents->size = 1;
-		printf("%d\n", i);
 
-	while ((*percents->options) && *(percents->options)++)
-		printf("%d\n", i);
+	/*while ((*percents->options) && *(percents->options)++)
 		if (*(percents->options) == '-' && (percents->width) > percents->size)
 		{
-			printf("%d\n", i++);
 
 			ft_putchar(percents->a_t.a_char);
-			printf("%d\n", i++);
 			write(1, " ", (percents->width) - percents->size);
-			printf("%d\n", i++);
 		}
-		else*/
-			ft_putchar(percents->a_t.a_char);
+		else
+	*/
+	ft_putchar(percents->a_t.a_char);
 	return (TRUE);
 }
 
 /* PRINT STRING */
 
+
+char 	*str_precision(char *str, unsigned long precision)
+{
+	char	*new;
+	int		i;
+	
+	printf("%lu\n", precision);
+	if (ft_strlen(str) < precision || !precision)
+		return (str);
+	if (!(new = (char *)malloc(sizeof(char) * (precision + 1))))
+		return (NULL);
+	i = -1;
+	while (str[++i] && i < (int)precision)
+		new[i] = str[i];
+	new[i] = '\0';
+	free(str);
+	return (new);
+
+}
+
 int		ft_print_string(t_ptf *percents)
 {
 	char *str;
-
+	
+	str = ft_strdup(percents->a_t.a_string);
+	str = str_precision(str, percents->precision);
+//	ft_putstr(str);
+	printf("\t"_RED"%s"_END"", str);
 	percents->size = ft_strlen(percents->a_t.a_string);
-	str = (char *)malloc(sizeof(char) * percents->size + 1);
-	ft_strncpy(str, percents->a_t.a_string, percents->size);
-	ft_putstr(ft_width_precision(str, percents));
+	free(str);
 	return (TRUE);
 }
 

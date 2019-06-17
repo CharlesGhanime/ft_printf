@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 17:01:25 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 08:31:56 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,26 @@ void			ft_format_cmp(char c, t_ptf *percents)
 		{
 			lst_format[current_format].func(percents);
 			check_format = TRUE;
-            percents = percents->next;
+			break ;
 		}
 		current_format = lst_format[current_format].next_format;
 	}
-	if (is_format(check_format) == TRUE)
-	{
-		ft_putchar('%');
-		ft_putchar(c);
-	}
 }
+
+int				lobby(t_ptf *percents)
+{
+	t_ptf *word;
+
+	word = percents->next;
+	//printf("%s\n", word->a_t.a_string);
+	while (word)
+	{
+		ft_format_cmp(word->conv, word);
+		word = word->next;
+	}
+	return (1);
+}
+
 
 int				ft_printf(const char *format, ...)
 {
@@ -92,38 +102,21 @@ int				ft_printf(const char *format, ...)
 	t_ptf		*percents = NULL;
 	int i;
 
-//	printf("hello du debut\n");
 	percents = init_head(percents);
 	ft_count_pct((char *)format, &percents);
 	va_start(arg, format);
 	blood_test(&percents, arg);
-//  printf("hello du debut\n");
+//	printf("%s \n\n", percents->next->a_t.a_string);
+//	printf("%s\n\n", percents->next->a_t.a_string);
+//	printf("%s\n\n", percents->next->a_t.a_string);
 	i = 0;
 
-while (format[i])
-	{
-//	    ft_putchar(format[i]);
-		if (is_token('%', format[i]) == TRUE)
-		{
-			ft_format_cmp(format[i], percents);
-		}
-		i++;
-	}
+	lobby(percents);
+	
+	printf("\ntotal size = %ld\n", total_size(percents, ft_strlen((char *)format))); 
 
-	i = 0;
-
-//	while (format[i])
-//	{
-////	    ft_putchar(format[i]);
-//		if (is_token('%', format[i]) == TRUE)
-//		{
-//			ft_format_cmp(arg, format[++i], percents);
-//		}
-//		i++;
-//	}
 	global_info(percents);
 	va_end(arg);
-//	printf("hello\n");
 		return (0/*ft_strlen((char *)format)*/);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:28:31 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:40:21 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 03:38:37 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@
 
 /* PRINT CHAR */
 
-int		ft_print_char(va_list arg, t_ptf *percents)
+int		ft_print_char(t_ptf *percents)
 {
 	char c;
 	unsigned long nb;
 
+	printf("nigggiiiiss\n");
 
-    c = va_arg(arg, int);
 	nb = 1;
 	while (*(percents->options)++)
         if (*(percents->options) == '-' && (percents->width) > nb)

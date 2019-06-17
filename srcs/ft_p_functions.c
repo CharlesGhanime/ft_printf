@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:54:27 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 03:46:19 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 p_func		ft_get_print_char()
 {
-	printf("sup fas ass monkey\n");
 	return (ft_print_char);
 }
 
