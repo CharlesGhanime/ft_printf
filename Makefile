@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/13 17:22:29 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/17 08:43:01 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := libftprintf.a
 EXEC := ft_printf
 CC := gcc
 AR = ar rcs
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g
 SRCS :=		./srcs/ft_printf.c \
 			./srcs/ft_p_functions.c \
 			./srcs/ft_p_functions_2.c \
@@ -40,12 +40,12 @@ LIBFT := $(LIB_PATH)/libft.a
 all : $(NAME) $(LIBFT)
 
 $(NAME) : $(OBJ)
-	@echo "\n"
-	@echo "\033[32m********"
-	@echo "\033[32m* MAKE *"
-	@echo "\033[32m********"
-	@echo "\n"
-#	$(MAKE) -C $(LIB_PATH)
+	@echo -e "\n\033[32m********\033[32m* MAKE *\033[32m********"
+#	@echo "\033[32m********"
+#	@echo "\033[32m* MAKE *"
+#	@echo "\033[32m********"
+#	@echo "\n"
+	$(MAKE) -C $(LIB_PATH)
 	@libtool -static -o $@ $(OBJ) $(LIBFT)
 	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 
@@ -130,9 +130,9 @@ greppct:
 	@grep -o -E "%.{1,6}" $(MAIN_TEST)
 
 toftptf:
-	@sed -i '' 's/printf/ft_printf/g' $(MAIN_TEST)
+	@sed -i '' 's/printf(/ft_printf(/g' $(MAIN_TEST)
 toptf:
-	@sed -i '' 's/ft_printf/printf/g' $(MAIN_TEST)
+	@sed -i '' "s/ft_printf(/printf(/g" $(MAIN_TEST)
 
 tbug:
 	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/main_bug.c -o $(MINE)

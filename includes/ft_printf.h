@@ -6,14 +6,14 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:25:45 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 03:58:18 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "../Libft/libft.h"
+#include "../libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -26,7 +26,6 @@ typedef int boolean;
 
 typedef struct				u_args
 {
-	// input tous les types ici
 	short					a_short;
 	int						a_int;
 	long					a_long;
@@ -58,7 +57,7 @@ typedef struct				s_ftprintf
 	int						key;
 	char					*keyc;
 	int						total_pct_count;
-	unsigned long					size;
+	unsigned long			size;
 	struct s_ftprintf		*next;
 	t_args					a_t;
 }							t_ptf;
