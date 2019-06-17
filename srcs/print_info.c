@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/14 16:49:30 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/17 08:28:30 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,49 @@
 
 void    global_info(t_ptf *percents)
 {
+	FILE *fptr;
+
+	fptr = fopen("logs", "w");
+	if (fptr == NULL)
+	{
+		printf("Error in handling log\n");
+		exit(1);
+	}
 	percents = percents->next;
-	printf("\n");
+	fprintf(fptr, "\n");
 	while (percents)
 	{
-		printf("\t%%"_GREEN"%d"_END"", percents->rank);
-		printf("  conv: "_BBLUE"%c"_END, percents->conv);
-		printf(" -pos '%%' dans format: "_YELLOW"%d"_END"  \n", percents->pos);
-		printf("\tsymptoms:"_RED"%s "_END, percents->symptoms);
-		printf("\toptions:"_RED"'%s'\n"_END, percents->options);
-		printf("\twdith:"_RED"'%lu'\n"_END, percents->width);
-		printf("\tprecision:"_RED"'%lu'\n"_END, percents->precision);
-		printf("\tflags:"_RED"'%s'"_END, percents->flags);
+		fprintf(fptr, "\t%%"_GREEN"%d"_END"", percents->rank);
+		fprintf(fptr, "  conv: "_BBLUE"%c"_END, percents->conv);
+		fprintf(fptr, " -pos '%%' dans format: "_YELLOW"%d"_END"  \n", percents->pos);
+		fprintf(fptr, "\tsymptoms:"_RED"%s "_END, percents->symptoms);
+		fprintf(fptr, "\toptions:"_RED"'%s'\n"_END, percents->options);
+		fprintf(fptr, "\twdith:"_RED"'%lu'\n"_END, percents->width);
+		fprintf(fptr, "\tprecision:"_RED"'%lu'\n"_END, percents->precision);
+		fprintf(fptr, "\tflags:"_RED"'%s'"_END, percents->flags);
 //		if (((percents->key / 10000) < 2))
-//			printf("\ttype:"_GREEN"'unsigned %s'\n"_END, percents->type);
+//			fprintf(fptr, "\ttype:"_GREEN"'unsigned %s'\n"_END, percents->type);
 //		else
-			printf("\ttype:"_GREEN"'%s'\n"_END, percents->type);
-//		printf("\tkey:"_GREEN"'%d'\n"_END, percents->key);
-//		printf("\tkeyc:"_BGREEN"'%s'\n\n"_END, percents->keyc);
-		printf("var: = %c", percents->a_t.a_char);
+			fprintf(fptr, "\ttype:"_GREEN"'%s'\n"_END, percents->type);
+		fprintf(fptr, "\tsize:"_GREEN"'%lu'\n"_END, percents->size);
+//		fprintf(fptr, "\tkeyc:"_BGREEN"'%s'\n\n"_END, percents->keyc);
+//		fprintf(fptr, "\tvar: = %s", percents->a_t.a_char);
+		fprintf(fptr, "\n");
 		percents = percents->next;
 	}
+	fclose(fptr);
 }
 /*
 void	word_info(t_ptf *word)
 {
-	printf("rank = %d conv = %c\n", word->rank, word->conv);
-	printf("symptoms =%s\n", word->symptoms);
-	printf("options = %s\n", word->options);
-	printf("width = %lu\n", word->width);
-	printf("precision = %lu\n", word->precision);
-	printf("flags = %s\n", word->flags);
-	printf("type = %s\n", word->type);
-	printf("\n");
+	fprintf(fptr, "rank = %d conv = %c\n", word->rank, word->conv);
+	fprintf(fptr, "symptoms =%s\n", word->symptoms);
+	fprintf(fptr, "options = %s\n", word->options);
+	fprintf(fptr, "width = %lu\n", word->width);
+	fprintf(fptr, "precision = %lu\n", word->precision);
+	fprintf(fptr, "flags = %s\n", word->flags);
+	fprintf(fptr, "type = %s\n", word->type);
+	fprintf(fptr, "\n");
 }
 
 

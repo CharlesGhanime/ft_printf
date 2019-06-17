@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/13 21:20:31 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/17 04:07:29 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int		blood_test(t_ptf **percents, va_list arg)
 	int		i;
 	int		j;
 
-//	va_start(ap, format);
 	j = -1;
 	word = (*percents)->next;
 	while (word)

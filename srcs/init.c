@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/14 14:08:29 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/17 06:30:21 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ long		total_size(t_ptf *head, int char_size)
 	while (word->next)
 	{
 		if (word->symptoms)
-			char_size -= ft_strlen(word->symptoms) + 1;
+			char_size -= ft_strlen(word->symptoms);
 		size += word->size;
 		word = word->next;
 	}
