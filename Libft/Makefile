@@ -85,7 +85,7 @@ $(NAME): $(OBJECTS)
 	ranlib $@
 
 %.o : %.c
-	gcc -Wall -Wextra -Werror -c $< -o $@
+	gcc -Wall -Wextra -Werror -g -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)
