@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 00:26:15 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 00:47:42 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		ft_print_address(t_ptf *percents)
 
 //	printf("hello2\n");
 //	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
-//	{
+//	
 //		if (percents->size > (percents->width))
 //		{
 //			str = (char *)malloc(sizeof(char) * percents->width + 1);
