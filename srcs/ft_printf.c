@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/17 08:31:56 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 00:18:30 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[CHAR].token = ft_get_char();
 	lst_format[STRING].token = ft_get_string();
 	lst_format[ADDRESS].token = ft_get_address();
-//	lst_format[DECIMAL].token = ft_get_decimal();
+	lst_format[DECIMAL].token = ft_get_decimal();
 //	lst_format[INTEGER].token = ft_get_integer();
 //	lst_format[OCTAL].token = ft_get_octal();
 //	lst_format[UNSIGNED].token = ft_get_unsigned();
@@ -41,7 +41,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 
 	lst_format[CHAR].next_format = STRING;
 	lst_format[STRING].next_format = ADDRESS;
-//	lst_format[ADDRESS].next_format = DECIMAL;
+	lst_format[ADDRESS].next_format = DECIMAL;
 //	lst_format[DECIMAL].next_format = INTEGER;
 //	lst_format[INTEGER].next_format = OCTAL;
 //	lst_format[OCTAL].next_format = UNSIGNED;
@@ -53,7 +53,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[CHAR].func = ft_get_print_char();
 	lst_format[STRING].func = ft_get_print_string();
 	lst_format[ADDRESS].func = ft_get_print_address();
-//	lst_format[DECIMAL].func = ft_get_print_decimal();
+	lst_format[DECIMAL].func = ft_get_print_decimal();
 //	lst_format[INTEGER].func = ft_get_print_integer();
 //	lst_formntat[OCTAL].func = ft_get_print_octal();
 //	lst_format[UNSIGNED].func = ft_get_print_unsigned();
@@ -87,7 +87,7 @@ int	print_format(const char *format, t_ptf *word, int start)
 
 	len = word->pos - start;
 	write(1, format + start, len);
-	return (0);	
+	return (0);
 }	
 
 int	lobby(const char *format, t_ptf *percents)
@@ -97,11 +97,10 @@ int	lobby(const char *format, t_ptf *percents)
 
 	start = 0;
 	word = percents->next;
-	(word->pos == 0) ? (start = (int)ft_strlen(word->symptoms) + 2) 
+	(word->pos == 0) ? (start = (int)ft_strlen(word->symptoms) + 2)
 		: (start = 0);
 	while (word)
 	{
-		// rajouter le print de la str avant le %
 		print_format(format, word, start);
 		ft_format_cmp(word->conv, word);
 		start = word->pos + ft_strlen(word->symptoms) + 2;
@@ -121,6 +120,8 @@ int				ft_printf(const char *format, ...)
 	ft_count_pct((char *)format, &percents);
 	va_start(arg, format);
 	blood_test(&percents, arg);
+
+//	printf("%f \n\n", percents->next->a_t.a_double);
 //	printf("%s \n\n", percents->next->a_t.a_string);
 //	printf("%s\n\n", percents->next->a_t.a_string);
 //	printf("%s\n\n", percents->next->a_t.a_string);
@@ -129,7 +130,6 @@ int				ft_printf(const char *format, ...)
 	lobby(format, percents);
 	
 	printf("\ntotal size = %ld\n", total_size(percents, ft_strlen((char *)format))); 
-	printf("total REAL size = %ld\n", 
 
 	global_info(percents);
 	va_end(arg);

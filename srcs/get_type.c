@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/17 04:07:29 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 00:26:49 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		get_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->conv == 'c')
 	{
-		if (!((*word)->a_t.a_char = va_arg(arg, int)))
+		if (!((*word)->a_t.a_int = va_arg(arg, int)))
 			return (-1);
 	}
 	else if ((*word)->conv == 'p')
@@ -141,7 +141,7 @@ int		get_dioux_type(t_ptf **word, va_list arg)
 	{
 		if (!(*word)->flags)
 		{	
-			if (!((*word)->a_t.a_double = va_arg(arg, double)))
+			if (!((*word)->a_t.a_int = va_arg(arg, int)))
 				return (-1);
 		}
 		else
@@ -170,12 +170,12 @@ int		get_di_type(t_ptf **word, va_list arg)
 	{
 		if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] != 'h')
 		{
-			if (!((*word)->a_t.a_short = va_arg(arg, int)))
+			if (!((*word)->a_t.a_int = va_arg(arg, int)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] == 'h')
 		{
-			if (!((*word)->a_t.a_char = va_arg(arg, int)))
+			if (!((*word)->a_t.a_int = va_arg(arg, int)))
 				return (-1);
 		}
 		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] != 'l') 

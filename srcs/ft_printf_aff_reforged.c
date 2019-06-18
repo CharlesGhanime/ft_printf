@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/17 08:30:46 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 00:26:15 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,7 @@
 int		ft_print_char(t_ptf *percents)
 {
 	percents->size = 1;
-
-	/*while ((*percents->options) && *(percents->options)++)
-		if (*(percents->options) == '-' && (percents->width) > percents->size)
-		{
-
-			ft_putchar(percents->a_t.a_char);
-			write(1, " ", (percents->width) - percents->size);
-		}
-		else
-	*/
-	ft_putchar(percents->a_t.a_char);
+	ft_putchar((char)percents->a_t.a_int);
 	return (TRUE);
 }
 
@@ -39,7 +29,7 @@ char 	*str_precision(char *str, unsigned long precision)
 	char	*new;
 	int		i;
 	
-	printf("%lu\n", precision);
+//	printf("%lu\n", precision);
 	if (ft_strlen(str) < precision || !precision)
 		return (str);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + 1))))
@@ -57,8 +47,10 @@ int		ft_print_string(t_ptf *percents)
 {
 	char *str;
 	
-	str = ft_strdup(percents->a_t.a_string);
-	str = str_precision(str, percents->precision);
+	if (!(str = ft_strdup(percents->a_t.a_string)))
+		return (FALSE);
+	if (!(str = str_precision(str, percents->precision)))
+		return (FALSE);
 	ft_putstr(str);
 //	printf("\t"_RED"%s"_END"", str);
 	percents->size = ft_strlen(percents->a_t.a_string);
@@ -72,12 +64,13 @@ int		ft_print_address(t_ptf *percents)
 {
 	char *str;
 
-	str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, 16));
+	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, 16))))
+		return (FALSE);
 //	printf("printf prog = %p\n", percents->a_t.a_ptr);
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
 	ft_putstr(str);
-	printf("\n\n");
+//	printf("\n\n");
 	free(str);
 	return (TRUE);
 }
@@ -110,23 +103,25 @@ int		ft_print_address(t_ptf *percents)
 //	}
 
 
-///* PRINT DECIMAL */
-//
-//
-//
-//int		ft_print_decimal(t_ptf *percents)
-//{
-//	char *str;
-//	char c;
-//
-//	c = va_arg(arg, int);
-//	percents->size = ft_strlen(ft_itoa(va_arg(arg, int)));
+/* PRINT DECIMAL */
+
+int		ft_print_decimal(t_ptf *percents)
+{
+	char *str;
+
+//	percents->size = ft_strlen(ft_itoa(va_arg(arg, int)));	
 //	str = (char *)malloc(sizeof(char) * percents->size + 1);
-//	str = ft_itoa(va_arg(arg, int));
+
+//	printf("var = %i\n", percents->a_t.a_int);
+	str = ft_strdup(ft_itoa(percents->a_t.a_int));
 //	ft_putstr(ft_width_precision(str, percents, percents->size));
-//	return (TRUE);
-//}
-//
+	printf("\n"_RED"HEREEE"_END"\n");
+	ft_putstr(str);
+	printf("\n"_RED"HEREEE"_END"\n");
+	free(str);
+	return (TRUE);
+}
+
 ///* PRINT INTEGER */
 //
 //int		ft_print_integer(t_ptf *percents)
