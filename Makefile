@@ -126,8 +126,9 @@ removecol :
 	@sed -i '' 's/\"_MAGENTA\"//g'  $(MAIN_TEST)
 	@sed -i '' 's/\"_CYAN\"//g'     $(MAIN_TEST)
 
-greppct:
-	@grep -o -E "%.{1,6}" $(MAIN_TEST)
+
+greppct:						# Greps %, symptoms and conv
+	@grep -o -E "%.{1,6}" $(MAIN_TEST)		# Useful for detailed view
 
 toftptf:
 	@sed -i '' 's/printf(/ft_printf(/g' $(MAIN_TEST)
@@ -140,7 +141,7 @@ tbug:
 
 run :
 	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME)

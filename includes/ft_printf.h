@@ -26,41 +26,41 @@ typedef int boolean;
 
 typedef struct				u_args
 {
-	short					a_short;
-	int						a_int;
-	long					a_long;
-	long long				a_llong;
+	short				a_short;
+	int				a_int;
+	long				a_long;
+	long long			a_llong;
 	unsigned char			a_unchar;
 	unsigned int			a_unint;
 	unsigned short			a_unshort;
 	unsigned long			a_unlong;
 	unsigned long long		a_unllong;
-	char					a_char;
-	char 					*a_string;
-	void					*a_ptr;
-	double					a_float;
-	double					a_double;
-	long double				a_ldouble;
-}							t_args;
+	char				a_char;
+	char 				*a_string;
+	void				*a_ptr;
+	double				a_float;
+	double				a_double;
+	long double			a_ldouble;
+}					t_args;
 
 typedef struct				s_ftprintf
 {
-	char					conv;
-	int						rank;
-	int						pos;
-	char					*options;
+	char				conv;
+	int				rank;
+	int				pos;
+	char				*options;
 	unsigned long			width;
 	unsigned long			precision;
-	char					*flags;
-	char					*symptoms;
-	char					*type;
-	int						key;
-	char					*keyc;
-	int						total_pct_count;
+	char				*flags;
+	char				*symptoms;
+	char				*type;
+	int				key;
+	char				*keyc;
+	int				total_pct_count;
 	unsigned long			size;
 	struct s_ftprintf		*next;
-	t_args					a_t;
-}							t_ptf;
+	t_args				a_t;
+}					t_ptf;
 
 typedef int (*p_func)(t_ptf *);
 
@@ -119,9 +119,8 @@ char						ft_get_float();
 int							ft_printf(const char *format, ...);
 
 void						ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
-void						ft_format_cmp(char c, t_ptf *percents);
+void					ft_format_cmp(char c, t_ptf *percents);
 long						total_size(t_ptf *head, int char_size);
-
 p_func						ft_get_print_char();
 p_func						ft_get_print_string();
 p_func						ft_get_print_address();
@@ -155,7 +154,7 @@ char                        *ft_width_precision(char *src, t_ptf *percents);
 
 /***************************** PARSING ****************************************/
 
-t_ptf						*ft_count_pct(char *format, t_ptf **head);
+int						ft_count_pct(char *format, t_ptf **head);
 int							ft_auscultate(char *patient);
 int							doctor(char *format, int rank, int position, t_ptf
 							**percents);

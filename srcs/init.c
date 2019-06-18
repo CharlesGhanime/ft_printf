@@ -18,14 +18,17 @@ long		total_size(t_ptf *head, int char_size)
 	t_ptf	*word;
 
 	size = 0;
-	word = (head)->next;
-	while (word->next)
+	word = head->next;
+	while (word)
 	{
 		if (word->symptoms)
 			char_size -= ft_strlen(word->symptoms);
-		size += word->size;
+		size += word->size - 2;
+		printf("\nword_size = %lu\n", word->size);
 		word = word->next;
 	}
+	printf("hello\n");
+	printf("size = %lu\n", ft_strlen("p NULL; = %p\n"));
 	return (size + char_size);
 }
 
