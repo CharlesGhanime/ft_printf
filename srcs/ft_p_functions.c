@@ -21,12 +21,12 @@ p_func		ft_get_print_string()
 {
 	return (ft_print_string);
 }
-//
-//p_func		ft_get_print_address()
-//{
-//	return (ft_print_address);
-//}
-//
+
+p_func		ft_get_print_address()
+{
+	return (ft_print_address);
+}
+
 //p_func		ft_get_print_decimal()
 //{
 //	return (ft_print_decimal);
