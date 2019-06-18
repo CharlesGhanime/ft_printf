@@ -60,7 +60,6 @@ int		init_args(t_ptf *word)
 	word->a_t.a_unshort = 0;
 	word->a_t.a_unlong = 0;
 	word->a_t.a_unllong = 0;
-	word->a_t.a_char = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = 0;
 	word->a_t.a_float = 0;

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/17 03:58:18 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 00:26:26 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef int boolean;
 typedef struct				u_args
 {
 	short				a_short;
-	int				a_int;
+	int					a_int;
 	long				a_long;
 	long long			a_llong;
 	unsigned char			a_unchar;
@@ -35,7 +35,7 @@ typedef struct				u_args
 	unsigned short			a_unshort;
 	unsigned long			a_unlong;
 	unsigned long long		a_unllong;
-	char				a_char;
+	//char				a_char;
 	char 				*a_string;
 	void				*a_ptr;
 	double				a_float;
