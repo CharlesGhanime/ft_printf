@@ -13,14 +13,12 @@
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
-t_ptf		*ft_count_pct(char *format, t_ptf **head)
+int		ft_count_pct(char *format, t_ptf **head)
 {
 	int i;
 	int pct_count;
 	int	position;
-	t_ptf	*word;
 
-	word = NULL;
 	i = -1;
 	position = 0;
 	pct_count = 0;
@@ -34,7 +32,7 @@ t_ptf		*ft_count_pct(char *format, t_ptf **head)
 	if (!pct_count)
 		return (0);
 	(*head)->total_pct_count = pct_count;
-	return (word);
+	return (1);
 }
 
 /*
@@ -76,18 +74,16 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
  	{
 	      if (!((*percents)->next = (t_ptf*)malloc(sizeof(t_ptf))))
 		          return (0);
-	     (*percents)->next->rank = rank;
-		 (*percents)->next->symptoms = NULL;
-	     (*percents)->next->symptoms = symptoms;
-	     (*percents)->next->conv = format[position];
-		 (*percents)->next->type = NULL;
-		 (*percents)->next->options = NULL;
-		 (*percents)->next->width = 0;
-		 (*percents)->next->precision = 0;
-		 (*percents)->next->flags = NULL;
-//		 (*percents)->next->var = NULL;
-		 (*percents)->next->keyc = NULL;
-	     (*percents)->next->next = NULL;
+	      (*percents)->next->rank = rank;
+	      (*percents)->next->symptoms = NULL;
+	      (*percents)->next->symptoms = symptoms;
+	      (*percents)->next->conv = format[position];
+	      (*percents)->next->type = NULL;
+	      (*percents)->next->options = NULL;
+	      (*percents)->next->width = 0;
+	      (*percents)->next->precision = 0;
+	      (*percents)->next->flags = NULL;
+	      (*percents)->next->next = NULL;
 	     return (1);
 	}
 	else
