@@ -30,7 +30,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 {
 	lst_format[CHAR].token = ft_get_char();
 	lst_format[STRING].token = ft_get_string();
-//lst_format[ADDRESS].token = ft_get_address();
+	lst_format[ADDRESS].token = ft_get_address();
 //	lst_format[DECIMAL].token = ft_get_decimal();
 //	lst_format[INTEGER].token = ft_get_integer();
 //	lst_format[OCTAL].token = ft_get_octal();
@@ -52,7 +52,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 
 	lst_format[CHAR].func = ft_get_print_char();
 	lst_format[STRING].func = ft_get_print_string();
-//	lst_format[ADDRESS].func = ft_get_print_address();
+	lst_format[ADDRESS].func = ft_get_print_address();
 //	lst_format[DECIMAL].func = ft_get_print_decimal();
 //	lst_format[INTEGER].func = ft_get_print_integer();
 //	lst_formntat[OCTAL].func = ft_get_print_octal();
@@ -81,15 +81,30 @@ void			ft_format_cmp(char c, t_ptf *percents)
 	}
 }
 
-int				lobby(t_ptf *percents)
+int	print_format(const char *format, t_ptf *word, int start)
+{
+	int len;
+
+	len = word->pos - start;
+	write(1, format + start, len);
+	return (0);	
+}	
+
+int	lobby(const char *format, t_ptf *percents)
 {
 	t_ptf *word;
+	int start;
 
+	start = 0;
 	word = percents->next;
-	//printf("%s\n", word->a_t.a_string);
+	(word->pos == 0) ? (start = (int)ft_strlen(word->symptoms) + 2) 
+		: (start = 0);
 	while (word)
 	{
+		// rajouter le print de la str avant le %
+		print_format(format, word, start);
 		ft_format_cmp(word->conv, word);
+		start = word->pos + ft_strlen(word->symptoms) + 2;
 		word = word->next;
 	}
 	return (1);
@@ -111,9 +126,10 @@ int				ft_printf(const char *format, ...)
 //	printf("%s\n\n", percents->next->a_t.a_string);
 	i = 0;
 
-	lobby(percents);
+	lobby(format, percents);
 	
 	printf("\ntotal size = %ld\n", total_size(percents, ft_strlen((char *)format))); 
+	printf("total REAL size = %ld\n", 
 
 	global_info(percents);
 	va_end(arg);
