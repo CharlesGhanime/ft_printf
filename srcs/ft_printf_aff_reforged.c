@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 00:47:42 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 23:08:04 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,38 @@ int		ft_print_char(t_ptf *percents)
 
 /* PRINT STRING */
 
+char	*str_width(char *str, long width, int token)
+{
+	char *spaces;
+	long i;
 
-char 	*str_precision(char *str, unsigned long precision)
+	i = -1;
+	if (!(spaces = (char *)malloc(sizeof(char) * (width + 1))))
+		return (NULL);
+	while (++i < width - (long)ft_strlen(str))
+		spaces[i] = ' ';
+	spaces[i] = '\0';
+	if (token == 0)
+	{
+		if (!(spaces = ft_strjoin(spaces, str)))
+			return (NULL);
+	}
+	else if (token == 1)
+		if (!(spaces = ft_strjoin(str, spaces)))
+			return (NULL);
+//	printf("\nlen = %zu\n", ft_strlen("|                                                                               1") - 2);
+//	printf("\nlen PTF = %zu\n", ft_strlen("|                                                                               1") - 2);
+	free(str);
+	return (spaces);
+}	
+
+char 	*str_precision(char *str, long precision)
 {
 	char	*new;
 	int		i;
 	
 //	printf("%lu\n", precision);
-	if (ft_strlen(str) < precision || !precision)
+	if ((long)ft_strlen(str) < precision || !precision)
 		return (str);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + 1))))
 		return (NULL);
@@ -51,11 +75,24 @@ int		ft_print_string(t_ptf *percents)
 		return (FALSE);
 	if (!(str = str_precision(str, percents->precision)))
 		return (FALSE);
+	if (percents->width > (long)ft_strlen(percents->a_t.a_string) 
+			&& ft_ischar(percents->options, '-') != 1)
+	{
+		if (!(str = str_width(str, percents->width, 0)))
+			return (FALSE);
+	}
+	else if (percents->width <= 0 || (ft_ischar(percents->options, '-') == 1))
+	{
+		if (!(str = str_width(str, percents->width, 1)))
+			return (FALSE);
+	}
+//	percents->size = ft_strlen(percents->a_t.a_string);
+//	str = ft_width_precision(percents->a_t.a_string, percents);
 	ft_putstr(str);
-//	printf("\t"_RED"%s"_END"", str);
-	percents->size = ft_strlen(percents->a_t.a_string);
+//	printf(""_RED"%s"_END"", str);
+	percents->size = ft_strlen(str);
 	free(str);
-	return (TRUE);
+	return (FALSE);
 }
 
 /* PRINT ADDRESS */
@@ -66,6 +103,7 @@ int		ft_print_address(t_ptf *percents)
 
 	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, 16))))
 		return (FALSE);
+//	printf("\nstr = %s\n", str);
 //	printf("printf prog = %p\n", percents->a_t.a_ptr);
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
@@ -214,6 +252,8 @@ int		ft_print_decimal(t_ptf *percents)
 //	i = 0;
 //	str = ft_ftoa(va_arg(arg, double));
 //
+//	if (!percents->precision)
+//		percents->precision = 6;
 //	if (percents->precision)
 //		if (str[percents->precision] > 5 + '0')
 //		{

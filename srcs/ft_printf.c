@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 00:18:30 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 16:33:23 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void			ft_format_cmp(char c, t_ptf *percents)
 	{
 		if (lst_format[current_format].token == c)
 		{
-			lst_format[current_format].func(percents);
+			/*if (*/lst_format[current_format].func(percents)/* == FALSE)*/;
+				//insert free
 			check_format = TRUE;
 			break ;
 		}
@@ -106,6 +107,8 @@ int	lobby(const char *format, t_ptf *percents)
 		start = word->pos + ft_strlen(word->symptoms) + 2;
 		word = word->next;
 	}
+	if (format[start])
+		write(1, format + start, (int)ft_strlen((char*)format) - start);
 	return (1);
 }
 
@@ -129,11 +132,11 @@ int				ft_printf(const char *format, ...)
 
 	lobby(format, percents);
 	
-	printf("\ntotal size = %ld\n", total_size(percents, ft_strlen((char *)format))); 
+//	printf("\ntotal size = %ld\n", total_size(percents, ft_strlen((char *)format))); 
 
 	global_info(percents);
 	va_end(arg);
-		return (0/*ft_strlen((char *)format)*/);
+		return (total_size(percents, ft_strlen((char *)format)));
 }
 
 
