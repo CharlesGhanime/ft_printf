@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 23:08:04 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 23:41:25 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ int		ft_print_string(t_ptf *percents)
 		if (!(str = str_width(str, percents->width, 1)))
 			return (FALSE);
 	}
-//	percents->size = ft_strlen(percents->a_t.a_string);
-//	str = ft_width_precision(percents->a_t.a_string, percents);
 	ft_putstr(str);
 //	printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
