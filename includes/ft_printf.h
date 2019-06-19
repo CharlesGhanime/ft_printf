@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 00:26:26 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 16:47:54 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct				s_ftprintf
 	int				rank;
 	int				pos;
 	char				*options;
-	unsigned long			width;
-	unsigned long			precision;
+	long			width;
+	long			precision;
 	char				*flags;
 	char				*symptoms;
 	char				*type;
