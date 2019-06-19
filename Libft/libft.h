@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:10:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/19 18:49:24 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					ft_strncmp(char *s1, char *s2, size_t len);
 int					ft_atoi(char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
+int					ft_ischar(char *str, char c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
