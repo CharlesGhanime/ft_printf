@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/19 00:26:49 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/19 15:29:34 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,9 +236,7 @@ int		get_width(t_ptf **word, int i)
 	width = 0;
 	if ((*word)->symptoms)
 		while (((*word)->symptoms[++i] >= '0' && (*word)->symptoms[i] <= '9') && (*word)->symptoms[i])
-			width = (width * 10) + ft_atoi(&(*word)->symptoms[i]);
-	if (width > 10)
-		width = width / 10;
+			width = (width * 10) + ((*word)->symptoms[i] - '0');
 	(*word)->width = width;
 	return (i);
 }
@@ -252,9 +250,7 @@ int		get_precision(t_ptf **word, int i)
 		return (i);
 	while ((*word)->symptoms[++i] && ((*word)->symptoms[i] >= '0' 
 		&& (*word)->symptoms[i] <= '9'))
-		precision = (precision * 10) + ft_atoi(&(*word)->symptoms[i]);
-	if (precision > 10)
-		precision = precision / 10;
+		precision = (precision * 10) + ((*word)->symptoms[i] - '0');
 	(*word)->precision = precision;
 	return (i);
 }
