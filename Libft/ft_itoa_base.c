@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/05/15 17:10:44 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/19 22:39:19 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 {
 	char *tab;
 	char *hexa;
-	int octal[9] = {0, 1 ,2, 3, 4, 5, 6, 7, 10};
+	int octal[8] = {0, 1 ,2, 3, 4, 5, 6, 7};
 	int len;
 	unsigned int r;
 
@@ -69,7 +69,7 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 		while (len >= 0)
 		{
 			r = nb % base;
-			tab[len] = r + '0';
+			tab[len] = r;
 			if (r < 16)
 				tab[len--] = hexa[r];
 			nb = nb / base;
