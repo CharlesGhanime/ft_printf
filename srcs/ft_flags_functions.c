@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/14 16:15:41 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/06/19 16:50:22 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,8 +174,8 @@ char    *ft_width_precision(char *src, t_ptf *percents)
 
     /* FONCTION DE GESTION DE WIDTH PRECISION MINUS ET ZERO */
 
-        if (percents->width > percents->size) {
-            if (percents->precision > percents->size) {
+        if ((unsigned long)percents->width > percents->size) {
+            if ((unsigned long)percents->precision > percents->size) {
                 if (percents->width > percents->precision) {
                     if (minus) {
                         printf("percents->width > percents->size && percents->width > percents->precision && minus\n");
@@ -209,7 +209,7 @@ char    *ft_width_precision(char *src, t_ptf *percents)
                     return (final = ft_strjoin(precision, src));
                 }
             }
-            if (percents->precision < percents->size) {
+            if ((unsigned long)percents->precision < percents->size) {
                 if (zero) {
                     printf("percents->width > percents->size && !percents->precision && zero\n");
                     width = (char *) malloc(sizeof(char) * (percents->width - percents->size + 1));
@@ -225,9 +225,9 @@ char    *ft_width_precision(char *src, t_ptf *percents)
                 }
             }
         }
-        if (percents->width < percents->size)
+        if ((unsigned long)percents->width < percents->size)
         {
-            if (percents->precision > percents->size)
+            if ((unsigned long)percents->precision > percents->size)
             {
                 printf("percents->width < percents->size && percents->precision > percents->size\n");
                 precision = (char *)malloc(sizeof(char) * (percents->precision - percents->size + 1));
