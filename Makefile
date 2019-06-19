@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/17 08:43:01 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/19 21:38:43 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,6 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/get_type.c \
 			./srcs/ft_flags_functions.c \
 
-#aff et aff_2 remplacées par reforged pour debugger la partie des fonctions d'affichage (trop de code accumulé)
-
 OBJ := $(SRCS:.c=.o)
 
 MAIN := ./main_printf/main_printf.c
@@ -41,17 +39,9 @@ all : $(NAME) $(LIBFT)
 
 $(NAME) : $(OBJ)
 	@echo -e "\n\033[32m********\033[32m* MAKE *\033[32m********"
-#	@echo "\033[32m********"
-#	@echo "\033[32m* MAKE *"
-#	@echo "\033[32m********"
-#	@echo "\n"
 	$(MAKE) -C $(LIB_PATH)
 	@libtool -static -o $@ $(OBJ) $(LIBFT)
 	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
-
-
-#@libtool -static -o $@ $^
-#-o <objects> libft.a
 
 $(LIBFT) :
 	$(MAKE) -C $(LIB_PATH)
@@ -98,17 +88,12 @@ MINE = ft_printf
 A_PATH = ./.annex
 MAIN_TEST = $(A_PATH)/main_test.c
 
-trandom :
+trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
 	@$(MAKE) -C $(LIB_PATH)
 	@$(CC) $(LIBFT) $(MAIN_TEST) -o $(REAL)
 	@echo "$(GREEN)\tREAL PRINTF$(END)"
 	@./$(REAL)
-
-ifeq (ptest2,$(firstword $(MAKECMDGOALS)))
-	PTEST_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-	$(eval $RGS):;@:)
-endif
 
 tdiff : trandom
 	@sed -i '' 's/[^_]printf/ft_printf/g' $(MAIN_TEST)
@@ -126,18 +111,31 @@ removecol :
 	@sed -i '' 's/\"_MAGENTA\"//g'  $(MAIN_TEST)
 	@sed -i '' 's/\"_CYAN\"//g'     $(MAIN_TEST)
 
-
 greppct:						# Greps %, symptoms and conv
-	@grep -o -E "%.{1,6}" $(MAIN_TEST)		# Useful for detailed view
+	@grep -on -E "%.{1,6}" $(MAIN_TEST)		# Useful for detailed view
 
 toftptf:
 	@sed -i '' 's/printf(/ft_printf(/g' $(MAIN_TEST)
 toptf:
 	@sed -i '' "s/ft_printf(/printf(/g" $(MAIN_TEST)
 
+#ifeq (comline,$(firstword $(MAKECMDGOALS)))
+#	COMLINE_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+#	$(eval $(COMLINE_ARGS):;@:)
+#endif
+
+coml:
+	@sed -i '' '$(l)s/^/\/\//' $(MAIN_TEST)
+dcoml:
+	@sed -i '' '$(l)s/\/\///' $(MAIN_TEST)
+
 tbug:
 	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/main_bug.c -o $(MINE)
 	@./$(MINE)
+tptr:
+	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/main_ptr.c -o $(MINE)
+	@./$(MINE)
+
 
 run :
 	@$(MAKE) -C $(LIB_PATH)
