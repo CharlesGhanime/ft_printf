@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 16:33:23 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/20 23:52:56 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int				ft_printf(const char *format, ...)
 	va_start(arg, format);
 	blood_test(&percents, arg);
 
-//	printf("%f \n\n", percents->next->a_t.a_double);
+//	printf("==%d \n\n", percents->next->a_t.a_int);
 //	printf("%s \n\n", percents->next->a_t.a_string);
 //	printf("%s\n\n", percents->next->a_t.a_string);
 //	printf("%s\n\n", percents->next->a_t.a_string);

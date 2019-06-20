@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/19 15:29:34 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/20 21:39:27 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ int		blood_test(t_ptf **percents, va_list arg)
 {
 	t_ptf	*word;	
 	int		i;
-	int		j;
 
-	j = -1;
 	word = (*percents)->next;
 	while (word)
 	{
@@ -81,140 +79,6 @@ int		blood_test(t_ptf **percents, va_list arg)
 //		if ((create_key(&word)) == -1)
 //			return (-1);
 		word = word->next;
-	}
-	return (0);
-}
-
-int		get_type(t_ptf **word, va_list arg)
-{
-	if ((*word)->conv == 'c')
-	{
-		if (!((*word)->a_t.a_int = va_arg(arg, int)))
-			return (-1);
-	}
-	else if ((*word)->conv == 'p')
-	{
-		if (!((*word)->a_t.a_ptr = va_arg(arg, void *)))
-			return (-1);
-	}
-	else if ((*word)->conv == 's')
-	{
-		if (!((*word)->a_t.a_string = va_arg(arg, char *)))
-			return (-1);
-	}
-	else if ((*word)->conv == 'f')
-		return (get_f_type(&(*word), arg));
-	else if (((*word)->conv == 'd' || (*word)->conv == 'i' || (*word)->conv == 'o'
-		|| (*word)->conv == 'u' || (*word)->conv == 'x' || (*word)->conv == 'X'))
-		return (get_dioux_type(&(*word), arg));
-	return (0);
-}
-
-int		get_f_type(t_ptf **word, va_list arg)
-{
-	int	i;
-
-	i = 0;
-	if (!((*word)->flags) || ((*word)->flags[i] != 'l' 
-		&& (*word)->flags[i] != 'L'))
-	{
-		if (!((*word)->a_t.a_float = va_arg(arg, double)))
-			return (-1);
-	}
-	else if ((*word)->flags[i] == 'l')
-	{
-		if (!((*word)->a_t.a_double = va_arg(arg, double)))
-			return (-1);
-	}
-	else if ((*word)->flags[i] == 'L')
-	{
-		if (!((*word)->a_t.a_ldouble = va_arg(arg, long double)))
-			return (-1);
-	}
-
-	return (0);
-}
-
-int		get_dioux_type(t_ptf **word, va_list arg)
-{
-	if (((*word)->conv == 'd' || (*word)->conv == 'i'))
-	{
-		if (!(*word)->flags)
-		{	
-			if (!((*word)->a_t.a_int = va_arg(arg, int)))
-				return (-1);
-		}
-		else
-			return ((get_di_type(&(*word), arg)));
-	}		
-	else if ((*word)->conv == 'o' || (*word)->conv == 'u' ||  (*word)->conv == 'x' 
-			|| (*word)->conv == 'X')
-	{	
-		if (!(*word)->flags)	
-		{	
-			if (!((*word)->a_t.a_unint = va_arg(arg, unsigned int)))
-				return (-1);	
-		}
-		else
-			return ((get_oux_type(&(*word), arg)));
-	}
-	return (0);
-}
-
-int		get_di_type(t_ptf **word, va_list arg)
-{
-	size_t i;
-
-	i = 0;
-	while ((*word)->flags[i] && (*word)->type == NULL)
-	{
-		if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] != 'h')
-		{
-			if (!((*word)->a_t.a_int = va_arg(arg, int)))
-				return (-1);
-		}
-		else if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] == 'h')
-		{
-			if (!((*word)->a_t.a_int = va_arg(arg, int)))
-				return (-1);
-		}
-		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] != 'l') 
-		{
-			if (!((*word)->a_t.a_long = va_arg(arg, long)))
-				return (-1);
-		}
-		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] == 'l')
-			if (!((*word)->a_t.a_llong = va_arg(arg, long long)))
-				return (-1);
-	}					
-	return (0);	
-}
-
-int		get_oux_type(t_ptf **word, va_list arg)
-{
-	size_t i;
-
-	i = 0;
-	while ((*word)->flags[i] && (*word)->type == NULL)
-	{
-		if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] != 'h')
-		{
-			if (!((*word)->a_t.a_unshort = va_arg(arg, int)))
-				return (-1);	
-		}
-		else if ((*word)->flags[i] == 'h' && (*word)->flags[i + 1] == 'h')
-		{
-			if (!((*word)->a_t.a_unchar = va_arg(arg, int)))
-				return (-1);
-		}
-		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] != 'l')
-		{
-			if (!((*word)->a_t.a_unlong = va_arg(arg, unsigned long)))
-				return (-1);
-		}
-		else if ((*word)->flags[i] == 'l' && (*word)->flags[i + 1] == 'l')
-			if (!((*word)->a_t.a_unllong = va_arg(arg, unsigned long long)))
-				return (-1);
 	}
 	return (0);
 }

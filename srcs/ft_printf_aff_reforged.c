@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 23:41:25 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/21 01:12:14 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,8 @@ int		ft_print_string(t_ptf *percents)
 			return (FALSE);
 	}
 	else if (percents->width <= 0 || (ft_ischar(percents->options, '-') == 1))
-	{
 		if (!(str = str_width(str, percents->width, 1)))
 			return (FALSE);
-	}
 	ft_putstr(str);
 //	printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
@@ -111,45 +109,53 @@ int		ft_print_address(t_ptf *percents)
 	return (TRUE);
 }
 
-//	printf("hello2\n");
-//	if (((percents->width) && !(percents->precision)) || ((percents->width) >= (percents->precision)))
-//	
-//		if (percents->size > (percents->width))
-//		{
-//			str = (char *)malloc(sizeof(char) * percents->width + 1);
-//			ft_strncpy(str, (char *)percents->a_t.a_ptr, (percents->width));
-//			ft_putstr("0x");
-//			ft_putstr(str);
-//		}
-//	}
-//	if ((!((percents->width)) && ((percents->precision))) || ((percents->width) <= (percents->precision)))
-//	{
-//		if (percents->size > (percents->precision))
-//		{
-//			str = (char *)malloc(sizeof(char) * percents->precision + 1);
-//			ft_strncpy(str, va_arg(arg,char *), (percents->precision));
-//			ft_putstr("0x");
-//			ft_putstr(str);
-//		}
-//	}
-//
-//	if (arg == NULL) {
-//		ft_putstr("0x");
-//		ft_putchar('0');
-//	}
-
-
 /* PRINT DECIMAL */
+
+int		print_longlong(t_ptf *percents)
+{
+	char *str;
+	
+	if (!(str = ft_ltoa(percents->a_t.a_llong)))
+		return (-1);
+
+
+	ft_putstr(str);
+	percents->size = ft_strlen(str);
+	free(str);
+	return (TRUE);
+
+
+}
+
+int		print_long(t_ptf *percents)
+{
+	char *str;
+
+	if ((percents->flags + 1) && ((*percents->flags + 1) == 'l'))
+		return (print_longlong(percents));
+	if (!(str = ft_ltoa(percents->a_t.a_long)))
+		return (FALSE);
+
+
+	ft_putstr(str);
+	percents->size = ft_strlen(str);
+	free(str);
+	return (TRUE);
+		
+
+}
 
 int		ft_print_decimal(t_ptf *percents)
 {
 	char *str;
 
+	if (ft_ischar(percents->flags, 'l') == 1)
+		return (print_long(percents));
 //	percents->size = ft_strlen(ft_itoa(va_arg(arg, int)));	
 //	str = (char *)malloc(sizeof(char) * percents->size + 1);
 
 //	printf("var = %i\n", percents->a_t.a_int);
-	str = ft_strdup(ft_itoa(percents->a_t.a_int));
+	str = ft_itoa(percents->a_t.a_int);
 //	ft_putstr(ft_width_precision(str, percents, percents->size));
 	printf("\n"_RED"HEREEE"_END"\n");
 	ft_putstr(str);
