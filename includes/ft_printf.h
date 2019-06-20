@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 18:58:27 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 16:47:54 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/21 01:06:21 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,42 @@
 typedef int boolean;
 #define TRUE 1
 #define FALSE 0
+#define FT_SPACE "                                                                                 "
+#define FT_ZERO "0000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
 typedef struct				u_args
 {
-	short				a_short;
-	int					a_int;
-	long				a_long;
-	long long			a_llong;
+	short					a_short;
+	int						a_int;
+	long					a_long;
+	long long				a_llong;
 	unsigned char			a_unchar;
-	unsigned int			a_unint;
+	unsigned int			a_uint;
 	unsigned short			a_unshort;
-	unsigned long			a_unlong;
-	unsigned long long		a_unllong;
+	unsigned long			a_ulong;
+	unsigned long long		a_ullong;
 	//char				a_char;
-	char 				*a_string;
-	void				*a_ptr;
-	double				a_float;
-	double				a_double;
-	long double			a_ldouble;
-}					t_args;
+	char 					*a_string;
+	void					*a_ptr;
+	double					a_float;
+	double					a_double;
+	long double				a_ldouble;
+}							t_args;
 
 typedef struct				s_ftprintf
 {
-	char				conv;
-	int				rank;
-	int				pos;
-	char				*options;
-	long			width;
-	long			precision;
-	char				*flags;
-	char				*symptoms;
-	char				*type;
-	int				key;
-	char				*keyc;
-	int				total_pct_count;
+	char					conv;
+	int						rank;
+	int						pos;
+	char					*options;
+	long					width;
+	long					precision;
+	char					*flags;
+	char					*symptoms;
+	char					*type;
+	int						key;
+	char					*keyc;
+	int						total_pct_count;
 	unsigned long			size;
 	struct s_ftprintf		*next;
 	t_args				a_t;
@@ -90,10 +92,10 @@ typedef struct				s_format
 
 typedef struct				s_stock
 {
-		int					flags;
-		int					fw;
-		int					pr;
-		struct s_stock		*next;
+	int					flags;
+	int					fw;
+	int					pr;
+	struct s_stock		*next;
 }							t_stock;
 
 /**************************** SYSTEM ******************************************/
@@ -155,9 +157,9 @@ char                        *ft_width_precision(char *src, t_ptf *percents);
 /***************************** PARSING ****************************************/
 
 int						ft_count_pct(char *format, t_ptf **head);
-int							ft_auscultate(char *patient);
+int						ft_auscultate(char *patient);
 int							doctor(char *format, int rank, int position, t_ptf
-							**percents);
+		**percents);
 int							add_pct_pos(t_ptf **percents, int pos);
 
 t_ptf						*init_head(t_ptf *head);
@@ -176,7 +178,7 @@ int							get_flags(t_ptf **word, int i);
 
 t_stock						*flags_struct_creation();
 t_stock						*flags_struct_completion
-							(t_stock *head, int flags, int fw, int pr);
+(t_stock *head, int flags, int fw, int pr);
 
 
 /***************************** PRINT DEBUG ************************************/
@@ -189,10 +191,10 @@ void						global_info(t_ptf *percents);
 int		                    main(void);
 
 /********************************************************************************
-*                                                                               *
-*                                   COLORS                                      *
-*                                                                               *
-********************************************************************************/
+ *                                                                               *
+ *                                   COLORS                                      *
+ *                                                                               *
+ ********************************************************************************/
 
 # define _RED       "\x1b[31m"
 # define _BRED      "\x1b[1;31m"

@@ -1,4 +1,4 @@
-# **************************************************************************** #
+# **************************************************************************o* #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/19 21:38:43 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/20 22:07:23 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := libftprintf.a
 EXEC := ft_printf
 CC := gcc
 AR = ar rcs
-CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -Werror
 SRCS :=		./srcs/ft_printf.c \
 			./srcs/ft_p_functions.c \
 			./srcs/ft_p_functions_2.c \
@@ -27,6 +27,7 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/print_info.c \
 			./srcs/get_type.c \
 			./srcs/ft_flags_functions.c \
+			./srcs/get_var.c \
 
 OBJ := $(SRCS:.c=.o)
 
@@ -111,7 +112,7 @@ removecol :
 	@sed -i '' 's/\"_MAGENTA\"//g'  $(MAIN_TEST)
 	@sed -i '' 's/\"_CYAN\"//g'     $(MAIN_TEST)
 
-greppct:						# Greps %, symptoms and conv
+greppct:									# Greps %, symptoms and conv
 	@grep -on -E "%.{1,6}" $(MAIN_TEST)		# Useful for detailed view
 
 toftptf:
@@ -138,8 +139,9 @@ tptr:
 
 
 run :
+	@echo "$(RED)LOGS$(END)\n" > logs
 	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRCS) $(CFLAGS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME)

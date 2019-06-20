@@ -4,11 +4,17 @@
 
 int		main(void)
 {
-	char str11[400] = "how do you feel about this";
-	char str10[400] = "how do you feel about this";
-	char str00[400] = "		1,2, salmy the salmon";
+	void *ptr21 = NULL;
+	void *ptr20 = NULL;
+	void *ptr12 = NULL;
+	void *ptr11 = NULL;
+	void *ptr10 = NULL;
+	void *ptr02 = NULL;
+	void *ptr01 = NULL;
+	void *ptr00 = NULL;
 
-	printf("s  1,2, salmy the salmon = %s\n", str00);
-	printf("s how do you feel about this = %s\ns how do you feel about this = %s\n", str10,str11);
+	printf(""_BBLUE"p"_END" "_MAGENTA"NULL;"_END" = %p\n"_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN""_END"<; = %p\n"_BBLUE"p"_END" "_MAGENTA"NULL;"_END" = %p\n", ptr00,ptr01,ptr02);
+	printf(""_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN""_END"<; = %p\n"_BBLUE"p"_END" "_MAGENTA"NULL;"_END" = %p\n"_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN""_END"<; = %p\n", ptr10,ptr11,ptr12);
+	printf(""_BBLUE"p"_END" "_MAGENTA"NULL;"_END" = %p\n"_BBLUE"p"_END" "_MAGENTA"NULL;"_END" = %p\n", ptr20,ptr21);
 	return (0);
 }
