@@ -99,6 +99,7 @@ int		ft_print_address(t_ptf *percents)
 
 	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, 16))))
 		return (FALSE);
+//	printf("retour de ft_itoa_base = %s\n", str);
 //	printf("\nstr = %s\n", str);
 //	printf("printf prog = %p\n", percents->a_t.a_ptr);
 	percents->size = ft_strlen(str) + 2;

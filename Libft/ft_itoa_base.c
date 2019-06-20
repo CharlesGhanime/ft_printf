@@ -66,10 +66,19 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 	}
 	if (base == 16)
 	{
+        printf("base = 16\n");
+	    if (nb == 0) {
+            tab[0] = '0';
+	        return (tab);
+        }
+	    printf("len = %d\n", len);
 		while (len >= 0)
 		{
-			r = nb % base;
-			tab[len] = r;
+			if (r > 15)
+			{
+                r = nb % base;
+                tab[len] = r;
+            }
 			if (r < 16)
 				tab[len--] = hexa[r];
 			nb = nb / base;
