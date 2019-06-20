@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/19 15:35:43 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/21 01:12:15 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int		init_args(t_ptf *word)
 	word->a_t.a_long = 0;
 	word->a_t.a_llong = 0;
 	word->a_t.a_unchar = 0;
-	word->a_t.a_unint = 0;
+	word->a_t.a_uint = 0;
 	word->a_t.a_unshort = 0;
-	word->a_t.a_unlong = 0;
-	word->a_t.a_unllong = 0;
+	word->a_t.a_ulong = 0;
+	word->a_t.a_ullong = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = 0;
 	word->a_t.a_float = 0;
