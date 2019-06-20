@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/18 23:59:07 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/20 21:12:22 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void    global_info(t_ptf *percents)
 	FILE *fptr;
 	t_ptf *word;
 
-	fptr = fopen("logs", "w");
+	fptr = fopen("logs", "a");
+	fprintf(fptr, "Here are your variables. Be careful. Love you.\n");
 	if (fptr == NULL)
 	{
 		printf("Error in handling log\n");
