@@ -1,0 +1,21 @@
+
+# Objects
+*.o
+
+# Executables
+*.out
+ft_printf
+printf
+
+# Libraries
+*.a
+Libft/*.a
+
+# Tools
+.annex/make/
+.annex/modify/
+.annex/print/
+
+# Misc
+logs
+
