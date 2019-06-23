@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/23 20:13:49 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/23 23:53:57 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef int boolean;
 
 typedef struct				u_args
 {
-	short					a_short;
 	int						a_int;
 	long					a_long;
 	long long				a_llong;
@@ -40,7 +39,6 @@ typedef struct				u_args
 	//char				a_char;
 	char 					*a_string;
 	void					*a_ptr;
-	double					a_float;
 	double					a_double;
 	long double				a_ldouble;
 }							t_args;
