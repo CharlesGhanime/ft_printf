@@ -1,6 +1,7 @@
 
 # Objects
-*.o
+srcs/*.o
+libft/*
 
 # Executables
 *.out
