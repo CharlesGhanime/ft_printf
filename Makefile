@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/20 22:07:23 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/23 23:36:15 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,8 @@ MINE = ft_printf
 
 A_PATH = ./.annex
 MAIN_TEST = $(A_PATH)/main_test.c
+MAIN_BUG = $(A_PATH)/main_bug.c
+MAIN_PTR = $(A_PATH)/main_ptr.c
 
 trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
@@ -104,21 +106,25 @@ tdiff : trandom
 
 catmain :
 	@cat $(MAIN_TEST) | sed 's/\"_BBLUE\"//g' | sed 's/\"_RED\"//g' | sed 's/\"_END\"//g' | sed 's/\"_MAGENTA\"//g' | sed 's/\"_CYAN\"//g' | grep printf
+catbug :
+	@cat $(MAIN_BUG) | sed 's/\"_BBLUE\"//g' | sed 's/\"_RED\"//g' | sed 's/\"_END\"//g' | sed 's/\"_MAGENTA\"//g' | sed 's/\"_CYAN\"//g' | grep printf
+catptr :	
+	@cat $(MAIN_PTR) | sed 's/\"_BBLUE\"//g' | sed 's/\"_RED\"//g' | sed 's/\"_END\"//g' | sed 's/\"_MAGENTA\"//g' | sed 's/\"_CYAN\"//g' | grep printf
 
 removecol :
-	@sed -i '' 's/\"_BBLUE\"//g'    $(MAIN_TEST)
-	@sed -i '' 's/\"_RED\"//g'      $(MAIN_TEST)
-	@sed -i '' 's/\"_END\"//g'      $(MAIN_TEST)
-	@sed -i '' 's/\"_MAGENTA\"//g'  $(MAIN_TEST)
-	@sed -i '' 's/\"_CYAN\"//g'     $(MAIN_TEST)
+	@sed -i '' 's/\"_BBLUE\"//g'					    $(MAIN_TEST)
+	@sed -i '' 's/\"_RED\"//g'  					    $(MAIN_TEST)
+	@sed -i '' 's/\"_END\"//g'  					    $(MAIN_TEST)
+	@sed -i '' 's/\"_MAGENTA\"//g'  					$(MAIN_TEST)
+	@sed -i '' 's/\"_CYAN\"//g' 					    $(MAIN_TEST)
 
-greppct:									# Greps %, symptoms and conv
-	@grep -on -E "%.{1,6}" $(MAIN_TEST)		# Useful for detailed view
+greppct:																	# Greps %, symptoms and conv
+	@grep -on -E "%.{1,6}"								$(MAIN_TEST)		# Useful for detailed view
 
-toftptf:
-	@sed -i '' 's/printf(/ft_printf(/g' $(MAIN_TEST)
-toptf:
-	@sed -i '' "s/ft_printf(/printf(/g" $(MAIN_TEST)
+toftptf:																	# printf becomes ft_printf
+	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
+toptf:																		# ft_printf becomes printf		
+	@sed -i '' "s/ft_printf(/printf(/g" 				$(MAIN_TEST)
 
 #ifeq (comline,$(firstword $(MAKECMDGOALS)))
 #	COMLINE_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -131,20 +137,28 @@ dcoml:
 	@sed -i '' '$(l)s/\/\///' $(MAIN_TEST)
 
 tbug:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/main_bug.c -o $(MINE)
+	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
 	@./$(MINE)
 tptr:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/main_ptr.c -o $(MINE)
+	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_PTR) -o $(MINE)
 	@./$(MINE)
 
 
 run :
 	@echo "$(RED)LOGS$(END)\n" > logs
 	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(SRCS) $(CFLAGS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME)
+
+modtest:
+	@vim													$(MAIN_TEST)
+modbug:
+	@vim												 $(MAIN_BUG)
+modptr:
+	@vim												 $(MAIN_PTR)
+
 
 #############
 #           #

@@ -1,7 +1,8 @@
 
 # Objects
 srcs/*.o
-libft/*
+libft/*.o
+Libft/*.o
 
 # Executables
 *.out
@@ -16,6 +17,7 @@ Libft/*.a
 .annex/make/
 .annex/modify/
 .annex/print/
+.annex/main_test.c
 
 # Misc
 logs
