@@ -6,11 +6,12 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:38:26 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/21 00:38:29 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/23 20:41:12 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 static size_t	ft_count(long long n, unsigned long long *dec)
 {
@@ -57,6 +58,6 @@ char			*ft_ltoa(long long n)
 		ascii[++i] = abs / dec % 10 + 48;
 		dec /= 10;
 	}
-	ascii[i] = '\0';
+	ascii[++i] = '\0';
 	return (ascii);
 }
