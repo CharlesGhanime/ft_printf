@@ -6,12 +6,11 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:38:26 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/23 20:41:12 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/23 20:41:43 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 static size_t	ft_count(long long n, unsigned long long *dec)
 {
