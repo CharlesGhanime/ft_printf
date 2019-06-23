@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/23 21:54:46 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/24 01:28:05 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ int     get_f_type(t_ptf **word, va_list arg)
 	if (!((*word)->flags) || ((*word)->flags[0] != 'l'
 				&& (*word)->flags[0] != 'L'))
 	{
-		if (!((*word)->a_t.a_double = va_arg(arg, double)))
+		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l')
 	{
-		if (!((*word)->a_t.a_double = va_arg(arg, double)))
+		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'L')
 	{
-		if (!((*word)->a_t.a_ldouble = va_arg(arg, long double)))
+		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, long double)))
 			return (-1);
 	}
 
@@ -76,7 +76,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 	{
 		if (!(*word)->flags)
 		{
-			if (!((*word)->a_t.a_uint = va_arg(arg, unsigned int)))
+			if (!((*word)->a_t.a_ullong = (unsigned int)va_arg(arg, unsigned int)))
 				return (-1);
 		}
 		else
