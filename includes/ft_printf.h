@@ -150,6 +150,7 @@ void						ft_hashtag_flag(t_ptf *percents);
 void						ft_zero_flag(t_ptf *word, size_t nb);
 char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents);
+char						*str_width(char *str, long width, t_ptf *percents, char c);
 
 /***************************** PARSING ****************************************/
 

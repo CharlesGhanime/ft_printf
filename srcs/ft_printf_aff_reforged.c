@@ -23,31 +23,6 @@ int		ft_print_char(t_ptf *percents)
 
 /* PRINT STRING */
 
-char	*str_width(char *str, long width, int token)
-{
-	char *spaces;
-	long i;
-
-	i = -1;
-	if (!(spaces = (char *)malloc(sizeof(char) * (width + 1))))
-		return (NULL);
-	while (++i < width - (long)ft_strlen(str))
-		spaces[i] = ' ';
-	spaces[i] = '\0';
-	if (token == 0)
-	{
-		if (!(spaces = ft_strjoin(spaces, str)))
-			return (NULL);
-	}
-	else if (token == 1)
-		if (!(spaces = ft_strjoin(str, spaces)))
-			return (NULL);
-//	printf("\nlen = %zu\n", ft_strlen("|                                                                               1") - 2);
-//	printf("\nlen PTF = %zu\n", ft_strlen("|                                                                               1") - 2);
-	free(str);
-	return (spaces);
-}	
-
 char 	*str_precision(char *str, long precision)
 {
 	char	*new;
@@ -67,6 +42,41 @@ char 	*str_precision(char *str, long precision)
 
 }
 
+int		get_token(t_ptf *percents) 
+{
+	int token;
+
+	if (percents->width > (long)ft_strlen(percents->a_t.a_string) 
+			&& ft_ischar(percents->options, '-') != 1)
+		token = 0;
+	else if (percents->width <= 0 || (ft_ischar(percents->options, '-') == 1))
+		token = 1;
+	return (token);
+}
+
+char	*str_width(char *str, long width, t_ptf *percents, char c)
+{
+	char 	*new;
+	char	*tmp;
+	int 	token;
+
+	tmp = NULL;
+	if (!(new = ft_fillchar(width, (long)ft_strlen(str), c)))
+		return (NULL);
+	token = get_token(percents);
+	if (token == 0)
+	{
+		if (!(tmp = ft_strjoin(new, str)))
+			return (NULL);
+	}
+	else if (token == 1)
+		if (!(tmp = ft_strjoin(str, new)))
+			return (NULL);
+	free(new);
+	new = ft_strdup(tmp);
+	free(tmp);
+	return (new);
+}	
 int		ft_print_string(t_ptf *percents)
 {
 	char *str;
@@ -75,15 +85,8 @@ int		ft_print_string(t_ptf *percents)
 		return (FALSE);
 	if (!(str = str_precision(str, percents->precision)))
 		return (FALSE);
-	if (percents->width > (long)ft_strlen(percents->a_t.a_string) 
-			&& ft_ischar(percents->options, '-') != 1)
-	{
-		if (!(str = str_width(str, percents->width, 0)))
-			return (FALSE);
-	}
-	else if (percents->width <= 0 || (ft_ischar(percents->options, '-') == 1))
-		if (!(str = str_width(str, percents->width, 1)))
-			return (FALSE);
+	if (!(str = str_width(str, percents->width, percents, ' ')))
+		return (FALSE);
 	ft_putstr(str);
 //	printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
@@ -127,25 +130,6 @@ char	*get_long(t_ptf *percents)
 	return (str);
 }
 
-char 	*int_precision(char *str, long precision)
-{
-	char *new;
-	int i;
-	int diff;
-
-	if (!precision || precision < ft_strlen(str))
-		return (str);
-	if (!(new = (char *)malloc(sizeof(char) * precision + 1)))
-	i = -1;
-	if (!(new = 
-	diff = (size_t)precision - ft_strlen(str);
-	while (str[++i] && i < (int)precision)
-	{
-			
-	}	
-
-	return (new);
-}
 
 int		ft_print_decimal(t_ptf *percents)
 {
@@ -158,12 +142,13 @@ int		ft_print_decimal(t_ptf *percents)
 			return (FALSE);
 	}
 	else 
-//	printf("var = %i\n", percents->a_t.a_int);
 		str = ft_itoa(percents->a_t.a_int);
+//	printf("hello\n");
+	str = str_width(str, percents->width, percents, '0');	
 
 
 
-
+//	printf("var = %i\n", percents->a_t.a_int);
 //	ft_putstr(ft_width_precision(str, percents, percents->size));
 //	printf("\n"_RED"HEREEE"_END"\n");
 	ft_putstr(str);
@@ -171,6 +156,26 @@ int		ft_print_decimal(t_ptf *percents)
 	free(str);
 	return (TRUE);
 }
+
+
+//char 	*int_precision(char *str, long precision)
+//{
+//	char *new;
+//	int i;
+//	int diff;
+//
+//	if (!precision || precision < ft_strlen(str))
+//		return (str);
+//	if (!(new = (char *)malloc(sizeof(char) * precision + 1)))
+//	i = -1;
+//	if (!(new = 
+//	diff = (size_t)precision - ft_strlen(str);
+//	while (str[++i] && i < (int)precision)
+//	{			
+//	}	
+//
+//	return (new);
+//}
 
 ///* PRINT INTEGER */
 //
