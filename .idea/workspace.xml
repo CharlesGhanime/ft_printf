@@ -9,16 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="935b7c9a-0be0-4cb2-9d06-296425a151f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.annex/main_ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/.annex/main_ptr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.annex/main_test.c" beforeDir="false" afterPath="$PROJECT_DIR$/.annex/main_test.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.annex/modify/tmp" beforeDir="false" afterPath="$PROJECT_DIR$/.annex/modify/tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Libft/ft_itoa_base.c" beforeDir="false" afterPath="$PROJECT_DIR$/Libft/ft_itoa_base.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/ft_printf.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/ft_printf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_printf_aff_reforged.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_printf_aff_reforged.c" afterDir="false" />
-    </list>
+    <list default="true" id="935b7c9a-0be0-4cb2-9d06-296425a151f7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +26,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/srcs/ft_printf_aff_reforged.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="421">
-                  <caret line="103" column="1" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+                <state relative-caret-position="469">
+                  <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -68,8 +59,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Libft/ft_itoa_base.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="836">
-                      <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
+                    <state relative-caret-position="660">
+                      <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
                     </state>
                   </provider>
                 </entry>
@@ -277,12 +268,12 @@
       <workItem from="1560886445029" duration="542000" />
       <workItem from="1560958473707" duration="2086000" />
       <workItem from="1561028141700" duration="5604000" />
-      <workItem from="1561046069826" duration="2981000" />
+      <workItem from="1561046069826" duration="3063000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102780000" />
+    <option name="totallyTimeSpent" value="102862000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -295,6 +286,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49430895" visible="true" weight="0.15488483" />
       <window_info id="Structure" order="1" sideWeight="0.50569105" side_tool="true" weight="0.1310564" />
@@ -531,15 +523,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/ft_printf_aff_reforged.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="103" column="1" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+        <state relative-caret-position="469">
+          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libft/ft_itoa_base.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
+        <state relative-caret-position="660">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
         </state>
       </provider>
     </entry>
