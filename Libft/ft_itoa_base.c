@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 22:39:19 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:23:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 {
 	char *tab;
 	char *hexa;
-	int octal[8] = {0, 1 ,2, 3, 4, 5, 6, 7};
 	int len;
 	unsigned int r;
 
@@ -42,58 +41,27 @@ char	*ft_itoa_base(unsigned int nb, unsigned int base)
 	if (!(tab = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	tab[len] = '\0';
-	if (base == 2)
+	if (base == 0)
+		return(NULL);
+	while (len >= 0)
 	{
-		while (len >= 0)
-		{
-			r = nb % base;
-			tab[len] = r + '0';
-			if (r < 2)
-				tab[len--] = octal[r] + '0';
-			nb = nb / base;
-		}
-	}
-	if (base == 8)
-	{
-		while (len >= 0)
-		{
-			r = nb % base;
-			tab[len] = r + '0';
-			if (r < 8)
-				tab[len--] = octal[r] + '0';
-			nb = nb / base;
-		}
-	}
-	if (base == 16)
-	{
-        printf("base = 16\n");
-	    if (nb == 0) {
-            tab[0] = '0';
-	        return (tab);
-        }
-	    printf("len = %d\n", len);
-		while (len >= 0)
-		{
-			if (r > 15)
-			{
-                r = nb % base;
-                tab[len] = r;
-            }
-			if (r < 16)
-				tab[len--] = hexa[r];
-			nb = nb / base;
-		}
-	}
-	else
-	{
-		while (len >= 0)
-		{
-			r = nb % base;
-				tab[len] = r + '0';
-				if (r < base)
-					tab[--len] = nb % base + '0';
-				nb = nb / base;
-		}
+		r = nb % base;
+		tab[len] = r + '0';
+		if (r < base)
+			tab[len] = hexa[r] + '0';
+		nb = nb / base;
+		len--;
 	}
 	return (tab);
+}
+
+int main(int argc, char **argv)
+{
+	int i = 1;
+
+	if (argc > 1)
+		printf("%s\n", ft_itoa_base(atoi(argv[1]), atoi(argv[2])));
+	else
+		write(1, "usage : char *ft_itoa_base(unsigned int nb, unsigned int base)\n", 63);
+	return (0);
 }
