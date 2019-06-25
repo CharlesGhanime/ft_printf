@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/24 01:28:27 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/24 23:32:18 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void						ft_zero_flag(t_ptf *word, size_t nb);
 char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents);
 char						*str_width(char *str, long width, t_ptf *percents, char c);
+char						*str_precision(char *str, long precision);
 
 /***************************** PARSING ****************************************/
 

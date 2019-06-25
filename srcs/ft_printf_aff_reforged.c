@@ -6,22 +6,11 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/24 01:20:32 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/25 06:59:34 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-/* PRINT CHAR */
-
-int		ft_print_char(t_ptf *percents)
-{
-	percents->size = 1;
-	ft_putchar((char)percents->a_t.a_int);
-	return (TRUE);
-}
-
-/* PRINT STRING */
 
 char 	*str_precision(char *str, long precision)
 {
@@ -39,13 +28,13 @@ char 	*str_precision(char *str, long precision)
 	new[i] = '\0';
 	free(str);
 	return (new);
-
 }
 
 int		get_token(t_ptf *percents) 
 {
 	int token;
 
+	token = 0;
 	if (percents->width > (long)ft_strlen(percents->a_t.a_string) 
 			&& ft_ischar(percents->options, '-') != 1)
 		token = 0;
@@ -77,22 +66,6 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	free(tmp);
 	return (new);
 }	
-int		ft_print_string(t_ptf *percents)
-{
-	char *str;
-	
-	if (!(str = ft_strdup(percents->a_t.a_string)))
-		return (FALSE);
-	if (!(str = str_precision(str, percents->precision)))
-		return (FALSE);
-	if (!(str = str_width(str, percents->width, percents, ' ')))
-		return (FALSE);
-	ft_putstr(str);
-//	printf(""_RED"%s"_END"", str);
-	percents->size = ft_strlen(str);
-	free(str);
-	return (FALSE);
-}
 
 /* PRINT ADDRESS */
 
@@ -115,48 +88,110 @@ int		ft_print_address(t_ptf *percents)
 
 /* PRINT DECIMAL */
 
-char	*get_long(t_ptf *percents)
+char	*get_int_var(t_ptf *percents)
 {
 	char *str;
 
 	str = NULL;
-	if (*(percents->flags + 1) == 'l')
-	{
-		if (!(str = ft_ltoa(percents->a_t.a_llong)))
-			return (NULL);
+	if (ft_ischar(percents->flags, 'l') == 1)
+	{	
+		if (*(percents->flags + 1) == 'l')
+		{
+			if (!(str = ft_ltoa(percents->a_t.a_llong)))
+				return (NULL);
+		}
+		else 
+			if (!(str = ft_ltoa(percents->a_t.a_long)))
+				return (NULL);
 	}
-	else if (!(str = ft_ltoa(percents->a_t.a_long)))
-		return (NULL);
+	else 
+		if (!(str = ft_itoa(percents->a_t.a_int)))
+			return (NULL);
 	return (str);
 }
 
+char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
+{
+	char	*new;
+	int 	i;
+
+	if ((!precision || (int)precision < len))
+		return (str);
+	if (!(new = (char *)malloc(sizeof(char) * (precision + len + 1))))
+		return (NULL);
+	i = -1;
+//	if (ft_ischar(percents->options, '+') == 1)
+//		while (str[++i])
+//		{
+//			if (ft_isalpha(str[i]))
+//			{
+//				new[i - 1] = '+';
+//				break ;
+//			}
+//		}
+//	else
+//	{
+	while (++i < (int)precision - len)
+		new[i] = '0';
+//	}
+	new = ft_strcat(new, str);
+	free(str);
+	return (new);
+}
+
+char	*manage_flags(char *str, t_ptf *percents)
+{
+	char 	*new;
+
+	new = NULL;
+	if ((ft_ischar(percents->options, '+') == 1) 
+		&& (ft_ischar(percents->options, '-') != 1)
+			&& ft_ischar(str, '-' != 1))
+	{
+		printf("supppp2555\n");
+		new = ft_addonecharpos(&str, '+', 0); 
+	}
+	if (((ft_ischar(percents->options, '-') == 1) 
+		&& (ft_ischar(percents->options, '-') == 1))
+			|| (ft_ischar(percents->options, '-') == 1))
+	{
+//		printf("supppp\n");
+		new = ft_addonecharpos(&str, '-', 0); 
+	}
+
+	if (!new)	
+		return (str);
+	return (new);
+}
 
 int		ft_print_decimal(t_ptf *percents)
 {
 	char *str;
 
 	str = NULL;
-	if (ft_ischar(percents->flags, 'l') == 1)
+	if (!(str = get_int_var(percents)))
+		return (FALSE);
+	if ((ft_ischar(percents->options, 0) == 1))	
 	{
-		if (!(str = get_long(percents)))
+		printf("HOLAAAAAAAAAAAA\n");
+		if (!(str = str_width(str, percents->width, percents, '0')))
 			return (FALSE);
 	}
-	else 
-		str = ft_itoa(percents->a_t.a_int);
-//	printf("hello\n");
-	str = str_width(str, percents->width, percents, '0');	
+	else /*if (ft_ischar(percents->options, ' ') == 1)*/
+		if (!(str = str_width(str, percents->width, percents, ' ')))
+			return (FALSE);
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+	   return (FALSE);
+	if (!(str = manage_flags(str, percents)))
+		return (FALSE);
 
-
-
-//	printf("var = %i\n", percents->a_t.a_int);
-//	ft_putstr(ft_width_precision(str, percents, percents->size));
-//	printf("\n"_RED"HEREEE"_END"\n");
+	percents->size = ft_strlen(str);
 	ft_putstr(str);
-//	printf("\n"_RED"HEREEE"_END"\n");
 	free(str);
 	return (TRUE);
 }
 
+//	printf("\n"_RED"HEREEE"_END"\n");
 
 //char 	*int_precision(char *str, long precision)
 //{
