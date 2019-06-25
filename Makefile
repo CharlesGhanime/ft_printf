@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/06/23 23:36:15 by aboitier         ###   ########.fr        #
+#    Updated: 2019/06/25 06:10:52 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS :=		./srcs/ft_printf.c \
 			./srcs/get_type.c \
 			./srcs/ft_flags_functions.c \
 			./srcs/get_var.c \
+			./srcs/print_chars.c \
 
 OBJ := $(SRCS:.c=.o)
 
@@ -83,10 +84,12 @@ re : fclean all
 #           #
 #############
 
-REAL = printf
-MINE = ft_printf
 
 A_PATH = ./.annex
+
+REAL = $(A_PATH)/printf
+MINE = ft_printf
+
 MAIN_TEST = $(A_PATH)/main_test.c
 MAIN_BUG = $(A_PATH)/main_bug.c
 MAIN_PTR = $(A_PATH)/main_ptr.c
@@ -100,7 +103,7 @@ trandom :
 
 tdiff : trandom
 	@sed -i '' 's/[^_]printf/ft_printf/g' $(MAIN_TEST)
-	@$(CC) $(CFLAGS) $(LIBFT) $(SRCS) $(MAIN_TEST) -o $(MINE)
+	@$(CC) $(LIBFT) $(SRCS) $(MAIN_TEST) -o $(MINE)
 	@echo "$(BBLUE)\t MY PRINTF$(END)"
 	@./$(MINE)
 
@@ -150,7 +153,15 @@ run :
 	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
-	@./$(NAME)
+	@./$(NAME) 
+
+diff : run toptf
+	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@./$(NAME) > logs_ptf
+	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
+	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@./$(NAME) > logs_ftptf
+	@diff logs_ftptf logs_ptf
 
 modtest:
 	@vim													$(MAIN_TEST)
