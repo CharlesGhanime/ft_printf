@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/25 06:59:34 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/26 03:13:18 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,38 @@ char	*get_int_var(t_ptf *percents)
 		{
 			if (!(str = ft_ltoa(percents->a_t.a_llong)))
 				return (NULL);
+			percents->a_t.a_llong >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 		}
 		else 
+		{
 			if (!(str = ft_ltoa(percents->a_t.a_long)))
 				return (NULL);
+			percents->a_t.a_long >= 0 ? (percents->signe = '+') : (percents->signe = '-');
+		}
 	}
 	else 
+	{
 		if (!(str = ft_itoa(percents->a_t.a_int)))
 			return (NULL);
+		percents->a_t.a_int >= 0 ? (percents->signe = '+') : (percents->signe = '-');
+	}	
 	return (str);
 }
+
+int		count_pos(char *str, int token)
+{
+	int pos;
+
+	pos = 0;
+	if (token == 0)
+		while (str[pos + 1] == ' ' || str[pos + 1] == '0')
+			pos++;
+	else if (token == 1)
+		while (str[pos + 1] == ' ')
+			pos++;
+	return (pos);
+}
+
 
 char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 {
@@ -142,22 +164,33 @@ char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 char	*manage_flags(char *str, t_ptf *percents)
 {
 	char 	*new;
+	int		pos;
+
+
 
 	new = NULL;
+//	printf("manage str = %s\n", str);
 	if ((ft_ischar(percents->options, '+') == 1) 
 		&& (ft_ischar(percents->options, '-') != 1)
-			&& ft_ischar(str, '-' != 1))
+			&& ft_ischar(str, '-') != 1)
 	{
-		printf("supppp2555\n");
-		new = ft_addonecharpos(&str, '+', 0); 
+//		printf("hello\n");
+		pos = count_pos(str, 0);
+		new = ft_addonecharpos(&str, '+', pos); 
 	}
-	if (((ft_ischar(percents->options, '-') == 1) 
-		&& (ft_ischar(percents->options, '-') == 1))
-			|| (ft_ischar(percents->options, '-') == 1))
+//	if (((ft_ischar(percents->options, '-') == 1) 
+//		&& (ft_ischar(percents->options, '-') == 1))
+//			|| (ft_ischar(percents->options, '-') == 1))
+//	{
+//		pos = count_pos(str, 1);
+//		new = ft_addonecharpos(&str, '-', pos); 
+//	}
+	if ((ft_ischar(percents->options, ' ') == 1)
+		&& !ft_ischar(percents->options, '-'))
 	{
-//		printf("supppp\n");
-		new = ft_addonecharpos(&str, '-', 0); 
+		new = ft_addonecharpos(&str, ' ', 0);
 	}
+	
 
 	if (!new)	
 		return (str);
@@ -171,9 +204,8 @@ int		ft_print_decimal(t_ptf *percents)
 	str = NULL;
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
-	if ((ft_ischar(percents->options, 0) == 1))	
+	if ((ft_ischar(percents->options, '0') == 1))	
 	{
-		printf("HOLAAAAAAAAAAAA\n");
 		if (!(str = str_width(str, percents->width, percents, '0')))
 			return (FALSE);
 	}

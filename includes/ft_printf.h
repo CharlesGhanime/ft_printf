@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/24 23:32:18 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/06/26 03:08:32 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct				s_ftprintf
 	char					*keyc;
 	int						total_pct_count;
 	unsigned long			size;
+	char					signe;
 	struct s_ftprintf		*next;
 	t_args				a_t;
 }					t_ptf;
