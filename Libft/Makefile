@@ -66,6 +66,7 @@ SRCS= 	ft_addonechar.c \
 		ft_counter.c \
 		ft_wordcounter.c \
 		ft_filling.c \
+		ft_fillchar.c \
 		ft_lstnew.c \
 		ft_lstdelone.c \
 		ft_lstdel.c \

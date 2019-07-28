@@ -17,6 +17,7 @@ Libft/*.a
 .annex/make/
 .annex/modify/
 .annex/print/
+.annex/tmp
 .annex/main_test.c
 
 # Misc

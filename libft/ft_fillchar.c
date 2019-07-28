@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ischar.c                                        :+:      :+:    :+:   */
+/*   ft_fillchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/19 18:44:45 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/26 03:08:15 by aboitier         ###   ########.fr       */
+/*   Created: 2019/06/25 03:31:37 by aboitier          #+#    #+#             */
+/*   Updated: 2019/06/25 03:31:54 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int		ft_ischar(char *str, char c)
+char 	*ft_fillchar(long width, long len, char c)
 {
-	int i;
+	char	*new;
+	long	i;
+	
+//	if (!size)
+		
 	i = -1;
-	if (str)
-	{	
-
-		while (str[++i])
-			if (str[i] == c)
-				return (1);
-	}
-	return (0);
+	if (!(new = (char *)malloc(sizeof(char) * (width + 1))))
+		return (NULL);
+	while (++i < width - len)
+		new[i] = c;
+	new[i] = '\0';
+	return (new);
 }
