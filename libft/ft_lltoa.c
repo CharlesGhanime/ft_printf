@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:38:26 by aboitier          #+#    #+#             */
-/*   Updated: 2019/07/24 16:21:34 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/07/24 16:20:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	ft_count(long n, unsigned long *dec)
+static size_t	ft_count(long long n, unsigned long long *dec)
 {
 	unsigned long long	count;
 	long long			abs;
@@ -34,11 +34,11 @@ static size_t	ft_count(long n, unsigned long *dec)
 	return (count);
 }
 
-char			*ft_lltoa(long n)
+char			*ft_lltoa(long long n)
 {
 	char				*ascii;
 	size_t				i;
-	unsigned long	dec;
+	unsigned long long	dec;
 	long long			abs;
 
 	dec = 1;
