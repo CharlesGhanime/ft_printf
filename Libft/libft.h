@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/21 00:40:42 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/07/29 00:33:39 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ int					ft_wordcounter(char const *s, char c);
 char				**ft_filling(char *s, char c, char **tab);
 char				*ft_fillchar(long width, long len, char c);
 char				*ft_addonechar(char **str, char c);
+char				*ft_addonecharpos(char **str, char c, int pos);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
-char				*ft_itoa_base(unsigned int nb, unsigned int base);
+char				*ft_itoa_base(unsigned int value, char *base);
 char                *ft_ftoa(double myfloat);
 
 /*

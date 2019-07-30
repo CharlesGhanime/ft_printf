@@ -6,14 +6,14 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/26 03:08:32 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/07/29 00:28:10 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "../libft/libft.h"
+#include "../Libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -153,6 +153,7 @@ char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents);
 char						*str_width(char *str, long width, t_ptf *percents, char c);
 char						*str_precision(char *str, long precision);
+char						*int_precision(char *str, long precision, int len, t_ptf *percents);
 
 /***************************** PARSING ****************************************/
 
