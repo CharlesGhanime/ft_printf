@@ -6,12 +6,12 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 23:58:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/07/30 17:17:33 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/07/31 17:08:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_itoa_base(unsigned int value, char *base)
+char	*ft_itoa_base(int value, char *base)
 {
 	int					count;
 	unsigned int		tmp;
