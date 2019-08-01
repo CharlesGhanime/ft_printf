@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 19:18:00 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/06 12:11:50 by aboitier         ###   ########.fr       */
+/*   Created: 2019/06/25 03:21:09 by aboitier          #+#    #+#             */
+/*   Updated: 2019/06/25 04:42:32 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft_addonechar(char **str, char c)
+char			*ft_addonechar(char **str, char c)
 {
 	char	*new;
 	size_t	size;
@@ -23,7 +23,7 @@ char	*ft_addonechar(char **str, char c)
 	if (*str)
 	{
 		size = ft_strlen(*str);
-		if (!(new = (char*)malloc(sizeof(char) * size + 2)))
+		if (!(new = (char *)malloc(sizeof(char) * size + 2)))
 			return (0);
 		new = ft_strcpy(new, *str);
 		new[size] = c;

@@ -2,6 +2,7 @@ NAME = libft.a
 CPL = gcc -Wall -Wextra -Werror
 HEADER = -I libft.h
 SRCS= 	ft_addonechar.c \
+		ft_addonecharpos.c\
 		ft_memset.c \
 		ft_bzero.c \
 		ft_ltoa.c \
