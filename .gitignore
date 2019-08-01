@@ -21,5 +21,5 @@ Libft/*.a
 .annex/main_test.c
 
 # Misc
-logs
+logs*
 
