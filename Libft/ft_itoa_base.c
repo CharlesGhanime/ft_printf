@@ -5,95 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/01 15:34:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/19 22:39:19 by aboitier         ###   ########.fr       */
+/*   Created: 2019/07/28 23:58:57 by cghanime          #+#    #+#             */
+/*   Updated: 2019/07/31 17:08:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-static int		ft_counter_base(unsigned int nb, unsigned int base)
+char	*ft_itoa_base(int value, char *base)
 {
-	int counter;
+	int					count;
+	unsigned int		tmp;
+	char				*res;
+	unsigned int		base_length;
 
-	counter = 0;
-	if (nb == 0)
-		return (counter = 1);
-	while (nb != 0)
-	{
-		nb = nb / base;
-		counter++;
-	}
-	counter -= 1;
-	return (counter);
-}
-
-char	*ft_itoa_base(unsigned int nb, unsigned int base)
-{
-	char *tab;
-	char *hexa;
-	int octal[8] = {0, 1 ,2, 3, 4, 5, 6, 7};
-	int len;
-	unsigned int r;
-
-	hexa = "0123456789abcdef";
-	len = ft_counter_base(nb, base);
-	r = 0;
-	if (!(tab = (char *)malloc(sizeof(char) * len + 1)))
+	base_length = ft_strlen(base);
+	count = (value < 0) ? 2 : 1;
+	tmp = (value < 0) ? -value : value;
+	while (tmp >= base_length && (tmp /= base_length))
+		++count;
+	tmp = (value < 0) ? -value : value;
+	if (!(res = (char*)malloc(sizeof(char) * (count + 1))))
 		return (NULL);
-	tab[len] = '\0';
-	if (base == 2)
+	if (value < 0)
+		res[0] = '-';
+	res[count] = '\0';
+	while (tmp >= base_length)
 	{
-		while (len >= 0)
-		{
-			r = nb % base;
-			tab[len] = r + '0';
-			if (r < 2)
-				tab[len--] = octal[r] + '0';
-			nb = nb / base;
-		}
+		--count;
+		res[count] = base[tmp % base_length];
+		tmp /= base_length;
 	}
-	if (base == 8)
-	{
-		while (len >= 0)
-		{
-			r = nb % base;
-			tab[len] = r + '0';
-			if (r < 8)
-				tab[len--] = octal[r] + '0';
-			nb = nb / base;
-		}
-	}
-	if (base == 16)
-	{
-        printf("base = 16\n");
-	    if (nb == 0) {
-            tab[0] = '0';
-	        return (tab);
-        }
-	    printf("len = %d\n", len);
-		while (len >= 0)
-		{
-			if (r > 15)
-			{
-                r = nb % base;
-                tab[len] = r;
-            }
-			if (r < 16)
-				tab[len--] = hexa[r];
-			nb = nb / base;
-		}
-	}
-	else
-	{
-		while (len >= 0)
-		{
-			r = nb % base;
-				tab[len] = r + '0';
-				if (r < base)
-					tab[--len] = nb % base + '0';
-				nb = nb / base;
-		}
-	}
-	return (tab);
+	res[--count] = base[tmp % base_length];
+	return (res);
 }

@@ -49,7 +49,8 @@ SRCS= 	ft_addonechar.c \
 		ft_putchar_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_isalpha.c ft_ischar.c \
+		ft_isalpha.c \
+		ft_ischar.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -76,7 +77,8 @@ SRCS= 	ft_addonechar.c \
 		ft_lstmap.c \
 		ft_putnbr_base.c \
 		ft_itoa_base.c \
-		ft_ftoa.c 
+		ft_ftoa.c \
+		ft_addonecharpos.c 
 
 OBJECTS = $(SRCS:.c=.o)
 

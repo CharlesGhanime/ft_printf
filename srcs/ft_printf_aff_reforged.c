@@ -6,11 +6,12 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/26 03:13:18 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/07/29 00:42:31 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../Libft/libft.h"
 
 char 	*str_precision(char *str, long precision)
 {
@@ -73,7 +74,7 @@ int		ft_print_address(t_ptf *percents)
 {
 	char *str;
 
-	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, 16))))
+	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, "0123456789abcdef"))))
 		return (FALSE);
 //	printf("retour de ft_itoa_base = %s\n", str);
 //	printf("\nstr = %s\n", str);
@@ -136,7 +137,8 @@ char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 {
 	char	*new;
 	int 	i;
-
+	
+	write(1, percents->options, ft_strlen(percents->options));
 	if ((!precision || (int)precision < len))
 		return (str);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + len + 1))))

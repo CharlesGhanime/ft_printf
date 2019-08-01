@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/25 03:21:39 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/01 20:45:02 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strtrim(char *s);
 char				**ft_strsplit(char *s, char c);
 char				*ft_itoa(int n);
-char				*ft_ltoa(long long n);
+char				*ft_ltoa(long n);
+char				*ft_lltoa(long long n);
 void				ft_putchar(char c);
 void				ft_putstr(char *s);
 void				ft_putendl(char *s);
@@ -109,7 +110,7 @@ char				*ft_fillchar(long width, long len, char c);
 char				*ft_addonechar(char **str, char c);
 char				*ft_addonecharpos(char **str, char c, int pos);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
-char				*ft_itoa_base(unsigned int nb, unsigned int base);
+char				*ft_itoa_base(int value, char *base);
 char                *ft_ftoa(double myfloat);
 
 /*
