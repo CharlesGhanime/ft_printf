@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/07/30 17:07:25 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/03 03:13:04 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,9 +90,15 @@ A_PATH = ./.annex
 REAL = $(A_PATH)/printf
 MINE = ft_printf
 
-MAIN_TEST = $(A_PATH)/main_test.c
-MAIN_BUG = $(A_PATH)/main_bug.c
-MAIN_PTR = $(A_PATH)/main_ptr.c
+MAIN_FOLD = $(A_PATH)/mains_
+MAIN_TEST = $(MAIN_FOLD)/main_test.c
+MAIN_BUG = $(MAIN_FOLD)/main_bug.c
+MAIN_PTR = $(MAIN_FOLD)/main_ptr.c
+
+LOGS_FOLD = $(A_PATH)/logs
+LOG_PTF = $(LOGS_FOLD)/logs_ptf
+LOG_FTPTF = $(LOGS_FOLD)/logs_ftptf
+
 
 trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
@@ -126,7 +132,8 @@ greppct:																	# Greps %, symptoms and conv
 
 toftptf:																	# printf becomes ft_printf
 	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
-toptf:																		# ft_printf becomes printf		
+
+toptf:																		# ft_printf becomes printf	
 	@sed -i '' "s/ft_printf(/printf(/g" 				$(MAIN_TEST)
 
 #ifeq (comline,$(firstword $(MAKECMDGOALS)))
@@ -157,11 +164,11 @@ run :
 
 diff : run toptf
 	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
-	@./$(NAME) > logs_ptf
+	@./$(NAME) > $(LOG_PTF)
 	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
 	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
-	@./$(NAME) > logs_ftptf
-	@diff logs_ftptf logs_ptf
+	@./$(NAME) > $(LOG_FTPTF)
+	@diff $(LOG_PTF) $(LOG_FTPTF)
 
 modtest:
 	@vim													$(MAIN_TEST)
@@ -220,4 +227,4 @@ exef : $(NAME)
 	@echo  "/    /              /   /______________/   /        /  /      \  \ /   /       \   /     /   /      /    /"
 	@echo "/____/              /___/______________/___/        /__/        \__\___/          \/     /___/      /____/"
 
-.PHONY : all clean fclean re #libft
+.PHONY : all clean fclean re toptf toftptf#libft
