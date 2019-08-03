@@ -6,25 +6,12 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/07/31 19:15:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/03 03:50:25 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../Libft/libft.h"
-
-/* PRINT INTEGER */
-
-int		ft_print_integer(t_ptf *percents)
-{
-char *str;
-
-percents->size = ft_strlen(ft_itoa(va_arg(arg, int)));
-str = (char *)malloc(sizeof(char) * percents->size + 1);
-str = ft_itoa(va_arg(arg, int));
-ft_putstr(ft_width_precision(str, percents, percents->size));
-return (TRUE);
-}
 
 /* PRINT OCTAL */
 

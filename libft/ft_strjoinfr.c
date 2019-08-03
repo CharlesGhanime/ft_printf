@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 17:04:27 by aboitier          #+#    #+#             */
-/*   Updated: 2019/07/30 17:04:29 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 04:31:38 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char	*ft_strjoinfr(char *s1, char const *s2)
+char	*ft_strjoinfr(char *s1, char *s2)
 {
 	char		*new_str;
 	size_t		len_s1s2;

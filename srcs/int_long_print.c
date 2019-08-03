@@ -6,12 +6,12 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/07/29 00:42:31 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/02 01:44:06 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../Libft/libft.h"
+#include "../libft/libft.h"
 
 char 	*str_precision(char *str, long precision)
 {
@@ -138,7 +138,6 @@ char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 	char	*new;
 	int 	i;
 	
-	write(1, percents->options, ft_strlen(percents->options));
 	if ((!precision || (int)precision < len))
 		return (str);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + len + 1))))
@@ -180,13 +179,13 @@ char	*manage_flags(char *str, t_ptf *percents)
 		pos = count_pos(str, 0);
 		new = ft_addonecharpos(&str, '+', pos); 
 	}
-//	if (((ft_ischar(percents->options, '-') == 1) 
-//		&& (ft_ischar(percents->options, '-') == 1))
-//			|| (ft_ischar(percents->options, '-') == 1))
-//	{
-//		pos = count_pos(str, 1);
-//		new = ft_addonecharpos(&str, '-', pos); 
-//	}
+	if (((ft_ischar(percents->options, '-') == 1) 
+		&& (ft_ischar(percents->options, '-') == 1))
+			|| (ft_ischar(percents->options, '-') == 1))
+	{
+		pos = count_pos(str, 1);
+		new = ft_addonecharpos(&str, '-', pos); 
+	}
 	if ((ft_ischar(percents->options, ' ') == 1)
 		&& !ft_ischar(percents->options, '-'))
 	{
