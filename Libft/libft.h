@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/01 20:45:02 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 03:45:28 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int					ft_strequ(char *s1, char *s2);
 int					ft_strnequ(char *s1, char *s2, size_t n);
 char				*ft_strsub(char *s, unsigned int start, size_t len);
 char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strjoinfr(char *s1, char *s2);
 char				*ft_strtrim(char *s);
 char				**ft_strsplit(char *s, char c);
 char				*ft_itoa(int n);

@@ -38,6 +38,7 @@ SRCS= 	ft_addonechar.c \
 		ft_strnequ.c \
 		ft_strsub.c \
 		ft_strjoin.c \
+		ft_strjoinfr.c \
 		ft_strtrim.c \
 		ft_strsplit.c \
 		ft_itoa.c \

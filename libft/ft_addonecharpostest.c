@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:18:00 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/25 05:37:57 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 03:43:24 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		main()
 {
 	char	*str;
 
-	str = ft_strdup("OOOOOOOOOOOOOO");
+	str = ft_strdup("1234567");
 	str = ft_addonecharpos(&str, 'B', 0);
 	printf("%s\n", str);
 
