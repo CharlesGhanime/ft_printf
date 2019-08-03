@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/03 04:37:26 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/03 20:23:36 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CC := gcc
 AR = ar rcs
 CFLAGS := -Wall -Wextra -Werror
 SRCS :=		./srcs/ft_printf.c 			\
-			./srcs/flags_functions.c	\
 			./srcs/float_prec.c			\
 			./srcs/funct_ptr.c			\
 			./srcs/funct_ptr2.c			\

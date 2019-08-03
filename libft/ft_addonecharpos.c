@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:18:00 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/25 05:39:55 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/04 01:34:02 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@
 static char		*strposcpy(char *dst, char *src, int pos, char c)
 {
 	int i;
+	int j;
 
 	i = 0;
-	while (src[i])
+	j = 0;
+	while (src[j])
 	{
 		if (i == pos)
 		{
 			dst[i] = c;
 			i++;
 		}
-		dst[i] = src[i];
+		dst[i] = src[j];
 		i++;
+		j++;
 	}	
-	//printf("dst= %s\n", dst);
 	return (dst);
 }
 
@@ -41,7 +43,6 @@ char			*ft_addonecharpos(char **str, char c, int pos)
 	if (pos < 0)
 		pos = ft_strlen(*str);
 	size = 0;
-//	printf("str= %s\n", *str);
 	if (*str)
 	{
 		size = ft_strlen(*str);
