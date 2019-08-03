@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/24 01:28:05 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 23:00:41 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 	else if ((*word)->conv == 'o' || (*word)->conv == 'u' ||  (*word)->conv == 'x'
 			|| (*word)->conv == 'X')
 	{
+		(*word)->unsignd = 1;
 		if (!(*word)->flags)
 		{
 			if (!((*word)->a_t.a_ullong = (unsigned int)va_arg(arg, unsigned int)))

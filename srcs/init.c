@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/23 23:54:07 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 20:24:08 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_ptf		*init_head(t_ptf *head)
 	
 	if (!(percents = (t_ptf*)malloc(sizeof(t_ptf))))
 		return (0);
-	percents->options = NULL;
+	percents->options = 0;
 	percents->precision = 0;
 	percents->flags = NULL;
 	percents->symptoms = NULL;
@@ -83,7 +83,7 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
 		word->symptoms = ft_strcpy(word->symptoms, symptoms);
 	}
 	word->type = NULL;
-	word->options = NULL;
+	word->options = 0;
 	word->precision = 0;
 	word->width = 0;
 	word->rank = rank;

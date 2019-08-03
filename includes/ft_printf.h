@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 02:23:16 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 22:36:46 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ typedef int boolean;
 #define FALSE 0
 #define FT_SPACE "                                                                                 "
 #define FT_ZERO "0000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+
+#define HASH 	00000001
+#define ZERO 	00000010
+#define MINUS 	00000100
+#define PLUS	00001000
+#define SPACE	00010000
+
 
 typedef struct				u_args
 {
@@ -47,7 +54,7 @@ typedef struct				s_ftprintf
 	char					conv;
 	int						rank;
 	int						pos;
-	char					*options;
+	int						options;
 	long					width;
 	long					precision;
 	char					*flags;
@@ -57,6 +64,7 @@ typedef struct				s_ftprintf
 	char					*keyc;
 	int						total_pct_count;
 	unsigned long			size;
+	int						unsignd;
 	char					signe;
 	struct s_ftprintf		*next;
 	t_args				a_t;

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/25 03:33:32 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/03 20:20:05 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,21 @@ int		blood_test(t_ptf **percents, va_list arg)
 int		get_options(t_ptf **word, int i)
 {
 	if ((*word)->symptoms)
-		while (((*word)->symptoms[++i] == '#' || (*word)->symptoms[i] == ' ' || (*word)->symptoms[i] == '+' 
-					|| (*word)->symptoms[i] == '-' || (*word)->symptoms[i] == '0') && (*word)->symptoms)
-			if (!((*word)->options = ft_addonechar(&(*word)->options, (*word)->symptoms[i])))
-				return (-1);
+	{
+		while ((*word)->symptoms[++i] && ((*word)->symptoms[i] == '#' || (*word)->symptoms[i] == ' ' || (*word)->symptoms[i] == '+' || (*word)->symptoms[i] == '-' || (*word)->symptoms[i] == '0'))
+		{
+			if ((*word)->symptoms[i] == '#')
+				(*word)->options |= HASH;
+			if ((*word)->symptoms[i] == '0')
+				(*word)->options |= ZERO;
+			if ((*word)->symptoms[i] == '-')
+				(*word)->options |= MINUS;
+			if ((*word)->symptoms[i] == '+')
+				(*word)->options |= PLUS;
+			if ((*word)->symptoms[i] == ' ')
+				(*word)->options |= SPACE;
+		}
+	}
 	return (i);
 }
 
