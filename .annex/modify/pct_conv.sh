@@ -14,7 +14,7 @@
 ### INPUTTING
 #
 
-main_test=.annex/main_test.c
+main_test=.annex/mains_/main_test.c
 tmp=.annex/tmp
 
 i=0

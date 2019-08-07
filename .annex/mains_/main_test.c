@@ -4,22 +4,17 @@
 
 int		main(void)
 {
-	int d32 = 14789;
-	int d31 = -9938;
-	int d30 = 10478;
-	int d22 = 4795;
-	int d21 = -14309;
-	int d20 = 6688;
-	int d11 = -2125;
-	int d10 = -5454;
-	int d03 = -14836;
-	int d02 = 2952;
-	int d01 = -3576;
-	int d00 = 5425;
+	int d20 = 10577;
+	int d13 = 1094;
+	int d12 = 14244;
+	int d11 = 5292;
+	int d10 = 1026;
+	int d02 = -14172;
+	int d01 = 729;
+	int d00 = -13099;
 
-ft_printf(""_BBLUE"d"_END" "_MAGENTA"5425"_END" >"_CYAN"+.23ll"_END" >"_CYAN""_END" >"_CYAN""_END" >"_CYAN""_END"<; = %+.23lld\n"_BBLUE"d"_END" "_MAGENTA"-3576"_END" >"_CYAN"-hh"_END"<; = %-hhd\n"_BBLUE"d"_END" "_MAGENTA"2952"_END" >"_CYAN" .36ll"_END"<; = % .36lld\n"_BBLUE"d"_END" "_MAGENTA"-14836"_END" >"_CYAN"-4hh"_END"<; = %-4hhd\n", d00,d01,d02,d03);
-ft_printf(""_BBLUE"d"_END" "_MAGENTA"-5454"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"-2125"_END" >"_CYAN""_END"<; = %d\n", d10,d11);
-ft_printf(""_BBLUE"d"_END" "_MAGENTA"6688"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"-14309"_END" >"_CYAN" 9.8l"_END"<; = % 9.8ld\n"_BBLUE"d"_END" "_MAGENTA"4795"_END" >"_CYAN"#1.7l"_END"<; = %#1.7ld\n", d20,d21,d22);
-ft_printf(""_BBLUE"d"_END" "_MAGENTA"10478"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"-9938"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"14789"_END" >"_CYAN"#5.42l"_END"<; = %#5.42ld\n", d30,d31,d32);
+ft_printf(""_BBLUE"d"_END" "_MAGENTA"-13099"_END" >"_CYAN" 5.37ll"_END" >"_CYAN""_END" >"_CYAN""_END"<; = % 5.37lld\n"_BBLUE"d"_END" "_MAGENTA"729"_END" >"_CYAN"019.3ll"_END"<; = %019.3lld\n"_BBLUE"d"_END" "_MAGENTA"-14172"_END" >"_CYAN"+.6ll"_END"<; = %+.6lld\n", d00,d01,d02);
+ft_printf(""_BBLUE"d"_END" "_MAGENTA"1026"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"5292"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"14244"_END" >"_CYAN" 9.11ll"_END"<; = % 9.11lld\n"_BBLUE"d"_END" "_MAGENTA"1094"_END" >"_CYAN" 4.11ll"_END"<; = % 4.11lld\n", d10,d11,d12,d13);
+ft_printf(""_BBLUE"d"_END" "_MAGENTA"10577"_END" >"_CYAN""_END"<; = %d\n", d20);
 	return (0);
 }

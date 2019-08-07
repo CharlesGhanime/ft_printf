@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 22:36:46 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/07 18:33:02 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 typedef int boolean;
 #define TRUE 1
 #define FALSE 0
-#define FT_SPACE "                                                                                 "
-#define FT_ZERO "0000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
 #define HASH 	00000001
 #define ZERO 	00000010

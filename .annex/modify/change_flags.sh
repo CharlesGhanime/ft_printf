@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-main_test=.annex/main_test.c
+main_test=.annex/mains_/main_test.c
 tmp=.annex/modify/tmp
 ##														    	##
  #### REMOVE WHAT'S BETWEEN % AND THE CONVERSION INDICATOR	#####
