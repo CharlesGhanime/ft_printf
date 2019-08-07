@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_p_functions.c                                   :+:      :+:    :+:   */
+/*   funct_ptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/18 23:44:16 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/07 20:52:24 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ p_func		ft_get_print_decimal()
 	return (ft_print_decimal);
 }
 
-//p_func		ft_get_print_integer()
-//{
-//	return (ft_print_integer);
-//}
+p_func		ft_get_print_integer()
+{
+	return (ft_print_integer);
+}

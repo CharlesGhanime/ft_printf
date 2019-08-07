@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_functions.c                               :+:      :+:    :+:   */
+/*   flags_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/07/24 15:43:43 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/07 18:34:23 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	ft_plus_flag(va_list arg, t_ptf *percents)
     }
 }
 
-void	ft_hashtag_flag(t_ptf *percents)
+void	ft_hashtag_flag(t_ptf *percents, char *str)
 {
     if (percents->conv == 'o')
-        ft_putchar('0');
+        ft_addonecharpos(&str,'0', 0);
     if (percents->conv == 'x')
-        ft_putstr("0x");
+        ft_strjoin("0x", str);
     if (percents->conv == 'X')
-        ft_putstr("0X");
+        ft_strjoin("0X", str);
 }
 
 /*
