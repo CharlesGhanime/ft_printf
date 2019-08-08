@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/07 18:33:02 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/08 04:44:14 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ char						ft_get_float();
 int							ft_printf(const char *format, ...);
 
 void						ft_lst_format_token_init(t_format lst_format[NB_FORMAT]);
-void					ft_format_cmp(char c, t_ptf *percents);
+void						ft_format_cmp(char c, t_ptf *percents);
 long						total_size(t_ptf *head, int char_size);
 p_func						ft_get_print_char();
 p_func						ft_get_print_string();
@@ -163,10 +163,10 @@ char						*int_precision(char *str, long precision, int len, t_ptf *percents);
 
 /***************************** PARSING ****************************************/
 
-int						ft_count_pct(char *format, t_ptf **head);
-int						ft_auscultate(char *patient);
+int							ft_count_pct(char *format, t_ptf **head);
+int							ft_auscultate(char *patient);
 int							doctor(char *format, int rank, int position, t_ptf
-		**percents);
+							**percents);
 int							add_pct_pos(t_ptf **percents, int pos);
 
 t_ptf						*init_head(t_ptf *head);
@@ -184,8 +184,8 @@ int							get_precision(t_ptf **word, int i);
 int							get_flags(t_ptf **word, int i);
 
 t_stock						*flags_struct_creation();
-t_stock						*flags_struct_completion
-(t_stock *head, int flags, int fw, int pr);
+t_stock						*flags_struct_completion(t_stock *head, int flags,
+							int fw, int pr);
 
 
 /***************************** PRINT DEBUG ************************************/
@@ -195,7 +195,7 @@ void						global_info(t_ptf *percents);
 
 /********************************** MAIN **************************************/
 
-int		                    main(void);
+int							main(void);
 
 /********************************************************************************
  *                                                                               *
