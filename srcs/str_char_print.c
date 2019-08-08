@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/24 23:11:40 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/08 03:05:56 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,39 @@ int     ft_print_char(t_ptf *percents)
 }
 
 /* PRINT STRING */
+
+char	*str_width(char *str, long width, t_ptf *percents, char c)
+{
+	char 	*new;
+	char	*tmp;
+	int		token;
+
+	tmp = NULL;
+//	if (!(new = ft_fillchar(width, (long)ft_strlen(str), c)))
+//		return (NULL);
+	if (!(tmp = ft_strjoin(new, str)))
+		return (NULL);
+	new = ft_strdup(tmp);
+	free(tmp);
+	return (new);
+}
+
+char	*str_precision(char *str, long precision)
+{
+	char	*new;
+	int		i;
+
+	if (!precision || (long)ft_strlen(str) < precision)
+		return (str);
+	if (!(new = (char *)malloc(sizeof(char) * (precision + 1))))
+		return (NULL);
+	i = -1;
+	while (str[++i] && i < (int)precision)
+		new[i] = str[i];
+	new[i] = '\0';
+	free(str);
+	return (new);
+}
 
 int     ft_print_string(t_ptf *percents)
 {
@@ -39,4 +72,3 @@ int     ft_print_string(t_ptf *percents)
 	free(str);
 	return (FALSE);
 }
-

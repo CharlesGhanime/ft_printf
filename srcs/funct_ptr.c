@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/07 20:52:24 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/08 01:24:28 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ p_func		ft_get_print_decimal()
 
 p_func		ft_get_print_integer()
 {
-	return (ft_print_integer);
+	return (ft_print_decimal);
 }

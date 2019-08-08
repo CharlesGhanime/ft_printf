@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/04 01:36:54 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/08 04:52:24 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,12 @@
 //
 //	token = 0;
 //	if (percents->width > (long)ft_strlen(percents->a_t.a_string) 
-//			&& ft_ischar(percents->options, '-') != 1)
+//			&& percents->options & MINUS)
 //		token = 0;
 //	else if (percents->width <= 0 || (ft_ischar(percents->options, '-') == 1))
 //		token = 1;
 //	return (token);
 //}
-
-char	*str_width(char *str, long width, t_ptf *percents, char c)
-{
-	char 	*new;
-	char	*tmp;
-	int 	token;
-
-	tmp = NULL;
-	if (!(new = ft_fillchar(width, (long)ft_strlen(str), c)))
-		return (NULL);
-//	token = get_token(percents);
-//	if (token == 0)
-//	{
-		if (!(tmp = ft_strjoin(new, str)))
-			return (NULL);
-//	}
-//	else if (token == 1)
-//		if (!(tmp = ft_strjoin(str, new)))
-//			return (NULL);
-	free(new);
-	new = ft_strdup(tmp);
-	free(tmp);
-	return (new);
-}	
 
 /* PRINT ADDRESS */
 
@@ -101,37 +77,43 @@ char	*get_int_var(t_ptf *percents)
 	return (str);
 }
 
-int		count_pos(char *str, int token)
-{
-	int pos;
+//int		count_pos(char *str, int token)
+//{
+//	int pos;
+//
+//	pos = 0;
+//	if (token == 0)
+//		while (str[pos + 1] == ' ' || str[pos + 1] == '0')
+//			pos++;
+//	else if (token == 1)
+//		while (str[pos + 1] == ' ')
+//			pos++;
+//	return (pos);
+//}
 
-	pos = 0;
-	if (token == 0)
-		while (str[pos + 1] == ' ' || str[pos + 1] == '0')
-			pos++;
-	else if (token == 1)
-		while (str[pos + 1] == ' ')
-			pos++;
-	return (pos);
-}
-
-char 	*str_precision(char *str, long precision)
-{
-	char	*new;
-	int		i;
-	
-//	printf("%lu\n", precision);
-	if (!precision || (long)ft_strlen(str) < precision)
-		return (str);
-	if (!(new = (char *)malloc(sizeof(char) * (precision + 1))))
-		return (NULL);
-	i = -1;
-	while (str[++i] && i < (int)precision)
-		new[i] = str[i];
-	new[i] = '\0';
-	free(str);
-	return (new);
-}
+//char	*str_width(char *str, long width, t_ptf *percents, char c)
+//{
+//	char 	*new;
+//	char	*tmp;
+//	int 	token;
+//
+//	tmp = NULL;
+////	if (!(new = ft_fillchar(width, (long)ft_strlen(str), c)))
+////		return (NULL);
+////	token = get_token(percents);
+////	if (token == 0)
+////	{
+//		if (!(tmp = ft_strjoin(new, str)))
+//			return (NULL);
+////	}
+////	else if (token == 1)
+////		if (!(tmp = ft_strjoin(str, new)))
+////			return (NULL);
+//	free(new);
+//	new = ft_strdup(tmp);
+//	free(tmp);
+//	return (new);
+//}	
 
 char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 {
@@ -140,22 +122,60 @@ char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 	
 	if ((!precision || (int)precision < len))
 		return (str);
+//	printf("PRECISION ======%d\n", precision);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + len + 1))))
 		return (NULL);
 	i = -1;
-//	printf("WOOW1 == %s\n", new);
+	if (str[0] == '-')
+	{
+		new[0] = '-';
+		str[0] = '0';
+		precision++;
+		i++;
+	}
 	while (++i < ((int)precision - len))
 		new[i] = '0';
 	new[i] = '\0';
+//	printf("new = %s\n", new);
 //	printf("WOOW2 == %s\n", new);
 	new = ft_strcat(new, str);
 	free(str);
 	return (new);
 }
 
+char	*int_width(char *str, long width, long len, t_ptf *percents)
+{
+	char	*new;
+	char	*padd;
+	long	diff;
+	
+	diff = width - len;
+	if (diff < 0 || !width)
+		return (str);
+//	printf("\nITIZ3 == %s\n", str); 
+	if (percents->options & ZERO && !(percents->precision) && !(percents->options & MINUS))
+		padd = ft_padding(width - len, '0'); 
+	else
+		padd = ft_padding(width - len, ' ');
+	if (!(percents->options & MINUS))
+	{
+		if (!(new = ft_strjoinfrchoz(padd, str, 1)))
+			return (NULL);
+	}
+	else if (width > len)
+		if (!(new = ft_strjoinfrchoz(str, padd, 2)))
+			return (NULL);
+	if (!new)
+		return (str);
+	free(str);
+//	printf("manage str = \n");
+
+	return (new);
+}
+
 char	*manage_opts(char *str, t_ptf *percents)
 {
-	int		pos;
+//	int		pos;
 	char	*new;
 
 	new = NULL;
@@ -163,14 +183,10 @@ char	*manage_opts(char *str, t_ptf *percents)
 	if (percents->options & HASH && (percents->conv == 'x' || percents->conv == 'X' 
 				|| percents->conv == 'o' ))
 		;  												// input funct to manage HASH
-	if (percents->options & ZERO && !percents->precision && !(percents->options & MINUS))
-		;												// call ft_padding 
-	if (percents->options & MINUS)
-		;												// call ft_padding
 	if (percents->options & SPACE && !(percents->options & PLUS) && 
 			!(percents->unsignd) && (percents->signe == '+' || !str))
 		new = ft_addonecharpos(&str, ' ', 0);					// add one space
-	if (percents->options & PLUS && !(percents->unsignd))
+	if (percents->options & PLUS && !(percents->unsignd) && str[0] != '-')
 		new = ft_strjoinfrchoz(&percents->signe, str, 2);		// print sign
 
 
@@ -190,12 +206,15 @@ int		ft_print_decimal(t_ptf *percents)
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
 	   return (FALSE);
 //	printf("\nITIZ2 == %s\n", str); 
-	if (!(str = manage_opts(str, percents)))
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
 //	printf("\nITIZ3 == %s\n", str); 
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+//	printf("\nITIZ4 == %s\n", str); 
 
 
-	percents->size = ft_strlen(str);
+  percents->size = ft_strlen(str);
 //	printf("\n"_RED"HEREEE"_END"\n");
 	ft_putstr(str);
 	free(str);
