@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_var.c                                          :+:      :+:    :+:   */
+/*   parse_var.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 23:00:41 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/09 00:11:18 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 		(*word)->unsignd = 1;
 		if (!(*word)->flags)
 		{
-			if (!((*word)->a_t.a_ullong = (unsigned int)va_arg(arg, unsigned int)))
+			if (!((*word)->a_t.a_uint = (unsigned int)va_arg(arg, unsigned int)))
 				return (-1);
 		}
 		else

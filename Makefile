@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/08 16:22:27 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/09 00:50:59 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS :=		./srcs/ft_printf.c 			\
 			./srcs/return_letter.c		\
 			./srcs/return_letter2.c		\
 			./srcs/str_char_print.c		\
-			./srcs/unsigned_octal_print.c
+			./srcs/flags_functions.c
 
 OBJ := $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/07 18:34:23 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/09 00:56:44 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_minus_flag(t_ptf *percents)
 }
 
 */
-
+/*
 void	ft_plus_flag(va_list arg, t_ptf *percents)
 {
     size_t i;
@@ -78,7 +78,7 @@ void	ft_plus_flag(va_list arg, t_ptf *percents)
         ft_putchar('+');
     }
 }
-
+*/
 void	ft_hashtag_flag(t_ptf *percents, char *str)
 {
     if (percents->conv == 'o')
@@ -130,6 +130,7 @@ void	ft_zero_flag(t_ptf *percents)
 
 */
 
+/*
 char	*ft_float_precision_flag(char *str)
 {
     size_t i;
@@ -171,9 +172,9 @@ char    *ft_width_precision(char *src, t_ptf *percents)
         percents->precision= 1;
     if (!percents->precision && percents->conv == 'f')
         percents->precision = 6;
-
+*/
     /* FONCTION DE GESTION DE WIDTH PRECISION MINUS ET ZERO */
-
+/*
         if ((unsigned long)percents->width > percents->size) {
             if ((unsigned long)percents->precision > percents->size) {
                 if (percents->width > percents->precision) {
@@ -238,7 +239,7 @@ char    *ft_width_precision(char *src, t_ptf *percents)
     printf("bypass boucle\n");
     return (src);
 }
-
+*/
 /*
             if (percents->precision < percents->size)
             {
