@@ -14,11 +14,11 @@ printf
 Libft/*.a
 
 # Tools
-.annex/make/
-.annex/modify/
-.annex/print/
-.annex/tmp
-.annex/main_test.c
+./.annex/make/
+!/.annex/modify/
+./.annex/print/
+/.annex/
+./.annex/mains_/*
 
 # Misc
 logs*
