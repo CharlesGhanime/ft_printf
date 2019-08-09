@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/07 20:50:10 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/08 04:09:07 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void			ft_format_cmp(char c, t_ptf *percents)
 	}
 }
 
-int	print_format(const char *format, t_ptf *word, int start)
+int		print_format(const char *format, t_ptf *word, int start)
 {
 	int len;
 
@@ -91,7 +91,7 @@ int	print_format(const char *format, t_ptf *word, int start)
 	return (0);
 }	
 
-int	lobby(const char *format, t_ptf *percents)
+int		lobby(const char *format, t_ptf *percents)
 {
 	t_ptf *word;
 	int start;
@@ -113,7 +113,7 @@ int	lobby(const char *format, t_ptf *percents)
 }
 
 
-int				ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_ptf		*percents = NULL;

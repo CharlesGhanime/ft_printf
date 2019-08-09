@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/09 05:27:54 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/09 05:51:14 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS :=		./srcs/ft_printf.c 				\
 			./srcs/str_char_ptr_print.c		\
 			./srcs/manage_opts.c			\
 			./srcs/unsigned_octal_print.c	\
+			./srcs/flags_functions.c		\
 
 OBJ := $(SRCS:.c=.o)
 
