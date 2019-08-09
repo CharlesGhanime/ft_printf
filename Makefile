@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/07 22:33:46 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/09 05:27:54 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,21 @@ EXEC := ft_printf
 CC := gcc
 AR = ar rcs
 CFLAGS := -Wall -Wextra -Werror
-SRCS :=		./srcs/ft_printf.c 			\
-			./srcs/float_prec.c			\
-			./srcs/funct_ptr.c			\
-			./srcs/funct_ptr2.c			\
-			./srcs/init.c				\
-			./srcs/int_long_print.c		\
-			./srcs/parse_type.c			\
-			./srcs/parse_var.c			\
-			./srcs/parser.c				\
-			./srcs/print_info.c			\
-			./srcs/return_letter.c		\
-			./srcs/return_letter2.c		\
-			./srcs/str_char_print.c		\
-			./srcs/unsigned_octal_print.c
+SRCS :=		./srcs/ft_printf.c 				\
+			./srcs/float_prec.c				\
+			./srcs/funct_ptr.c				\
+			./srcs/funct_ptr2.c				\
+			./srcs/init.c					\
+			./srcs/int_long_print.c			\
+			./srcs/parse_type.c				\
+			./srcs/parse_var.c				\
+			./srcs/parser.c					\
+			./srcs/print_info.c				\
+			./srcs/return_letter.c			\
+			./srcs/return_letter2.c			\
+			./srcs/str_char_ptr_print.c		\
+			./srcs/manage_opts.c			\
+			./srcs/unsigned_octal_print.c	\
 
 OBJ := $(SRCS:.c=.o)
 
