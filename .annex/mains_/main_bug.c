@@ -27,3 +27,8 @@ int		main(void)
 
 	return (0);
 }
+ft_printf(""_BBLUE"d"_END" "_MAGENTA"1026"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"5292"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"d"_END" "_MAGENTA"14244"_END" >"_CYAN" 9.11ll"_END"<; = % 9.11lld\n"_BBLUE"d"_END" "_MAGENTA"1094"_END" >"_CYAN" 4.11ll"_END"<; = % 4.11lld\n", d10,d11,d12,d13);
+	int d13 = 1094;
+	int d12 = 14244;
+	int d11 = 5292;
+	int d10 = 1026;
