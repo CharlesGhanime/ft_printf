@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/10 16:47:54 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/10 23:59:41 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct				s_ftprintf
 	int						unsignd;
 	char					signe;
 	struct s_ftprintf		*next;
-	t_args				a_t;
+	t_args					a_t;
 }					t_ptf;
 
 typedef int (*p_func)(t_ptf *);
@@ -170,7 +170,7 @@ char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents);
 char						*str_width(char *str, long width, t_ptf *percents, char c);
 char						*str_precision(char *str, long precision);
-char						*int_precision(char *str, long precision, int len, t_ptf *percents);
+char						*int_precision(char *str, long precision, int len);
 char						*int_width(char *str, long width, long len, t_ptf *percents);
 char						*manage_opts(char *str, t_ptf *percents);
 

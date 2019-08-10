@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/10 20:12:15 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/10 23:59:03 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	if (!(str = get_generic_var(percents, base)))
 		return (FALSE);
 //	printf("ITIZ == %s\n", str);
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 //	printf("ITIZ2 == %s\n", str);
 	if (!(str = manage_opts(str, percents)))

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/09 05:38:33 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/11 00:02:07 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	char	*padd;
 	long	diff;
 
+	new = NULL;
 	diff = width - (long)ft_strlen(str);
 	if (diff < 0)
 		return (str);
@@ -78,18 +79,14 @@ int     ft_print_string(t_ptf *percents)
 	char *str;
 
 	str = NULL;
-	//printf("ITIZB == %s\n", str);
 	if (!(str = ft_strdup(percents->a_t.a_string)))
 		return (FALSE);
-	//printf("ITIZ1 == %s\n", str);
 	if (!(str = str_precision(str, percents->precision)))
 		return (FALSE);
-	//printf("ITIZ2 == %s\n", str);
 	if (!(str = str_width(str, percents->width, percents, ' ')))
 		return (FALSE);
-	//printf("ITIZ3 == %s\n", str);
 	ft_putstr(str);
-	//  //printf(""_RED"%s"_END"", str);
+	  //printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
 	free(str);
 	return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/09 00:57:15 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/10 23:59:21 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*get_int_var(t_ptf *percents)
 //	return (new);
 //}	
 
-char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
+char 	*int_precision(char *str, long precision, int len)
 {
 	char	*new;
 	int 	i;
@@ -101,7 +101,7 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 	int		min;
 
 	diff = width - len;
-	if (diff < 0 || !width || (width - 1 == len && percents->options & PLUS))
+	if (diff < 0 || !width || (width - 1 == len && percents->options & PLUS && !(percents->unsignd)))
 		return (str);
 	min = 0;
 	new = NULL;
@@ -144,7 +144,7 @@ int		ft_print_decimal(t_ptf *percents)
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
 //	printf("\nITIZ == %s\n", str); 
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 	   return (FALSE);
 //	printf("\nITIZ2 == %s\n", str); 
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
