@@ -31,11 +31,3 @@ int		ft_strnequ(char *s1, char *s2, size_t n)
 	}
 	return (1);
 }
-
-int main(int argc, char **argv)
-{
-	if (argc == 4)
-		printf("%i", ft_strnequ(argv[1], argv[2], ft_atoi(argv[3])));
-
-	return (0);
-}

@@ -77,7 +77,6 @@ SRCS= 	ft_addonechar.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_putnbr_base.c \
 		ft_itoa_base.c \
 		ft_ftoa.c \
 		ft_addonecharpos.c 

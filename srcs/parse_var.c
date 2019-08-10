@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/09 00:11:18 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/10 00:54:13 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,12 @@ int     get_oux_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->flags[0] == 'h' && (*word)->flags[1] != 'h')
 	{
-		if (!((*word)->a_t.a_int = va_arg(arg, int)))
+		if (!((*word)->a_t.a_int = (unsigned short)va_arg(arg, int)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'h' && (*word)->flags[1] == 'h')
 	{
-		if (!((*word)->a_t.a_int = va_arg(arg, int)))
+		if (!((*word)->a_t.a_int = (unsigned char)va_arg(arg, int)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] != 'l')
