@@ -27,3 +27,8 @@ int		main(void)
 
 	return (0);
 }
+	float 	f1 = 0.1, f2 = 0.2, f3 = 0.3, f4 = 0.4, f5 = 0.5, f6 = 0.6, f7 = 0.7, f8 = 0.8, f9 = 0.9;
+	int		i1 = 1, i2 = 2, i3 = 3, i4 = 4, i5 = 5, i6 = 6;
+
+	printf("%d, %d, %d, %d, %d, %d\n%f, %f, %f, %f, %f, %f, %f, %f, %f, %f\n", 
+		f1, f2, f3, f4, f5, f6, f7, f8, f9, i1, i2, i3, i4, i5, i6);
