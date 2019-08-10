@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 00:39:23 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/10 00:00:40 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/10 21:03:20 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*manage_opts(char *str, t_ptf *percents)
 
 	new = NULL;
 	if (percents->options & HASH && (percents->conv == 'x' || percents->conv == 'X'
-				|| percents->conv == 'o') && str[0] != '0')
+				|| percents->conv == 'o') && !(str[0] == '0' && percents->conv == 'o'))
 		new = ft_hashtag_flag(percents, str);
 	if (percents->options & SPACE && !(percents->options & PLUS) &&
 			!(percents->unsignd) && (percents->signe == '+' || !str) && str[0] != ' ')

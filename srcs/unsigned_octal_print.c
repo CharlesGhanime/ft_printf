@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/10 16:52:38 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/10 20:12:15 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	char *str;
 
 	str = NULL;
-	if(!(str = get_generic_var(percents, base)))
+	if (!(str = get_generic_var(percents, base)))
 		return (FALSE);
+//	printf("ITIZ == %s\n", str);
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
 		return (FALSE);
+//	printf("ITIZ2 == %s\n", str);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
+//	printf("ITIZ3 == %s\n", str);
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
+//	printf("ITIZ4 == %s\n", str);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
 	free(str);
