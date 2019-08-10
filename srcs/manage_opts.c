@@ -29,7 +29,7 @@ char	*manage_opts(char *str, t_ptf *percents)
 
 	new = NULL;
 	if (percents->options & HASH && (percents->conv == 'x' || percents->conv == 'X'
-				|| percents->conv == 'o' ))
+				|| percents->conv == 'o') && str[0] != '0')
 		new = ft_hashtag_flag(percents, str);
 	if (percents->options & SPACE && !(percents->options & PLUS) &&
 			!(percents->unsignd) && (percents->signe == '+' || !str) && str[0] != ' ')
