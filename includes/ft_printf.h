@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/09 05:50:20 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/10 00:39:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,13 +153,14 @@ int							ft_print_float(t_ptf *percents);
 
 void	    				ft_minus_flag(t_ptf *percents, size_t nb);
 void						ft_plus_flag(va_list arg, t_ptf *percents);
-void						ft_hashtag_flag(t_ptf *percents, char *str);
+char						*ft_hashtag_flag(t_ptf *percents, char *str);
 void						ft_zero_flag(t_ptf *word, size_t nb);
 char						*ft_float_precision_flag(char *str);
 char                        *ft_width_precision(char *src, t_ptf *percents);
 char						*str_width(char *str, long width, t_ptf *percents, char c);
 char						*str_precision(char *str, long precision);
 char						*int_precision(char *str, long precision, int len, t_ptf *percents);
+char						*int_width(char *str, long width, long len, t_ptf *percents);
 char						*manage_opts(char *str, t_ptf *percents);
 
 /***************************** PARSING ****************************************/

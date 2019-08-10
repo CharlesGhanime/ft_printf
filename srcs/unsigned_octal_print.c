@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/09 00:54:06 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/10 04:14:06 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		ft_print_octal(t_ptf *percents)
 {
 	char *str;
 
+	str = NULL;
 	//	percents->size = ft_strlen(ft_itoa(percents->a_t.a_uint));
 	if (percents->flags)
 	{
@@ -33,11 +34,15 @@ int		ft_print_octal(t_ptf *percents)
 	}
 	else
 		str = ft_itoa_base(percents->a_t.a_uint, "01234567");
-	printf("%s", percents->flags);
-		ft_hashtag_flag(percents, str);
-	//	ft_zero_flag(percents, percents->size);
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+		return (FALSE);
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+		return (FALSE);
+	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	//	ft_minus_flag(percents, percents->size);
+	free(str);
 	return (TRUE);
 }
 
@@ -61,10 +66,15 @@ int		ft_print_unsigned(t_ptf *percents)
 	}
 	else
 		str = ft_itoa_base(percents->a_t.a_uint, "0123456789");
-//		ft_hashtag_flag(percents, str);
-	//	ft_zero_flag(percents, percents->size);
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+		return (FALSE);
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+		return (FALSE);
+	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	//	ft_minus_flag(percents, percents->size);
+	free(str);
 	return (TRUE);
 }
 
@@ -88,10 +98,15 @@ int		ft_print_hexa(t_ptf *percents)
 	}
 	else
 		str = ft_itoa_base(percents->a_t.a_uint, "0123456789abcdef");
-	//	ft_hashtag_flag(percents);
-	//	ft_zero_flag(percents, percents->size);
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+		return (FALSE);
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+		return (FALSE);
+	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	//	ft_minus_flag(percents, percents->size);
+	free(str);
 	return (TRUE);
 }
 
@@ -115,11 +130,15 @@ int		ft_print_hexa_maj(t_ptf *percents)
 	}
 	else
 	str = ft_itoa_base(percents->a_t.a_uint, "0123456789ABCDEF");
-	//	ft_hashtag_flag(percents);
-	//	ft_zero_flag(percents, percents->size);
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+		return (FALSE);
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+		return (FALSE);
+	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	//	ft_minus_flag(percents, percents->size);
-	//ft_putstr(ft_width_precision(str, percents, percents->size));
+	free(str);
 	return (TRUE);
 }
 
