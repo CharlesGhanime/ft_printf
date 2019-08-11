@@ -6,63 +6,89 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/10 16:23:57 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/11 02:16:43 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEADER := -I ./includes/ft_printf.h
+HEADER := -I ./includes/ft_printf.h -I ./includes/libft.h
 NAME := libftprintf.a
 EXEC := ft_printf
 CC := gcc
 AR = ar rcs
 CFLAGS := -Wall -Wextra -Werror
-SRCS :=		./srcs/ft_printf.c 				\
-			./srcs/float_prec.c				\
-			./srcs/funct_ptr.c				\
-			./srcs/funct_ptr2.c				\
-			./srcs/init.c					\
-			./srcs/int_long_print.c			\
-			./srcs/parse_type.c				\
-			./srcs/parse_var.c				\
-			./srcs/parser.c					\
-			./srcs/print_info.c				\
-			./srcs/return_letter.c			\
-			./srcs/return_letter2.c			\
-			./srcs/str_char_ptr_print.c		\
-			./srcs/manage_opts.c			\
-			./srcs/unsigned_octal_print.c	\
-			./srcs/flags_functions.c		\
-			./srcs/get_var_ouxx.c			\
+SRC_PATH = ./srcs
 
-OBJ := $(SRCS:.c=.o)
+OBJS_PATH = ./objs/
 
-MAIN := ./main_printf/main_printf.c
+SRCS :=		ft_printf 				\
+			float_prec				\
+			funct_ptr					\
+			funct_ptr2				\
+			init						\
+			int_long_print			\
+			parse_type				\
+			parse_var					\
+			parser					\
+			print_info				\
+			return_letter				\
+			return_letter2			\
+			str_char_ptr_print		\
+			manage_opts				\
+			unsigned_octal_print		\
+			flags_functions			\
+			get_var_ouxx				
+
+SRCS += 	libft/ft_addonechar		\
+			libft/ft_itoa_base		\
+			libft/ft_padding		\
+			libft/ft_strjoinfrchoz	\
+			libft/ft_addonecharpos 	\
+			libft/ft_lltoa         	\
+			libft/ft_putchar       	\
+			libft/ft_strlen			\
+			libft/ft_atoi          	\
+			libft/ft_ltoa          	\
+			libft/ft_putstr        	\
+			libft/ft_strncat		\
+			libft/ft_bzero         	\
+			libft/ft_memalloc      	\
+			libft/ft_strcat        	\
+			libft/ft_strncpy		\
+			libft/ft_counter       	\
+			libft/ft_memcpy        	\
+			libft/ft_strcpy        	\
+			libft/ft_strndup		\
+			libft/ft_ftoa          	\
+			libft/ft_memdel        	\
+			libft/ft_strdup        	\
+			libft/ft_strsub			\
+			libft/ft_ischar        	\
+			libft/ft_memmove       	\
+			libft/ft_strjoin		\
+			libft/ft_itoa			\
+			libft/ft_memset			\
+			libft/ft_strjoinfr		\
+
+
+A_SRC = $(patsubst %,$(SRC_PATH)/%.c,$(SRCS))
+A_OBJ = $(patsubst %,$(OBJS_PATH)%.o,$(SRCS))
+
+OBJS = $(patsubst %,%.o,$(SRCS))
 
 LIB_PATH := ./libft
 LIBFT := $(LIB_PATH)/libft.a
 
 all : $(NAME) $(LIBFT)
 
-$(NAME) : $(OBJ)
-	@echo -e "\n\033[32m********\033[32m* MAKE *\033[32m********"
-	$(MAKE) -C $(LIB_PATH)
-	@libtool -static -o $@ $(OBJ) $(LIBFT)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
+$(NAME) : $(A_OBJ) $(HEADER)
+	echo "hello"
+	$(CC) $(CFLAGS) $(A_SRC) -o $(NAME)
 
 $(LIBFT) :
 	$(MAKE) -C $(LIB_PATH)
-
 	%.o : ./srcs/%.c
 
 clean :
-	@echo "\n"
-	@echo "\033[31m************************************************************"
-	@echo "\033[31m***************________________*****************************"
-	@echo "\033[31m**************|                |****************************"
-	@echo "\033[31m**************|   MAKE CLEAN   |****************************"
-	@echo "\033[31m**************|________________|****************************"
-	@echo "\033[31m************************************************************"
-	@echo "\n"
 	rm -rf $(OBJ)
 	rm -rf *.o
 
@@ -70,14 +96,6 @@ clean_libft :
 	make clean -C $(LIB_PATH)
 
 fclean : clean
-	@echo "\n"
-	@echo "\033[31m************************************************************"
-	@echo "\033[31m***************________________*****************************"
-	@echo "\033[31m**************|                |****************************"
-	@echo "\033[31m**************|   MAKE FCLEAN  |****************************"
-	@echo "\033[31m**************|________________|****************************"
-	@echo "\033[31m************************************************************"
-	@echo "\n"
 	rm -rf $(NAME)
 
 re : fclean all
