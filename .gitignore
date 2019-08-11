@@ -1,8 +1,7 @@
 
 # Objects
+objs/*
 srcs/*.o
-libft/*.o
-Libft/*.o
 
 # Executables
 *.out
@@ -11,7 +10,7 @@ printf
 
 # Libraries
 *.a
-Libft/*.a
+libft/*.a
 
 # Tools
 ./.annex/make/

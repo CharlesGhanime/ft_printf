@@ -26,7 +26,7 @@ SRC_NAME =		ft_printf.c 			\
 			funct_ptr.c			\
 			funct_ptr2.c			\
 			init.c				\
-			int_long_print.c			\
+			int_long_print.c		\
 			parse_type.c			\
 			parse_var.c			\
 			parser.c			\
@@ -85,21 +85,21 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/, $(OBJLIB_NAME))
 all : $(NAME) 
 
 $(NAME) : $(OBJ) $(OBJLIB) $(INC)
-	echo "hello"
-	ar rc $(NAME) $(OBJ) $(OBJLIB)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ) $(OBJLIB)
+	@ranlib $(NAME)
+	@echo "\033[1;34mlibftprintf.a\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) -o $@ -c $<
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) -o $@ -c $<
 
 $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
-	mkdir $(OBJLIB_PATH) 2> /dev/null || true
-	$(CC) -o $@ -c $<
+	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
+	@$(CC) -o $@ -c $<
 
 clean :
-	rm -rf $(OBJ) $(OBJLIB)
-	rm -rf *.o
+	@rm -rf $(OBJ) $(OBJLIB)
+	@rm -rf *.o
 
 fclean : clean
 	rm -rf $(NAME) ./objs
@@ -130,14 +130,13 @@ LOG_FTPTF = $(LOGS_FOLD)/logs_ftptf
 
 trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
-	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(LIBFT) $(MAIN_TEST) -o $(REAL)
+	@$(CC) $(MAIN_TEST) -o $(REAL)
 	@echo "$(GREEN)\tREAL PRINTF$(END)"
 	@./$(REAL)
 
 tdiff : trandom
 	@sed -i '' 's/[^_]printf/ft_printf/g' $(MAIN_TEST)
-	@$(CC) $(LIBFT) $(SRCS) $(MAIN_TEST) -o $(MINE)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(MINE)
 	@echo "$(BBLUE)\t MY PRINTF$(END)"
 	@./$(MINE)
 
@@ -175,26 +174,25 @@ dcoml:
 	@sed -i '' '$(l)s/\/\///' $(MAIN_TEST)
 
 tbug:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
+	@$(CC) $(LIB) $(SRC) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
 	@./$(MINE)
 tptr:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_PTR) -o $(MINE)
+	@$(CC) $(LIB) $(SRC) $(A_PATH)/$(MAIN_PTR) -o $(MINE)
 	@./$(MINE)
 
 
 run :
 	@echo "$(RED)LOGS$(END)\n" > logs
-	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME) 
 
 diff : run toptf
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@./$(NAME) > $(LOG_PTF)
 	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@./$(NAME) > $(LOG_FTPTF)
 	@diff $(LOG_PTF) $(LOG_FTPTF)
 
