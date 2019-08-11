@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/10 16:23:57 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/11 01:54:54 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ MINE = ft_printf
 MAIN_FOLD = $(A_PATH)/mains_
 MAIN_TEST = $(MAIN_FOLD)/main_test.c
 MAIN_BUG = $(MAIN_FOLD)/main_bug.c
-MAIN_PTR = $(MAIN_FOLD)/main_ptr.c
+MAIN_PTR = ./.annex/mains_/main_ptr.c
 
 LOGS_FOLD = $(A_PATH)/logs
 LOG_PTF = $(LOGS_FOLD)/logs_ptf
@@ -154,7 +154,7 @@ tbug:
 	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
 	@./$(MINE)
 tptr:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_PTR) -o $(MINE)
+	@$(CC) $(LIBFT) $(SRCS) $(MAIN_PTR) -o $(MINE)
 	@./$(MINE)
 
 

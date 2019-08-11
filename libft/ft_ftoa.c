@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 17:11:30 by cghanime          #+#    #+#             */
-/*   Updated: 2019/07/29 00:41:27 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/11 15:02:54 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,23 @@ char	*ft_ftoa(double myfloat)
 	myfloat -= intpart;
 	myfloat *= 100000000;
 	decipart = (signed long int)(myfloat);
-	s2 = ft_strcat(s1, ft_itoa_base(decipart, "0123456789"));
-	ft_putstr(s2);
+	if (decipart == 0)
+		s2 = ft_strcat(s1, "000000");
+	else
+		s2 = ft_strcat(s1, ft_itoa_base(decipart, "0123456789"));
+//	ft_putstr(s2);
 	return (s2);
 }
+
+/*
+int main()
+{
+	double myfloat = 42.42;
+	double test2 = 420;
+	ft_ftoa(myfloat);
+	write (1, "\n", 1);
+	ft_ftoa(test2);
+	return (0);
+}
+
+*/

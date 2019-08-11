@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/10 23:59:03 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/11 15:02:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		ft_print_float(t_ptf *percents)
 	i = 0;
 	str = ft_ftoa(percents->a_t.a_ldouble);
 
-	if (!percents->precision)
+	if (percents->precision <= 0)
 		percents->precision = 6;
 	if (percents->precision)
 		if (str[percents->precision] > '5')
