@@ -84,9 +84,9 @@ OBJLIB = $(addprefix $(OBJLIB_PATH)/, $(OBJLIB_NAME))
 
 all : $(NAME) 
 
-$(NAME) : $(OBJ) $(OBJLIB) $(INC)
+$(NAME) : $(OBJ) $(OBJLIB)
 	@ar rc $(NAME) $(OBJ) $(OBJLIB)
-	@ranlib $(NAME)
+#	@ranlib $(NAME)
 	@echo "\033[1;34mlibftprintf.a\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
@@ -99,7 +99,6 @@ $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
 
 clean :
 	@rm -rf $(OBJ) $(OBJLIB)
-	@rm -rf *.o
 
 fclean : clean
 	rm -rf $(NAME) ./objs
@@ -111,7 +110,6 @@ re : fclean all
 #   TEST    #
 #           #
 #############
-
 
 A_PATH = ./.annex
 
@@ -126,7 +124,6 @@ MAIN_PTR = $(MAIN_FOLD)/main_ptr.c
 LOGS_FOLD = $(A_PATH)/logs
 LOG_PTF = $(LOGS_FOLD)/logs_ptf
 LOG_FTPTF = $(LOGS_FOLD)/logs_ftptf
-
 
 trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
