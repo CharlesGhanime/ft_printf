@@ -99,9 +99,10 @@ $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
 
 clean :
 	@rm -rf $(OBJ) $(OBJLIB)
+	@echo "\033[1;34mlibftprintf.a\t\033[1;33mDeletion\t\033[0;32m[OK]\033[0m"
 
 fclean : clean
-	rm -rf $(NAME) ./objs
+	@rm -rf $(NAME) ./objs
 
 re : fclean all
 
@@ -191,7 +192,7 @@ diff : run toptf
 	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
 	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@./$(NAME) > $(LOG_FTPTF)
-	@diff $(LOG_PTF) $(LOG_FTPTF)
+	@diff --text $(LOG_PTF) $(LOG_FTPTF)
 
 modtest:
 	@vim													$(MAIN_TEST)
