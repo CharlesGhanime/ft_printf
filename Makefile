@@ -10,93 +10,99 @@
 #                                                                              #
 # **************************************************************************** #
 
-HEADER := -I ./includes/ft_printf.h -I ./includes/libft.h
-NAME := libftprintf.a
-EXEC := ft_printf
-CC := gcc
-AR = ar rcs
-CFLAGS := -Wall -Wextra -Werror
+NAME = libftprintf.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CPP_FLAGS = -Iinclude
+
 SRC_PATH = ./srcs
+LIB_PATH = ./lib
+INC_PATH = ./includes
+OBJ_PATH = ./objs
+OBJLIB_PATH = ./objs
 
-OBJS_PATH = ./objs/
+SRC_NAME =		ft_printf.c 			\
+			float_prec.c			\
+			funct_ptr.c			\
+			funct_ptr2.c			\
+			init.c				\
+			int_long_print.c			\
+			parse_type.c			\
+			parse_var.c			\
+			parser.c			\
+			print_info.c			\
+			return_letter.c			\
+			return_letter2.c		\
+			str_char_ptr_print.c		\
+			manage_opts.c			\
+			unsigned_octal_print.c		\
+			flags_functions.c		\
+			get_var_ouxx.c				
 
-SRCS :=		ft_printf 				\
-			float_prec				\
-			funct_ptr					\
-			funct_ptr2				\
-			init						\
-			int_long_print			\
-			parse_type				\
-			parse_var					\
-			parser					\
-			print_info				\
-			return_letter				\
-			return_letter2			\
-			str_char_ptr_print		\
-			manage_opts				\
-			unsigned_octal_print		\
-			flags_functions			\
-			get_var_ouxx				
+LIB_SRCS = ft_addonechar.c	\
+	ft_itoa_base.c		\
+	ft_padding.c		\
+	ft_strjoinfrchoz.c	\
+	ft_addonecharpos.c	\
+	ft_lltoa.c         	\
+	ft_putchar.c       	\
+	ft_strlen.c		\
+	ft_atoi.c          	\
+	ft_ltoa.c        	\
+	ft_putstr.c        	\
+	ft_strncat.c		\
+	ft_bzero.c         	\
+	ft_memalloc.c      	\
+	ft_strcat.c        	\
+	ft_strncpy.c		\
+	ft_counter.c       	\
+	ft_memcpy.c   	     	\
+	ft_strcpy.c        	\
+	ft_strndup.c		\
+	ft_ftoa.c          	\
+	ft_memdel.c        	\
+	ft_strdup.c        	\
+	ft_strsub.c		\
+	ft_ischar.c        	\
+	ft_memmove.c       	\
+	ft_strjoin.c		\
+	ft_itoa.c		\
+	ft_memset.c		\
+	ft_strjoinfr.c		\
 
-SRCS += 	libft/ft_addonechar		\
-			libft/ft_itoa_base		\
-			libft/ft_padding		\
-			libft/ft_strjoinfrchoz	\
-			libft/ft_addonecharpos 	\
-			libft/ft_lltoa         	\
-			libft/ft_putchar       	\
-			libft/ft_strlen			\
-			libft/ft_atoi          	\
-			libft/ft_ltoa          	\
-			libft/ft_putstr        	\
-			libft/ft_strncat		\
-			libft/ft_bzero         	\
-			libft/ft_memalloc      	\
-			libft/ft_strcat        	\
-			libft/ft_strncpy		\
-			libft/ft_counter       	\
-			libft/ft_memcpy        	\
-			libft/ft_strcpy        	\
-			libft/ft_strndup		\
-			libft/ft_ftoa          	\
-			libft/ft_memdel        	\
-			libft/ft_strdup        	\
-			libft/ft_strsub			\
-			libft/ft_ischar        	\
-			libft/ft_memmove       	\
-			libft/ft_strjoin		\
-			libft/ft_itoa			\
-			libft/ft_memset			\
-			libft/ft_strjoinfr		\
+INC_NAME = ft_printf.h libft.h
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJLIB_NAME = $(LIB_SRCS:.c=.o)
+
+SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
+LIB = $(addprefix $(LIB_PATH)/, $(LIB_SRCS))
+INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/, $(OBJ_NAME))
+OBJLIB = $(addprefix $(OBJLIB_PATH)/, $(OBJLIB_NAME))
 
 
-A_SRC = $(patsubst %,$(SRC_PATH)/%.c,$(SRCS))
-A_OBJ = $(patsubst %,$(OBJS_PATH)%.o,$(SRCS))
+all : $(NAME) 
 
-OBJS = $(patsubst %,%.o,$(SRCS))
-
-LIB_PATH := ./libft
-LIBFT := $(LIB_PATH)/libft.a
-
-all : $(NAME) $(LIBFT)
-
-$(NAME) : $(A_OBJ) $(HEADER)
+$(NAME) : $(OBJ) $(OBJLIB) $(INC)
 	echo "hello"
-	$(CC) $(CFLAGS) $(A_SRC) -o $(NAME)
+	ar rc $(NAME) $(OBJ) $(OBJLIB)
+	ranlib $(NAME)
 
-$(LIBFT) :
-	$(MAKE) -C $(LIB_PATH)
-	%.o : ./srcs/%.c
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+	mkdir $(OBJ_PATH) 2> /dev/null || true
+	$(CC) -o $@ -c $<
+
+$(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
+	mkdir $(OBJLIB_PATH) 2> /dev/null || true
+	$(CC) -o $@ -c $<
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJLIB)
 	rm -rf *.o
 
-clean_libft :
-	make clean -C $(LIB_PATH)
-
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) ./objs
 
 re : fclean all
 
