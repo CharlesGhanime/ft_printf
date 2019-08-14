@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/11 02:16:43 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/15 00:03:27 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC_NAME =		ft_printf.c 			\
 			manage_opts.c			\
 			unsigned_octal_print.c		\
 			flags_functions.c		\
-			get_var_ouxx.c				
+			get_var_ouxx.c			
 
 LIB_SRCS = ft_addonechar.c	\
 	ft_itoa_base.c		\
@@ -69,6 +69,7 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_itoa.c		\
 	ft_memset.c		\
 	ft_strjoinfr.c		\
+	ft_uintmaxtoa_base.c \
 
 INC_NAME = ft_printf.h libft.h
 

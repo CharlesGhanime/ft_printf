@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "../../includes/ft_printf.h"
 
-
 int		main(void)
 {
 	int	test;
@@ -16,7 +15,7 @@ int		main(void)
 printf("p NULL; = %p\np NULL ><; = %p\np NULL; = %p\np NULL ><; = %p\n", ptr00,ptr01,&ptr02,&ptr03);
 printf("p NULL; = %p\n", (char *)ptr10);
 
-ft_printf("p NULL; = %p\np NULL ><; = %p\np NULL; = %p\np NULL ><; = %p\n", ptr00,ptr01,&ptr02,&ptr03);
-ft_printf("p NULL; = %p\n", (char *)ptr10);
+ft_printf("ft_p NULL; = %p\nft_p NULL ><; = %p\nft_p NULL; = %p\nft_p NULL ><; = %p\n", ptr00,ptr01,&ptr02,&ptr03);
+ft_printf("ft_p NULL; = %p\n", (char *)ptr10);
 return (0);
 }

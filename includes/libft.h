@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/08 03:03:54 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/14 23:57:43 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@ char				*ft_addonechar(char **str, char c);
 char				*ft_addonecharpos(char **str, char c, int pos);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(int value, char *base);
-char                *ft_ftoa(double myfloat);
+char				*ft_ftoa(double myfloat);
+char				*ft_uintmaxtoa_base(uintmax_t value, char *base);
 
 /*
 ** BONUS SINGLY-LINKED LISTS

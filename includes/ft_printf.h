@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/10 23:59:41 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/14 23:49:03 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ typedef int boolean;
 
 typedef struct				u_args
 {
-	int						a_int;
-	long					a_long;
-	long long				a_llong;
-	unsigned char			a_unchar;
-	unsigned int			a_uint;
-	unsigned short			a_unshort;
-	unsigned long			a_ulong;
-	unsigned long long		a_ullong;
+	intmax_t						a_int;
+	long							a_long;
+	long long						a_llong;
+	unsigned char					a_unchar;
+	uintmax_t						a_uint;
+	unsigned short					a_unshort;
+	unsigned long					a_ulong;
+	unsigned long long				a_ullong;
 	//char				a_char;
-	char 					*a_string;
-	void					*a_ptr;
-	long double				a_ldouble;
-}							t_args;
+	char							*a_string;
+	void							*a_ptr;
+	long double						a_ldouble;
+}									t_args;
 
 typedef struct				s_ftprintf
 {
