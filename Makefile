@@ -6,79 +6,103 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/11 01:54:54 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/11 02:16:43 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEADER := -I ./includes/ft_printf.h
-NAME := libftprintf.a
-EXEC := ft_printf
-CC := gcc
-AR = ar rcs
-CFLAGS := -Wall -Wextra -Werror
-SRCS :=		./srcs/ft_printf.c 				\
-			./srcs/float_prec.c				\
-			./srcs/funct_ptr.c				\
-			./srcs/funct_ptr2.c				\
-			./srcs/init.c					\
-			./srcs/int_long_print.c			\
-			./srcs/parse_type.c				\
-			./srcs/parse_var.c				\
-			./srcs/parser.c					\
-			./srcs/print_info.c				\
-			./srcs/return_letter.c			\
-			./srcs/return_letter2.c			\
-			./srcs/str_char_ptr_print.c		\
-			./srcs/manage_opts.c			\
-			./srcs/unsigned_octal_print.c	\
-			./srcs/flags_functions.c		\
-			./srcs/get_var_ouxx.c			\
+NAME = libftprintf.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CPP_FLAGS = -Iinclude
 
-OBJ := $(SRCS:.c=.o)
+SRC_PATH = ./srcs
+LIB_PATH = ./lib
+INC_PATH = ./includes
+OBJ_PATH = ./objs
+OBJLIB_PATH = ./objs
 
-MAIN := ./main_printf/main_printf.c
+SRC_NAME =		ft_printf.c 			\
+			float_prec.c			\
+			funct_ptr.c			\
+			funct_ptr2.c			\
+			init.c				\
+			int_long_print.c		\
+			parse_type.c			\
+			parse_var.c			\
+			parser.c			\
+			print_info.c			\
+			return_letter.c			\
+			return_letter2.c		\
+			str_char_ptr_print.c		\
+			manage_opts.c			\
+			unsigned_octal_print.c		\
+			flags_functions.c		\
+			get_var_ouxx.c				
 
-LIB_PATH := ./libft
-LIBFT := $(LIB_PATH)/libft.a
+LIB_SRCS = ft_addonechar.c	\
+	ft_itoa_base.c		\
+	ft_padding.c		\
+	ft_strjoinfrchoz.c	\
+	ft_addonecharpos.c	\
+	ft_lltoa.c         	\
+	ft_putchar.c       	\
+	ft_strlen.c		\
+	ft_atoi.c          	\
+	ft_ltoa.c        	\
+	ft_putstr.c        	\
+	ft_strncat.c		\
+	ft_bzero.c         	\
+	ft_memalloc.c      	\
+	ft_strcat.c        	\
+	ft_strncpy.c		\
+	ft_counter.c       	\
+	ft_memcpy.c   	     	\
+	ft_strcpy.c        	\
+	ft_strndup.c		\
+	ft_ftoa.c          	\
+	ft_memdel.c        	\
+	ft_strdup.c        	\
+	ft_strsub.c		\
+	ft_ischar.c        	\
+	ft_memmove.c       	\
+	ft_strjoin.c		\
+	ft_itoa.c		\
+	ft_memset.c		\
+	ft_strjoinfr.c		\
 
-all : $(NAME) $(LIBFT)
+INC_NAME = ft_printf.h libft.h
 
-$(NAME) : $(OBJ)
-	@echo -e "\n\033[32m********\033[32m* MAKE *\033[32m********"
-	$(MAKE) -C $(LIB_PATH)
-	@libtool -static -o $@ $(OBJ) $(LIBFT)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
+OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJLIB_NAME = $(LIB_SRCS:.c=.o)
 
-$(LIBFT) :
-	$(MAKE) -C $(LIB_PATH)
+SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
+LIB = $(addprefix $(LIB_PATH)/, $(LIB_SRCS))
+INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/, $(OBJ_NAME))
+OBJLIB = $(addprefix $(OBJLIB_PATH)/, $(OBJLIB_NAME))
 
-	%.o : ./srcs/%.c
+
+all : $(NAME) 
+
+$(NAME) : $(OBJ) $(OBJLIB)
+	@ar rc $(NAME) $(OBJ) $(OBJLIB)
+#	@ranlib $(NAME)
+	@echo "\033[1;34mlibftprintf.a\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
+
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) -o $@ -c $<
+
+$(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
+	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
+	@$(CC) -o $@ -c $<
 
 clean :
-	@echo "\n"
-	@echo "\033[31m************************************************************"
-	@echo "\033[31m***************________________*****************************"
-	@echo "\033[31m**************|                |****************************"
-	@echo "\033[31m**************|   MAKE CLEAN   |****************************"
-	@echo "\033[31m**************|________________|****************************"
-	@echo "\033[31m************************************************************"
-	@echo "\n"
-	rm -rf $(OBJ)
-	rm -rf *.o
-
-clean_libft :
-	make clean -C $(LIB_PATH)
+	@rm -rf $(OBJ) $(OBJLIB)
+	@echo "\033[1;34mlibftprintf.a\t\033[1;33mDeletion\t\033[0;32m[OK]\033[0m"
 
 fclean : clean
-	@echo "\n"
-	@echo "\033[31m************************************************************"
-	@echo "\033[31m***************________________*****************************"
-	@echo "\033[31m**************|                |****************************"
-	@echo "\033[31m**************|   MAKE FCLEAN  |****************************"
-	@echo "\033[31m**************|________________|****************************"
-	@echo "\033[31m************************************************************"
-	@echo "\n"
-	rm -rf $(NAME)
+	@rm -rf $(NAME) ./objs
 
 re : fclean all
 
@@ -88,7 +112,6 @@ re : fclean all
 #           #
 #############
 
-
 A_PATH = ./.annex
 
 REAL = $(A_PATH)/printf
@@ -97,23 +120,21 @@ MINE = ft_printf
 MAIN_FOLD = $(A_PATH)/mains_
 MAIN_TEST = $(MAIN_FOLD)/main_test.c
 MAIN_BUG = $(MAIN_FOLD)/main_bug.c
-MAIN_PTR = ./.annex/mains_/main_ptr.c
+MAIN_PTR = $(MAIN_FOLD)/main_ptr.c
 
 LOGS_FOLD = $(A_PATH)/logs
 LOG_PTF = $(LOGS_FOLD)/logs_ptf
 LOG_FTPTF = $(LOGS_FOLD)/logs_ftptf
 
-
 trandom : 
 	@sh .annex/modify/pct_conv.sh $(nb)
-	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(LIBFT) $(MAIN_TEST) -o $(REAL)
+	@$(CC) $(MAIN_TEST) -o $(REAL)
 	@echo "$(GREEN)\tREAL PRINTF$(END)"
 	@./$(REAL)
 
 tdiff : trandom
 	@sed -i '' 's/[^_]printf/ft_printf/g' $(MAIN_TEST)
-	@$(CC) $(LIBFT) $(SRCS) $(MAIN_TEST) -o $(MINE)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(MINE)
 	@echo "$(BBLUE)\t MY PRINTF$(END)"
 	@./$(MINE)
 
@@ -151,28 +172,27 @@ dcoml:
 	@sed -i '' '$(l)s/\/\///' $(MAIN_TEST)
 
 tbug:
-	@$(CC) $(LIBFT) $(SRCS) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
+	@$(CC) $(LIB) $(SRC) $(A_PATH)/$(MAIN_BUG) -o $(MINE)
 	@./$(MINE)
 tptr:
-	@$(CC) $(LIBFT) $(SRCS) $(MAIN_PTR) -o $(MINE)
+	@$(CC) $(LIB) $(SRC)$(MAIN_PTR) -o $(MINE)
 	@./$(MINE)
 
 
 run :
 	@echo "$(RED)LOGS$(END)\n" > logs
-	@$(MAKE) -C $(LIB_PATH)
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME) 
 
 diff : run toptf
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@./$(NAME) > $(LOG_PTF)
 	@sed -i '' 's/printf(/ft_printf(/g' 				$(MAIN_TEST)		
-	@$(CC) $(SRCS) $(LIBFT) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@./$(NAME) > $(LOG_FTPTF)
-	@diff $(LOG_PTF) $(LOG_FTPTF)
+	@diff --text $(LOG_PTF) $(LOG_FTPTF)
 
 modtest:
 	@vim													$(MAIN_TEST)

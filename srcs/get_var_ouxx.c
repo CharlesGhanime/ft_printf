@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
 char	*convert_h_and_signs(t_ptf *percents, char *base)
 {

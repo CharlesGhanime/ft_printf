@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-char	*ft_addonechar(char **str, char c)
+char	*addonechar(char **str, char c)
 {
 	char	*new;
 	size_t	size;
