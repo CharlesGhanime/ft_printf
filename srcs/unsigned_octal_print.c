@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/11 15:02:11 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/15 13:53:41 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,33 @@
 int		ft_print_generic(t_ptf *percents, char *base)
 {
 	char *str;
+	int ret = 0;
 
 	str = NULL;
 	if (!(str = get_generic_var(percents, base)))
 		return (FALSE);
 //	printf("ITIZ == %s\n", str);
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
-		return (FALSE);
+//	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
+//		return (FALSE);
+	if (percents->options & !MINUS)
+		ret = ft_handle_precision(percents, ft_strlen(str));
+	if (percents->options & ZERO && percents->precision > percents->width)
+		ft_write('0', percents->precision - ft_strlen(str));
+	else if (percents->options & ZERO && percents->width > percents->precision)
+		ft_write('0', percents->width - ft_strlen(str));
 //	printf("ITIZ2 == %s\n", str);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
 //	printf("ITIZ3 == %s\n", str);
-	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
-		return (FALSE);
+//	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+//		return (FALSE);
 //	printf("ITIZ4 == %s\n", str);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	free(str);
+	if (percents->options & MINUS)
+		ret = ft_handle_precision(percents, ft_strlen(str));
+	if (str)
+		free(str);
 	return (TRUE);
 }
 

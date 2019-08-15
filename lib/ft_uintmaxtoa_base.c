@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uintmaxtoa.c                                    :+:      :+:    :+:   */
+/*   ft_uintmaxtoa_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 23:58:57 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/14 23:58:46 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/15 13:33:56 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_uintmaxtoa_base(uintmax_t value, char *base)
+char	*ft_uintmaxtoa_base(uint64_t value, char *base)
 {
-	intmax_t			count;
-	uintmax_t			tmp;
+	int64_t			count;
+	uint64_t			tmp;
 	char				*res;
-	uintmax_t			base_length;
+	uint64_t			base_length;
 
 	base_length = ft_strlen(base);
 	count = (value < 0) ? 2 : 1;

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/14 23:49:03 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/15 13:31:42 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,8 @@ int							get_options(t_ptf **word, int i);
 int							get_width(t_ptf **word, int i);
 int							get_precision(t_ptf **word, int i);
 int							get_flags(t_ptf **word, int i);
+int							ft_handle_precision(t_ptf *percents, int size);
+void						ft_write(char c, int size);
 
 t_stock						*flags_struct_creation();
 t_stock						*flags_struct_completion(t_stock *head, int flags,
