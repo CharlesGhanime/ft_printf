@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/15 13:15:27 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/16 03:04:46 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_strcpy.c        	\
 	ft_strndup.c		\
 	ft_ftoa.c          	\
+	ft_fltoa.c          \
 	ft_memdel.c        	\
 	ft_strdup.c        	\
 	ft_strsub.c		\

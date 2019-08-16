@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/15 13:31:42 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/16 03:24:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,14 @@ int							ft_print_hexa(t_ptf *percents);
 int							ft_print_hexa_maj(t_ptf *percents);
 int							ft_print_float(t_ptf *percents);
 int							ft_print_generic(t_ptf *percents, char *base);
+int							ft_print_float_generic(t_ptf *percents);
 
 char						*get_octal_var(t_ptf *percents);
 char						*get_unsigned_var(t_ptf *percents);
 char						*get_hexa_var(t_ptf *percents);
 char						*get_hexa_maj_var(t_ptf *percents);
 char						*get_generic_var(t_ptf *percents, char *base);
+char						*get_float_generic_var(t_ptf *percents);
 char						*convert_h_and_signs(t_ptf *percents, char *base);
 char						*convert_hh_and_signs(t_ptf *percents, char *base);
 char						*convert_l_and_signs(t_ptf *percents, char *base);

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/15 13:43:17 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/16 03:06:18 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int     get_f_type(t_ptf **word, va_list arg)
 	}
 	else if ((*word)->flags[0] == 'L')
 	{
-		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, long double)))
+		if (!((*word)->a_t.a_ldouble = (long double)va_arg(arg, long double)))
 			return (-1);
 	}
 
@@ -65,7 +65,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 	{
 		if (!(*word)->flags)
 		{
-			if (!((*word)->a_t.a_int = va_arg(arg, intmax_t)))
+			if (!((*word)->a_t.a_int = (int)va_arg(arg, intmax_t)))
 				return (-1);
 		}
 		else
@@ -77,7 +77,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 		(*word)->unsignd = 1;
 		if (!(*word)->flags)
 		{
-			if (!((*word)->a_t.a_uint = (uintmax_t)va_arg(arg, uintmax_t)))
+			if (!((*word)->a_t.a_uint = (unsigned int)va_arg(arg, uintmax_t)))
 				return (-1);
 		}
 		else
@@ -101,11 +101,11 @@ int     get_di_type(t_ptf **word, va_list arg)
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] != 'l')
 	{
-		if (!((*word)->a_t.a_long = va_arg(arg, long)))
+		if (!((*word)->a_t.a_long = (long)va_arg(arg, long)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] == 'l')
-		if (!((*word)->a_t.a_llong = va_arg(arg, long long)))
+		if (!((*word)->a_t.a_llong = (long long)va_arg(arg, long long)))
 			return (-1);
 	return (0);
 }
@@ -124,11 +124,11 @@ int     get_oux_type(t_ptf **word, va_list arg)
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] != 'l')
 	{
-		if (!((*word)->a_t.a_ulong = va_arg(arg, unsigned long)))
+		if (!((*word)->a_t.a_ulong = (unsigned long)va_arg(arg, unsigned long)))
 			return (-1);
 	}
 	else if ((*word)->flags[1] == 'l' && (*word)->flags[1] == 'l')
-		if (!((*word)->a_t.a_ullong = va_arg(arg, unsigned long long)))
+		if (!((*word)->a_t.a_ullong = (unsigned long long)va_arg(arg, unsigned long long)))
 			return (-1);
 	return (0);
 }

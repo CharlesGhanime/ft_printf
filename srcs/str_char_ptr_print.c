@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_chars.c                                      :+:      :+:    :+:   */
+/*   str_char_ptr_print.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/11 00:02:07 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/16 01:58:56 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	//printf("ITIZs == %s\n", str);
 	if (!padd)
 		return (str);
-	if (diff > 0 && percents->options & MINUS)
+	if (diff > 0 && !(percents->options & MINUS))
 	{
 		//printf("ITIZn == %s\n", new);
 		if (!(new = ft_strjoinfrchoz(padd, str, 1)))
@@ -50,8 +50,8 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	else if (percents->width < -1 || percents->options & MINUS)
 		if (!(new = ft_strjoinfrchoz(str, padd, 2)))
 			return (NULL);
-	if (padd)
-		free(padd);
+//	if (padd)
+//		free(padd);
 	if (!new)
 		return (str);
 	return (new);
@@ -70,7 +70,7 @@ char	*str_precision(char *str, long precision)
 	while (str[++i] && i < (int)precision)
 		new[i] = str[i];
 	new[i] = '\0';
-	free(str);
+//	free(str);
 	return (new);
 }
 
@@ -88,7 +88,7 @@ int     ft_print_string(t_ptf *percents)
 	ft_putstr(str);
 	  //printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
-	free(str);
+//	free(str);
 	return (FALSE);
 }
 
@@ -107,7 +107,7 @@ int     ft_print_address(t_ptf *percents)
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
 	ft_putstr(str);
-	free(str);
+//	free(str);
 	return (TRUE);
 }
 
