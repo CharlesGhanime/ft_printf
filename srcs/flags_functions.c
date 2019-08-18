@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/10 01:00:18 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/18 18:36:18 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
 {
 	char		*new;
 
+	if (str[0] != '0' || (str[0] && str[1]))
+	{
 		if (percents->conv == 'o')
 			new = ft_addonecharpos(&str, '0', 0);
 		if (percents->conv == 'x')
@@ -90,6 +92,9 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
 		if (percents->conv == 'X')
 			new = ft_strjoin("0X", str);
 		return (new);
+	}
+	else
+		return (str);
 }
 
 /*

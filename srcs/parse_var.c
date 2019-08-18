@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/16 03:06:18 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/18 18:04:59 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,21 +91,21 @@ int     get_di_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->flags[0] == 'h' && (*word)->flags[1] != 'h')
 	{
-		if (!((*word)->a_t.a_int = (short)va_arg(arg, intmax_t)))
+		if (!((*word)->a_t.a_ushort = (short)va_arg(arg, intmax_t)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'h' && (*word)->flags[1] == 'h')
 	{
-		if (!((*word)->a_t.a_int = (char)va_arg(arg, intmax_t)))
+		if (!((*word)->a_t.a_uint = (char)va_arg(arg, intmax_t)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] != 'l')
 	{
-		if (!((*word)->a_t.a_long = (long)va_arg(arg, long)))
+		if (!((*word)->a_t.a_ulong = (unsigned long)va_arg(arg, unsigned long)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] == 'l')
-		if (!((*word)->a_t.a_llong = (long long)va_arg(arg, long long)))
+		if (!((*word)->a_t.a_ullong = (unsigned long long)va_arg(arg, unsigned long long)))
 			return (-1);
 	return (0);
 }

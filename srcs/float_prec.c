@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 23:11:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/05/16 00:47:57 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/16 15:51:19 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*addonechar(char **str, char c)
 		new = ft_strcpy(new, *str);
 		new[size] = c;
 		new[size + 1] = '\0';
-		free(*str);
+//		free(*str);
 		return (new);
 	}
 	else
@@ -53,8 +53,10 @@ char	*clean_round(char *str, int i)
 {
 	char *tmp;
 
+	printf(" str clean while : %s\n", str);
 	while (str[i])
 	{
+		printf(" str clean while : %s\n", str);
 		if (str[i] != '9' && str[i] != '.')
 		{
 			str[i] += 1;
@@ -63,18 +65,19 @@ char	*clean_round(char *str, int i)
 		if (str[0] == '9' && i == 0)
 		{
 			tmp = ft_strjoin("1", str);
-			free(str);
+//			free(str);
 			if (!(str = (char *)ft_memalloc(ft_strlen(tmp) + 1)))
 				return (NULL);
 			ft_strcpy(str, tmp);
-			free(tmp);
-			str[i + 1] = '0';
+//			free(tmp);
+			//str[i + 1] = '0';
 			break ;
 		}
-		if (str[i] != '.')
-			str[i] = '0';
+		//if (str[i] != '.')
+		//	str[i] = '0';
 		i--;
 	}
+	printf("str clean = %s\n", str);
 	return (str);
 }
 
@@ -85,14 +88,16 @@ char	*float_prec_flag2(char *str, int i)
 	if ((str[i] - '0') >= 5)
 	{
 		tmp = str;
+	printf("tmp fpf2 = %s\n", tmp);
 		str = clean_round(str, i - 1);
-		free(tmp);
+//		free(tmp);
 		while (str[i])
 		{
 			str[i] = '0';
 			i++;
 		}
 	}
+	printf("str fpf2 = %s\n", str);
 	return (str);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_aff_reforged.c                           :+:      :+:    :+:   */
+/*   int_long_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/10 23:59:21 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/16 14:35:57 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char 	*int_precision(char *str, long precision, int len)
 		new[i] = '0';
 	new[i] = '\0';
 	new = ft_strcat(new, str);
-	free(str);
+//	free(str);
 	return (new);
 }
 
@@ -127,11 +127,11 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 		if (!(new = ft_strjoinfrchoz(str, padd, 2)))
 			return (NULL);
 	}
-	else if (padd)
-		free(padd);
+//	else if (padd)
+//		free(padd);
 	if (!new)
 		return (str);
-	free(str);
+//	free(str);
 	return (new);
 }
 
@@ -154,6 +154,6 @@ int		ft_print_decimal(t_ptf *percents)
 //	printf("\nITIZ4 == %s\n", str); 
   	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	free(str);
+//	free(str);
 	return (TRUE);
 }

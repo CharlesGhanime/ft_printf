@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/16 03:24:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/18 18:04:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct				u_args
 	intmax_t						a_int;
 	long							a_long;
 	long long						a_llong;
-	unsigned char					a_unchar;
+	unsigned char					a_uchar;
 	uintmax_t						a_uint;
-	unsigned short					a_unshort;
+	unsigned short					a_ushort;
 	unsigned long					a_ulong;
 	unsigned long long				a_ullong;
 	//char				a_char;
@@ -168,8 +168,12 @@ void	    				ft_minus_flag(t_ptf *percents, size_t nb);
 void						ft_plus_flag(va_list arg, t_ptf *percents);
 char						*ft_hashtag_flag(t_ptf *percents, char *str);
 void						ft_zero_flag(t_ptf *word, size_t nb);
-char						*ft_float_precision_flag(char *str);
-char                        *ft_width_precision(char *src, t_ptf *percents);
+char						*float_prec_flag(char *str, int prec);
+char						*float_prec_flag2(char *str, int i);
+char						*clean_round(char *str, int i);
+char						*fill_prec(char *str, int diff);
+char						*ft_addonechar(char **str, char c);
+char						*ft_width_precision(char *src, t_ptf *percents);
 char						*str_width(char *str, long width, t_ptf *percents, char c);
 char						*str_precision(char *str, long precision);
 char						*int_precision(char *str, long precision, int len);
