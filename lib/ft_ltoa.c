@@ -6,16 +6,16 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:38:26 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/23 22:55:58 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/19 15:30:58 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	ft_count(long long n, unsigned long long *dec)
+static size_t	ft_count(intmax_t n, uintmax_t *dec)
 {
-	unsigned long long	count;
-	long long			abs;
+	uintmax_t	count;
+	intmax_t			abs;
 
 	count = 1;
 	if (n < 0)
@@ -38,8 +38,8 @@ char			*ft_ltoa(long long n)
 {
 	char				*ascii;
 	size_t				i;
-	unsigned long long	dec;
-	long long			abs;
+	uintmax_t			dec;
+	intmax_t			abs;
 
 	dec = 1;
 	i = -1;

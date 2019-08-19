@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/16 15:04:36 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/19 15:28:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,38 @@ int		ft_print_generic(t_ptf *percents, char *base)
 		return (FALSE);
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
+	//	if (!(str = manage_opts(str, percents)))
+	//		return (FALSE);
+//	if (percents->a_t.a_ushort || percents->a_t.a_uint 
+//			|| percents->a_t.a_ulong || percents->a_t.a_ullong)
+//	{
+/*		if (percents->conv == 'x' || percents->conv == 'X')
+		{
+			if (!(str = int_width(str, percents->options & HASH ? percents->width - 2 : percents->width, (long)ft_strlen(str), percents)))
+				return (FALSE);
+		}
+		if (percents->conv == 'o')
+		{
+			if (!(str = int_width(str, percents->options & HASH ? percents->width - 2 : percents->width, (long)ft_strlen(str), percents)))
+				return (FALSE);
+		}
+		if ((percents->conv != 'x' && percents->conv != 'X' && percents->conv !='o'))
+		{
+			if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+				return (FALSE);
+		}
+//	}
+	else
+		if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+			return (FALSE);*/
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
-	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
-		return (FALSE);
+//	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
+//		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-//	if (str)
-//		free(str);
+	//	if (str)
+	//		free(str);
 	return (TRUE);
 }
 
@@ -49,8 +73,8 @@ int		ft_print_float_generic(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-//	if (str)
-//		free(str);
+	//	if (str)
+	//		free(str);
 	return (TRUE);
 
 }
@@ -108,7 +132,7 @@ int		ft_print_hexa_maj(t_ptf *percents)
 int		ft_print_float(t_ptf *percents)
 {
 	char *str;
-	
+
 	str = NULL;
 	return (ft_print_float_generic(percents));
 }

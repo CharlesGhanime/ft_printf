@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/18 18:36:18 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/19 15:45:26 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,36 @@
    */
 char	*ft_hashtag_flag(t_ptf *percents, char *str)
 {
-	char		*new;
+	char		*width;
+	char		*hash;
 
-	if (str[0] != '0' || (str[0] && str[1]))
+	if (percents->a_t.a_uint != 0 || percents->a_t.a_ushort || percents->a_t.a_ulong || percents->a_t.a_ullong)
 	{
-		if (percents->conv == 'o')
-			new = ft_addonecharpos(&str, '0', 0);
-		if (percents->conv == 'x')
-			new = ft_strjoin("0x", str);
-		if (percents->conv == 'X')
-			new = ft_strjoin("0X", str);
-		return (new);
+			if (percents->conv == 'o')
+				if (percents->options & ZERO)
+					width = int_width(str, percents->width - 1, (long)ft_strlen(str), percents);
+				hash = ft_addonecharpos(&width, '0', 0);
+				if (!(percents->options & ZERO))
+					width = int_width(str, percents->width - 1, (long)ft_strlen(str), percents);
+			if (percents->conv == 'x')
+				if (percents->options & ZERO)
+					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+				hash = ft_strjoin("0x", width);
+				if (!(percents->options & ZERO))
+					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+			if (percents->conv == 'X')
+				if (percents->options & ZERO)
+					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+				hash = ft_strjoin("0X", width);
+				if (!(percents->options & ZERO))
+					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+			return (hash);
 	}
 	else
-		return (str);
+	{
+		width = int_width(str, percents->width, (long)ft_strlen(str), percents);
+		return (width);
+	}
 }
 
 /*
