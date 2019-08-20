@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/16 01:58:56 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/20 11:24:50 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 int     ft_print_char(t_ptf *percents)
 {
 	percents->size = 1;
-	ft_putchar((char)percents->a_t.a_int);
+	if (percents->conv == '%')
+		ft_putchar('%');
+	else
+		ft_putchar((char)percents->a_t.a_int);
 	return (TRUE);
 }
 

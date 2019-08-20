@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 20:10:45 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/20 11:22:29 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		ft_count_pct(char *format, t_ptf **head)
 }
 
 /*
-** looks for diouxXfcsp after a % has been found
-*/
+ ** looks for diouxXfcsp after a % has been found
+ */
 
 int		ft_auscultate(char *patient)
 {
@@ -45,7 +45,7 @@ int		ft_auscultate(char *patient)
 	int		j;
 	char	needle[11];
 
-	ft_memcpy(needle, "diouxXfcsp", 10);
+	ft_memcpy(needle, "diouxXfcsp%", 11);
 	i = -1;
 	while (patient[i++])
 	{
@@ -54,16 +54,16 @@ int		ft_auscultate(char *patient)
 		{
 			if (patient[i] == needle[j])
 				return (i);
-			else if (patient[i] == '%')
-				return (-1);
+//			else if (patient[i] == '%')
+//				return (-1);
 		}
 	}
 	return (-1);
 }
 
 /*
-**	inits t_ptf struct once a valid % has been found
-*/
+ **	inits t_ptf struct once a valid % has been found
+ */
 
 int		doctor(char *format, int rank, int position, t_ptf **percents)
 {
@@ -71,20 +71,20 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 
 	symptoms = ft_strsub(format, 0, position);
 	if ((*percents)->next == NULL)
- 	{
-	      if (!((*percents)->next = (t_ptf*)malloc(sizeof(t_ptf))))
-		          return (0);
-	      (*percents)->next->rank = rank;
-	      (*percents)->next->symptoms = NULL;
-	      (*percents)->next->symptoms = symptoms;
-	      (*percents)->next->conv = format[position];
-	      (*percents)->next->type = NULL;
-	      (*percents)->next->options = 0;
-	      (*percents)->next->width = 0;
-	      (*percents)->next->precision = 0;
-	      (*percents)->next->flags = NULL;
-	      (*percents)->next->next = NULL;
-	     return (1);
+	{
+		if (!((*percents)->next = (t_ptf*)malloc(sizeof(t_ptf))))
+			return (0);
+		(*percents)->next->rank = rank;
+		(*percents)->next->symptoms = NULL;
+		(*percents)->next->symptoms = symptoms;
+		(*percents)->next->conv = format[position];
+		(*percents)->next->type = NULL;
+		(*percents)->next->options = 0;
+		(*percents)->next->width = 0;
+		(*percents)->next->precision = 0;
+		(*percents)->next->flags = NULL;
+		(*percents)->next->next = NULL;
+		return (1);
 	}
 	else
 		init_conv(percents, rank, symptoms, format[position]);
@@ -92,8 +92,8 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 }
 
 /*
-**	adds the position of the % in format into the corresponding t_ptf
-*/
+ **	adds the position of the % in format into the corresponding t_ptf
+ */
 
 int		add_pct_pos(t_ptf **percents, int pos)
 {

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/08 04:09:07 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/20 11:41:57 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,10 @@ int		print_format(const char *format, t_ptf *word, int start)
 	int len;
 
 	len = word->pos - start;
-	write(1, format + start, len);
+	if (!(word->conv) && word->total_pct_count > 1)
+		write(1, "%", 1);
+	else
+		write(1, format + start, len);
 	return (0);
 }	
 
@@ -120,7 +123,11 @@ int			ft_printf(const char *format, ...)
 	int i;
 
 	percents = init_head(percents);
-	ft_count_pct((char *)format, &percents);
+	if(!(ft_count_pct((char *)format, &percents)))
+		{
+		ft_putstr((char *)format);
+		return(ft_strlen((char *)format));
+		}
 	va_start(arg, format);
 	blood_test(&percents, arg);
 

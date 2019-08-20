@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/19 15:28:00 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/20 02:01:34 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ int		ft_print_generic(t_ptf *percents, char *base)
 		return (FALSE);
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
+	if (!(percents->options & HASH))
+		if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+			return (FALSE);
 	//	if (!(str = manage_opts(str, percents)))
 	//		return (FALSE);
 //	if (percents->a_t.a_ushort || percents->a_t.a_uint 

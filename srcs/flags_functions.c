@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/19 15:45:26 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/20 01:56:06 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,31 +86,58 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
 
 	if (percents->a_t.a_uint != 0 || percents->a_t.a_ushort || percents->a_t.a_ulong || percents->a_t.a_ullong)
 	{
-			if (percents->conv == 'o')
-				if (percents->options & ZERO)
-					width = int_width(str, percents->width - 1, (long)ft_strlen(str), percents);
-				hash = ft_addonecharpos(&width, '0', 0);
-				if (!(percents->options & ZERO))
-					width = int_width(str, percents->width - 1, (long)ft_strlen(str), percents);
-			if (percents->conv == 'x')
-				if (percents->options & ZERO)
-					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+		if (percents->conv == 'o')
+		{
+			if (percents->options & ZERO)
+			{
+				width = int_width(str, percents->width - 1, (long)ft_strlen(str), percents);
+				hash = ft_strjoin("0", width);
+				return (hash);
+			}
+			if (!(percents->options & ZERO))
+			{
+				hash = ft_strjoin("0", str);
+				width = int_width(hash, percents->width, (long)ft_strlen(hash), percents);
+				return (width);
+			}
+		}
+		if (percents->conv == 'x')
+		{
+			if (percents->options & ZERO)
+			{
+				width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
 				hash = ft_strjoin("0x", width);
-				if (!(percents->options & ZERO))
-					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
-			if (percents->conv == 'X')
-				if (percents->options & ZERO)
-					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
+				return (hash);
+			}
+			if (!(percents->options & ZERO))
+			{
+				hash = ft_strjoin("0x", str);
+				width = int_width(hash, percents->width, (long)ft_strlen(hash), percents);
+				return (width);
+			}
+		}
+		if (percents->conv == 'X')
+		{
+			if (percents->options & ZERO)
+			{
+				width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
 				hash = ft_strjoin("0X", width);
-				if (!(percents->options & ZERO))
-					width = int_width(str, percents->width - 2, (long)ft_strlen(str), percents);
-			return (hash);
+				return (hash);
+			}
+			if (!(percents->options & ZERO))
+			{
+				hash = ft_strjoin("0X", str);
+				width = int_width(hash, percents->width, (long)ft_strlen(hash), percents);
+				return (width);
+			}
+		}
 	}
 	else
 	{
 		width = int_width(str, percents->width, (long)ft_strlen(str), percents);
 		return (width);
 	}
+	return(NULL);
 }
 
 /*
