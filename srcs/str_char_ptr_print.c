@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/20 11:24:50 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/20 19:34:34 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@
 
 int     ft_print_char(t_ptf *percents)
 {
+	int i;
+
+	i = 0;
 	percents->size = 1;
-	if (percents->conv == '%')
-		ft_putchar('%');
+	if (percents->width > 1 && !(percents->options & MINUS))
+		while (i++ < percents->width - 1)
+			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+	ft_putchar((char)percents->a_t.a_int);
+	if (percents->width > 1 && percents->options & MINUS)
+		while (i++ < percents->width - 1)
+			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+	if (percents->width)
+		percents->size = percents->width;
 	else
-		ft_putchar((char)percents->a_t.a_int);
+		percents->size = 1;
 	return (TRUE);
 }
 
