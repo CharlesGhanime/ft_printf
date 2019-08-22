@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/20 01:56:06 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:18:31 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
 	char		*width;
 	char		*hash;
 
-	if (percents->a_t.a_uint != 0 || percents->a_t.a_ushort || percents->a_t.a_ulong || percents->a_t.a_ullong)
+	if (percents->a_t.a_uintmax != 0)
 	{
 		if (percents->conv == 'o')
 		{

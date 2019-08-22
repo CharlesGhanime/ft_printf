@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/18 18:04:35 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:11:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdint.h>
 
 typedef int boolean;
 #define TRUE 1
@@ -33,14 +34,14 @@ typedef int boolean;
 
 typedef struct				u_args
 {
-	intmax_t						a_int;
-	long							a_long;
-	long long						a_llong;
-	unsigned char					a_uchar;
-	uintmax_t						a_uint;
-	unsigned short					a_ushort;
-	unsigned long					a_ulong;
-	unsigned long long				a_ullong;
+	intmax_t						a_intmax;
+//	long							a_long;
+//	long long						a_llong//;
+//	unsigned char					a_uchar;
+	uintmax_t						a_uintmax;
+//	unsigned short					a_ushort;
+//	unsigned long					a_ulong;
+//	unsigned long long				a_ullong;
 	//char				a_char;
 	char							*a_string;
 	void							*a_ptr;

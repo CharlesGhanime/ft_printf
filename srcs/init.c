@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/18 18:15:42 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:16:15 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ t_ptf		*init_head(t_ptf *head)
 
 int		init_args(t_ptf *word)
 {
-	word->a_t.a_int = 0;
-	word->a_t.a_long = 0;
-	word->a_t.a_llong = 0;
-	word->a_t.a_uchar = 0;
-	word->a_t.a_uint = 0;
-	word->a_t.a_ushort = 0;
-	word->a_t.a_ulong = 0;
-	word->a_t.a_ullong = 0;
+	word->a_t.a_intmax = 0;
+//	word->a_t.a_long = 0;
+//	word->a_t.a_llong = 0;
+//	word->a_t.a_uchar = 0;
+	word->a_t.a_uintmax = 0;
+//	word->a_t.a_ushort = 0;
+//	word->a_t.a_ulong = 0;
+//	word->a_t.a_ullong = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = 0;
 	word->a_t.a_ldouble = 0;

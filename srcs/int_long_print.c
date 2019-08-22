@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/16 14:35:57 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:17:36 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ char	*get_int_var(t_ptf *percents)
 	{	
 		if (*(percents->flags + 1) == 'l')
 		{
-			if (!(str = ft_ltoa(percents->a_t.a_llong)))
+			if (!(str = ft_ltoa(percents->a_t.a_intmax)))
 				return (NULL);
-			percents->a_t.a_llong >= 0 ? (percents->signe = '+') : (percents->signe = '-');
+			percents->a_t.a_intmax >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 		}
 		else 
 		{
-			if (!(str = ft_ltoa(percents->a_t.a_long)))
+			if (!(str = ft_ltoa(percents->a_t.a_intmax)))
 				return (NULL);
-			percents->a_t.a_long >= 0 ? (percents->signe = '+') : (percents->signe = '-');
+			percents->a_t.a_intmax >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 		}
 	}
 	else 
 	{
-		if (!(str = ft_itoa(percents->a_t.a_int)))
+		if (!(str = ft_itoa(percents->a_t.a_intmax)))
 			return (NULL);
-		percents->a_t.a_int >= 0 ? (percents->signe = '+') : (percents->signe = '-');
+		percents->a_t.a_intmax >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 	}	
 	return (str);
 }

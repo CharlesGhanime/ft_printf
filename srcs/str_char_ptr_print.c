@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/20 19:34:34 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:18:02 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     ft_print_char(t_ptf *percents)
 	if (percents->width > 1 && !(percents->options & MINUS))
 		while (i++ < percents->width - 1)
 			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
-	ft_putchar((char)percents->a_t.a_int);
+	ft_putchar((char)percents->a_t.a_intmax);
 	if (percents->width > 1 && percents->options & MINUS)
 		while (i++ < percents->width - 1)
 			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
