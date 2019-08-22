@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/22 14:18:02 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 15:02:57 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,10 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	if (!(padd = ft_padding(diff, c)))
 		return (NULL);
 		
-	//printf("ITIZp == %s\n", padd);
-	//printf("ITIZs == %s\n", str);
 	if (!padd)
 		return (str);
 	if (diff > 0 && !(percents->options & MINUS))
 	{
-		//printf("ITIZn == %s\n", new);
 		if (!(new = ft_strjoinfrchoz(padd, str, 1)))
 			return (NULL);
 	}
@@ -96,10 +93,17 @@ int     ft_print_string(t_ptf *percents)
 		return (FALSE);
 	if (!(str = str_precision(str, percents->precision)))
 		return (FALSE);
-	if (!(str = str_width(str, percents->width, percents, ' ')))
-		return (FALSE);
+	if (percents->options & ZERO)
+	{
+		if (!(str = str_width(str, percents->width, percents, '0')))
+			return (FALSE);
+	}
+	else
+	{
+		if (!(str = str_width(str, percents->width, percents, ' ')))
+			return (FALSE);
+	}
 	ft_putstr(str);
-	  //printf(""_RED"%s"_END"", str);
 	percents->size = ft_strlen(str);
 //	free(str);
 	return (FALSE);
@@ -114,9 +118,6 @@ int     ft_print_address(t_ptf *percents)
 
 	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, "0123456789abcdef"))))
 		return (FALSE);
-	//  //printf("retour de ft_itoa_base = %s\n", str);
-	//  //printf("\nstr = %s\n", str);
-	//  //printf("//printf prog = %p\n", percents->a_t.a_ptr);
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
 	ft_putstr(str);

@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 10:08:49 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/22 14:18:31 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:50:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,6 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
    {
    str[i] = 0 + '0';
    str[i - 1] += 1 + '0';
-   printf("str[i] = %c\n", str[i]);
    }
    return (str);
    }
@@ -230,7 +229,6 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
    if ((unsigned long)percents->precision > percents->size) {
    if (percents->width > percents->precision) {
    if (minus) {
-   printf("percents->width > percents->size && percents->width > percents->precision && minus\n");
    width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
    ft_memset(width, ' ', (percents->width - percents->precision));
    precision = (char *) malloc(sizeof(char) * (percents->precision - percents->size + 1));
@@ -238,24 +236,17 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
    wp = ft_strjoin(precision, src);
    return (final = ft_strjoin(src, width));
    } else {
-   printf("percents->width > percents->size && percents->width > percents->precision && !minus\n");
    width = (char *) malloc(sizeof(char) * (percents->width - percents->precision + 1));
    wp = (char *) malloc(sizeof(char) * percents->width + 1);
    ft_memset(width, ' ', (percents->width - percents->precision));
-   printf("taille de width : %d\n", (int)ft_strlen(width));
-   printf("width : %s\n", width);
    precision = (char *) malloc(sizeof(char) * (percents->precision - percents->size + 1));
    ft_memset(precision, '0', (percents->precision - percents->size));
-   printf("precision : %s\n", precision);
    wp = ft_strjoin(width, precision);
 
-   printf("wp : %s\n", wp);
    return (final = ft_strjoin(wp, src));
    }
    }
    if (percents->width < percents->precision) {
-   printf("percents->width < percents->precision\n");
-   printf("percents->precision = %lu\n", percents->precision);
    precision = (char *) malloc(sizeof(char) * (percents->precision - percents->size + 1));
    ft_memset(precision, '0', (percents->precision - percents->size));
    return (final = ft_strjoin(precision, src));
@@ -263,14 +254,10 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
    }
    if ((unsigned long)percents->precision < percents->size) {
    if (zero) {
-   printf("percents->width > percents->size && !percents->precision && zero\n");
    width = (char *) malloc(sizeof(char) * (percents->width - percents->size + 1));
    ft_memset(width, '0', (percents->width - percents->size));
    return (final = ft_strjoin(width, src));
    } else {
-   printf("percents->width > percents->size && !percents->precision\n");
-   printf("percents->width = %lu\n", percents->width);
-   printf("percents->precision = %lu\n", percents->precision);
    width = (char *) malloc(sizeof(char) * (percents->width - percents->size + 1));
    ft_memset(width, ' ', (percents->width - percents->size));
    return (final = ft_strjoin(width, src));
@@ -281,13 +268,11 @@ char	*ft_hashtag_flag(t_ptf *percents, char *str)
    {
    if ((unsigned long)percents->precision > percents->size)
    {
-   printf("percents->width < percents->size && percents->precision > percents->size\n");
    precision = (char *)malloc(sizeof(char) * (percents->precision - percents->size + 1));
    ft_memset(precision, '0', (percents->precision - percents->size));
    return (final = ft_strjoin(precision, src));
    }
    }
-   printf("bypass boucle\n");
    return (src);
    }
    */

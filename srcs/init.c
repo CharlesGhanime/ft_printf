@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/22 14:16:15 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:47:47 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ long		total_size(t_ptf *head, int char_size)
 		if (word->symptoms)
 			char_size -= ft_strlen(word->symptoms);
 		size += word->size - 2;
-//		printf("\nword_size = %lu\n", word->size);
 		word = word->next;
 	}
-//	printf("hello\n");
-//	printf("size = %lu\n", ft_strlen("p NULL; = %p\n"));
 	return (size + char_size);
 }
 

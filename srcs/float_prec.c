@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 23:11:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/16 15:51:19 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:50:02 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ char	*clean_round(char *str, int i)
 {
 	char *tmp;
 
-	printf(" str clean while : %s\n", str);
 	while (str[i])
 	{
-		printf(" str clean while : %s\n", str);
 		if (str[i] != '9' && str[i] != '.')
 		{
 			str[i] += 1;
@@ -77,7 +75,6 @@ char	*clean_round(char *str, int i)
 		//	str[i] = '0';
 		i--;
 	}
-	printf("str clean = %s\n", str);
 	return (str);
 }
 
@@ -88,7 +85,6 @@ char	*float_prec_flag2(char *str, int i)
 	if ((str[i] - '0') >= 5)
 	{
 		tmp = str;
-	printf("tmp fpf2 = %s\n", tmp);
 		str = clean_round(str, i - 1);
 //		free(tmp);
 		while (str[i])
@@ -97,7 +93,6 @@ char	*float_prec_flag2(char *str, int i)
 			i++;
 		}
 	}
-	printf("str fpf2 = %s\n", str);
 	return (str);
 }
 

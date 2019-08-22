@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/22 14:17:36 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:47:24 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 		padd = ft_padding(diff, '0'); 
 	else
 		padd = ft_padding(diff, ' ');
-//	printf("ITIZs == %s\n", new);
-//	printf("LEN === %ld\tWIDTH === %ld\n", len, width);
 	if (!(percents->options & MINUS))
 	{
 		if (str[0] == '-' && padd && padd[0] == '0')
@@ -142,16 +140,12 @@ int		ft_print_decimal(t_ptf *percents)
 	str = NULL;
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
-//	printf("\nITIZ == %s\n", str); 
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 	   return (FALSE);
-//	printf("\nITIZ2 == %s\n", str); 
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
-//	printf("\nITIZ3 == %s\n", str); 
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
-//	printf("\nITIZ4 == %s\n", str); 
   	percents->size = ft_strlen(str);
 	ft_putstr(str);
 //	free(str);

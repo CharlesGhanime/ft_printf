@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 00:50:58 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/15 13:20:22 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/22 14:49:18 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,5 @@ int main ()
 	ret = ft_handle_precision(coucou);
 	//	write(1, "12345678901234567890\n", coucou->size);
 	ft_putstr(ft_itoa(i));
-	printf("\n");
-	printf("%30.10d\n", i);
-	printf("ret = %d", ret);
 }
 */
