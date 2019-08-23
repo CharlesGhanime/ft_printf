@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/22 14:48:49 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/23 01:50:48 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[HEXA].token = ft_get_hexa();
 	lst_format[HEXA_MAJ].token = ft_get_hexa_maj();
 	lst_format[FLOAT].token = ft_get_float();
+	lst_format[PERCENT].token = ft_get_percent();
 
 	lst_format[CHAR].next_format = STRING;
 	lst_format[STRING].next_format = ADDRESS;
@@ -48,7 +49,8 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[UNSIGNED].next_format = HEXA;
 	lst_format[HEXA].next_format = HEXA_MAJ;
 	lst_format[HEXA_MAJ].next_format = FLOAT;
-	lst_format[FLOAT].next_format = NO_FORMAT;
+	lst_format[FLOAT].next_format = PERCENT;
+	lst_format[PERCENT].next_format = NO_FORMAT;
 
 	lst_format[CHAR].func = ft_get_print_char();
 	lst_format[STRING].func = ft_get_print_string();
@@ -60,6 +62,7 @@ void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[HEXA].func = ft_get_print_hexa();
 	lst_format[HEXA_MAJ].func = ft_get_print_hexa_maj();
 	lst_format[FLOAT].func = ft_get_print_float();
+	lst_format[PERCENT].func = ft_get_print_percent();
 }
 
 void			ft_format_cmp(char c, t_ptf *percents)
@@ -87,10 +90,10 @@ int		print_format(const char *format, t_ptf *word, int start)
 	int len;
 
 	len = word->pos - start;
-	if (!(word->conv) && word->total_pct_count > 1)
-		write(1, "%", 1);
-	else
-		write(1, format + start, len);
+//	if (!(word->conv) && word->total_pct_count > 1)
+//		write(1, "%", 1);
+//	else
+	write(1, format + start, len);
 	return (0);
 }	
 

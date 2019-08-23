@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/20 02:01:34 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/23 02:55:59 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	char *str;
 
 	str = NULL;
-	if (!(str = get_generic_var(percents, base)))
-		return (FALSE);
+	if (percents->a_t.a_uintmax == 0 && !(percents->precision))
+	{
+		if (!(str = ""))
+			return (FALSE);
+	}
+	else
+	{
+		if (!(str = get_generic_var(percents, base)))
+			return (FALSE);
+	}
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(percents->options & HASH))

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/22 14:11:46 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/23 00:47:24 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef enum
 	HEXA,
 	HEXA_MAJ,
 	FLOAT,
+	PERCENT,
 	NB_FORMAT,
 	NO_FORMAT
 } FORMAT_TOKEN;
@@ -120,6 +121,7 @@ char						ft_get_unsigned();
 char						ft_get_hexa();
 char						ft_get_hexa_maj();
 char						ft_get_float();
+char						ft_get_percent();
 
 /********************************* PRINTF *************************************/
 
@@ -138,6 +140,7 @@ p_func						ft_get_print_unsigned();
 p_func						ft_get_print_hexa();
 p_func						ft_get_print_hexa_maj();
 p_func						ft_get_print_float();
+p_func						ft_get_print_percent();
 
 int							ft_print_char(t_ptf *percents);
 int							ft_print_string(t_ptf *percents);
@@ -149,6 +152,7 @@ int							ft_print_unsigned(t_ptf *percents);
 int							ft_print_hexa(t_ptf *percents);
 int							ft_print_hexa_maj(t_ptf *percents);
 int							ft_print_float(t_ptf *percents);
+int							ft_print_percent(t_ptf *percents);
 int							ft_print_generic(t_ptf *percents, char *base);
 int							ft_print_float_generic(t_ptf *percents);
 
