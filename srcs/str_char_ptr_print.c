@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/23 00:49:20 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/24 02:42:30 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ int     ft_print_string(t_ptf *percents)
 		if (!(str = str_width(str, percents->width, percents, ' ')))
 			return (FALSE);
 	}
+//	if (str == NULL)
+//		str = "(null)";
 	ft_putstr(str);
 	percents->size = ft_strlen(str);
 //	free(str);

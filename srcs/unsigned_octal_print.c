@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:47:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/23 02:55:59 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/24 02:38:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	char *str;
 
 	str = NULL;
-	if (percents->a_t.a_uintmax == 0 && !(percents->precision))
-	{
-		if (!(str = ""))
-			return (FALSE);
-	}
-	else
-	{
+
+//	if (percents->a_t.a_uintmax == 0 && !(percents->precision))
+//	{
+//		percents->size = ft_print_empty(percents);
+//		return (TRUE);
+//	}
+//	if (percents->a_t.a_uintmax == 0 && !(percents->precision))
+//	{
+//		if (!(str = ""))
+//			return (FALSE);
+//	}
+//	else
+//	{
 		if (!(str = get_generic_var(percents, base)))
 			return (FALSE);
-	}
+//	}
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(percents->options & HASH))
@@ -65,6 +71,23 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	//	if (str)
 	//		free(str);
 	return (TRUE);
+}
+
+int		ft_print_empty(t_ptf *percents)
+{
+	char *str;
+	int i;
+
+	i = 0;
+	str = "\0";
+	if (percents->width && !(percents->options & MINUS))
+		while (i++ < percents->width - 1)
+			percents->options & ZERO ? write(1, "0", 1) : write (1, " ", 1);
+		ft_putstr(str);
+	if (percents->width && percents->options & MINUS)
+		while (i++ < percents->width - 1)
+			write(1, " ", 1);
+	return (ft_strlen(str) > percents->width ? ft_strlen(str) : percents->width);
 }
 
 int		ft_print_float_generic(t_ptf *percents)
