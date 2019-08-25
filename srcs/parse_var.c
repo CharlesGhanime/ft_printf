@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/23 01:08:38 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/25 19:04:11 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@ int     get_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->conv == 'c')
 	{
-		if (!((*word)->a_t.a_intmax = (char)va_arg(arg, intmax_t)))
-			return (-1);
+		((*word)->a_t.a_intmax = (char)va_arg(arg, intmax_t));
 	}
 	else if ((*word)->conv == '%')
 	{
-		if (!((*word)->a_t.a_intmax = '%'))
-			return (-1);
+		((*word)->a_t.a_intmax = '%');
 	}
 	else if ((*word)->conv == 'p')
 	{
-		if (!((*word)->a_t.a_ptr = (void *)va_arg(arg, void *)))
-			return (-1);
+		((*word)->a_t.a_ptr = (void *)va_arg(arg, void *));
 	}
 	else if ((*word)->conv == 's')
 	{
 		if (!((*word)->a_t.a_string = (char *)va_arg(arg, char *)))
-			return (-1);
+		{
+			(*word)->a_t.a_string = "(null)";
+		}
 	}
 	else if ((*word)->conv == 'f')
 		return (get_f_type(&(*word), arg));

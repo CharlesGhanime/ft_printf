@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 20:20:05 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/25 18:21:42 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,12 @@ int		blood_test(t_ptf **percents, va_list arg)
 	{
 		i = 0;
 		// send &word and update: width, type, options,
-		if ((i = get_options(&word, i - 1)) == -1)
-			return (-1);
-		if ((i = get_width(&word, i - 1)) == -1)
-			return (-1);
-		if ((i = get_precision(&word, i - 1)) == -1)
-			return (-1);
+		i = get_options(&word, i - 1);
+		i = get_width(&word, i - 1);
+		i = get_precision(&word, i - 1);
 		if ((i = get_flags(&word, i - 1)) == -1)
 			return (-1);
-		if ((get_type(&word, arg)) == -1)
-			return (-1);
+		get_type(&word, arg);
 //		if ((create_key(&word)) == -1)
 //			return (-1);
 		word = word->next;
