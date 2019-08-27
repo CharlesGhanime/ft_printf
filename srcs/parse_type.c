@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/25 18:21:42 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/27 22:09:37 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,23 @@ int		get_width(t_ptf **word, int i)
 
 int		get_precision(t_ptf **word, int i)
 {
-	unsigned long	precision;
+	long	precision;
 
 	precision = 0;
 	if (!((*word)->symptoms[++i] == '.'))
 		return (i);
+	if (!((*word)->symptoms[i + 1] >= '0' && ((*word)->symptoms[i + 1] <= '9')))
+	{
+		(*word)->precision = -1;
+	   	return (i);	
+	}
+	while (((*word)->symptoms[i] && (*word)->symptoms[i + 1] == '0'))
+		i++;
+	if (!((*word)->symptoms[i + 1]) || ((*word)->symptoms[i + 1] <= '0' && ((*word)->symptoms[i + 1] >= '9')))
+	{
+		(*word)->precision = -1;
+		return (i);
+	}
 	while ((*word)->symptoms[++i] && ((*word)->symptoms[i] >= '0' 
 		&& (*word)->symptoms[i] <= '9'))
 		precision = (precision * 10) + ((*word)->symptoms[i] - '0');
