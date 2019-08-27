@@ -6,38 +6,33 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:44:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/23 00:46:07 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/27 23:45:56 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-p_func		ft_get_print_octal()
+t_pfunc		ft_get_print_octal(void)
 {
 	return (ft_print_octal);
 }
 
-p_func		ft_get_print_unsigned()
+t_pfunc		ft_get_print_unsigned(void)
 {
 	return (ft_print_unsigned);
 }
 
-p_func		ft_get_print_hexa()
+t_pfunc		ft_get_print_hexa(void)
 {
 	return (ft_print_hexa);
 }
 
-p_func		ft_get_print_hexa_maj()
+t_pfunc		ft_get_print_hexa_maj(void)
 {
 	return (ft_print_hexa_maj);
 }
 
-p_func		ft_get_print_float()
+t_pfunc		ft_get_print_float(void)
 {
 	return (ft_print_float);
-}
-
-p_func		ft_get_print_percent()
-{
-	return (ft_print_percent);
 }

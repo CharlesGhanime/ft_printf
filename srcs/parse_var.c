@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/25 19:04:11 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/27 22:17:11 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,21 @@
 int     get_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->conv == 'c')
-	{
 		((*word)->a_t.a_intmax = (char)va_arg(arg, intmax_t));
-	}
 	else if ((*word)->conv == '%')
-	{
 		((*word)->a_t.a_intmax = '%');
-	}
 	else if ((*word)->conv == 'p')
-	{
 		((*word)->a_t.a_ptr = (void *)va_arg(arg, void *));
-	}
 	else if ((*word)->conv == 's')
 	{
 		if (!((*word)->a_t.a_string = (char *)va_arg(arg, char *)))
-		{
 			(*word)->a_t.a_string = "(null)";
-		}
 	}
 	else if ((*word)->conv == 'f')
 		return (get_f_type(&(*word), arg));
-	else if (((*word)->conv == 'd' || (*word)->conv == 'i' || (*word)->conv == 'o'
-				|| (*word)->conv == 'u' || (*word)->conv == 'x' || (*word)->conv == 'X'))
+	else if (((*word)->conv == 'd' || (*word)->conv == 'i'
+				|| (*word)->conv == 'o' || (*word)->conv == 'u'
+				|| (*word)->conv == 'x' || (*word)->conv == 'X'))
 		return (get_dioux_type(&(*word), arg));
 	return (0);
 }
@@ -59,7 +52,6 @@ int     get_f_type(t_ptf **word, va_list arg)
 		if (!((*word)->a_t.a_ldouble = (long double)va_arg(arg, long double)))
 			return (-1);
 	}
-
 	return (0);
 }
 
@@ -75,8 +67,8 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 		else
 			return ((get_di_type(&(*word), arg)));
 	}
-	else if ((*word)->conv == 'o' || (*word)->conv == 'u' ||  (*word)->conv == 'x'
-			|| (*word)->conv == 'X')
+	else if ((*word)->conv == 'o' || (*word)->conv == 'u'
+				|| (*word)->conv == 'x' || (*word)->conv == 'X')
 	{
 		(*word)->unsignd = 1;
 		if (!(*word)->flags)
@@ -89,7 +81,6 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 	}
 	return (0);
 }
-
 
 int     get_di_type(t_ptf **word, va_list arg)
 {

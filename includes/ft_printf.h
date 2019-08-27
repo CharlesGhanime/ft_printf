@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/27 23:47:09 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 01:00:48 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,27 +124,27 @@ char								ft_get_percent(void);
 
 int									ft_printf(const char *format, ...);
 void								ft_lst_token_init(t_format lst_format
-									[NB_FORMAT])
+									[NB_FORMAT]);
 void								ft_lst_format_init(t_format lst_format
-									[NB_FORMAT])
+									[NB_FORMAT]);
 void								ft_lst_pfunc_init(t_format lst_format
-									[NB_FORMAT])
+									[NB_FORMAT]);
 
 void								ft_lst_format_token_init(t_format
 									lst_format[NB_FORMAT]);
 void								ft_format_cmp(char c, t_ptf *percents);
 long								total_size(t_ptf *head, int char_size);
-t_pfunc								ft_get_print_char();
-t_pfunc								ft_get_print_string();
-t_pfunc								ft_get_print_address();
-t_pfunc								ft_get_print_decimal();
-t_pfunc								ft_get_print_integer();
-t_pfunc								ft_get_print_octal();
-t_pfunc								ft_get_print_unsigned();
-t_pfunc								ft_get_print_hexa();
-t_pfunc								ft_get_print_hexa_maj();
-t_pfunc								ft_get_print_float();
-t_pfunc								ft_get_print_percent();
+t_pfunc								ft_get_print_char(void);
+t_pfunc								ft_get_print_string(void);
+t_pfunc								ft_get_print_address(void);
+t_pfunc								ft_get_print_decimal(void);
+t_pfunc								ft_get_print_integer(void);
+t_pfunc								ft_get_print_octal(void);
+t_pfunc								ft_get_print_unsigned(void);
+t_pfunc								ft_get_print_hexa(void);
+t_pfunc								ft_get_print_hexa_maj(void);
+t_pfunc								ft_get_print_float(void);
+t_pfunc								ft_get_print_percent(void);
 
 int									ft_print_char(t_ptf *percents);
 int									ft_print_string(t_ptf *percents);
@@ -231,14 +231,10 @@ int									get_options(t_ptf **word, int i);
 int									get_width(t_ptf **word, int i);
 int									get_precision(t_ptf **word, int i);
 int									get_flags(t_ptf **word, int i);
-int									ft_handle_precision(t_ptf *percents,
-									int size);
-void								ft_write(char c, int size);
 
-t_stock								*flags_struct_creation();
+t_stock								*flags_struct_creation(void);
 t_stock								*flags_struct_completion(t_stock *head,
-									int flags,
-									int fw, int pr);
+									int flags, int fw, int pr);
 
 /*
 ** PRINT DEBUG
