@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/16 03:04:46 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/28 01:20:05 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC_NAME =		ft_printf.c 			\
 			float_prec.c			\
 			funct_ptr.c			\
 			funct_ptr2.c			\
+			funct_ptr3.c			\
 			init.c				\
 			int_long_print.c		\
 			parse_type.c			\
@@ -33,12 +34,14 @@ SRC_NAME =		ft_printf.c 			\
 			print_info.c			\
 			return_letter.c			\
 			return_letter2.c		\
+			return_letter3.c		\
 			str_char_ptr_print.c		\
 			manage_opts.c			\
 			unsigned_octal_print.c		\
+			ft_print_ugeneric.c		\
 			flags_functions.c		\
 			get_var_ouxx.c			\
-			ft_handle.c				\
+			finite_state_machine.c \
 
 LIB_SRCS = ft_addonechar.c	\
 	ft_itoa_base.c		\
