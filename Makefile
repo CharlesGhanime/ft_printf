@@ -6,13 +6,13 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/28 05:35:00 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/28 20:27:46 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 CPP_FLAGS = -Iinclude
 
 SRC_PATH = ./srcs
@@ -98,7 +98,7 @@ $(NAME) : $(OBJ) $(OBJLIB)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
@@ -188,7 +188,7 @@ tptr:
 
 run :
 	@echo "$(RED)LOGS$(END)\n" > logs
-	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME) 
