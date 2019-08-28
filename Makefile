@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/28 20:27:46 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/28 22:48:57 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC_NAME =		ft_printf.c 			\
 			flags_functions.c		\
 			get_var_ouxx.c			\
 			finite_state_machine.c \
+			ft_print_p.c			\
 
 LIB_SRCS = ft_addonechar.c	\
 	ft_itoa_base.c		\
@@ -75,7 +76,6 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_memset.c		\
 	ft_strjoinfr.c		\
 	ft_uintmaxtoa_base.c \
-	ft_int128toa_base.c \
 
 INC_NAME = ft_printf.h libft.h
 
