@@ -1,7 +1,7 @@
 
 # Objects
-objs/*.o
 srcs/*.o
+objs/*
 
 # Executables
 *.out
