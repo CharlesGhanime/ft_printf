@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 06:12:53 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 17:26:25 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ char	*get_int_var(t_ptf *percents)
 	{	
 		if (*(percents->flags + 1) == 'l')
 		{
-			if (!(str = ft_uintmaxtoa_base(percents->a_t.a_intmax, "0123456789")))
+			if (!(str = ft_ltoa(percents->a_t.a_intmax)))
 				return (NULL);
 			percents->a_t.a_intmax >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 		}
 		else 
 		{
-			if (!(str = ft_uintmaxtoa_base(percents->a_t.a_intmax, "0123456789")))
+			if (!(str = ft_ltoa(percents->a_t.a_intmax)))
 				return (NULL);
 			percents->a_t.a_intmax >= 0 ? (percents->signe = '+') : (percents->signe = '-');
 		}

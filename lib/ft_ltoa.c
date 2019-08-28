@@ -6,17 +6,18 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:38:26 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 06:07:56 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 17:30:46 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <limits.h>
 
-static size_t	ft_count(long long n, long long *dec)
+static size_t	ft_count(intmax_t n, intmax_t *dec)
 {
-	long long	count;
-	long long	abs;
+	intmax_t	count;
+	intmax_t	abs;
 
 	count = 1;
 	if (n < 0)
@@ -35,16 +36,16 @@ static size_t	ft_count(long long n, long long *dec)
 	return (count);
 }
 
-char			*ft_ltoa(long long  n)
+char			*ft_ltoa(intmax_t n)
 {
 	char				*ascii;
-	long long			i;
-	long long			dec;
-	long long			abs;
+	intmax_t			i;
+	intmax_t			dec;
+	intmax_t			abs;
 
 	dec = 1;
 	i = -1;
-	if (n == -9223372036854775808)
+	if (n == LLONG_MIN)
 		return(ft_strdup("-9223372036854775808"));
 	if (!(ascii = (char *)malloc(sizeof(char) * ft_count(n, &dec) + 1)))
 		return (0);
@@ -69,6 +70,6 @@ char			*ft_ltoa(long long  n)
 
 int main ()
 {
-	printf("%s\n", ft_ltoa(-9223372036854775808));
+	printf("%s\n", ft_ltoa(LLONG_MIN));
 	return (0);
-}*/
+} */
