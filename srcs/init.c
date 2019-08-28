@@ -6,13 +6,13 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/22 14:47:47 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 02:28:33 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-long		total_size(t_ptf *head, int char_size)
+long	total_size(t_ptf *head, int char_size)
 {
 	long	size;
 	t_ptf	*word;
@@ -29,11 +29,11 @@ long		total_size(t_ptf *head, int char_size)
 	return (size + char_size);
 }
 
-t_ptf		*init_head(t_ptf *head)
+t_ptf	*init_head(t_ptf *head)
 {
-	head = NULL;
 	t_ptf *percents;
-	
+
+	head = NULL;
 	if (!(percents = (t_ptf*)malloc(sizeof(t_ptf))))
 		return (0);
 	percents->options = 0;
@@ -49,13 +49,7 @@ t_ptf		*init_head(t_ptf *head)
 int		init_args(t_ptf *word)
 {
 	word->a_t.a_intmax = 0;
-//	word->a_t.a_long = 0;
-//	word->a_t.a_llong = 0;
-//	word->a_t.a_uchar = 0;
 	word->a_t.a_uintmax = 0;
-//	word->a_t.a_ushort = 0;
-//	word->a_t.a_ulong = 0;
-//	word->a_t.a_ullong = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = 0;
 	word->a_t.a_ldouble = 0;
