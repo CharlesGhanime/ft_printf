@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 17:26:25 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 20:29:11 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*get_int_var(t_ptf *percents)
 	return (str);
 }
 
-char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
+char 	*int_precision(char *str, long precision, int len)
 {
 	char	*new;
 	int 	i;
@@ -129,7 +129,7 @@ int		ft_print_decimal(t_ptf *percents)
 	if (percents->precision == -1 && str && str[0] == '0')
 		str = "";
 //	if (percents->precision != -1)
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 //	printf("ITIZ2 = %s\n", str);
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))

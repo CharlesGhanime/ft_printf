@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 02:06:05 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 20:29:25 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	str = NULL;
 	if (!(str = get_generic_var(percents, base)))
 		return (FALSE);
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+	if (percents->precision == -1 && str && str[0] == '0' && !(percents->options & HASH && percents->conv == 'o'))
+		str = "";
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(percents->options & HASH))
 	{	
