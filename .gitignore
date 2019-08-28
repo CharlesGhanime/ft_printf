@@ -1,6 +1,6 @@
 
 # Objects
-./objs/*
+objs/*.o
 srcs/*.o
 
 # Executables
