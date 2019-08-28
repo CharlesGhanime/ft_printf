@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 02:22:18 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 18:05:40 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,11 +130,14 @@ int		ft_print_address(t_ptf *percents)
 {
 	char *str;
 
-	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr,
-						"0123456789abcdef"))))
+	str = NULL;
+	if (!(str = ft_uintmaxtoa_base((uintmax_t)percents->a_t.a_ptr,
+						"0123456789abcdef")))
 		return (FALSE);
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
+	if (percents->a_t.a_ptr == 0)
+		str = "";
 	ft_putstr(str);
 //	free(str);
 	return (TRUE);
