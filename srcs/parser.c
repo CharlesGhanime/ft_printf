@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 20:27:27 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 21:28:36 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int		ft_auscultate(char *patient)
 {
 	int		i;
 	int		j;
-	char	needle[11];
+	char	needle[12];
 
-	ft_memcpy(needle, "diouxXfcsp", 10);
+	ft_memcpy(needle, "diouxXfcsp%", 11);
 	i = -1;
 	while (patient[i++])
 	{
@@ -50,8 +50,6 @@ int		ft_auscultate(char *patient)
 		{
 			if (patient[i] == needle[j])
 				return (i);
-			else if (patient[i] == '%')
-				return (-1);
 		}
 	}
 	return (-1);
