@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 18:12:12 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 23:16:39 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,21 +124,4 @@ int		ft_print_string(t_ptf *percents)
 	percents->size = ft_strlen(str);
 //	free(str);
 	return (FALSE);
-}
-
-int		ft_print_address(t_ptf *percents)
-{
-	char *str;
-
-	str = NULL;
-	if (!(str = ft_uintmaxtoa_base((uintmax_t)percents->a_t.a_ptr,
-						"0123456789abcdef")))
-		return (FALSE);
-	percents->size = ft_strlen(str) + 2;
-	ft_putstr("0x");
-//	if (percents->a_t.a_ptr == 0 && !(percents->precision))
-//		str = "";
-	ft_putstr(str);
-//	free(str);
-	return (TRUE);
 }
