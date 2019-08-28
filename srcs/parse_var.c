@@ -6,13 +6,13 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 06:07:52 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 06:12:15 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int     get_type(t_ptf **word, va_list arg)
+int		get_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->conv == 'c')
 		((*word)->a_t.a_intmax = (char)va_arg(arg, intmax_t));
@@ -34,7 +34,7 @@ int     get_type(t_ptf **word, va_list arg)
 	return (0);
 }
 
-int     get_f_type(t_ptf **word, va_list arg)
+int		get_f_type(t_ptf **word, va_list arg)
 {
 	if (!((*word)->flags) || ((*word)->flags[0] != 'l'
 				&& (*word)->flags[0] != 'L'))
@@ -55,7 +55,7 @@ int     get_f_type(t_ptf **word, va_list arg)
 	return (0);
 }
 
-int     get_dioux_type(t_ptf **word, va_list arg)
+int		get_dioux_type(t_ptf **word, va_list arg)
 {
 	if (((*word)->conv == 'd' || (*word)->conv == 'i'))
 	{
@@ -73,7 +73,8 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 		(*word)->unsignd = 1;
 		if (!(*word)->flags)
 		{
-			if (!((*word)->a_t.a_uintmax = (unsigned int)va_arg(arg, uintmax_t)))
+			if (!((*word)->a_t.a_uintmax = (unsigned int)
+						va_arg(arg, uintmax_t)))
 				return (-1);
 		}
 		else
@@ -82,7 +83,7 @@ int     get_dioux_type(t_ptf **word, va_list arg)
 	return (0);
 }
 
-int     get_di_type(t_ptf **word, va_list arg)
+int		get_di_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->flags[0] == 'h' && (*word)->flags[1] != 'h')
 	{
@@ -105,7 +106,7 @@ int     get_di_type(t_ptf **word, va_list arg)
 	return (0);
 }
 
-int     get_oux_type(t_ptf **word, va_list arg)
+int		get_oux_type(t_ptf **word, va_list arg)
 {
 	if ((*word)->flags[0] == 'h' && (*word)->flags[1] != 'h')
 	{
@@ -123,8 +124,8 @@ int     get_oux_type(t_ptf **word, va_list arg)
 			return (-1);
 	}
 	else if ((*word)->flags[1] == 'l' && (*word)->flags[1] == 'l')
-		if (!((*word)->a_t.a_uintmax = (unsigned long long)va_arg(arg, uintmax_t)))
+		if (!((*word)->a_t.a_uintmax = (unsigned long long)
+					va_arg(arg, uintmax_t)))
 			return (-1);
 	return (0);
 }
-

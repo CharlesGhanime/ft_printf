@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 06:07:54 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 06:12:53 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,7 @@ char	*get_int_var(t_ptf *percents)
 	return (str);
 }
 
-//char	*str_width(char *str, long width, t_ptf *percents, char c)
-//{
-//	char 	*new;
-//	char	*tmp;
-//	int 	token;
-//
-//	tmp = NULL;
-////	if (!(new = ft_fillchar(width, (long)ft_strlen(str), c)))
-////		return (NULL);
-////	token = get_token(percents);
-////	if (token == 0)
-////	{
-//		if (!(tmp = ft_strjoin(new, str)))
-//			return (NULL);
-////	}
-////	else if (token == 1)
-////		if (!(tmp = ft_strjoin(str, new)))
-////			return (NULL);
-//	free(new);
-//	new = ft_strdup(tmp);
-//	free(tmp);
-//	return (new);
-//}	
-
-char 	*int_precision(char *str, long precision, int len)
+char 	*int_precision(char *str, long precision, int len, t_ptf *percents)
 {
 	char	*new;
 	int 	i;
@@ -104,10 +80,19 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 		return (str);
 	min = 0;
 	new = NULL;
+	if (percents->options & PLUS && (ft_ischar(str, '-') == 0))
+	{
+		min = 2;
+		diff--;
+	}
 	if (percents->options & ZERO && !(percents->precision) && !(percents->options & MINUS))
 		padd = ft_padding(diff, '0'); 
 	else
+	{
+		if (min == 2 && !(percents->options & MINUS))
+			diff++;
 		padd = ft_padding(diff, ' ');
+	}
 	if (!(percents->options & MINUS))
 	{
 		if (str[0] == '-' && padd && padd[0] == '0')
@@ -140,12 +125,19 @@ int		ft_print_decimal(t_ptf *percents)
 	str = NULL;
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
-	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
-	   return (FALSE);
+//	printf("ITIZ1 = %s\n", str);
+	if (percents->precision == -1 && str && str[0] == '0')
+		str = "";
+//	if (percents->precision != -1)
+	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str), percents)))
+		return (FALSE);
+//	printf("ITIZ2 = %s\n", str);
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
+//	printf("ITIZ3 = %s\n", str);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
+//	printf("ITIZ4 = %s\n", str);
   	percents->size = ft_strlen(str);
 	ft_putstr(str);
 //	free(str);

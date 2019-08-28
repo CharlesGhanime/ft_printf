@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/03 20:22:05 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/27 19:34:37 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    global_info(t_ptf *percents)
 		fprintf(fptr, "\tsymptoms:"_RED"%s "_END, word->symptoms);
 //		fprintf(fptr, "\toptions:"_RED"'%s'\n"_END, word->options);
 		fprintf(fptr, "\twdith:"_RED"'%lu'\n"_END, word->width);
-		fprintf(fptr, "\tprecision:"_RED"'%lu'\n"_END, word->precision);
+		fprintf(fptr, "\tprecision:"_RED"'%ld'\n"_END, word->precision);
 		fprintf(fptr, "\tflags:"_RED"'%s'"_END, word->flags);
 //		if (((word->key / 10000) < 2))
 //			fprintf(fptr, "\ttype:"_GREEN"'unsigned %s'\n"_END, word->type);

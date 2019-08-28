@@ -6,15 +6,13 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/24 02:42:30 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 02:22:18 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/* PRINT CHAR */
-
-int     ft_print_char(t_ptf *percents)
+int		ft_print_char(t_ptf *percents)
 {
 	int i;
 
@@ -22,11 +20,11 @@ int     ft_print_char(t_ptf *percents)
 	percents->size = 1;
 	if (percents->width > 1 && !(percents->options & MINUS))
 		while (i++ < percents->width - 1)
-			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+			(percents->options & ZERO) ? write(1, "0", 1) : write(1, " ", 1);
 	ft_putchar((char)percents->a_t.a_intmax);
 	if (percents->width > 1 && percents->options & MINUS)
 		while (i++ < percents->width - 1)
-			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+			(percents->options & ZERO) ? write(1, "0", 1) : write(1, " ", 1);
 	if (percents->width)
 		percents->size = percents->width;
 	else
@@ -34,9 +32,7 @@ int     ft_print_char(t_ptf *percents)
 	return (TRUE);
 }
 
-/* PRINT PERCENT */
-
-int     ft_print_percent(t_ptf *percents)
+int		ft_print_percent(t_ptf *percents)
 {
 	int i;
 
@@ -44,23 +40,21 @@ int     ft_print_percent(t_ptf *percents)
 	percents->size = 1;
 	if (percents->width > 1 && !(percents->options & MINUS))
 		while (i++ < percents->width - 1)
-			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+			(percents->options & ZERO) ? write(1, "0", 1) : write(1, " ", 1);
 	ft_putchar((char)percents->a_t.a_intmax);
 	if (percents->width > 1 && percents->options & MINUS)
 		while (i++ < percents->width - 1)
-			(percents->options & ZERO) ? write (1, "0", 1) : write(1, " ", 1);
+			(percents->options & ZERO) ? write(1, "0", 1) : write(1, " ", 1);
 	if (percents->width)
 		percents->size = percents->width;
 	else
 		percents->size = 1;
 	return (TRUE);
 }
-
-/* PRINT STRING */
 
 char	*str_width(char *str, long width, t_ptf *percents, char c)
 {
-	char 	*new;
+	char	*new;
 	char	*padd;
 	long	diff;
 
@@ -71,7 +65,6 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	padd = NULL;
 	if (!(padd = ft_padding(diff, c)))
 		return (NULL);
-		
 	if (!padd)
 		return (str);
 	if (diff > 0 && !(percents->options & MINUS))
@@ -106,7 +99,7 @@ char	*str_precision(char *str, long precision)
 	return (new);
 }
 
-int     ft_print_string(t_ptf *percents)
+int		ft_print_string(t_ptf *percents)
 {
 	char *str;
 
@@ -133,14 +126,12 @@ int     ft_print_string(t_ptf *percents)
 	return (FALSE);
 }
 
-
-/* PRINT ADDRESS */
-
-int     ft_print_address(t_ptf *percents)
+int		ft_print_address(t_ptf *percents)
 {
 	char *str;
 
-	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr, "0123456789abcdef"))))
+	if (!(str = ft_strdup(ft_itoa_base((long)percents->a_t.a_ptr,
+						"0123456789abcdef"))))
 		return (FALSE);
 	percents->size = ft_strlen(str) + 2;
 	ft_putstr("0x");
@@ -148,4 +139,3 @@ int     ft_print_address(t_ptf *percents)
 //	free(str);
 	return (TRUE);
 }
-

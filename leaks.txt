@@ -1,8 +1,0 @@
-ft1 @moulitest: 00000 0
-ft2 @moulitest: 0 0
-ft3 @moulitest:     0 0
-******************ALL TESTS FAILED FROM 42FC***********************
-pt1 @moulitest: 00000 00000
-pt2 @moulitest:  
-pt3 @moulitest:            
-*********************************************************************

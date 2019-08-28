@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/20 11:22:29 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 02:23:50 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ int		ft_count_pct(char *format, t_ptf **head)
 	return (1);
 }
 
-/*
- ** looks for diouxXfcsp after a % has been found
- */
-
 int		ft_auscultate(char *patient)
 {
 	int		i;
@@ -54,16 +50,10 @@ int		ft_auscultate(char *patient)
 		{
 			if (patient[i] == needle[j])
 				return (i);
-//			else if (patient[i] == '%')
-//				return (-1);
 		}
 	}
 	return (-1);
 }
-
-/*
- **	inits t_ptf struct once a valid % has been found
- */
 
 int		doctor(char *format, int rank, int position, t_ptf **percents)
 {
@@ -90,10 +80,6 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 		init_conv(percents, rank, symptoms, format[position]);
 	return (1);
 }
-
-/*
- **	adds the position of the % in format into the corresponding t_ptf
- */
 
 int		add_pct_pos(t_ptf **percents, int pos)
 {
