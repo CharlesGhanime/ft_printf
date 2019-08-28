@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 01:58:28 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 00:27:42 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,19 @@ int		lobby(const char *format, t_ptf *percents)
 	return (1);
 }
 
-
 int			ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_ptf		*percents = NULL;
-	int i;
 
 	percents = init_head(percents);
-	if(!(ft_count_pct((char *)format, &percents)))
-		{
+	if (!(ft_count_pct((char *)format, &percents)))
+	{
 		ft_putstr((char *)format);
 		return(ft_strlen((char *)format));
-		}
+	}
 	va_start(arg, format);
 	blood_test(&percents, arg);
-	i = 0;
 	lobby(format, percents);
 	global_info(percents);
 	va_end(arg);

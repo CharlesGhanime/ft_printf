@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 20:28:47 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 00:28:18 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ typedef struct						s_ftprintf
 	long							precision;
 	char							*flags;
 	char							*symptoms;
-	char							*type;
-	int								key;
-	char							*keyc;
 	int								total_pct_count;
 	unsigned long					size;
 	int								unsignd;
