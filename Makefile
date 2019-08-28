@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/28 01:20:05 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/28 05:35:00 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_memset.c		\
 	ft_strjoinfr.c		\
 	ft_uintmaxtoa_base.c \
+	ft_int128toa_base.c \
 
 INC_NAME = ft_printf.h libft.h
 

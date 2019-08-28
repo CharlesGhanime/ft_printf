@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/08 03:03:54 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 06:06:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char				*ft_strjoinfrchoz(char *s1, char *s2, int choice);
 char				*ft_strtrim(char *s);
 char				**ft_strsplit(char *s, char c);
 char				*ft_itoa(int n);
-char				*ft_ltoa(long n);
+char				*ft_ltoa(long long n);
 char				*ft_lltoa(long long n);
 void				ft_putchar(char c);
 void				ft_putstr(char *s);
@@ -114,6 +114,7 @@ char				*ft_addonecharpos(char **str, char c, int pos);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(int value, char *base);
 char                *ft_ftoa(double myfloat);
+char				*ft_int128toa_base(__int128_t value, char *base);
 
 /*
 ** BONUS SINGLY-LINKED LISTS
