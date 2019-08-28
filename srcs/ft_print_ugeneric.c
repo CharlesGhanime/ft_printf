@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 00:52:19 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 01:22:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	char *str;
 
 	str = NULL;
-		if (!(str = get_generic_var(percents, base)))
-			return (FALSE);
+	if (!(str = get_generic_var(percents, base)))
+		return (FALSE);
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(percents->options & HASH))
-		if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+	{	
+		if (!(str = int_width(str, percents->width,
+		(long)ft_strlen(str), percents)))
 			return (FALSE);
-	else
-		if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
-			return (FALSE);
+		else
+		{
+			if (!(str = int_width(str, percents->width,
+			(long)ft_strlen(str), percents)))
+				return (FALSE);
+		}
+	}
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
 	percents->size = ft_strlen(str);
@@ -44,7 +50,7 @@ int		ft_print_empty(t_ptf *percents)
 	if (percents->width && !(percents->options & MINUS))
 		while (i++ < percents->width - 1)
 			percents->options & ZERO ? write(1, "0", 1) : write (1, " ", 1);
-		ft_putstr(str);
+	ft_putstr(str);
 	if (percents->width && percents->options & MINUS)
 		while (i++ < percents->width - 1)
 			write(1, " ", 1);

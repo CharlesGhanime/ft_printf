@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 00:32:15 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/28 01:58:28 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 {
-	ft_lst_token_init(&lst_format[NB_FORMAT]);
-	ft_lst_format_init(&lst_format[NB_FORMAT]);
-	ft_lst_pfunc_init(&lst_format[NB_FORMAT]);
+	ft_lst_token_init(lst_format);
+	ft_lst_format_init(lst_format);
+	ft_lst_pfunc_init(lst_format);
 }
 
 void			ft_format_cmp(char c, t_ptf *percents)
