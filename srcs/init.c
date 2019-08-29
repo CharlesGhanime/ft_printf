@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 02:28:33 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 23:20:01 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
 		word->symptoms = (char*)ft_memalloc(ft_strlen(symptoms) + 1);
 		word->symptoms = ft_strcpy(word->symptoms, symptoms);
 	}
-	word->type = NULL;
 	word->options = 0;
 	word->precision = 0;
 	word->width = 0;

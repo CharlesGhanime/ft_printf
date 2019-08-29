@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:43:20 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/27 19:34:37 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 22:36:37 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void    global_info(t_ptf *percents)
 //		if (((word->key / 10000) < 2))
 //			fprintf(fptr, "\ttype:"_GREEN"'unsigned %s'\n"_END, word->type);
 //		else
-			fprintf(fptr, "\ttype:"_GREEN"'%s'\n"_END, word->type);
 		fprintf(fptr, "\tsize:"_GREEN"'%lu'\n"_END, word->size);
 //		fprintf(fptr, "\tkeyc:"_BGREEN"'%s'\n\n"_END, word->keyc);
 //		fprintf(fptr, "\tvar: = %s", word->a_t.a_char);
