@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 00:27:42 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 06:09:37 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int			ft_printf(const char *format, ...)
 	lobby(format, percents);
 	global_info(percents);
 	va_end(arg);
-		return (total_size(percents, ft_strlen((char *)format)));
+	return (total_size(percents, ft_strlen((char *)format)));
 }
 
 

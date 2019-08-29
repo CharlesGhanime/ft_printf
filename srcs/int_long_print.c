@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 20:29:11 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 06:02:53 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 		return (str);
 	min = 0;
 	new = NULL;
-	if (percents->options & PLUS && (ft_ischar(str, '-') == 0))
+
+	if ((percents->options & PLUS && (ft_ischar(str, '-') == 0)) || (percents->options & SPACE && percents->options & ZERO && width - 2 == len))
 	{
 		min = 2;
 		diff--;
 	}
+
 	if (percents->options & ZERO && !(percents->precision) && !(percents->options & MINUS))
 		padd = ft_padding(diff, '0'); 
 	else
@@ -93,6 +95,7 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 			diff++;
 		padd = ft_padding(diff, ' ');
 	}
+
 	if (!(percents->options & MINUS))
 	{
 		if (str[0] == '-' && padd && padd[0] == '0')
@@ -128,7 +131,6 @@ int		ft_print_decimal(t_ptf *percents)
 //	printf("ITIZ1 = %s\n", str);
 	if (percents->precision == -1 && str && str[0] == '0')
 		str = "";
-//	if (percents->precision != -1)
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 //	printf("ITIZ2 = %s\n", str);
