@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 02:29:30 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 05:58:01 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 09:01:31 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ char	*get_float_generic_var(t_ptf *percents)
 	}
 	else
 	{
-		if(!(str = ft_ftoa(percents->a_t.a_ldouble)))
+		if(!(str = ft_fltoa(percents->a_t.a_ldouble)))
 			return (NULL);
 	}
 	return (str);

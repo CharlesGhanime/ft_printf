@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 06:41:25 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 09:49:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,18 @@ int		ft_print_float_generic(t_ptf *percents)
 	char *str;
 
 	str = NULL;
-	if (!percents->precision)
-		percents->precision = 6;
-	if (!(str = get_float_generic_var(percents)))
-		return (FALSE);
-	if (!(str = float_prec_flag(str, percents->precision)))
-		return (FALSE);
-	if (!(str = manage_opts(str, percents)))
-		return (FALSE);
-	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
-		return (FALSE);
-	percents->size = ft_strlen(str);
+//	if (!percents->precision)
+//		percents->precision = 6;
+//	if (!(str = get_float_generic_var(percents)))
+//		return (FALSE);
+//	if (!(str = float_prec_flag(str, percents->precision)))
+//		return (FALSE);
+//	if (!(str = manage_opts(str, percents)))
+//		return (FALSE);
+//	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+//		return (FALSE);
+    
+    percents->size = ft_strlen(str);
 	ft_putstr(str);
 	//	if (str)
 	//		free(str);
