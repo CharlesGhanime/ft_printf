@@ -64,19 +64,26 @@ int		ft_print_empty(t_ptf *percents)
 int		ft_print_float_generic(t_ptf *percents)
 {
 	char *str;
+	char *s;
 
 	str = NULL;
-//	if (!percents->precision)
-//		percents->precision = 6;
-//	if (!(str = get_float_generic_var(percents)))
-//		return (FALSE);
-//	if (!(str = float_prec_flag(str, percents->precision)))
-//		return (FALSE);
-//	if (!(str = manage_opts(str, percents)))
-//		return (FALSE);
-//	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
-//		return (FALSE);
-    
+	s = NULL;
+	if (!percents->precision)
+		percents->precision = 7;
+   if (!(str = ft_put_float_to_string(percents->a_t.a_ldouble,
+   &s, percents->precision)))
+	   return (FALSE);
+	if (!(percents->a_t.a_ldouble))
+		str = ft_addonecharpos(&str, '0', 0);
+	if (!(str = manage_opts(str, percents)))
+		return (FALSE);
+	(percents->a_t.a_double > 0) ? percents->signe = '+' : '-';
+	if ((percents->options & PLUS) && !(percents->options & SPACE))
+		str = ft_addonecharpos(&str, percents->signe, 0);
+	if (!(percents->options & PLUS) && (percents->options & SPACE) && percents->signe == '+')
+		str = ft_addonecharpos(&str, ' ', 0);
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+		return (FALSE);
     percents->size = ft_strlen(str);
 	ft_putstr(str);
 	//	if (str)

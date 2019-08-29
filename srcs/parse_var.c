@@ -39,12 +39,12 @@ int		get_f_type(t_ptf **word, va_list arg)
 	if (!((*word)->flags) || ((*word)->flags[0] != 'l'
 				&& (*word)->flags[0] != 'L'))
 	{
-		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, long double)))
+		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l')
 	{
-		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, long double)))
+		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'L')

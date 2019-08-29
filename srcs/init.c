@@ -62,6 +62,7 @@ int		init_args(t_ptf *word)
 	word->a_t.a_uintmax = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = 0;
+	word->a_t.a_double = 0;
 	word->a_t.a_ldouble = 0;
 	return (0);
 }

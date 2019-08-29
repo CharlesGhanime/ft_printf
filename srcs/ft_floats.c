@@ -6,18 +6,18 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 08:37:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 09:39:06 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 16:47:45 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <math.h>
-#include <floats.h>
+#include <float.h>
 #include "../includes/ft_printf.h"
 
-double	ft_calc_modulo(double nb, int *size)
+static long double	ft_calc_modulo(long double nb, int *size)
 {
-	double	modulo;
+	long double	modulo;
 
 	modulo = 1;
 	while ((int)(nb /= 10) != 0 && (*size)++)
@@ -25,7 +25,7 @@ double	ft_calc_modulo(double nb, int *size)
 	return (modulo);
 }
 
-void	ft_handle_integer(double *nb, char **str, int *i, double modulo)
+static void	ft_handle_integer(long double *nb, char **str, int *i, long double modulo)
 {
 	char *s;
 
@@ -38,7 +38,7 @@ void	ft_handle_integer(double *nb, char **str, int *i, double modulo)
 	}
 }
 
-void	ft_handle_decimals(char **str, int *i, double nb, int precision)
+static void	ft_handle_decimals(char **str, int *i, long double nb, int precision)
 {
 	int		j;
 	int		tmp;
@@ -61,7 +61,7 @@ void	ft_handle_decimals(char **str, int *i, double nb, int precision)
 	}
 }
 
-int		ft_handle_inf(char **s)
+static int		ft_handle_inf(char **s)
 {
 	if (!(*s = malloc(sizeof(char) * 4)))
 		return (0);
@@ -69,16 +69,16 @@ int		ft_handle_inf(char **s)
 	return (3);
 }
 
-int		ft_put_float_to_string(double nb, char **s, int precision)
+char	*ft_put_float_to_string(long double nb, char **s, int precision)
 {
 	int		i;
 	int		size;
 	char	*str;
 	int		neg;
-	double	modulo;
+	long double	modulo;
 
 	if (nb == INFINITY)
-		return (ft_handle_inf(s));
+		return (ft_itoa(ft_handle_inf(s)));
 	size = 1;
 	neg = 0;
 	if (nb < 0 && size++ && (neg = 1) == 1)
@@ -94,14 +94,5 @@ int		ft_put_float_to_string(double nb, char **s, int precision)
 	ft_handle_decimals(&str, &i, nb, precision);
 	str[--i] = '\0';
 	*s = str;
-    printf("%s\n", str);
-	return (size);
-}
-
-int main()
-{
-    char *s = NULL;
-
-    printf("%f\n", ft_put_float_to_string(LDBL_MAX, &s, 6));
-    return (0);
+	return (str);
 }

@@ -37,6 +37,7 @@ typedef struct						s_args
 	uintmax_t						a_uintmax;
 	char							*a_string;
 	void							*a_ptr;
+	double							a_double;
 	long double						a_ldouble;
 }									t_args;
 
@@ -165,6 +166,9 @@ int									ft_print_generic(t_ptf *percents,
 int									ft_print_float_generic(t_ptf *percents);
 int									ft_print_empty(t_ptf *percents);
 int									ft_print_address(t_ptf *percents);
+
+char								*ft_put_float_to_string(long double nb,
+									char **s, int precision);
 
 char								*get_octal_var(t_ptf *percents);
 char								*get_unsigned_var(t_ptf *percents);
