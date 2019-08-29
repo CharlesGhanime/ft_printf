@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 02:28:41 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 07:03:41 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 {
 	char	*symptoms;
 
+	symptoms = NULL;
 	symptoms = ft_strsub(format, 0, position);
 	if ((*percents)->next == NULL)
 	{

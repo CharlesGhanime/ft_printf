@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 06:28:10 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 21:10:16 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ long	total_size(t_ptf *head, int char_size)
 			size += word->size - 1;
 		word = word->next;
 	}
+	free_head(head);
 	return (size + char_size);
 }
 

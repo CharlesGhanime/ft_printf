@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 02:30:52 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 20:37:33 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,7 @@ int									get_flags(t_ptf **word, int i);
 t_stock								*flags_struct_creation(void);
 t_stock								*flags_struct_completion(t_stock *head,
 									int flags, int fw, int pr);
+int									free_head(t_ptf *head);
 
 /*
 ** PRINT DEBUG
@@ -254,12 +255,6 @@ t_stock								*flags_struct_completion(t_stock *head,
 
 void								word_info(t_ptf *word);
 void								global_info(t_ptf *percents);
-
-/*
-** MAIN
-*/
-
-int									main(void);
 
 /*
 ** COLORS

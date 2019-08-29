@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/29 16:42:25 by cghanime         ###   ########.fr        #
+#    Updated: 2019/08/29 20:37:58 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_NAME =		ft_printf.c 			\
 			finite_state_machine.c \
 			ft_print_p.c			\
 			ft_floats.c				\
+			free_all.c
 
 LIB_SRCS = ft_addonechar.c	\
 	ft_itoa_base.c		\
