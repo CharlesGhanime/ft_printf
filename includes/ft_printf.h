@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 22:50:36 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:04:10 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef enum						e_format_token
 	HEXA_MAJ,
 	FLOAT,
 	PERCENT,
+	INVALID,
 	NB_FORMAT,
 	NO_FORMAT
 }									t_format_token;
@@ -117,6 +118,7 @@ char								ft_get_hexa(void);
 char								ft_get_hexa_maj(void);
 char								ft_get_float(void);
 char								ft_get_percent(void);
+char								ft_get_invalid(void);
 
 /*
 ** PRINTF
@@ -145,6 +147,7 @@ t_pfunc								ft_get_print_hexa(void);
 t_pfunc								ft_get_print_hexa_maj(void);
 t_pfunc								ft_get_print_float(void);
 t_pfunc								ft_get_print_percent(void);
+t_pfunc								ft_get_print_invalid(void);
 
 int									ft_print_char(t_ptf *percents);
 int									ft_print_string(t_ptf *percents);
@@ -157,6 +160,7 @@ int									ft_print_hexa(t_ptf *percents);
 int									ft_print_hexa_maj(t_ptf *percents);
 int									ft_print_float(t_ptf *percents);
 int									ft_print_percent(t_ptf *percents);
+int									ft_print_invalid(t_ptf *percents);
 int									ft_print_generic(t_ptf *percents,
 									char *base);
 int									ft_print_float_generic(t_ptf *percents);

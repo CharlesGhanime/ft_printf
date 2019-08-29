@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   return_letter3.c                                   :+:      :+:    :+:   */
+/*   lst_del.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/28 00:49:58 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 02:01:16 by cghanime         ###   ########.fr       */
+/*   Created: 2019/08/29 00:48:37 by cghanime          #+#    #+#             */
+/*   Updated: 2019/08/29 00:50:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	ft_get_percent(void)
+void	lst_del(t_ptf *percents)
 {
-	return ('%');
-}
-
-char	ft_get_percent(void)
-{
-	return ('w');
+	if (percents && percents->next)
+		lst_del(percents->next);
+	free(percents);
 }

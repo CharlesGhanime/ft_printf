@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 23:09:41 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 23:16:39 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 00:51:53 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ char	*str_width(char *str, long width, t_ptf *percents, char c)
 	else if (percents->width < -1 || percents->options & MINUS)
 		if (!(new = ft_strjoinfrchoz(str, padd, 2)))
 			return (NULL);
-//	if (padd)
-//		free(padd);
+	if (padd)
+		free(padd);
 	if (!new)
 		return (str);
 	return (new);
@@ -122,6 +122,6 @@ int		ft_print_string(t_ptf *percents)
 //		str = "(null)";
 	ft_putstr(str);
 	percents->size = ft_strlen(str);
-//	free(str);
+	free(str);
 	return (FALSE);
 }

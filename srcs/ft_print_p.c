@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 23:42:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:09:41 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_hashtag_p(t_ptf *percents, char *str)
 		width = int_width(str, percents->width - 2, (long)ft_strlen(str),
 				percents);
 		hash = ft_strjoin("0x", width);
+		free(width);
 		return (hash);
 	}
 	if (!(percents->options & ZERO))
@@ -31,6 +32,7 @@ char	*ft_hashtag_p(t_ptf *percents, char *str)
 		hash = ft_strjoin("0x", str);
 		width = int_width(hash, percents->width, (long)ft_strlen(hash),
 				percents);
+		free(hash);
 		return (width);
 	}
 	return (str);
@@ -59,5 +61,12 @@ int		ft_print_address(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
+	free(str);
 	return (TRUE);
 }
+/*
+int		ft_print_invalid(t_ptf *percents)
+{
+	char *str;
+	str = NULL;
+}*/

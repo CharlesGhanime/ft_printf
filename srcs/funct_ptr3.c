@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:43:37 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 00:52:44 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 01:59:37 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,9 @@
 t_pfunc		ft_get_print_percent(void)
 {
 		return (ft_print_percent);
+}
+
+t_pfunc		ft_get_print_invalid(void)
+{
+		return (ft_print_invalid);
 }
