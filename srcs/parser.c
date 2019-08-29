@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 00:29:06 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:28:41 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int		ft_count_pct(char *format, t_ptf **head)
 			if ((position = ft_auscultate(format + i + 1)) != -1)
 			{
 				doctor((char*)format + i + 1, ++pct_count, position, head);
-				add_pct_pos(head, i);
+				add_pct_pos(head, i, 1, format[position + i + 1]);
 				i += position + 1;
 			}
+			else 
+				set_invalid(format + i + 1, ++pct_count, head);
 		}
 	}
 	if (!pct_count)
@@ -60,6 +62,16 @@ int		ft_auscultate(char *patient)
 	return (-1);
 }
 
+int		set_invalid(char *format, int pct_count, t_ptf **head)
+{
+	int pos;
+
+	pos = ft_strlen(format);
+	doctor(format, pct_count, pos, head);
+	add_pct_pos(head, pos, -1, 'w');
+	return (1);	
+}
+
 int		doctor(char *format, int rank, int position, t_ptf **percents)
 {
 	char	*symptoms;
@@ -72,7 +84,6 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 		(*percents)->next->rank = rank;
 		(*percents)->next->symptoms = NULL;
 		(*percents)->next->symptoms = symptoms;
-		(*percents)->next->conv = format[position];
 		(*percents)->next->options = 0;
 		(*percents)->next->width = 0;
 		(*percents)->next->precision = 0;
@@ -81,11 +92,11 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 		return (1);
 	}
 	else
-		init_conv(percents, rank, symptoms, format[position]);
+		init_conv(percents, rank, symptoms);
 	return (1);
 }
 
-int		add_pct_pos(t_ptf **percents, int pos)
+int		add_pct_pos(t_ptf **percents, int pos, int valid, char conv)
 {
 	t_ptf *word;
 
@@ -93,5 +104,8 @@ int		add_pct_pos(t_ptf **percents, int pos)
 	while (word->next != NULL)
 		word = word->next;
 	word->pos = pos;
+	word->valid = valid;
+	word->conv = conv;
+	word->reste = NULL;
 	return (1);
 }

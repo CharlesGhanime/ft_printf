@@ -6,11 +6,18 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 23:20:01 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:20:51 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int		get_reste(t_ptf **word, char *reste)
+{
+	if(!((*word)->reste = ft_strdup(reste)))
+			return (-1);
+	return (1);
+}
 
 long	total_size(t_ptf *head, int char_size)
 {
@@ -56,7 +63,7 @@ int		init_args(t_ptf *word)
 	return (0);
 }
 
-int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
+int		init_conv(t_ptf **percents, int rank, char *symptoms)
 {
 	t_ptf *word;
 
@@ -66,7 +73,6 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms, char conv)
 	if (!((word->next) = (t_ptf*)malloc(sizeof(t_ptf))))
 		return (0);
 	word = word->next;
-	word->conv = conv;
 	word->symptoms = NULL;
 	if (symptoms)
 	{

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/28 02:25:51 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:18:17 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int		blood_test(t_ptf **percents, va_list arg)
 		i = get_precision(&word, i - 1);
 		if ((i = get_flags(&word, i - 1)) == -1)
 			return (-1);
+		if (word->conv == 'w' && word->symptoms[i])
+			get_reste(&word, word->symptoms + i);
 		get_type(&word, arg);
 		word = word->next;
 	}
@@ -103,5 +105,5 @@ int		get_flags(t_ptf **word, int i)
 		if (!((*word)->flags = ft_addonechar(&(*word)->flags,
 			(*word)->symptoms[i])))
 			return (-1);
-	return (1);
+	return (i);
 }

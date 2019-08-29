@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 00:30:46 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:17:43 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ typedef struct						s_ftprintf
 	int								pos;
 	int								options;
 	long							width;
+	int								valid;
 	long							precision;
 	char							*flags;
 	char							*symptoms;
+	char							*reste;
 	int								total_pct_count;
 	unsigned long					size;
 	int								unsignd;
@@ -215,11 +217,13 @@ int									ft_count_pct(char *format, t_ptf **head);
 int									ft_auscultate(char *patient);
 int									doctor(char *format, int rank, int position,
 									t_ptf **percents);
-int									add_pct_pos(t_ptf **percents, int pos);
+int									add_pct_pos(t_ptf **percents, int pos, int valid, char conv);
 
+int									set_invalid(char *format, int pct_count, t_ptf **head);
+int									get_reste(t_ptf **word, char *reste);
 t_ptf								*init_head(t_ptf *head);
 int									init_conv(t_ptf **percents, int rank,
-									char *symptoms, char conv);
+									char *symptoms);
 int									init_args(t_ptf *word);
 int									blood_test(t_ptf **percents, va_list arg);
 int									get_type(t_ptf **word, va_list arg);
