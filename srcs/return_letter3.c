@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 00:49:58 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 02:01:16 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 05:12:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	ft_get_percent(void)
 	return ('%');
 }
 
-char	ft_get_percent(void)
+char	ft_get_invalid(void)
 {
 	return ('w');
 }
