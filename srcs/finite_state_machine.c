@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 21:58:28 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/28 02:11:40 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/29 02:02:38 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void			ft_lst_token_init(t_format lst_format[NB_FORMAT])
 	lst_format[HEXA_MAJ].token = ft_get_hexa_maj();
 	lst_format[FLOAT].token = ft_get_float();
 	lst_format[PERCENT].token = ft_get_percent();
+	lst_format[INVALID].token = ft_get_invalid();
 }
 
 void			ft_lst_format_init(t_format lst_format[NB_FORMAT])
@@ -53,7 +54,8 @@ void			ft_lst_format_init(t_format lst_format[NB_FORMAT])
 	lst_format[HEXA].next_format = HEXA_MAJ;
 	lst_format[HEXA_MAJ].next_format = FLOAT;
 	lst_format[FLOAT].next_format = PERCENT;
-	lst_format[PERCENT].next_format = NO_FORMAT;
+	lst_format[PERCENT].next_format = INVALID;
+	lst_format[INVALID].next_format = NO_FORMAT;
 }
 
 void			ft_lst_pfunc_init(t_format lst_format[NB_FORMAT])
@@ -69,4 +71,5 @@ void			ft_lst_pfunc_init(t_format lst_format[NB_FORMAT])
 	lst_format[HEXA_MAJ].func = ft_get_print_hexa_maj();
 	lst_format[FLOAT].func = ft_get_print_float();
 	lst_format[PERCENT].func = ft_get_print_percent();
+	lst_format[INVALID].func = ft_get_print_invalid();
 }
