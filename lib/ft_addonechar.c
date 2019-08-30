@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 03:21:09 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/25 04:42:32 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 00:15:58 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ char			*ft_addonechar(char **str, char c)
 	if (*str)
 	{
 		size = ft_strlen(*str);
-		if (!(new = (char *)malloc(sizeof(char) * size + 2)))
+		new = (char *)malloc(sizeof(char) * (size + 2));
+		if (new == NULL)
 			return (0);
 		new = ft_strcpy(new, *str);
 		new[size] = c;
 		new[size + 1] = '\0';
 		free(*str);
+		*str = NULL;
 		return (new);
 	}
 	else

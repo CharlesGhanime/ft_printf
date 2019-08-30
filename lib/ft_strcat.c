@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 17:29:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:11:33 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/08 15:29:44 by aboitier          #+#    #+#             */
+/*   Updated: 2019/08/30 05:27:20 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strcat(char *dst, char *src)
 {
-	size_t i;
-	size_t j;
+	int count;
+	int i;
 
+	count = ft_strlen(dst);
 	i = 0;
-	while (dst[i] != '\0')
-		i++;
-	j = 0;
-	while (src[j] != '\0')
+	while (src[i])
 	{
-		dst[i] = src[j];
+		dst[count] = src[i];
 		i++;
-		j++;
+		count++;
 	}
-	dst[i] = '\0';
+	dst[count] = '\0';
 	return (dst);
 }

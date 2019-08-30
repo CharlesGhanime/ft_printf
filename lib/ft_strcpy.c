@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 17:22:42 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:06:45 by cghanime         ###   ########.fr       */
+/*   Created: 2018/11/08 17:40:13 by aboitier          #+#    #+#             */
+/*   Updated: 2019/08/30 05:52:17 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strcpy(char *dst, char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t i;
+	int i;
 
+//	printf("dst = %s\t src = %s\n", dst, src);
 	i = 0;
 	while (src[i])
 	{

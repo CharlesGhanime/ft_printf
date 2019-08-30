@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:18:00 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/04 01:34:02 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 02:07:56 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char			*ft_addonecharpos(char **str, char c, int pos)
 		new = strposcpy(new, *str, pos, c);
 		new[size + 1] = '\0';
 		free(*str);
+		*str = NULL;
 		return (new);
 	}
 	else
