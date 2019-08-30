@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 05:55:01 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:37:21 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int			ft_printf(const char *format, ...)
 	va_start(arg, format);
 	blood_test(&percents, arg);
 	lobby(format, percents);
-	//global_info(percents);
+//	global_info(percents);
 	va_end(arg);
 	return (total_size(percents, ft_strlen((char *)format)));
 }

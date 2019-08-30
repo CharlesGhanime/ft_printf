@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 08:37:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 16:47:45 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/30 15:07:25 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include <math.h>
 #include <float.h>
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
-static long double	ft_calc_modulo(long double nb, int *size)
+static double	ft_calc_modulo(double nb, int *size)
 {
-	long double	modulo;
+	double	modulo;
 
 	modulo = 1;
 	while ((int)(nb /= 10) != 0 && (*size)++)
@@ -25,20 +26,21 @@ static long double	ft_calc_modulo(long double nb, int *size)
 	return (modulo);
 }
 
-static void	ft_handle_integer(long double *nb, char **str, int *i, long double modulo)
+static void		ft_handle_integer(double *nb, char **str, int *i, double modulo)
 {
 	char *s;
 
+	s = NULL;
 	s = *str;
-	while ((int)*nb != 0)
+	while (modulo && (int)*nb)
 	{
-		s[(*i)++] = (char)((*nb / modulo) + 48);
+		s[(*i)++] = (char)((*nb / modulo + 48));
 		*nb -= (int)(*nb / modulo) * modulo;
 		modulo /= 10;
 	}
 }
 
-static void	ft_handle_decimals(char **str, int *i, long double nb, int precision)
+static void		ft_handle_decimals(char **str, int *i, double nb, int precision)
 {
 	int		j;
 	int		tmp;
@@ -55,32 +57,33 @@ static void	ft_handle_decimals(char **str, int *i, long double nb, int precision
 			s[(*i)++] = '0';
 			continue ;
 		}
-		tmp = ((int)nb != 9) ? (int)(nb + 0.01) : (int)nb;
+		tmp = ((int)nb != 9) ? (nb + 0.01) : (int)nb;
 		s[(*i)++] = (char)(tmp + 48);
 		nb = (nb - tmp) * 10;
 	}
 }
 
-static int		ft_handle_inf(char **s)
+static char		ft_handle_inf(char **s)
 {
 	if (!(*s = malloc(sizeof(char) * 4)))
 		return (0);
 	*s = "inf";
-	return (3);
+	return (**s);
 }
 
-char	*ft_put_float_to_string(long double nb, char **s, int precision)
+char			*ft_put_float_to_string(double nb, char **s, int precision)
 {
 	int		i;
 	int		size;
 	char	*str;
 	int		neg;
-	long double	modulo;
+	double	modulo;
 
 	if (nb == INFINITY)
 		return (ft_itoa(ft_handle_inf(s)));
 	size = 1;
 	neg = 0;
+	modulo = 0;
 	if (nb < 0 && size++ && (neg = 1) == 1)
 		nb = -nb;
 	modulo = ft_calc_modulo(nb, &size);

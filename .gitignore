@@ -7,6 +7,7 @@ objs/*
 *.out
 ft_printf
 printf
+main.c
 
 # Libraries
 *.a
@@ -18,6 +19,7 @@ libft/*.a
 ./.annex/print/
 /.annex/
 ./.annex/mains_/*
+.gitignore
 
 # Misc
 logs*

@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 01:40:31 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 15:04:34 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		get_f_type(t_ptf **word, va_list arg)
 	if (!((*word)->flags) || ((*word)->flags[0] != 'l'
 				&& (*word)->flags[0] != 'L'))
 	{
-		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
+		if (!((*word)->a_t.a_double = (double)va_arg(arg, double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'l')
 	{
-		if (!((*word)->a_t.a_ldouble = (double)va_arg(arg, double)))
+		if (!((*word)->a_t.a_ldouble = (long double)va_arg(arg, long double)))
 			return (-1);
 	}
 	else if ((*word)->flags[0] == 'L')
