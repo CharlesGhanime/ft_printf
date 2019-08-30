@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 05:35:04 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:53:29 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/30 00:22:53 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strsub(char *s, unsigned int start, size_t len)
 	char	*new;
 	size_t	i;
 
-	if ((int)len < 0 || !s || s == 0)
+	if (!s)
 		return (0);
 	i = 0;
 	s = s + start;
