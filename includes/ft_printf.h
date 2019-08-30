@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 23:23:24 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 15:54:24 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,10 @@ typedef enum						e_format_token
 
 typedef struct						s_format
 {
-	char							token;
 	t_pfunc							func;
 	t_format_token					next_format;
+	char							token;
+	char							pad[3];
 }									t_format;
 
 typedef struct						s_stock
@@ -167,8 +168,10 @@ int									ft_print_float_generic(t_ptf *percents);
 int									ft_print_empty(t_ptf *percents);
 int									ft_print_address(t_ptf *percents);
 
-char								*ft_put_float_to_string(long double nb,
+char								*ft_put_float_to_string(double nb,
 									char **s, int precision);
+char								*ft_manage_floats(t_ptf *percents,
+									char *str);
 
 char								*get_octal_var(t_ptf *percents);
 char								*get_unsigned_var(t_ptf *percents);
@@ -260,6 +263,7 @@ void								global_info(t_ptf *percents);
 ** COLORS
 */
 
+/*
 # define _RED       "\x1b[31m"
 # define _BRED      "\x1b[1;31m"
 # define _GREEN     "\x1b[32m"
@@ -271,5 +275,5 @@ void								global_info(t_ptf *percents);
 # define _BMAGENTA  "\x1b[1;35m"
 # define _CYAN      "\x1b[36m"
 # define _END       "\x1b[0m"
-
+*/
 #endif

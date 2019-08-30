@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 20:54:18 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 15:37:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int		ft_print_address(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-//	if (str)
-//		free(str);
+		free(str);
 	return (TRUE);
 }
 

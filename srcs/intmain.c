@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   intmain.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/22 13:55:02 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/22 13:59:48 by cghanime         ###   ########.fr       */
+/*   Created: 2019/08/29 09:32:24 by cghanime          #+#    #+#             */
+/*   Updated: 2019/08/29 09:37:00 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
+#include <limits.h>
 #include <libc.h>
-
+#include <float.h>
 
 int main()
 {
-	uintmax_t test = 9223372036854775808;
-	
-	printf("%llu", test);
-return (0);
-	}
+    printf("%Lf", LDBL_MAX);
+    return (0);
+}
