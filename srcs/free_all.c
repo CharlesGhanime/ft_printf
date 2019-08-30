@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 20:31:19 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 01:58:48 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:38:39 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		free_head(t_ptf *head)
 {
 	t_ptf *tmp;
 	t_ptf *word;
-	
+
 	if (!(head->next))
 	{
 		free(head);

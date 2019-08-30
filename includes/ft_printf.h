@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 23:23:24 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:28:03 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,6 +210,10 @@ char								*ft_width_precision(char *src,
 									t_ptf *percents);
 char								*str_width(char *str, long width,
 									t_ptf *percents, char c);
+char								*supp_width(char *str, t_ptf *percents,
+									long *diff);
+char								*moar_width(char *str, char *padd, t_ptf *percents,
+									long diff);		
 char								*str_precision(char *str, long precision);
 char								*int_precision(char *str, long precision,
 									int len);
