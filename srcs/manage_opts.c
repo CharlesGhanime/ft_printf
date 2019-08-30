@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 00:39:23 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 05:52:16 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 11:27:38 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ char			*manage_opts(char *str, t_ptf *percents)
 		}
 		else
 		{
-//			printf("coucou\n");
-			new = ft_strjoinfrchoz(&percents->signe, str, 2);
+			new = ft_addonecharpos(&str, percents->signe, 0);
 		}
 	}
-//	printf("new4 = %s\n", new);
 	if (!new)
 		return (str);
 	return (new);
