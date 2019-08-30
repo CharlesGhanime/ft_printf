@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 06:02:53 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 06:58:43 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char 	*int_precision(char *str, long precision, int len)
 	char	*new;
 	int 	i;
 	
+	new = NULL;
 	if ((!precision || (int)precision < len))
 		return (str);
 	if (!(new = (char *)malloc(sizeof(char) * (precision + len + 1))))
@@ -80,7 +81,7 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 		return (str);
 	min = 0;
 	new = NULL;
-
+	padd = NULL;
 	if ((percents->options & PLUS && (ft_ischar(str, '-') == 0)) || (percents->options & SPACE && percents->options & ZERO && width - 2 == len))
 	{
 		min = 2;
@@ -128,20 +129,21 @@ int		ft_print_decimal(t_ptf *percents)
 	str = NULL;
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
-//	printf("ITIZ1 = %s\n", str);
+	printf("ITIZ1 = %s\n", str);
 	if (percents->precision == -1 && str && str[0] == '0')
 		str = "";
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
-//	printf("ITIZ2 = %s\n", str);
+	printf("ITIZ2 = %s\n", str);
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
 //	printf("ITIZ3 = %s\n", str);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
-//	printf("ITIZ4 = %s\n", str);
+	printf("ITIZ4 = %s\n", str);
   	percents->size = ft_strlen(str);
 	ft_putstr(str);
-//	free(str);
+	if (str != NULL || str[0] != '\0')
+		free(str);
 	return (TRUE);
 }

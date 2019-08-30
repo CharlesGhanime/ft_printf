@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 06:09:37 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 05:55:01 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int		lobby(const char *format, t_ptf *percents)
 
 	start = 0;
 	word = percents->next;
-	(word->pos == 0) ? (start = (int)ft_strlen(word->symptoms) + 2)
+	if (word->valid == 1)
+		(word->pos == 0) ? (start = (int)ft_strlen(word->symptoms) + 2)
 		: (start = 0);
 	while (word)
 	{
@@ -68,15 +69,19 @@ int		lobby(const char *format, t_ptf *percents)
 		word = word->next;
 	}
 	if (format[start])
+	{	
+//		printf("start = %d\n", start);
 		write(1, format + start, (int)ft_strlen((char*)format) - start);
+	}
 	return (1);
 }
 
 int			ft_printf(const char *format, ...)
 {
 	va_list		arg;
-	t_ptf		*percents = NULL;
+	t_ptf		*percents;
 
+	percents = NULL;
 	percents = init_head(percents);
 	if (!(ft_count_pct((char *)format, &percents)))
 	{
@@ -86,9 +91,7 @@ int			ft_printf(const char *format, ...)
 	va_start(arg, format);
 	blood_test(&percents, arg);
 	lobby(format, percents);
-	global_info(percents);
+	//global_info(percents);
 	va_end(arg);
 	return (total_size(percents, ft_strlen((char *)format)));
 }
-
-

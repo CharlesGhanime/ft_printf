@@ -6,13 +6,13 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/29 20:37:58 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/30 06:58:17 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -pedantic -fsanitize=address,undefined
 CPP_FLAGS = -Iinclude
 
 SRC_PATH = ./srcs
@@ -78,6 +78,7 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_memset.c		\
 	ft_strjoinfr.c		\
 	ft_uintmaxtoa_base.c \
+	ft_strchr.c
 
 INC_NAME = ft_printf.h libft.h
 
@@ -100,11 +101,11 @@ $(NAME) : $(OBJ) $(OBJLIB)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean :
 	@rm -rf $(OBJ) $(OBJLIB)
