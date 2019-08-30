@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 04:51:27 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 13:59:58 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms)
 	word = word->next;
 	word->symptoms = NULL;
 	if (symptoms)
-		word->symptoms = ft_strdup(symptoms);
+		word->symptoms = symptoms;
 	word->options = 0;
 	word->precision = 0;
 	word->pos = 0;

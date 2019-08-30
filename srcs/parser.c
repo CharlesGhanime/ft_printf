@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 04:29:17 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 13:48:34 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int		ft_count_pct(char *format, t_ptf **head)
 		{
 			if ((position = ft_auscultate(format + i + 1)) != -1)
 			{
-				doctor((char*)format + i + 1, ++pct_count, position, head);
+				doctor(ft_strdup((char*)format + i + 1), ++pct_count, position, head);
 				add_pct_pos(head, i, 1, format[position + i + 1]);
 				i += position + 1;
 			}
 			else 
-				set_invalid(format + i + 1, ++pct_count, head);
+				set_invalid(ft_strdup(format + i + 1), ++pct_count, head);
 		}
 	}
 	if (!pct_count)
@@ -90,12 +90,12 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 		(*percents)->next->signe = '\0';
 		(*percents)->next->conv = '\0';
 		(*percents)->next->unsignd = 0;
-		// add init_args
 		init_args((*percents)->next);
-		return (1);
 	}
 	else
 		init_conv(percents, rank, symptoms);
+//	free(symptoms);
+	free(format);
 	return (1);
 }
 

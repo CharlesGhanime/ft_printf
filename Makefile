@@ -6,13 +6,13 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/30 11:59:38 by aboitier         ###   ########.fr        #
+#    Updated: 2019/08/30 12:40:56 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address,undefined
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address,undefined
 CPP_FLAGS = -Iinclude
 
 SRC_PATH = ./srcs
