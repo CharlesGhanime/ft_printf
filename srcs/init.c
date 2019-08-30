@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 21:10:16 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 04:51:27 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ long	total_size(t_ptf *head, int char_size)
 			size += word->size - 1;
 		word = word->next;
 	}
+//	if (!word)	
 	free_head(head);
 	return (size + char_size);
 }
@@ -49,11 +50,17 @@ t_ptf	*init_head(t_ptf *head)
 		return (0);
 	percents->options = 0;
 	percents->precision = 0;
+	percents->pos = 0;
 	percents->flags = NULL;
 	percents->symptoms = NULL;
+	percents->size = 0;
 	percents->total_pct_count = 0;
 	percents->rank = 0;
 	percents->next = NULL;
+	percents->width = 0;
+	percents->signe = '\0';
+	percents->conv = '\0';
+	percents->unsignd = 0;
 	return (percents);
 }
 
@@ -62,7 +69,7 @@ int		init_args(t_ptf *word)
 	word->a_t.a_intmax = 0;
 	word->a_t.a_uintmax = 0;
 	word->a_t.a_string = NULL;
-	word->a_t.a_ptr = 0;
+	word->a_t.a_ptr = NULL;
 	word->a_t.a_double = 0;
 	word->a_t.a_ldouble = 0;
 	return (0);
@@ -80,14 +87,18 @@ int		init_conv(t_ptf **percents, int rank, char *symptoms)
 	word = word->next;
 	word->symptoms = NULL;
 	if (symptoms)
-	{
-		word->symptoms = (char*)ft_memalloc(ft_strlen(symptoms) + 1);
-		word->symptoms = ft_strcpy(word->symptoms, symptoms);
-	}
+		word->symptoms = ft_strdup(symptoms);
 	word->options = 0;
 	word->precision = 0;
-	word->width = 0;
+	word->pos = 0;
+	word->flags = NULL;
+	word->size = 0;
+	word->total_pct_count = 0;
 	word->rank = rank;
+	word->width = 0;
+	word->signe = '\0';
+	word->conv = '\0';
+	word->unsignd = 0;
 	init_args(word);
 	word->next = NULL;
 	return (1);

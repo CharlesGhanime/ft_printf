@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 07:03:41 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 04:29:17 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,18 @@ int		ft_count_pct(char *format, t_ptf **head)
 
 int		ft_auscultate(char *patient)
 {
-	int		i;
-	int		j;
-	char	needle[12];
+	int					i;
 
-	ft_memcpy(needle, "diouxXfcsp%", 11);
-	i = -1;
-	while (patient[i++])
+	i = 0;
+	while (patient[i] != '\0')
 	{
-		j = -1;
-		while (patient[i] != needle[j++] && patient[i] && needle[j])
-		{
-			if (patient[i] == needle[j])
-				return (i);
-		}
+		if (ft_strchr("diouxXfcsp%", patient[i]) != NULL)
+			return (i);
+		i++;
 	}
 	return (-1);
 }
+
 
 int		set_invalid(char *format, int pct_count, t_ptf **head)
 {
@@ -82,14 +77,21 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 	{
 		if (!((*percents)->next = (t_ptf*)malloc(sizeof(t_ptf))))
 			return (0);
-		(*percents)->next->rank = rank;
-		(*percents)->next->symptoms = NULL;
-		(*percents)->next->symptoms = symptoms;
 		(*percents)->next->options = 0;
-		(*percents)->next->width = 0;
 		(*percents)->next->precision = 0;
+		(*percents)->next->pos = 0;
 		(*percents)->next->flags = NULL;
+		(*percents)->next->symptoms = symptoms;
+		(*percents)->next->size = 0;
+		(*percents)->next->total_pct_count = 0;
+		(*percents)->next->rank = rank;
+		(*percents)->next->width = 0;
 		(*percents)->next->next = NULL;
+		(*percents)->next->signe = '\0';
+		(*percents)->next->conv = '\0';
+		(*percents)->next->unsignd = 0;
+		// add init_args
+		init_args((*percents)->next);
 		return (1);
 	}
 	else

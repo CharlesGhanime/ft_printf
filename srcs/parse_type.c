@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 07:11:25 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/29 02:18:17 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 00:23:32 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ int		get_options(t_ptf **word, int i)
 		{
 			if ((*word)->symptoms[i] == '#')
 				(*word)->options |= HASH;
-			if ((*word)->symptoms[i] == '0')
+			else if ((*word)->symptoms[i] == '0')
 				(*word)->options |= ZERO;
-			if ((*word)->symptoms[i] == '-')
+			else if ((*word)->symptoms[i] == '-')
 				(*word)->options |= MINUS;
-			if ((*word)->symptoms[i] == '+')
+			else if ((*word)->symptoms[i] == '+')
 				(*word)->options |= PLUS;
-			if ((*word)->symptoms[i] == ' ')
+			else if ((*word)->symptoms[i] == ' ')
 				(*word)->options |= SPACE;
 		}
 	}
