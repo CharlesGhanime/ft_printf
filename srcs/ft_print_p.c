@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 15:37:27 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:39:49 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ char	*ft_hashtag_p(t_ptf *percents, char *str)
 	{
 		width = int_width(str, percents->width - 2, (long)ft_strlen(str),
 				percents);
-		hash = ft_strjoin("0x", width);
-//		free(width);
+		hash = ft_strjoinfrchoz("0x", width, 2);
 		return (hash);
 	}
 	if (!(percents->options & ZERO))
 	{
-		hash = ft_strjoin("0x", str);
+		hash = ft_strjoinfrchoz("0x", str, 2);
 		width = int_width(hash, percents->width, (long)ft_strlen(hash),
 				percents);
-//		free(hash);
 		return (width);
 	}
 	return (str);
@@ -62,6 +60,7 @@ int		ft_print_address(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
+	if (str != NULL && str[0] != '\0')
 		free(str);
 	return (TRUE);
 }
