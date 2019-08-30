@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/29 23:27:16 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:19:23 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char				*ft_strncpy(char *dst, char *src, size_t len);
 char				*ft_strcat(char *dst, char *src);
 char				*ft_strncat(char *dst, char *src, size_t len);
 size_t				ft_strlcat(char *dst, char *src, size_t dstsize);
-char				*ft_strchr(char *s, int c);
+char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(char *s, int c);
 char				*ft_strstr(char *str, char *to_find);
 char				*ft_strnstr(char *haystack, char *needle,
@@ -115,7 +115,7 @@ void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(int value, char *base);
 char				*ft_ftoa(double myfloat);
 char				*ft_fltoa(long double myfloat);
-char				*ft_uintmaxtoa_base(uintmax_t value, char *base);
+char				*ft_uintmaxtoa_base(uint64_t value, char *base);
 
 /*
 ** BONUS SINGLY-LINKED LISTS
