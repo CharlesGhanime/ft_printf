@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 16:39:45 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/31 17:29:27 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		ft_print_generic(t_ptf *percents, char *base)
 	if (percents->precision == -1 && str && str[0] == '0'
 	&& !(percents->options & HASH && percents->conv == 'o'))
 		str = "";
+	if (percents->options & HASH && percents->conv == 'o')
+		percents->precision -= 1;
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(percents->options & HASH))
@@ -59,11 +61,11 @@ int		ft_print_empty(t_ptf *percents)
 
 char	*ft_manage_floats(t_ptf *percents, char *str)
 {	
-	if (!((int)percents->a_t.a_double))
+	if (!((int)percents->a_t.a_ldouble))
 		str = ft_addonecharpos(&str, '0', 0);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
-	(percents->a_t.a_double > 0) ? percents->signe = '+' : '-';
+	(percents->a_t.a_ldouble > 0) ? percents->signe = '+' : '-';
 	if ((percents->options & PLUS) && !(percents->options & SPACE))
 		str = ft_addonecharpos(&str, percents->signe, 0);
 	if (!(percents->options & PLUS) && (percents->options & SPACE)
@@ -84,7 +86,7 @@ int		ft_print_float_generic(t_ptf *percents)
 	s = NULL;
 	if (!percents->precision)
 		percents->precision = 7;
-	if (!(str = ft_put_float_to_string(percents->a_t.a_double,
+	if (!(str = ft_put_float_to_string(percents->a_t.a_ldouble,
 	&s, percents->precision)))
 		return (FALSE);
 	if (!(str = ft_manage_floats(percents, str)))

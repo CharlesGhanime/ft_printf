@@ -37,7 +37,7 @@ typedef struct						s_args
 	uintmax_t						a_uintmax;
 	char							*a_string;
 	void							*a_ptr;
-	double							a_double;
+//	double							a_double;
 	long double						a_ldouble;
 }									t_args;
 
@@ -168,7 +168,7 @@ int									ft_print_float_generic(t_ptf *percents);
 int									ft_print_empty(t_ptf *percents);
 int									ft_print_address(t_ptf *percents);
 
-char								*ft_put_float_to_string(double nb,
+char								*ft_put_float_to_string(long double nb,
 									char **s, int precision);
 char								*ft_manage_floats(t_ptf *percents,
 									char *str);
@@ -267,7 +267,7 @@ void								global_info(t_ptf *percents);
 ** COLORS
 */
 
-/*
+
 # define _RED       "\x1b[31m"
 # define _BRED      "\x1b[1;31m"
 # define _GREEN     "\x1b[32m"
@@ -279,5 +279,5 @@ void								global_info(t_ptf *percents);
 # define _BMAGENTA  "\x1b[1;35m"
 # define _CYAN      "\x1b[36m"
 # define _END       "\x1b[0m"
-*/
+
 #endif

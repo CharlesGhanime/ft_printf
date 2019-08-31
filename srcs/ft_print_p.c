@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 16:39:49 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/08/31 08:02:17 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_print_address(t_ptf *percents)
 	char *str;
 	char *base;
 
+
 	str = NULL;
 	base = "0123456789abcdef";
 	if (percents->precision == -1 && !(percents->a_t.a_ptr))
@@ -51,7 +52,7 @@ int		ft_print_address(t_ptf *percents)
 		return (FALSE);
 	if (!(str = int_precision(str, percents->precision, (long)ft_strlen(str))))
 		return (FALSE);
-	if (percents->precision != -1)
+//	if (percents->precision != -1)
 		if (!(str = ft_strjoinfrchoz("0x", str, 2)))
 			return (FALSE);
 	if (!(str = manage_opts(str, percents)))
@@ -60,7 +61,7 @@ int		ft_print_address(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	if (str != NULL && str[0] != '\0')
+	if (str != NULL && str[0] != '\0' && percents->precision != -1)
 		free(str);
 	return (TRUE);
 }

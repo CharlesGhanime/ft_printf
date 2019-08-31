@@ -16,9 +16,9 @@
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
-static double	ft_calc_modulo(double nb, int *size)
+static long double	ft_calc_modulo(long double nb, int *size)
 {
-	double	modulo;
+	long double	modulo;
 
 	modulo = 1;
 	while ((int)(nb /= 10) != 0 && (*size)++)
@@ -26,7 +26,7 @@ static double	ft_calc_modulo(double nb, int *size)
 	return (modulo);
 }
 
-static void		ft_handle_integer(double *nb, char **str, int *i, double modulo)
+static void		ft_handle_integer(long double *nb, char **str, int *i, long double modulo)
 {
 	char *s;
 
@@ -40,7 +40,7 @@ static void		ft_handle_integer(double *nb, char **str, int *i, double modulo)
 	}
 }
 
-static void		ft_handle_decimals(char **str, int *i, double nb, int precision)
+static void		ft_handle_decimals(char **str, int *i, long double nb, int precision)
 {
 	int		j;
 	int		tmp;
@@ -71,13 +71,13 @@ static char		ft_handle_inf(char **s)
 	return (**s);
 }
 
-char			*ft_put_float_to_string(double nb, char **s, int precision)
+char			*ft_put_float_to_string(long double nb, char **s, int precision)
 {
 	int		i;
 	int		size;
 	char	*str;
 	int		neg;
-	double	modulo;
+	long double	modulo;
 
 	if (nb == INFINITY)
 		return (ft_itoa(ft_handle_inf(s)));
