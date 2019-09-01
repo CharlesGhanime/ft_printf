@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/31 08:02:17 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/01 06:20:51 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,17 @@ int		ft_print_address(t_ptf *percents)
 	char *str;
 	char *base;
 
-
 	str = NULL;
 	base = "0123456789abcdef";
 	if (percents->precision == -1 && !(percents->a_t.a_ptr))
 		str = "0x";
-	else 
+	else
 		if (!(str = ft_uintmaxtoa_base((uintmax_t)percents->a_t.a_ptr,
 		base)))
 		return (FALSE);
 	if (!(str = int_precision(str, percents->precision, (long)ft_strlen(str))))
 		return (FALSE);
-//	if (percents->precision != -1)
+	if (percents->precision != -1 || percents->options & HASH)
 		if (!(str = ft_strjoinfrchoz("0x", str, 2)))
 			return (FALSE);
 	if (!(str = manage_opts(str, percents)))
@@ -72,11 +71,13 @@ int		ft_print_invalid(t_ptf *percents)
 
 	str	= NULL;
 
-	if (percents->reste)	
+	if (percents->reste)
 		if (!(str = ft_strdup(percents->reste)))
 			return (FALSE);
 	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
 		return (FALSE);
 	percents->size = ft_strlen(str);
+	ft_putstr(str);
+	free(str);
 	return (TRUE);
 }

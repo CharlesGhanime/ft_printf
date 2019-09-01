@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/31 17:29:27 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/01 04:46:24 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		ft_print_float_generic(t_ptf *percents)
 	str = NULL;
 	s = NULL;
 	if (!percents->precision)
-		percents->precision = 7;
+		percents->precision = 6;
 	if (!(str = ft_put_float_to_string(percents->a_t.a_ldouble,
 	&s, percents->precision)))
 		return (FALSE);
@@ -93,7 +93,7 @@ int		ft_print_float_generic(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	if(str != NULL && str[0] != '\0')
+	if(str != '\0')
 		free(str);
 	return (TRUE);
 }

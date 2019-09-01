@@ -6,12 +6,13 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 16:48:21 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/01 07:23:32 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
 
 # include "libft.h"
 # include <stdlib.h>
@@ -37,7 +38,6 @@ typedef struct						s_args
 	uintmax_t						a_uintmax;
 	char							*a_string;
 	void							*a_ptr;
-//	double							a_double;
 	long double						a_ldouble;
 }									t_args;
 

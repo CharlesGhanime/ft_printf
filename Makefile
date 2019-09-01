@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/30 12:40:56 by aboitier         ###   ########.fr        #
+#    Updated: 2019/09/01 07:18:35 by cghanime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ OBJ_PATH = ./objs
 OBJLIB_PATH = ./objs
 
 SRC_NAME =		ft_printf.c 			\
-			float_prec.c			\
 			funct_ptr.c			\
 			funct_ptr2.c			\
 			funct_ptr3.c			\
@@ -40,6 +39,7 @@ SRC_NAME =		ft_printf.c 			\
 			unsigned_octal_print.c		\
 			ft_print_ugeneric.c		\
 			flags_functions.c		\
+			int_width.c				\
 			get_var_ouxx.c			\
 			finite_state_machine.c \
 			ft_print_p.c			\

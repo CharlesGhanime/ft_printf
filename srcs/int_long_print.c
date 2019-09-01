@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 16:37:46 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/01 07:07:55 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,26 +57,6 @@ char	*int_precision(char *str, long precision, int len)
 	new[i] = '\0';
 	new = ft_strcat(new, str);
 	free(str);
-	return (new);
-}
-
-char	*int_width(char *str, long width, long len, t_ptf *percents)
-{
-	char	*new;
-	char	*padd;
-	long	diff;
-
-	diff = width - len;
-	if (diff < 0 || !width || (width - 1 == len && percents->options & PLUS
-				&& !(percents->unsignd)))
-		return (str);
-	new = NULL;
-	padd = supp_width(str, percents, &diff);
-	new = moar_width(str, padd, percents, diff);
-	if (!new)
-		return (str);
-	if (str != NULL && str[0] != '\0')
-		free(str);
 	return (new);
 }
 

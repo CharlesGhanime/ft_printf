@@ -6,13 +6,12 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 08:37:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/30 15:07:25 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/01 05:25:08 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <math.h>
-#include <float.h>
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
@@ -32,7 +31,7 @@ static void		ft_handle_integer(long double *nb, char **str, int *i, long double 
 
 	s = NULL;
 	s = *str;
-	while (modulo && (int)*nb)
+	while ((int)*nb)
 	{
 		s[(*i)++] = (char)((*nb / modulo + 48));
 		*nb -= (int)(*nb / modulo) * modulo;
@@ -47,7 +46,7 @@ static void		ft_handle_decimals(char **str, int *i, long double nb, int precisio
 	char	*s;
 
 	nb *= 10;
-	j = 0;
+	j = -1;
 	s = *str;
 	s[(*i)++] = '.';
 	while (j++ < precision)
@@ -97,5 +96,5 @@ char			*ft_put_float_to_string(long double nb, char **s, int precision)
 	ft_handle_decimals(&str, &i, nb, precision);
 	str[--i] = '\0';
 	*s = str;
-	return (str);
+	return (*s);
 }
