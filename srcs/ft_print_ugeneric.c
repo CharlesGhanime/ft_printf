@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 23:47:53 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/01 04:46:24 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:12:58 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_print_empty(t_ptf *percents)
 }
 
 char	*ft_manage_floats(t_ptf *percents, char *str)
-{	
+{
 	if (!((int)percents->a_t.a_ldouble))
 		str = ft_addonecharpos(&str, '0', 0);
 	if (!(str = manage_opts(str, percents)))
@@ -93,7 +93,7 @@ int		ft_print_float_generic(t_ptf *percents)
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
-	if(str != '\0')
+	if (str != '\0')
 		free(str);
 	return (TRUE);
 }

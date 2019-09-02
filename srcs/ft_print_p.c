@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 22:23:09 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/01 06:20:51 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:25:13 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,16 @@ char	*ft_hashtag_p(t_ptf *percents, char *str)
 	return (str);
 }
 
-int		ft_print_address(t_ptf *percents)
+char	*ft_address_opts(t_ptf *percents, char *str, char *base)
 {
-	char *str;
-	char *base;
-
-	str = NULL;
-	base = "0123456789abcdef";
 	if (percents->precision == -1 && !(percents->a_t.a_ptr))
 		str = "0x";
 	else
+	{
 		if (!(str = ft_uintmaxtoa_base((uintmax_t)percents->a_t.a_ptr,
 		base)))
-		return (FALSE);
+			return (FALSE);
+	}
 	if (!(str = int_precision(str, percents->precision, (long)ft_strlen(str))))
 		return (FALSE);
 	if (percents->precision != -1 || percents->options & HASH)
@@ -56,8 +53,20 @@ int		ft_print_address(t_ptf *percents)
 			return (FALSE);
 	if (!(str = manage_opts(str, percents)))
 		return (FALSE);
-	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str),
+		percents)))
 		return (FALSE);
+	return (str);
+}
+
+int		ft_print_address(t_ptf *percents)
+{
+	char *str;
+	char *base;
+
+	str = NULL;
+	base = "0123456789abcdef";
+	str = ft_address_opts(percents, str, "0123456789abcdef");
 	percents->size = ft_strlen(str);
 	ft_putstr(str);
 	if (str != NULL && str[0] != '\0' && percents->precision != -1)
@@ -69,12 +78,12 @@ int		ft_print_invalid(t_ptf *percents)
 {
 	char	*str;
 
-	str	= NULL;
-
+	str = NULL;
 	if (percents->reste)
 		if (!(str = ft_strdup(percents->reste)))
 			return (FALSE);
-	if (!(str = int_width(str, percents->width, (long)ft_strlen(str), percents)))
+	if (!(str = int_width(str, percents->width, (long)ft_strlen(str),
+	percents)))
 		return (FALSE);
 	percents->size = ft_strlen(str);
 	ft_putstr(str);

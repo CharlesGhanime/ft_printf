@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 21:37:51 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 15:04:34 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:04:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,8 @@ int		get_oux_type(t_ptf **word, va_list arg)
 	}
 	else if ((*word)->flags[0] == 'l' && (*word)->flags[1] != 'l')
 	{
-		if (!((*word)->a_t.a_uintmax = (unsigned long int)va_arg(arg, uintmax_t)))
+		if (!((*word)->a_t.a_uintmax = (unsigned long int)
+		va_arg(arg, uintmax_t)))
 			return (-1);
 	}
 	else if ((*word)->flags[1] == 'l' && (*word)->flags[1] == 'l')

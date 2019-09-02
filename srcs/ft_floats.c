@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 08:37:59 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/01 05:25:08 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:29:25 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static long double	ft_calc_modulo(long double nb, int *size)
 	return (modulo);
 }
 
-static void		ft_handle_integer(long double *nb, char **str, int *i, long double modulo)
+static void			ft_handle_integer(long double *nb, char **str, int *i,
+		long double modulo)
 {
 	char *s;
 
@@ -39,7 +40,8 @@ static void		ft_handle_integer(long double *nb, char **str, int *i, long double 
 	}
 }
 
-static void		ft_handle_decimals(char **str, int *i, long double nb, int precision)
+static void			ft_handle_decimals(char **str, int *i, long double nb,
+		int precision)
 {
 	int		j;
 	int		tmp;
@@ -62,7 +64,7 @@ static void		ft_handle_decimals(char **str, int *i, long double nb, int precisio
 	}
 }
 
-static char		ft_handle_inf(char **s)
+static char			ft_handle_inf(char **s)
 {
 	if (!(*s = malloc(sizeof(char) * 4)))
 		return (0);
@@ -70,12 +72,13 @@ static char		ft_handle_inf(char **s)
 	return (**s);
 }
 
-char			*ft_put_float_to_string(long double nb, char **s, int precision)
+char				*ft_put_float_to_string(long double nb, char **s,
+		int precision)
 {
-	int		i;
-	int		size;
-	char	*str;
-	int		neg;
+	int			i;
+	int			size;
+	char		*str;
+	int			neg;
 	long double	modulo;
 
 	if (nb == INFINITY)

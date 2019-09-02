@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 00:39:23 by aboitier          #+#    #+#             */
-/*   Updated: 2019/09/01 07:06:57 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:10:44 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int		count_pos(char *str)
 
 char			*manage_uopts(char *str, t_ptf *percents)
 {
-	char *new;
-	int pos;
+	char	*new;
+	int		pos;
 
 	new = NULL;
 	pos = 0;
@@ -33,7 +33,8 @@ char			*manage_uopts(char *str, t_ptf *percents)
 				|| percents->conv == 'X' || percents->conv == 'o')
 			&& !(!percents->a_t.a_uintmax && percents->conv == 'o'))
 		new = ft_hashtag_flag(percents, str);
-	if (percents->options & SPACE && !(percents->options & PLUS) && !(percents->unsignd)
+	if (percents->options & SPACE && !(percents->options & PLUS)
+			&& !(percents->unsignd)
 			&& (percents->signe == '+' || !str) && str && str[0] != ' ')
 		new = ft_addonecharpos(&str, ' ', 0);
 	return (new);

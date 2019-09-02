@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 13:48:34 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:04:54 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int		ft_count_pct(char *format, t_ptf **head)
 		{
 			if ((position = ft_auscultate(format + i + 1)) != -1)
 			{
-				doctor(ft_strdup((char*)format + i + 1), ++pct_count, position, head);
+				doctor(ft_strdup((char*)format + i + 1), ++pct_count,
+				position, head);
 				add_pct_pos(head, i, 1, format[position + i + 1]);
 				i += position + 1;
 			}

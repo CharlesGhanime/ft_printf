@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/30 13:59:58 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:09:43 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		get_reste(t_ptf **word, char *reste)
 {
-	if(!((*word)->reste = ft_strdup(reste)))
-			return (-1);
+	if (!((*word)->reste = ft_strdup(reste)))
+		return (-1);
 	return (1);
 }
 
@@ -36,7 +36,6 @@ long	total_size(t_ptf *head, int char_size)
 			size += word->size - 1;
 		word = word->next;
 	}
-//	if (!word)	
 	free_head(head);
 	return (size + char_size);
 }
@@ -70,7 +69,6 @@ int		init_args(t_ptf *word)
 	word->a_t.a_uintmax = 0;
 	word->a_t.a_string = NULL;
 	word->a_t.a_ptr = NULL;
-//	word->a_t.a_double = 0;
 	word->a_t.a_ldouble = 0;
 	return (0);
 }
