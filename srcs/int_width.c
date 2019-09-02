@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 06:58:28 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/02 23:23:49 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:39:11 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*int_width(char *str, long width, long len, t_ptf *percents)
 	return (new);
 }
 
-char			*supp_width(char *str, t_ptf *percents, long *diff)
+char	*supp_width(char *str, t_ptf *percents, long *diff)
 {
 	long	len;
 	char	*padd;
@@ -60,7 +60,7 @@ char			*supp_width(char *str, t_ptf *percents, long *diff)
 	return (padd);
 }
 
-char			*moar_width(char *str, char *padd, t_ptf *percents, long diff)
+char	*moar_width(char *str, char *padd, t_ptf *percents, long diff)
 {
 	char	*new;
 	int		min;
