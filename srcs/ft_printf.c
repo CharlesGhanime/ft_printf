@@ -6,25 +6,27 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/03 00:18:12 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:34:40 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void			ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
+void		ft_lst_format_token_init(t_format lst_format[NB_FORMAT])
 {
 	ft_lst_token_init(lst_format);
 	ft_lst_format_init(lst_format);
 	ft_lst_pfunc_init(lst_format);
 }
 
-void			ft_format_cmp(char c, t_ptf *percents)
+void		ft_format_cmp(char c, t_ptf *percents)
 {
-	size_t			check_format = FALSE;
+	size_t			check_format;
 	t_format		lst_format[NB_FORMAT];
-	t_format_token	current_format = CHAR;
+	t_format_token	current_format;
 
+	check_format = FALSE;
+	current_format = CHAR;
 	ft_lst_format_token_init(lst_format);
 	while (current_format != NO_FORMAT)
 	{
@@ -38,7 +40,7 @@ void			ft_format_cmp(char c, t_ptf *percents)
 	}
 }
 
-int		print_format(const char *format, t_ptf *word, int start)
+int			print_format(const char *format, t_ptf *word, int start)
 {
 	int len;
 
@@ -50,12 +52,12 @@ int		print_format(const char *format, t_ptf *word, int start)
 		write(1, format + start, len);
 	}
 	return (0);
-}	
+}
 
-int		lobby(const char *format, t_ptf *percents)
+int			lobby(const char *format, t_ptf *percents)
 {
-	t_ptf *word;
-	int start;
+	t_ptf	*word;
+	int		start;
 
 	start = 0;
 	word = percents->next;
@@ -85,12 +87,11 @@ int			ft_printf(const char *format, ...)
 	{
 		free_head(percents);
 		ft_putstr((char *)format);
-		return(ft_strlen((char *)format));
+		return (ft_strlen((char *)format));
 	}
 	va_start(arg, format);
 	blood_test(&percents, arg);
 	lobby(format, percents);
-//	global_info(percents);
 	va_end(arg);
 	return (total_size(percents, ft_strlen((char *)format)));
 }
