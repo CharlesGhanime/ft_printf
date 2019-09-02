@@ -6,13 +6,12 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 01:20:46 by aboitier          #+#    #+#             */
-/*   Updated: 2019/09/01 07:23:32 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:41:29 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
 
 # include "libft.h"
 # include <stdlib.h>
@@ -215,8 +214,9 @@ char								*str_width(char *str, long width,
 									t_ptf *percents, char c);
 char								*supp_width(char *str, t_ptf *percents,
 									long *diff);
-char								*moar_width(char *str, char *padd, t_ptf *percents,
-									long diff);		
+char								*moar_width(char *str, char *padd,
+									t_ptf *percents,
+									long diff);
 char								*str_precision(char *str, long precision);
 char								*int_precision(char *str, long precision,
 									int len);
@@ -232,9 +232,11 @@ int									ft_count_pct(char *format, t_ptf **head);
 int									ft_auscultate(char *patient);
 int									doctor(char *format, int rank, int position,
 									t_ptf **percents);
-int									add_pct_pos(t_ptf **percents, int pos, int valid, char conv);
+int									add_pct_pos(t_ptf **percents, int pos,
+									int valid, char conv);
 
-int									set_invalid(char *format, int pct_count, t_ptf **head);
+int									set_invalid(char *format, int pct_count,
+									t_ptf **head);
 int									get_reste(t_ptf **word, char *reste);
 t_ptf								*init_head(t_ptf *head);
 int									init_conv(t_ptf **percents, int rank,
@@ -266,18 +268,5 @@ void								global_info(t_ptf *percents);
 /*
 ** COLORS
 */
-
-
-# define _RED       "\x1b[31m"
-# define _BRED      "\x1b[1;31m"
-# define _GREEN     "\x1b[32m"
-# define _BGREEN    "\x1b[1;32m"
-# define _YELLOW    "\x1b[33m"
-# define _BLUE      "\x1b[34m"
-# define _BBLUE     "\x1b[1;34m"
-# define _MAGENTA   "\x1b[35m"
-# define _BMAGENTA  "\x1b[1;35m"
-# define _CYAN      "\x1b[36m"
-# define _END       "\x1b[0m"
 
 #endif
