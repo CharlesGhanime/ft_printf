@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 06:58:28 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/01 07:07:47 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:23:49 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char			*supp_width(char *str, t_ptf *percents, long *diff)
 	int		min;
 
 	padd = NULL;
+	min = 0;
 	len = (long)ft_strlen(str);
 	if ((percents->options & PLUS
 				&& (ft_ischar(str, '-') == 0)) || (percents->options & SPACE

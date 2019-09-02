@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 10:35:39 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/01 07:07:55 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 23:25:23 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ int		ft_print_decimal(t_ptf *percents)
 	if (!(str = get_int_var(percents)))
 		return (FALSE);
 	if (percents->precision == -1 && str && str[0] == '0')
+	{
+		free(str);
 		str = "";
+	}
 	if (!(str = int_precision(str, percents->precision, (int)ft_strlen(str))))
 		return (FALSE);
 	if (!(str = int_width(str, percents->width,
