@@ -6,7 +6,7 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:00:06 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/02 23:58:30 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:18:12 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			ft_format_cmp(char c, t_ptf *percents)
 	{
 		if (lst_format[current_format].token == c)
 		{
-			lst_format[current_format].func(percents)
+			lst_format[current_format].func(percents);
 			check_format = TRUE;
 			break ;
 		}
