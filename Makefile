@@ -6,7 +6,7 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/09/01 07:18:35 by cghanime         ###   ########.fr        #
+#    Updated: 2019/09/03 00:20:34 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(OBJLIB)
 	@ar rc $(NAME) $(OBJ) $(OBJLIB)
-#	@ranlib $(NAME)
 	@echo "\033[1;34mlibftprintf.a\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
@@ -112,7 +111,7 @@ clean :
 	@echo "\033[1;34mlibftprintf.a\t\033[1;33mDeletion\t\033[0;32m[OK]\033[0m"
 
 fclean : clean
-	@rm -rf $(NAME) ./objs
+	@rm -rf $(NAME)
 
 re : fclean all
 

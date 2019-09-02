@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:18:44 by aboitier          #+#    #+#             */
-/*   Updated: 2019/09/02 23:09:43 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:31:09 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_ptf	*init_head(t_ptf *head)
 
 int		init_args(t_ptf *word)
 {
+	word->conv = '\0';
 	word->a_t.a_intmax = 0;
 	word->a_t.a_uintmax = 0;
 	word->a_t.a_string = NULL;

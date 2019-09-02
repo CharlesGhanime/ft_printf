@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 03:38:04 by aboitier          #+#    #+#             */
-/*   Updated: 2019/09/02 23:04:54 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:31:49 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		ft_count_pct(char *format, t_ptf **head)
 	position = 0;
 	pct_count = 0;
 	while (format && format[++i])
-	{
 		if (format[i] == '%')
 		{
 			if ((position = ft_auscultate(format + i + 1)) != -1)
@@ -33,10 +32,9 @@ int		ft_count_pct(char *format, t_ptf **head)
 				add_pct_pos(head, i, 1, format[position + i + 1]);
 				i += position + 1;
 			}
-			else 
+			else
 				set_invalid(ft_strdup(format + i + 1), ++pct_count, head);
 		}
-	}
 	if (!pct_count)
 		return (0);
 	(*head)->total_pct_count = pct_count;
@@ -57,7 +55,6 @@ int		ft_auscultate(char *patient)
 	return (-1);
 }
 
-
 int		set_invalid(char *format, int pct_count, t_ptf **head)
 {
 	int pos;
@@ -65,14 +62,13 @@ int		set_invalid(char *format, int pct_count, t_ptf **head)
 	pos = ft_strlen(format);
 	doctor(format, pct_count, pos, head);
 	add_pct_pos(head, pos, -1, 'w');
-	return (1);	
+	return (1);
 }
 
 int		doctor(char *format, int rank, int position, t_ptf **percents)
 {
 	char	*symptoms;
 
-	symptoms = NULL;
 	symptoms = ft_strsub(format, 0, position);
 	if ((*percents)->next == NULL)
 	{
@@ -89,13 +85,11 @@ int		doctor(char *format, int rank, int position, t_ptf **percents)
 		(*percents)->next->width = 0;
 		(*percents)->next->next = NULL;
 		(*percents)->next->signe = '\0';
-		(*percents)->next->conv = '\0';
 		(*percents)->next->unsignd = 0;
 		init_args((*percents)->next);
 	}
 	else
 		init_conv(percents, rank, symptoms);
-//	free(symptoms);
 	free(format);
 	return (1);
 }
