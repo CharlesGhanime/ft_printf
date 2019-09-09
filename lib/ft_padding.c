@@ -6,14 +6,14 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 02:42:39 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/08 03:00:38 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:20:50 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 
-char 	*ft_padding(long padd, char c)
+char	*ft_padding(long padd, char c)
 {
 	char	*new;
 	long	i;

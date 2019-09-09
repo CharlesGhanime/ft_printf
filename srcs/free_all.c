@@ -1,19 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 01:06:23 by aboitier          #+#    #+#             */
-/*   Updated: 2019/09/03 01:06:26 by aboitier         ###   ########.fr       */
+/*   Created: 2019/08/29 20:31:19 by aboitier          #+#    #+#             */
+/*   Updated: 2019/09/02 22:28:50 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../../includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int		main(void)
+int		free_head(t_ptf *head)
 {
+	t_ptf *tmp;
+	t_ptf *word;
+
+	if (head->next == NULL)
+	{
+		free(head);
+		return (0);
+	}
+	tmp = NULL;
+	word = head->next;
+	while (word)
+	{
+		tmp = word;
+		if (word->flags)
+			free(word->flags);
+		if (word->symptoms)
+			free(word->symptoms);
+		if (word->conv == 'w' && word->reste)
+			free(word->reste);
+		word = word->next;
+		free(tmp);
+	}
+	free(head);
 	return (0);
 }

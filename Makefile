@@ -6,13 +6,13 @@
 #    By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/20 18:38:35 by cghanime          #+#    #+#              #
-#    Updated: 2019/08/11 02:16:43 by aboitier         ###   ########.fr        #
+#    Updated: 2019/09/03 00:52:48 by aboitier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address,undefined
 CPP_FLAGS = -Iinclude
 
 SRC_PATH = ./srcs
@@ -22,22 +22,28 @@ OBJ_PATH = ./objs
 OBJLIB_PATH = ./objs
 
 SRC_NAME =		ft_printf.c 			\
-			float_prec.c			\
 			funct_ptr.c			\
 			funct_ptr2.c			\
+			funct_ptr3.c			\
 			init.c				\
 			int_long_print.c		\
 			parse_type.c			\
 			parse_var.c			\
 			parser.c			\
-			print_info.c			\
 			return_letter.c			\
 			return_letter2.c		\
+			return_letter3.c		\
 			str_char_ptr_print.c		\
 			manage_opts.c			\
 			unsigned_octal_print.c		\
+			ft_print_ugeneric.c		\
 			flags_functions.c		\
-			get_var_ouxx.c				
+			int_width.c				\
+			get_var_ouxx.c			\
+			finite_state_machine.c \
+			ft_print_p.c			\
+			ft_floats.c				\
+			free_all.c
 
 LIB_SRCS = ft_addonechar.c	\
 	ft_itoa_base.c		\
@@ -60,6 +66,7 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_strcpy.c        	\
 	ft_strndup.c		\
 	ft_ftoa.c          	\
+	ft_fltoa.c          \
 	ft_memdel.c        	\
 	ft_strdup.c        	\
 	ft_strsub.c		\
@@ -69,6 +76,8 @@ LIB_SRCS = ft_addonechar.c	\
 	ft_itoa.c		\
 	ft_memset.c		\
 	ft_strjoinfr.c		\
+	ft_uintmaxtoa_base.c \
+	ft_strchr.c
 
 INC_NAME = ft_printf.h libft.h
 
@@ -86,23 +95,22 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(OBJLIB)
 	@ar rc $(NAME) $(OBJ) $(OBJLIB)
-#	@ranlib $(NAME)
 	@echo "\033[1;34mlibftprintf.a\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(OBJLIB_PATH)/%.o:$(LIB_PATH)/%.c
 	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean :
 	@rm -rf $(OBJ) $(OBJLIB)
 	@echo "\033[1;34mlibftprintf.a\t\033[1;33mDeletion\t\033[0;32m[OK]\033[0m"
 
 fclean : clean
-	@rm -rf $(NAME) ./objs
+	@rm -rf $(NAME)
 
 re : fclean all
 
@@ -181,7 +189,7 @@ tptr:
 
 run :
 	@echo "$(RED)LOGS$(END)\n" > logs
-	@$(CC) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(LIB) $(MAIN_TEST) -o $(NAME)
 	@clear
 	@echo "\t$(BBLUE)O$(END)U$(RED)T$(END)$(BBLUE)P$(END)U$(RED)T$(END)"
 	@./$(NAME) 

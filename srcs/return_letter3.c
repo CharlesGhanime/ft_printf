@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   return_letter3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 20:10:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:07:04 by cghanime         ###   ########.fr       */
+/*   Created: 2019/08/28 00:49:58 by cghanime          #+#    #+#             */
+/*   Updated: 2019/08/29 05:12:35 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strncpy(char *dst, char *src, size_t len)
+char	ft_get_percent(void)
 {
-	size_t i;
+	return ('%');
+}
 
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+char	ft_get_invalid(void)
+{
+	return ('w');
 }

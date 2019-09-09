@@ -6,7 +6,7 @@
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:00:22 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/08 03:03:54 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:44:37 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
 # include <unistd.h>
 
 typedef struct		s_list
@@ -43,7 +43,7 @@ char				*ft_strncpy(char *dst, char *src, size_t len);
 char				*ft_strcat(char *dst, char *src);
 char				*ft_strncat(char *dst, char *src, size_t len);
 size_t				ft_strlcat(char *dst, char *src, size_t dstsize);
-char				*ft_strchr(char *s, int c);
+char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(char *s, int c);
 char				*ft_strstr(char *str, char *to_find);
 char				*ft_strnstr(char *haystack, char *needle,
@@ -113,7 +113,9 @@ char				*ft_addonechar(char **str, char c);
 char				*ft_addonecharpos(char **str, char c, int pos);
 void				ft_putnbr_base(unsigned int nb, unsigned int base);
 char				*ft_itoa_base(int value, char *base);
-char                *ft_ftoa(double myfloat);
+char				*ft_ftoa(double myfloat);
+char				*ft_fltoa(long double myfloat);
+char				*ft_uintmaxtoa_base(uint64_t value, char *base);
 
 /*
 ** BONUS SINGLY-LINKED LISTS

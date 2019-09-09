@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   funct_ptr3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 20:10:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:07:04 by cghanime         ###   ########.fr       */
+/*   Created: 2019/08/27 23:43:37 by cghanime          #+#    #+#             */
+/*   Updated: 2019/09/02 23:11:16 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strncpy(char *dst, char *src, size_t len)
+t_pfunc		ft_get_print_percent(void)
 {
-	size_t i;
+	return (ft_print_percent);
+}
 
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+t_pfunc		ft_get_print_invalid(void)
+{
+	return (ft_print_invalid);
 }

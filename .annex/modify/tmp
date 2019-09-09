@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include "../../includes/ft_printf.h"
+
+
+int		main(void)
+{
+	void *ptr09 = NULL;
+	unsigned int X08 = 25782;
+	int i07 = 9024;
+	char c06 = 'o';
+	unsigned int X05 = 3789;
+	int d04 = -10240;
+	void *ptr03 = NULL;
+	int i02 = 16914;
+	char c01 = 'o';
+	unsigned int X00 = 14798;
+
+	printf(""_BBLUE"X"_END" "_MAGENTA"14798"_END" >"_CYAN"-17.43ll"_END"<; = %-17.43llX\n"_BBLUE"c"_END" "_MAGENTA"'o';"_END" = %c\n"_BBLUE"i"_END" "_MAGENTA"16914"_END" >"_CYAN""_END"<; = %i\n"_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN" 10hh"_END"<; = % 10hhp\n"_BBLUE"d"_END" "_MAGENTA"-10240"_END" >"_CYAN""_END"<; = %d\n"_BBLUE"X"_END" "_MAGENTA"3789"_END" >"_CYAN" 3.18ll"_END"<; = % 3.18llX\n"_BBLUE"c"_END" "_MAGENTA"'o'"_END" >"_CYAN""_END"<; = %c\n"_BBLUE"i"_END" "_MAGENTA"9024;"_END" = %i\n"_BBLUE"X"_END" "_MAGENTA"25782"_END" >"_CYAN""_END"<; = %X\n"_BBLUE"p"_END" "_MAGENTA"NULL"_END" >"_CYAN"#.11hh"_END"<; = %#.11hhp\n", X00,c01,i02,ptr03,d04,X05,c06,i07,X08,ptr09);
+	return (0);
+	//
+	//  
+	// NEW LAST ONES
+	// LAST ONES
+	//
+	//	// LEAKS FDF
+//
+	// MOULITEST
+	//
+	// FREE TESTS
+	// PARSER BUGS
+	//
+	//
+	//
+}

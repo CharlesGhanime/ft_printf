@@ -6,11 +6,11 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:18:00 by aboitier          #+#    #+#             */
-/*   Updated: 2019/08/04 01:34:02 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:20:10 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ static char		*strposcpy(char *dst, char *src, int pos, char c)
 		dst[i] = src[j];
 		i++;
 		j++;
-	}	
+	}
 	return (dst);
 }
 
@@ -51,6 +51,7 @@ char			*ft_addonecharpos(char **str, char c, int pos)
 		new = strposcpy(new, *str, pos, c);
 		new[size + 1] = '\0';
 		free(*str);
+		*str = NULL;
 		return (new);
 	}
 	else

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ftoa.c                                          :+:      :+:    :+:   */
+/*   ft_fltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 17:11:30 by cghanime          #+#    #+#             */
-/*   Updated: 2019/09/02 22:49:28 by cghanime         ###   ########.fr       */
+/*   Updated: 2019/09/02 22:49:59 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_ftoa(double myfloat)
+char	*ft_fltoa(long double myfloat)
 {
 	signed long int		intpart;
 	signed long int		decipart;

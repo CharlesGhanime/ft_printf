@@ -6,7 +6,7 @@
 /*   By: aboitier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 18:44:45 by aboitier          #+#    #+#             */
-/*   Updated: 2019/06/26 03:08:15 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:21:05 by aboitier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int		ft_ischar(char *str, char c)
 {
 	int i;
+
 	i = -1;
 	if (str)
-	{	
-
+	{
 		while (str[++i])
 			if (str[i] == c)
 				return (1);

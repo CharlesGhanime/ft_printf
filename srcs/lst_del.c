@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   lst_del.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghanime <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 20:10:17 by cghanime          #+#    #+#             */
-/*   Updated: 2019/06/03 12:07:04 by cghanime         ###   ########.fr       */
+/*   Created: 2019/08/29 00:48:37 by cghanime          #+#    #+#             */
+/*   Updated: 2019/08/29 05:07:30 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strncpy(char *dst, char *src, size_t len)
+void	lst_del(t_ptf *percents)
 {
-	size_t i;
+	if (percents && percents->next)
+		lst_del(percents->next);
+	free(percents);
+}
 
-	i = 0;
-	while (src[i] && i < len)
+void	percent_node_free(t_ptf *percents)
+{
+	t_ptf *head;
+	t_ptf *tmp;
+
+	head = NULL;
+	head = percents;
+	while (percents)
 	{
-		dst[i] = src[i];
-		i++;
+		tmp = percents;
+		percents = percents->next;
+		free(tmp);
 	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	head = NULL;
 }

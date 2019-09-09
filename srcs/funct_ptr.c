@@ -6,33 +6,33 @@
 /*   By: cghanime <cghanime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:08:07 by cghanime          #+#    #+#             */
-/*   Updated: 2019/08/08 01:24:28 by aboitier         ###   ########.fr       */
+/*   Updated: 2019/08/28 01:59:57 by cghanime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-p_func		ft_get_print_char()
+t_pfunc		ft_get_print_char(void)
 {
 	return (ft_print_char);
 }
 
-p_func		ft_get_print_string()
+t_pfunc		ft_get_print_string(void)
 {
 	return (ft_print_string);
 }
 
-p_func		ft_get_print_address()
+t_pfunc		ft_get_print_address(void)
 {
 	return (ft_print_address);
 }
 
-p_func		ft_get_print_decimal()
+t_pfunc		ft_get_print_decimal(void)
 {
 	return (ft_print_decimal);
 }
 
-p_func		ft_get_print_integer()
+t_pfunc		ft_get_print_integer(void)
 {
 	return (ft_print_decimal);
 }
